@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Foodie</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://bootswatch.com/simplex/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Foodie</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Baza produktów <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Przeszukaj</a></li>
+                <li><a href="#">Dodaj</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Asystent żywienia</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Wskazówki</a></li>
+            <li><a href="#">O Projekcie</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+              <img class="img-responsive" src="http://detalic.pl/images/1575a.jpg"/>
+          </div>
+          <div class="col-lg-4">
+            <h1>Jogobella Zott <small>Jogurty</small> </h1>
+            <hr/>
+            Zawartość cukru (w skali kategorii jogurty):
+            <div class="progress">
+                <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+            </div>
+
+            Zawartość białka (w skali kategorii jogurty):
+            <div class="progress">
+                <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+            </div>
+            Zawartość tłuszczy (w skali kategorii jogurty):
+            <div class="progress">
+                <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+            </div>
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h3 class="panel-title">Witaminy</h3>
+              </div>
+              <div class="panel-body">
+                Witamina C, Witamina D
+              </div>
+            </div>
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <h3 class="panel-title">Konserwanty</h3>
+              </div>
+              <div class="panel-body">
+                EXXX
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <h2> Szczegóły</h2>
+              <table class="table table-striped table-hover ">
+                <thead>
+                  <tr>
+                    <th>Wartość odżywcza</th> <th>100 g/ml</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Białko</td> <td>33</td>
+                  </tr>
+                  <tr>
+                    <td>Cukier</td> <td>20</td>
+                  </tr>
+                </tbody>
+              </table>
+              Sugerowana porcja: 30 g/ml
+              <h3>Dostępność:</h3>
+              Tesco<br>Biedronka
+              <h2>Źródło danych:</h2>
+              Zdjęcie etykiety
+          </div>
+        </div>
+        <div class="row">
+            <h2>Inne produkty z kategorii jogurty</h2>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

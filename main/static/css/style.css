@@ -1,0 +1,37 @@
+body{
+	background-color: #D5E6D6;
+}
+
+.my-navbar{							
+	background-color: #4CAF50;
+}
+
+.my-navbar-header div a, .my-navbar-header div{
+	color: #FFFFFF !important;
+}
+
+.my-dropdown-menu li a{
+	color: #000 !important;
+}
+
+.my-dropdown-menu li a:hover{
+	background-color: #388E3C !important;
+}
+
+.my-panel-1{
+	border-color: #388E3C;
+}
+
+.my-panel-1 .panel-heading{
+	background-color: #388E3C;
+	border-bottom-color: #388E3C;
+}
+
+.my-panel-2{
+	border-color: #E64A19;
+}
+
+.my-panel-2 .panel-heading{
+	background-color: #E64A19;
+	border-bottom-color: #E64A19;
+}

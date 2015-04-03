@@ -1,0 +1,33 @@
+.my-main-container{
+	height: 100%;
+}
+
+.my-content{
+	height: 100%;
+}
+
+.my-buttons{
+	height: 100%;
+}
+
+
+.my-thick-toolbar{
+	width: 100%;
+
+	height: 40px !important; 
+}
+
+.my-thick-toolbar-primary{
+	background-color: #259b24 !important;
+}
+.my-thick-toolbar-warning{
+	background-color: #E36724 !important;
+}
+
+.my-section{
+	padding-top: 40px;
+}
+
+.my-table{
+	border-collapse: collapse;
+}

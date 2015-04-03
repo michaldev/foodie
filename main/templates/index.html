@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"> 
+
+		<link rel="stylesheet" href="/static/css/angular-material.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+		
+		<!--
+		{% verbatim %}
+			{{test}}
+		{% endverbatim %}
+		-->
+
+	</head>
+	<body ng-app="myApp">
+	<div layout="column" class="my-main-container">
+		<md-toolbar layout="row">
+			<div flex="5">
+			</div>
+			<div flex="10">
+				<h3 style="md-title">Foodie</h3>
+			</div>
+			<div flex="15">
+				<md-select class="my-buttons" ng-model="bazaProduktow" placeholder="Baza produktów">
+      				<md-optgroup label="Owoce">
+        				<md-option>Jabłko</md-option>
+        				<md-option>Gruszka</md-option>
+        				<md-option>Banan</md-option>
+      				</md-optgroup>
+     				 <md-optgroup label="Warzywa">
+        				<md-option>Pomidor</md-option>
+        				<md-option>Ogórek</md-option>
+        				<md-option>Marchekwa</md-option>
+      				</md-optgroup>
+   	 			</md-select>
+			</div>
+			<div flex="10">
+				<md-button class="my-buttons">
+  					Asystent żywenia
+				</md-button>
+			</div>
+			<div flex="30">
+			</div>
+			<div flex="15">
+				<md-button class="my-buttons">
+  					Wskazówki
+				</md-button>
+			</div>
+			<div flex="15">
+				<md-button class="my-buttons">
+  					Logowanie
+				</md-button>
+			</div>
+		</md-toolbar>
+		<md-content layout="row" class="my-content">
+			<div flex="33"></div>
+			<div flex="33">
+				<div layout="column">
+					<div>
+						<h1>Jogobella Zott</h1>
+						<h2>Jogurty</h2>
+					</div>
+					<div>
+						<p>Zawartość cukru (w skali kategorii jogurty)</p>
+						<md-progress-linear md-mode="determinate" value="33"></md-progress-linear>
+						<p>Zawartość cukru (w skali kategorii jogurty)</p>
+						<md-progress-linear md-mode="determinate" value="52"></md-progress-linear>
+						<p>Zawartość cukru (w skali kategorii jogurty)</p>
+						<md-progress-linear md-mode="determinate" value="56"></md-progress-linear>
+					</div>
+					<div class="my-section">
+						<div flex="33">
+							<md-whiteframe style="margin-bottom:40px" class="md-whiteframe-z1" layout="column" layout-align="center center">
+    							<div class="my-thick-toolbar my-thick-toolbar-primary"> 
+    								Witaminy 
+    							</div>
+    							Witamina C, Witamina D
+  							</md-whiteframe>
+
+  							<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="center center">
+    							<div class="my-thick-toolbar my-thick-toolbar-warning">
+    								Konserwanty
+    							</div>
+    							EXXX
+  							</md-whiteframe>
+					</div>
+				</div>
+			</div>
+			
+			</div>
+			<div flex="33">
+				<div layout="column">
+					<div>
+						<h1>Szczegóły</h1>
+						<table class="my-table">
+							<tr class="my-thick-toolbar my-thick-toolbar-primary">
+								<td>Wartość odżywcza</td>
+								<td>100 g/ml</td>
+							</tr class="my-thick-toolbar my-thick-toolbar-primary">
+							<tr>
+								<td>Białko</td>
+								<td>33</td>
+							</tr>
+							<tr>
+								<td>Cukier</td>
+								<td>20</td>
+							</tr>
+						</table>
+					</div>
+					<p>
+						Sugerowana porcja: 30 g/ml
+					</p>
+					<h2>Dostępność:</h2>
+
+				</div>
+			</div>
+		</md-content>
+	</div>
+		<script type="text/javascript" src="/static/frameworks/angular.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	    <script type="text/javascript" src="/static/frameworks/angular-animate.js"></script>
+	    <script type="text/javascript" src="/static/frameworks/angular-aria.js"></script>
+	    <script type="text/javascript" src="/static/frameworks/angular-material.js"></script>
+	    <script type="text/javascript" src="/static/frameworks/angular-ui-route.js"></script>
+	    <script type="text/javascript" src="/static/js/myApp.js"></script>
+	</body>
+</html>

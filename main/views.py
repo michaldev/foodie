@@ -1,8 +1,5 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-
-def index(request):
-    return render(request, 'index.html')
-
-def login(request):
-    return render(request, 'login.html')
+    
+class Homepage(TemplateView):
+    template_name = "index.html"    

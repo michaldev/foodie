@@ -21,45 +21,60 @@
 			<div flex="10">
 				<h3 style="md-title">Foodie</h3>
 			</div>
-			<div flex="15">
-				<md-select class="my-buttons" ng-model="bazaProduktow" placeholder="Baza produktów">
-      				<md-optgroup label="Owoce">
-        				<md-option>Jabłko</md-option>
-        				<md-option>Gruszka</md-option>
-        				<md-option>Banan</md-option>
-      				</md-optgroup>
-     				 <md-optgroup label="Warzywa">
-        				<md-option>Pomidor</md-option>
-        				<md-option>Ogórek</md-option>
-        				<md-option>Marchekwa</md-option>
-      				</md-optgroup>
+			<div flex="10">
+				<md-select class="my-buttons my-dropdown" ng-model="bazaProduktow" placeholder="Baza produktów">
+        				<md-option>Dodaj</md-option>
+        				<md-option>Przeszukaj</md-option>
    	 			</md-select>
 			</div>
-			<div flex="10">
+			<div flex="15">
 				<md-button class="my-buttons">
   					Asystent żywenia
 				</md-button>
 			</div>
-			<div flex="30">
+			<div flex="40">
 			</div>
-			<div flex="15">
+			<div flex="10">
 				<md-button class="my-buttons">
   					Wskazówki
 				</md-button>
 			</div>
-			<div flex="15">
-				<md-button class="my-buttons">
-  					Logowanie
-				</md-button>
+			<div flex="10">
+				<md-select class="my-buttons my-dropdown" ng-model="myKonto" placeholder="Konto">
+        			<md-option>Rejestracja</md-option>
+        			<md-option>Logowanie</md-option>
 			</div>
+			
 		</md-toolbar>
 		<md-content layout="row" class="my-content">
-			<div flex="33"></div>
+			<div flex="33" ng-controller="leftSectionCtrl">
+				<md-sidenav md-component-id="left" class="md-sidenav-left">
+					<md-toolbar class="md-accent">
+						<h1 class="md-title my-sidenav-title">Baza żywności </h1>
+					</md-toolbar>
+					<md-list>
+				      <md-item class="md-3-line" ng-repeat="produkt in bazaProduktow">
+				        <div class="md-item-text">
+							<h1 class="my-sidebar-elem-title">{% verbatim %}{{produkt.Kategoria}}{% endverbatim %}</h1>
+							<md-divider></md-divider>
+								<div ng-repeat="towar in produkt.Towary">
+									<md-button class="my-sidebar-elem-button">
+										<h4 class="my-sidebar-elem">{% verbatim %}{{towar.Nazwa}}{% endverbatim %}</h4>
+									</md-button>
+								</div>
+				        </div>
+				        <md-divider ng-if="!$last"></md-divider>
+				      </md-item>
+				    </md-list>
+  				</md-sidenav>
+				<md-button class="md-fab md-primary my-sidebar-button md-accent" ng-click="openLeftMenu()"> 
+        		</md-button>
+			</div>
 			<div flex="33">
 				<div layout="column">
 					<div>
-						<h1>Jogobella Zott</h1>
-						<h2>Jogurty</h2>
+						<h1 class="my-second-section-title">Jogobella Zott</h1>
+						<h2 class="my-second-section-subtitle">Jogurty</h2>
 					</div>
 					<div>
 						<p>Zawartość cukru (w skali kategorii jogurty)</p>
@@ -72,16 +87,16 @@
 					<div class="my-section">
 						<div flex="33">
 							<md-whiteframe style="margin-bottom:40px" class="md-whiteframe-z1" layout="column" layout-align="center center">
-    							<div class="my-thick-toolbar my-thick-toolbar-primary"> 
-    								Witaminy 
-    							</div>
+    							<md-toolbar class="my-thick-toolbar"> 
+    								<h4 class="md-toolbar-tools">Witaminy</h4> 
+    							</md-toolbar>
     							Witamina C, Witamina D
   							</md-whiteframe>
 
   							<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="center center">
-    							<div class="my-thick-toolbar my-thick-toolbar-warning">
-    								Konserwanty
-    							</div>
+    							<md-toolbar class="my-thick-toolbar md-accent">
+    								<h4 class="md-toolbar-tools">Konserwanty</h4>
+    							</md-toolbar>
     							EXXX
   							</md-whiteframe>
 					</div>

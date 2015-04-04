@@ -7,7 +7,7 @@ class CategoryMain(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    parent = models.ForeignKey('CategoryMain', blank=True, null=True)
+    #parent = models.ForeignKey('CategoryMain', blank=True, null=True)
 
     class Meta:
         verbose_name = "Główna Kategoria"
@@ -35,6 +35,9 @@ class Category(models.Model):
 
 
 class Vitamin(models.Model):
+    """
+    Vitamin model
+    """
     name = models.Charfield(max_length=255)
     slug = models.SlugField(unique=True)
 
@@ -47,6 +50,9 @@ class Vitamin(models.Model):
 
 
 class Mineral(models.Model):
+    """
+    Mineral model
+    """
     name = models.Charfield(max_length=255)
     slug = models.SlugField(unique=True)
 
@@ -59,6 +65,9 @@ class Mineral(models.Model):
 
 
 class Preservative(models.Model):
+    """
+    Preservative model
+    """
     name = models.Charfield(max_length=255)
     slug = models.SlugField(unique=True)
 
@@ -71,6 +80,9 @@ class Preservative(models.Model):
 
 
 class Shop(models.Model):
+    """
+    Shop model
+    """
     name = models.Charfield(max_length=255)
     slug = models.SlugField(unique=True)
     image = models.ImageField()
@@ -84,6 +96,9 @@ class Shop(models.Model):
 
 
 class Product(models.Model):
+    """
+    Product model
+    """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
     image = models.ImageField()

@@ -24,7 +24,7 @@ class Category(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    categorymain = models.ManyToManyField('CategoryMain')
+    categorymain = models.ManyToManyField('CategoryMain', verbose_name='Główna kategoria')
     parent = models.ForeignKey('Category', blank=True, null=True)
 
     class Meta:
@@ -100,26 +100,25 @@ class Product(models.Model):
     """
     Product model
     """
-    name = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True)
-    image = models.ImageField()
-    image2 = models.ImageField()
-    category = models.ManyToManyField('Category')
-    categorymain = models.ManyToManyField('CategoryMain')
-    sugar = models.FloatField()
-    size = models.FloatField()
-    protein = models.FloatField()
-    vitamins = models.ManyToManyField('Vitamin')
-    minerals = models.ManyToManyField('Mineral')
-    carbohydrates = models.FloatField()
-    fats = models.FloatField()
-    fatsSaturated = models.FloatField()
-    energyValue = models.FloatField()
-    portion = models.FloatField()
-    preservatives = models.ManyToManyField('Preservative')
-    shops = models.ManyToManyField('Shop')
-    pricemin = models.FloatField()
-    pricemax = models.FloatField()
+    name = models.CharField(verbose_name='Nazwa', max_length=255)
+    slug = models.SlugField(verbose_name='Adres', unique=True)
+    image = models.ImageField(verbose_name='Zdjęcie produktu')
+    image2 = models.ImageField(verbose_name='Zdjęcie etykiety')
+    category = models.ManyToManyField('Category', verbose_name='Kategoria')
+    sugar = models.FloatField(verbose_name='Cukier na 100g/ml')
+    size = models.FloatField(verbose_name='Waga/Objętość')
+    protein = models.FloatField(verbose_name='Białko na 100g/ml')
+    vitamins = models.ManyToManyField('Vitamin', verbose_name='Witaminy')
+    minerals = models.ManyToManyField('Mineral', verbose_name='Minerały')
+    carbohydrates = models.FloatField(verbose_name='Węglowodany')
+    fats = models.FloatField(verbose_name='Tłuszcze')
+    fatsSaturated = models.FloatField(verbose_name='Tłuszcze nasycone')
+    energyValue = models.FloatField(verbose_name='Wartość energetyczna')
+    portion = models.FloatField(verbose_name='Porcja')
+    preservatives = models.ManyToManyField('Preservative', verbose_name='Konserwanty')
+    shops = models.ManyToManyField('Shop', verbose_name='Sklepy')
+    pricemin = models.FloatField(verbose_name='Cena min')
+    pricemax = models.FloatField(verbose_name='Cena max')
 
     class Meta:
         verbose_name = "Produkt"

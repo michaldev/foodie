@@ -4,6 +4,8 @@
 		<meta charset="UTF-8"> 
 
 		<link rel="stylesheet" href="/static/css/angular-material.css">
+		
+		<link rel="stylesheet" href="/static/css/MaterialDesign-Webfont-master/css/materialdesignicons.min.css"  media="all" />
 		<link rel="stylesheet" href="/static/css/style.css">
 		
 		<!--
@@ -11,127 +13,56 @@
 			{{test}}
 		{% endverbatim %}
 		-->
-
 	</head>
-	<body ng-app="myApp">
-	<div layout="column" class="my-main-container">
-		<md-toolbar layout="row">
-			<div flex="5">
+	<body ng-app="myApp" ng-controller="mainCtrl">
+		<md-toolbar layout="column">
+			<div layout="row">
+				<span flex="5"><a href="" ng-click="openLeftMenu()"><i class="mdi mdi-menu"></i></a></span>
+				<h3 flex="10" class="md-title">Foodie</h3>
+				<span flex="70"></span>
+				<div flex="5" class="my-dropdown-icon-holder">
+					<i class="mdi mdi-settings my-dropdown-icon"></i>
+					<md-select placeholder="asd" ng-model="someVal1" class="my-dropdown-select">
+						
+					    <md-option value="1">One</md-option>
+					    <md-option value="2">Two</md-option>
+					</md-select>
+				</div>
+				<div flex="5" class="my-dropdown-icon-holder">
+
+					<i class="mdi mdi-account my-dropdown-icon"></i>
+					<md-select placeholder="asd" ng-model="someVal1" class="my-dropdown-select">
+						
+					    <md-option value="1">One</md-option>
+					    <md-option value="2">Two</md-option>
+					</md-select>
+				</div>
+
+				<span flex="5"></span>
 			</div>
-			<div flex="10">
-				<h3 style="md-title">Foodie</h3>
-			</div>
-			<div flex="10">
-				<md-select class="my-buttons my-dropdown" ng-model="bazaProduktow" placeholder="Baza produktów">
-        				<md-option>Dodaj</md-option>
-        				<md-option>Przeszukaj</md-option>
-   	 			</md-select>
-			</div>
-			<div flex="15">
-				<md-button class="my-buttons">
-  					Asystent żywenia
-				</md-button>
-			</div>
-			<div flex="40">
-			</div>
-			<div flex="10">
-				<md-button class="my-buttons">
-  					Wskazówki
-				</md-button>
-			</div>
-			<div flex="10">
-				<md-select class="my-buttons my-dropdown" ng-model="myKonto" placeholder="Konto">
-        			<md-option>Rejestracja</md-option>
-        			<md-option>Logowanie</md-option>
-			</div>
-			
+			<md-tabs md-selected="data.selectedIndex">
+		      <md-tab class="my-tabs">
+		        <md-tab-label>Asystent Żywienia</md-tab-label>
+
+		      </md-tab>
+		      <md-tab class="my-tabs">
+		        <md-tab-label>
+
+					<md-select placeholder="Baza Produktów" ng-model="someVal" class="my-tab-select">
+					    <md-option value="1">Test</md-option>
+					    <md-option value="2">Test2</md-option>
+					</md-select>
+		        </md-tab-label>
+		      </md-tab>
+
 		</md-toolbar>
-		<md-content layout="row" class="my-content">
-			<div flex="33" ng-controller="leftSectionCtrl">
-				<md-sidenav md-component-id="left" class="md-sidenav-left">
-					<md-toolbar class="md-accent">
-						<h1 class="md-title my-sidenav-title">Baza żywności </h1>
-					</md-toolbar>
-					<md-list>
-				      <md-item class="md-3-line" ng-repeat="produkt in bazaProduktow">
-				        <div class="md-item-text">
-							<h1 class="my-sidebar-elem-title">{% verbatim %}{{produkt.Kategoria}}{% endverbatim %}</h1>
-							<md-divider></md-divider>
-								<div ng-repeat="towar in produkt.Towary">
-									<md-button class="my-sidebar-elem-button">
-										<h4 class="my-sidebar-elem">{% verbatim %}{{towar.Nazwa}}{% endverbatim %}</h4>
-									</md-button>
-								</div>
-				        </div>
-				        <md-divider ng-if="!$last"></md-divider>
-				      </md-item>
-				    </md-list>
-  				</md-sidenav>
-				<md-button class="md-fab md-primary my-sidebar-button md-accent" ng-click="openLeftMenu()"> 
-        		</md-button>
-			</div>
-			<div flex="33">
-				<div layout="column">
-					<div>
-						<h1 class="my-second-section-title">Jogobella Zott</h1>
-						<h2 class="my-second-section-subtitle">Jogurty</h2>
-					</div>
-					<div>
-						<p>Zawartość cukru (w skali kategorii jogurty)</p>
-						<md-progress-linear md-mode="determinate" value="33"></md-progress-linear>
-						<p>Zawartość cukru (w skali kategorii jogurty)</p>
-						<md-progress-linear md-mode="determinate" value="52"></md-progress-linear>
-						<p>Zawartość cukru (w skali kategorii jogurty)</p>
-						<md-progress-linear md-mode="determinate" value="56"></md-progress-linear>
-					</div>
-					<div class="my-section">
-						<div flex="33">
-							<md-whiteframe style="margin-bottom:40px" class="md-whiteframe-z1" layout="column" layout-align="center center">
-    							<md-toolbar class="my-thick-toolbar"> 
-    								<h4 class="md-toolbar-tools">Witaminy</h4> 
-    							</md-toolbar>
-    							Witamina C, Witamina D
-  							</md-whiteframe>
 
-  							<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="center center">
-    							<md-toolbar class="my-thick-toolbar md-accent">
-    								<h4 class="md-toolbar-tools">Konserwanty</h4>
-    							</md-toolbar>
-    							EXXX
-  							</md-whiteframe>
-					</div>
-				</div>
-			</div>
-			
-			</div>
-			<div flex="33">
-				<div layout="column">
-					<div>
-						<h1>Szczegóły</h1>
-						<table class="my-table">
-							<tr class="my-thick-toolbar my-thick-toolbar-primary">
-								<td>Wartość odżywcza</td>
-								<td>100 g/ml</td>
-							</tr class="my-thick-toolbar my-thick-toolbar-primary">
-							<tr>
-								<td>Białko</td>
-								<td>33</td>
-							</tr>
-							<tr>
-								<td>Cukier</td>
-								<td>20</td>
-							</tr>
-						</table>
-					</div>
-					<p>
-						Sugerowana porcja: 30 g/ml
-					</p>
-					<h2>Dostępność:</h2>
+		<md-sidenav md-component-id="left" class="md-sidenav-left">
+			<md-toolbar class="md-accent"></md-toolbar>
+		</md-sidenav>
 
-				</div>
-			</div>
+		<md-content>
 		</md-content>
-	</div>
 		<script type="text/javascript" src="/static/frameworks/angular.js"></script>
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-animate.js"></script>

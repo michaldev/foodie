@@ -1,76 +1,67 @@
-.my-main-container{
-	height: 100%;
+.my-tabs[aria-selected="true"] md-tab-label{
+	color: white;
+}
+i.mdi-menu{
+	font-size: 36px;
+	position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	left: 25%;
 }
 
-.my-content{
-	height: 100%;
+i.mdi-account, i.mdi-settings{
+	position: relative;
+	top: 25%;
+	transform: translateY(-50%);
+  	left: 25%;
+  	font-size: 22px;
 }
 
-.my-buttons{
+.my-tab-select{
 	height: 100%;
-	width: 100%;
+	margin: 0;
 	font-size: 16px;
 }
 
-.my-dropdown{
-	margin: 0 !important;
-}
-
-.my-dropdown md-select-label{
-	color: #fff !important;
-	height: 100% !important;
+.my-tab-select md-select-label{
 	border-bottom: none;
 }
 
-.my-sidebar-button{
-	position: relative;
-	top: 50%;
-	left: -25px;
+.my-theme{
+	z-index: 100 !important;
+	height: 200px;
+	width: 200px;
+	left: 200px;
+	top: 0px;
 }
-
-.my-sidenav-title{
-	font-size: 24px !important;
-	text-align: center;
-	color: #fff;
-}
-
-.my-sidebar-elem-title{
-	font-size: 20px !important;
-	color: #BABABA;
-	margin-left: 10px;
-	font-weight: 500;
-}
-.my-sidebar-elem-button{
-	width: 100% !important;
-}
-
-.my-sidebar-elem{
-	font-size: 14px !important;
-	text-transform: none;
-	font-weight: 500;
-	line-height: 0;
-	margin: 10px;
-}
-
-.my-second-section-title{
-	margin-bottom: 10px;
-	margin-top: 21px;
-}
-.my-second-section-subtitle{
-	margin-bottom: 5px;
-	margin-top: 5px;
+.my-theme2{
+	height: 200px;
+	width: 200px;
 }
 
 
-md-toolbar.my-thick-toolbar{
-	width: 100%;
-	height: 40px !important; 
+
+.my-dropdown-icon-holder{
+	position: relative !important;
+	width: 36px;
 }
 
-.my-section{
-	padding-top: 40px;
+.my-dropdown-select{
+	position: absolute;
+	margin: 0 !important;
+	z-index: 3;
+	width: 22px;
+	height: 22px;
+	top: 9px;
+	left: 9px;
 }
 
-.my-table{
-	border-collapse: collapse;
+.my-dropdown-select md-select-label{
+	visibility:hidden;
+
 }
+.my-dropdown-icon{
+	position: absolute !important;
+	z-index: 2;
+}
+

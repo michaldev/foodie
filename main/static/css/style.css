@@ -1,4 +1,4 @@
-.my-tabs[aria-selected="true"] md-tab-label{
+.my-tab[aria-selected="true"] md-tab-label{
 	color: white;
 }
 i.mdi-menu{
@@ -15,6 +15,15 @@ i.mdi-account, i.mdi-settings{
 	transform: translateY(-50%);
   	left: 25%;
   	font-size: 22px;
+}
+
+.my-icon-button{
+	cursor:pointer;
+}
+
+.my-tabs md-icon{
+	color: white !important;
+	
 }
 
 .my-tab-select{
@@ -39,7 +48,11 @@ i.mdi-account, i.mdi-settings{
 	width: 200px;
 }
 
-
+.my-center-verticaly{
+	position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);
+}
 
 .my-dropdown-icon-holder{
 	position: relative !important;
@@ -49,19 +62,58 @@ i.mdi-account, i.mdi-settings{
 .my-dropdown-select{
 	position: absolute;
 	margin: 0 !important;
+	padding: 0;
 	z-index: 3;
-	width: 22px;
-	height: 22px;
+	width: 23px;
+	height: 23px;
 	top: 9px;
 	left: 9px;
 }
 
 .my-dropdown-select md-select-label{
-	visibility:hidden;
+	display: none;
+	width: 22px !important;
+	margin: 0;
+	padding: 0;
+}
 
+.my-dropdown-select md-select-label .md-select-icon{
+	display: none;
+	margin: 0;
+	padding: 0;
 }
 .my-dropdown-icon{
 	position: absolute !important;
 	z-index: 2;
+	margin: 0;
+	padding: 0;
 }
 
+.md-paginator{
+	margin: 0 !important;
+}
+
+
+
+@media (max-width: 600px) {
+	.my-sidenav, .my-sidenav.md-locked-open-add-active, .my-sidenav.md-locked-open {
+		width: 100% !important;
+		min-width: 254px !important;
+		max-width: 100% !important;
+	}
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 600px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 960px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

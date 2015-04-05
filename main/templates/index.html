@@ -15,54 +15,67 @@
 		-->
 	</head>
 	<body ng-app="myApp" ng-controller="mainCtrl">
-		<md-toolbar layout="column">
-			<div layout="row">
-				<span flex="5"><a href="" ng-click="openLeftMenu()"><i class="mdi mdi-menu"></i></a></span>
-				<h3 flex="10" class="md-title">Foodie</h3>
-				<span flex="70"></span>
-				<div flex="5" class="my-dropdown-icon-holder">
-					<i class="mdi mdi-settings my-dropdown-icon"></i>
-					<md-select placeholder="asd" ng-model="someVal1" class="my-dropdown-select">
-						
-					    <md-option value="1">One</md-option>
-					    <md-option value="2">Two</md-option>
-					</md-select>
+		<div class="main-container">
+			<md-toolbar layout="column">
+				<div layout="row">
+
+					<span flex-gt-sm="10" flex-gt-md="10" flex-sm="20">
+							<i ng-click="openLeftMenu()" class="mdi mdi-menu my-icon-button"></i>
+					</span>
+
+					<h3 flex-gt-sm="5" flex-gt-md="10" flex-sm="20" class="md-title">Foodie</h3>
+
+					<span flex-gt-sm="60" flex-gt-md="65" flex-sm="30"></span>
+
+					<div flex-gt-sm="10" flex-gt-md="5" flex-sm="10" class="my-dropdown-icon-holder">
+						<i class="mdi mdi-settings my-dropdown-icon"></i>
+						<md-select placeholder="" ng-model="someVal1" class="my-dropdown-select">
+							
+						    <md-option value="1">One</md-option>
+						    <md-option value="2">Two</md-option>
+						</md-select>
+					</div>
+
+					<div flex-gt-sm="10" flex-gt-md="5" flex-sm="10" class="my-dropdown-icon-holder">
+
+						<i class="mdi mdi-account my-dropdown-icon"></i>
+						<md-select placeholder="" ng-model="someVal1" class="my-dropdown-select">
+							
+						    <md-option value="1">One</md-option>
+						    <md-option value="2">Two</md-option>
+						</md-select>
+					</div>
+					<span flex-gt-sm="5" flex-gt-md="5" flex-sm="0"></span>
+					
 				</div>
-				<div flex="5" class="my-dropdown-icon-holder">
+				<md-tabs class="my-tabs" md-selected="data.selectedIndex">
+			      <md-tab class="my-tab">
+			        <md-tab-label>Asystent Żywienia</md-tab-label>
 
-					<i class="mdi mdi-account my-dropdown-icon"></i>
-					<md-select placeholder="asd" ng-model="someVal1" class="my-dropdown-select">
-						
-					    <md-option value="1">One</md-option>
-					    <md-option value="2">Two</md-option>
-					</md-select>
-				</div>
+			      </md-tab>
+			      <md-tab class="my-tab">
+			        <md-tab-label>
 
-				<span flex="5"></span>
-			</div>
-			<md-tabs md-selected="data.selectedIndex">
-		      <md-tab class="my-tabs">
-		        <md-tab-label>Asystent Żywienia</md-tab-label>
+						<md-select placeholder="Baza Produktów" ng-model="someVal" class="my-tab-select">
+						    <md-option value="1">Test</md-option>
+						    <md-option value="2">Test2</md-option>
+						</md-select>
+			        </md-tab-label>
+			      </md-tab>
+				</md-tabs>
+			</md-toolbar>
 
-		      </md-tab>
-		      <md-tab class="my-tabs">
-		        <md-tab-label>
+			<md-sidenav md-component-id="left" class="md-sidenav-left my-sidenav">
+				<md-toolbar class="md-accent">
+					<md-button ng-click="openLeftMenu()" class="md-fab" aria-label="FAB">
+  						<md-icon class="md-accent" md-svg-src="/static/css/icons/menu.svg"></md-icon>
+					</md-button>
+				</md-toolbar>
+			</md-sidenav>
 
-					<md-select placeholder="Baza Produktów" ng-model="someVal" class="my-tab-select">
-					    <md-option value="1">Test</md-option>
-					    <md-option value="2">Test2</md-option>
-					</md-select>
-		        </md-tab-label>
-		      </md-tab>
-
-		</md-toolbar>
-
-		<md-sidenav md-component-id="left" class="md-sidenav-left">
-			<md-toolbar class="md-accent"></md-toolbar>
-		</md-sidenav>
-
-		<md-content>
-		</md-content>
+			<md-content>
+			</md-content>
+		</div>
 		<script type="text/javascript" src="/static/frameworks/angular.js"></script>
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-animate.js"></script>

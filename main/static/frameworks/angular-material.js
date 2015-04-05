@@ -2,14 +2,14 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 angular.module('ngMaterial', ["ng","ngAnimate","ngAria","material.core","material.core.theming.palette","material.core.theming","material.components.autocomplete","material.components.backdrop","material.components.bottomSheet","material.components.button","material.components.card","material.components.checkbox","material.components.content","material.components.dialog","material.components.divider","material.components.gridList","material.components.icon","material.components.input","material.components.list","material.components.progressCircular","material.components.progressLinear","material.components.radioButton","material.components.select","material.components.sidenav","material.components.slider","material.components.sticky","material.components.subheader","material.components.swipe","material.components.switch","material.components.tabs","material.components.textField","material.components.toast","material.components.toolbar","material.components.tooltip","material.components.whiteframe"]);
 /*!
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -72,7 +72,7 @@ function rAFDecorator( $delegate ) {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -139,7 +139,7 @@ MdConstantFactory.$inject = ["$$rAF", "$sniffer"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function(){
 
@@ -376,7 +376,7 @@ MdConstantFactory.$inject = ["$$rAF", "$sniffer"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function(){
 
@@ -515,7 +515,7 @@ mdMediaFactory.$inject = ["$mdConstant", "$rootScope", "$window"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -538,7 +538,7 @@ angular.module('material.core')
 
   return Util = {
     now: window.performance ?
-      angular.bind(window.performance, window.performance.now) : 
+      angular.bind(window.performance, window.performance.now) :
       Date.now,
 
     clientRect: function(element, offsetParent, isOffsetRect) {
@@ -549,7 +549,7 @@ angular.module('material.core')
       // The user can ask for an offsetRect: a rect relative to the offsetParent,
       // or a clientRect: a rect relative to the page
       var offsetRect = isOffsetRect ?
-        offsetParent.getBoundingClientRect() : 
+        offsetParent.getBoundingClientRect() :
         { left: 0, top: 0, width: 0, height: 0 };
       return {
         left: nodeRect.left - offsetRect.left + offsetParent.scrollLeft,
@@ -764,21 +764,7 @@ angular.module('material.core')
         }
       } while (el = el.parentNode);
       return null;
-    },
-
-    /**
-     * Functional equivalent for $element.filter(‘md-bottom-sheet’)
-     * useful with interimElements where the element and its container are important...
-     */
-    extractElementByName : function (element, nodeName) {
-      for (var i = 0, len = element.length; i < len; i++) {
-        if (element[i].nodeName.toLowerCase() === nodeName){
-          return angular.element(element[i]);
-        }
-      }
-      return element;
     }
-
   };
 
 }]);
@@ -810,7 +796,7 @@ angular.element.prototype.blur = angular.element.prototype.blur || function() {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -896,7 +882,7 @@ AriaService.$inject = ["$$rAF", "$log", "$window"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -953,11 +939,11 @@ function mdCompilerService($q, $http, $injector, $compile, $controller, $templat
     *      * `key` - `{string}`: a name of a dependency to be injected into the controller.
     *      * `factory` - `{string|function}`: If `string` then it is an alias for a service.
     *        Otherwise if function, then it is injected and the return value is treated as the
-    *        dependency. If the result is a promise, it is resolved before its value is 
+    *        dependency. If the result is a promise, it is resolved before its value is
     *        injected into the controller.
     *
     * @returns {object=} promise A promise, which will be resolved with a `compileData` object.
-    * `compileData` has the following properties: 
+    * `compileData` has the following properties:
     *
     *   - `element` - `{element}`: an uncompiled element matching the provided template.
     *   - `link` - `{function(scope)}`: A link function, which, when called, will compile
@@ -976,7 +962,7 @@ function mdCompilerService($q, $http, $injector, $compile, $controller, $templat
     var transformTemplate = options.transformTemplate || angular.identity;
     var bindToController = options.bindToController;
 
-    // Take resolve values and invoke them.  
+    // Take resolve values and invoke them.
     // Resolves can either be a string (value: 'MyRegisteredAngularConst'),
     // or an invokable 'factory' of sorts: (value: function ValueGetter($dependency) {})
     angular.forEach(resolve, function(value, key) {
@@ -1041,7 +1027,7 @@ mdCompilerService.$inject = ["$q", "$http", "$injector", "$compile", "$controlle
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -1460,7 +1446,7 @@ angular.module('material.core')
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -1808,7 +1794,7 @@ function InterimElementProvider() {
           show: function() {
             var compilePromise;
             if (options.skipCompile) {
-              compilePromise = $q(function(resolve) { 
+              compilePromise = $q(function(resolve) {
                 resolve({
                   locals: {},
                   link: function() { return options.element; }
@@ -1895,7 +1881,7 @@ function InterimElementProvider() {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
   'use strict';
@@ -2028,7 +2014,7 @@ function InterimElementProvider() {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -2453,7 +2439,7 @@ function attrNoDirective() {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -2825,7 +2811,7 @@ angular.module('material.core.theming.palette', [])
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -3026,7 +3012,7 @@ function ThemingProvider($mdColorPalette) {
 
       self.foregroundPalette = self.isDark ? LIGHT_FOREGROUND : DARK_FOREGROUND;
       self.foregroundShadow = self.isDark ? DARK_SHADOW : LIGHT_SHADOW;
-      
+
       // Light and dark themes have different default hues.
       // Go through each existing color type for this theme, and for every
       // hue value that is still the default hue value from the previous light/dark setting,
@@ -3344,12 +3330,12 @@ function generateThemes($injector) {
           if (darkColors.indexOf(hueName) > -1) {
             return DARK_CONTRAST_COLOR;
           } else {
-            return strongLightColors.indexOf(hueName) > -1 ? STRONG_LIGHT_CONTRAST_COLOR 
+            return strongLightColors.indexOf(hueName) > -1 ? STRONG_LIGHT_CONTRAST_COLOR
               : LIGHT_CONTRAST_COLOR;
           }
         } else {
           if (lightColors.indexOf(hueName) > -1) {
-            return strongLightColors.indexOf(hueName) > -1 ? STRONG_LIGHT_CONTRAST_COLOR 
+            return strongLightColors.indexOf(hueName) > -1 ? STRONG_LIGHT_CONTRAST_COLOR
               : LIGHT_CONTRAST_COLOR;
           } else {
             return DARK_CONTRAST_COLOR;
@@ -3412,7 +3398,7 @@ function rgba(rgbArray, opacity) {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function () {
   'use strict';
@@ -3433,7 +3419,7 @@ function rgba(rgbArray, opacity) {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -3472,7 +3458,7 @@ BackdropDirective.$inject = ["$mdTheming"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -3558,9 +3544,8 @@ function MdBottomSheetDirective() {
  *   - `resolve` - `{object=}`: Similar to locals, except it takes promises as values
  *   and the bottom sheet will not open until the promises resolve.
  *   - `controllerAs` - `{string=}`: An alias to assign the controller to on the scope.
- *   - `parent` - `{element=}`: The element to append the bottom sheet to. The `parent` may be a `function`, `string`,
- *   `object`, or null. Defaults to appending to the body of the root element (or the root element) of the application.
- *   e.g. angular.element(document.getElementById('content')) or "#content"
+ *   - `parent` - `{element=}`: The element to append the bottom sheet to. Defaults to appending
+ *     to the root element of the application.
  *   - `disableParentScroll` - `{boolean=}`: Whether to disable scrolling while the bottom sheet is open.
  *     Default true.
  *
@@ -3574,7 +3559,7 @@ function MdBottomSheetDirective() {
  *
  * @description
  * Hide the existing bottom sheet and resolve the promise returned from
- * `$mdBottomSheet.show()`. This call will close the most recently opened/current bottomsheet (if any).
+ * `$mdBottomSheet.show()`.
  *
  * @param {*=} response An argument for the resolved promise.
  *
@@ -3597,7 +3582,7 @@ function MdBottomSheetProvider($$interimElementProvider) {
   var CLOSING_VELOCITY = 0.5;
   var PADDING = 80; // same as css
 
-  bottomSheetDefaults.$inject = ["$animate", "$mdConstant", "$mdUtil", "$timeout", "$compile", "$mdTheming", "$mdBottomSheet", "$rootElement", "$mdGesture"];
+  bottomSheetDefaults.$inject = ["$animate", "$mdConstant", "$timeout", "$$rAF", "$compile", "$mdTheming", "$mdBottomSheet", "$rootElement", "$rootScope", "$mdGesture"];
   return $$interimElementProvider('$mdBottomSheet')
     .setDefaults({
       methods: ['disableParentScroll', 'escapeToClose', 'targetEvent'],
@@ -3605,7 +3590,7 @@ function MdBottomSheetProvider($$interimElementProvider) {
     });
 
   /* @ngInject */
-  function bottomSheetDefaults($animate, $mdConstant, $mdUtil, $timeout, $compile, $mdTheming, $mdBottomSheet, $rootElement, $mdGesture) {
+  function bottomSheetDefaults($animate, $mdConstant, $timeout, $$rAF, $compile, $mdTheming, $mdBottomSheet, $rootElement, $rootScope, $mdGesture) {
     var backdrop;
 
     return {
@@ -3617,16 +3602,13 @@ function MdBottomSheetProvider($$interimElementProvider) {
       disableParentScroll: true
     };
 
-
     function onShow(scope, element, options) {
-
-      element = $mdUtil.extractElementByName(element, 'md-bottom-sheet');
-
       // Add a backdrop that will close on click
       backdrop = $compile('<md-backdrop class="md-opaque md-bottom-sheet-backdrop">')(scope);
       backdrop.on('click', function() {
         $timeout($mdBottomSheet.cancel);
       });
+
       $mdTheming.inherit(backdrop, options.parent);
 
       $animate.enter(backdrop, options.parent, null);
@@ -3665,8 +3647,8 @@ function MdBottomSheetProvider($$interimElementProvider) {
     }
 
     function onRemove(scope, element, options) {
-
       var bottomSheet = options.bottomSheet;
+
 
       $animate.leave(backdrop);
       return $animate.leave(bottomSheet.element).then(function() {
@@ -3740,7 +3722,7 @@ MdBottomSheetProvider.$inject = ["$$interimElementProvider"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -3806,7 +3788,7 @@ function MdButtonDirective($mdInkRipple, $mdTheming, $mdAria) {
   function isAnchor(attr) {
     return angular.isDefined(attr.href) || angular.isDefined(attr.ngHref);
   }
-  
+
   function getTemplate(element, attr) {
     return isAnchor(attr) ?
            '<a class="md-button" ng-transclude></a>' :
@@ -3823,7 +3805,7 @@ function MdButtonDirective($mdInkRipple, $mdTheming, $mdAria) {
       $mdAria.expect(element, 'aria-label');
     }
 
-    // For anchor elements, we have to set tabindex manually when the 
+    // For anchor elements, we have to set tabindex manually when the
     // element is disabled
     if (isAnchor(attr) && angular.isDefined(attr.ngDisabled) ) {
       scope.$watch(attr.ngDisabled, function(isDisabled) {
@@ -3840,7 +3822,7 @@ MdButtonDirective.$inject = ["$mdInkRipple", "$mdTheming", "$mdAria"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -3899,7 +3881,7 @@ mdCardDirective.$inject = ["$mdTheming"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -3961,7 +3943,7 @@ function MdCheckboxDirective(inputDirective, $mdInkRipple, $mdAria, $mdConstant,
     restrict: 'E',
     transclude: true,
     require: '?ngModel',
-    template: 
+    template:
       '<div class="md-container" md-ink-ripple md-ink-ripple-checkbox>' +
         '<div class="md-icon"></div>' +
       '</div>' +
@@ -4040,7 +4022,7 @@ MdCheckboxDirective.$inject = ["inputDirective", "$mdInkRipple", "$mdAria", "$md
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -4126,7 +4108,7 @@ function iosScrollFix(node) {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -4422,7 +4404,7 @@ MdDialogDirective.$inject = ["$$rAF", "$mdTheming"];
  *   - `locals` - `{object=}`: An object containing key/value pairs. The keys will be used as names
  *     of values to inject into the controller. For example, `locals: {three: 3}` would inject
  *     `three` into the controller, with the value 3. If `bindToController` is true, they will be
- *     copied to the controller instead. 
+ *     copied to the controller instead.
  *   - `bindToController` - `bool`: bind the locals to the controller, instead of passing them in. These values will not be available until after initialization.
  *   - `resolve` - `{object=}`: Similar to locals, except it takes promises as values, and the
  *     dialog will not open until all of the promises resolve.
@@ -4461,7 +4443,7 @@ function MdDialogProvider($$interimElementProvider) {
   var alertDialogMethods = ['title', 'content', 'ariaLabel', 'ok'];
 
   advancedDialogOptions.$inject = ["$mdDialog", "$mdTheming"];
-  dialogDefaultOptions.$inject = ["$mdAria", "$document", "$mdUtil", "$mdConstant", "$mdTheming", "$mdDialog", "$timeout", "$rootElement", "$animate", "$$rAF", "$q"];
+  dialogDefaultOptions.$inject = ["$timeout", "$rootElement", "$compile", "$animate", "$mdAria", "$document", "$mdUtil", "$mdConstant", "$mdTheming", "$$rAF", "$q", "$mdDialog"];
   return $$interimElementProvider('$mdDialog')
     .setDefaults({
       methods: ['disableParentScroll', 'hasBackdrop', 'clickOutsideToClose', 'escapeToClose', 'targetEvent'],
@@ -4510,7 +4492,8 @@ function MdDialogProvider($$interimElementProvider) {
   }
 
   /* @ngInject */
-  function dialogDefaultOptions($mdAria, $document, $mdUtil, $mdConstant, $mdTheming, $mdDialog, $timeout, $rootElement, $animate, $$rAF, $q) {
+  function dialogDefaultOptions($timeout, $rootElement, $compile, $animate, $mdAria, $document,
+                                $mdUtil, $mdConstant, $mdTheming, $$rAF, $q, $mdDialog) {
     return {
       hasBackdrop: true,
       isolateScope: true,
@@ -4528,8 +4511,6 @@ function MdDialogProvider($$interimElementProvider) {
 
     // On show method for dialogs
     function onShow(scope, element, options) {
-      element = $mdUtil.extractElementByName(element, 'md-dialog');
-
       // Incase the user provides a raw dom element, always wrap it in jqLite
       options.parent = angular.element(options.parent);
 
@@ -4540,7 +4521,7 @@ function MdDialogProvider($$interimElementProvider) {
 
       if (options.hasBackdrop) {
         // Fix for IE 10
-        var computeFrom = (options.parent[0] == $document[0].body && $document[0].documentElement 
+        var computeFrom = (options.parent[0] == $document[0].body && $document[0].documentElement
                            && $document[0].scrollTop) ? angular.element($document[0].documentElement) : options.parent;
         var parentOffset = computeFrom.prop('scrollTop');
         options.backdrop = angular.element('<md-backdrop class="md-dialog-backdrop md-opaque">');
@@ -4704,7 +4685,7 @@ MdDialogProvider.$inject = ["$$interimElementProvider"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -4753,7 +4734,7 @@ MdDividerDirective.$inject = ["$mdTheming"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -4947,12 +4928,8 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia, $
         }
       });
     }
-     var startSymbol = $interpolate.startSymbol(),
-      endSymbol = $interpolate.endSymbol(),
-      usesStandardSymbols = ((startSymbol === '{{') && (endSymbol === '}}')),
-      processTemplate = usesStandardSymbols ? angular.identity : replaceInterpolationSymbols;
-    var UNIT      = $interpolate( "{{ share }}% - ({{ gutter }} * {{ gutterShare }})" );
 
+    var UNIT      = $interpolate( "{{ share }}% - ({{ gutter }} * {{ gutterShare }})" );
     var POSITION  = $interpolate( "calc(({{ unit }}) * {{ offset }} + {{ offset }} * {{ gutter }})" );
     var DIMENSION = $interpolate( "calc(({{ unit }}) * {{ span }} + ({{ span }} - 1) * {{ gutter }})" );
 
@@ -5442,7 +5419,7 @@ function GridTileCaptionDirective() {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -5555,7 +5532,7 @@ mdIconDirective.$inject = ["$mdIcon", "$mdTheming", "$mdAria"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
   'use strict';
@@ -5926,7 +5903,13 @@ mdIconDirective.$inject = ["$mdIcon", "$mdTheming", "$mdAria"];
      return $http
        .get(url, { cache: $templateCache })
        .then(function(response) {
-         return angular.element('<div>').append(response.data).find('svg')[0];
+         var els = angular.element(response.data);
+         // Iterate to find first svg node, allowing for comments in loaded SVG (common with auto-generated SVGs)
+         for (var i = 0; i < els.length; ++i) {
+           if (els[i].nodeName == 'svg') {
+             return els[i];
+           }
+         }
        });
    }
 
@@ -5969,10 +5952,11 @@ mdIconDirective.$inject = ["$mdIcon", "$mdTheming", "$mdAria"];
      if (el.tagName != 'svg') {
        el = angular.element('<svg xmlns="http://www.w3.org/2000/svg">').append(el)[0];
      }
+     el = angular.element(el);
 
      // Inject the namespace if not available...
-     if ( !el.getAttribute('xmlns') ) {
-       el.setAttribute('xmlns', "http://www.w3.org/2000/svg");
+     if ( !el.attr('xmlns') ) {
+       el.attr('xmlns', "http://www.w3.org/2000/svg");
      }
 
      this.element = el;
@@ -5986,29 +5970,27 @@ mdIconDirective.$inject = ["$mdIcon", "$mdTheming", "$mdAria"];
     */
    function prepareAndStyle() {
      var iconSize = this.config ? this.config.iconSize : config.defaultIconSize;
-         angular.forEach({
+     var svg = angular.element( this.element );
+         svg.attr({
            'fit'   : '',
            'height': '100%',
            'width' : '100%',
            'preserveAspectRatio': 'xMidYMid meet',
-           'viewBox' : this.element.getAttribute('viewBox') || ('0 0 ' + iconSize + ' ' + iconSize)
-         }, function(val, attr) {
-           this.element.setAttribute(attr, val);
-         }, this);
-
-         angular.forEach({
+           'viewBox' : svg.attr('viewBox') || ('0 0 ' + iconSize + ' ' + iconSize)
+         })
+         .css( {
            'pointer-events' : 'none',
            'display' : 'block'
-         }, function(val, style) {
-           this.element.style[style] = val;
-         }, this);
+         });
+
+     this.element = svg;
    }
 
    /**
-    * Clone the Icon DOM element.
+    * Clone the Icon DOM element; which is stored as an angular.element()
     */
    function cloneSVG(){
-     return this.element.cloneNode(true);
+     return angular.element( this.element[0].cloneNode(true) );
    }
 
  }
@@ -6019,7 +6001,7 @@ mdIconDirective.$inject = ["$mdIcon", "$mdTheming", "$mdAria"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 
@@ -6362,7 +6344,7 @@ function placeholderDirective() {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -6458,7 +6440,7 @@ function mdItemDirective() {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -6586,7 +6568,7 @@ MdProgressCircularDirective.$inject = ["$$rAF", "$mdConstant", "$mdTheming"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -6643,7 +6625,7 @@ function MdProgressLinearDirective($$rAF, $mdConstant, $mdTheming) {
       '</div>',
     compile: compile
   };
-  
+
   function compile(tElement, tAttrs, transclude) {
     tElement.attr('aria-valuemin', 0);
     tElement.attr('aria-valuemax', 100);
@@ -6715,7 +6697,7 @@ var transforms = (function() {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -7013,7 +6995,7 @@ mdRadioButtonDirective.$inject = ["$mdAria", "$mdUtil", "$mdTheming"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -7909,7 +7891,7 @@ function nodesToArray(nodes) {
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -8228,7 +8210,7 @@ SidenavController.$inject = ["$scope", "$element", "$attrs", "$mdComponentRegist
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
   'use strict';
@@ -8631,7 +8613,7 @@ SliderDirective.$inject = ["$$rAF", "$window", "$mdAria", "$mdUtil", "$mdConstan
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -8757,7 +8739,7 @@ function MdSticky($document, $mdConstant, $compile, $$rAF, $mdUtil) {
         return a.top < b.top ? -1 : 1;
       });
 
-      // Find which item in the list should be active, 
+      // Find which item in the list should be active,
       // based upon the content's current scroll position
       var item;
       var currentScrollTop = contentEl.prop('scrollTop');
@@ -8778,7 +8760,7 @@ function MdSticky($document, $mdConstant, $compile, $$rAF, $mdUtil) {
     // Find the `top` of an item relative to the content element,
     // and also the height.
     function refreshPosition(item) {
-      // Find the top of an item by adding to the offsetHeight until we reach the 
+      // Find the top of an item by adding to the offsetHeight until we reach the
       // content element.
       var current = item.element[0];
       item.top = 0;
@@ -8816,7 +8798,7 @@ function MdSticky($document, $mdConstant, $compile, $$rAF, $mdUtil) {
             translate(self.current, null);
           }
         }
-        
+
       // Scrolling up with a current sticky item?
       } else if (!isScrollingDown && self.current) {
         if (scrollTop < self.current.top) {
@@ -8836,7 +8818,7 @@ function MdSticky($document, $mdConstant, $compile, $$rAF, $mdUtil) {
         }
       }
     }
-     
+
    function setCurrentItem(item) {
      if (self.current === item) return;
      // Deactivate currently active item
@@ -8880,7 +8862,7 @@ function MdSticky($document, $mdConstant, $compile, $$rAF, $mdUtil) {
      } else {
        item.translateY = amount;
        item.clone.css(
-         $mdConstant.CSS.TRANSFORM, 
+         $mdConstant.CSS.TRANSFORM,
          'translate3d(' + item.left + 'px,' + amount + 'px,0)'
        );
      }
@@ -8907,7 +8889,7 @@ function MdSticky($document, $mdConstant, $compile, $$rAF, $mdUtil) {
 
   // Android 4.4 don't accurately give scroll events.
   // To fix this problem, we setup a fake scroll event. We say:
-  // > If a scroll or touchmove event has happened in the last DELAY milliseconds, 
+  // > If a scroll or touchmove event has happened in the last DELAY milliseconds,
   //   then send a `$scroll` event every animationFrame.
   // Additionally, we add $scrollstart and $scrollend events.
   function setupAugmentedScrollEvents(element) {
@@ -8943,7 +8925,7 @@ MdSticky.$inject = ["$document", "$mdConstant", "$compile", "$$rAF", "$mdUtil"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -8993,7 +8975,7 @@ function MdSubheaderDirective($mdSticky, $compile, $mdTheming) {
     restrict: 'E',
     replace: true,
     transclude: true,
-    template: 
+    template:
       '<h2 class="md-subheader">' +
         '<span class="md-subheader-content"></span>' +
       '</h2>',
@@ -9030,7 +9012,7 @@ MdSubheaderDirective.$inject = ["$mdSticky", "$compile", "$mdTheming"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -9108,7 +9090,7 @@ var module = angular.module('material.components.swipe',[]);
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -9277,7 +9259,7 @@ MdSwitch.$inject = ["mdCheckboxDirective", "$mdTheming", "$mdUtil", "$document",
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -9316,7 +9298,7 @@ angular.module('material.components.tabs', [
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -9346,7 +9328,7 @@ function mdTextFloatDirective($mdTheming, $mdUtil, $parse, $log) {
     },
     compile : function(element, attr) {
 
-      $log.warn('<md-text-float> is deprecated. Please use `<md-input-container>` and `<input>`.' + 
+      $log.warn('<md-text-float> is deprecated. Please use `<md-input-container>` and `<input>`.' +
                 'More information at http://material.angularjs.org/#/api/material.components.input/directive/mdInputContainer');
 
       if ( angular.isUndefined(attr.mdFid) ) {
@@ -9379,7 +9361,7 @@ function mdInputGroupDirective($log) {
     restrict: 'CE',
     controller: ['$element', function($element) {
 
-      $log.warn('<md-input-group> is deprecated. Please use `<md-input-container>` and `<input>`.' + 
+      $log.warn('<md-input-group> is deprecated. Please use `<md-input-container>` and `<input>`.' +
                 'More information at http://material.angularjs.org/#/api/material.components.input/directive/mdInputContainer');
       this.setFocused = function(isFocused) {
         $element.toggleClass('md-input-focused', !!isFocused);
@@ -9402,7 +9384,7 @@ function mdInputDirective($mdUtil, $log) {
     link: function(scope, element, attr, ctrls) {
       if ( !ctrls[0] ) return;
 
-      $log.warn('<md-input> is deprecated. Please use `<md-input-container>` and `<input>`.' + 
+      $log.warn('<md-input> is deprecated. Please use `<md-input-container>` and `<input>`.' +
                 'More information at http://material.angularjs.org/#/api/material.components.input/directive/mdInputContainer');
 
       var inputGroupCtrl = ctrls[0];
@@ -9460,7 +9442,7 @@ mdInputDirective.$inject = ["$mdUtil", "$log"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -9522,7 +9504,7 @@ function MdToastDirective() {
 /**
  * @ngdoc method
  * @name $mdToast#showSimple
- * 
+ *
  * @description
  * Convenience method which builds and shows a simple toast.
  *
@@ -9550,7 +9532,7 @@ function MdToastDirective() {
 /**
  * @ngdoc method
  * @name $mdToast#updateContent
- * 
+ *
  * @description
  * Updates the content of an existing toast. Useful for updating things like counts, etc.
  *
@@ -9673,11 +9655,11 @@ function MdToastProvider($$interimElementProvider) {
       activeToastContent = newContent;
     });
 
-  toastDefaultOptions.$inject = ["$timeout", "$animate", "$mdToast", "$mdUtil"];
+  toastDefaultOptions.$inject = ["$timeout", "$animate", "$mdToast"];
     return $mdToast;
 
   /* @ngInject */
-  function toastDefaultOptions($timeout, $animate, $mdToast, $mdUtil) {
+  function toastDefaultOptions($timeout, $animate, $mdToast) {
     return {
       onShow: onShow,
       onRemove: onRemove,
@@ -9687,8 +9669,6 @@ function MdToastProvider($$interimElementProvider) {
     };
 
     function onShow(scope, element, options) {
-      element = $mdUtil.extractElementByName(element, 'md-toast');
-
       // 'top left' -> 'md-top md-left'
       activeToastContent = options.content;
       element.addClass(options.position.split(' ').map(function(pos) {
@@ -9726,7 +9706,7 @@ MdToastProvider.$inject = ["$$interimElementProvider"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -9885,7 +9865,7 @@ mdToolbarDirective.$inject = ["$$rAF", "$mdConstant", "$mdUtil", "$mdTheming"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -10102,7 +10082,7 @@ MdTooltipDirective.$inject = ["$timeout", "$window", "$$rAF", "$document", "$mdU
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -10118,7 +10098,7 @@ angular.module('material.components.whiteframe', []);
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function () {
   'use strict';
@@ -10338,7 +10318,7 @@ angular.module('material.components.whiteframe', []);
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function () {
   'use strict';
@@ -10447,7 +10427,7 @@ angular.module('material.components.whiteframe', []);
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function () {
   'use strict';
@@ -10478,7 +10458,7 @@ angular.module('material.components.whiteframe', []);
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function () {
   'use strict';
@@ -10522,7 +10502,7 @@ angular.module('material.components.whiteframe', []);
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function () {
   'use strict';
@@ -10552,7 +10532,7 @@ angular.module('material.components.whiteframe', []);
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -10617,7 +10597,7 @@ MdTabInkDirective.$inject = ["$$rAF"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -10876,7 +10856,7 @@ TabPaginationDirective.$inject = ["$mdConstant", "$window", "$$rAF", "$$q", "$ti
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -10904,7 +10884,7 @@ function TabItemController($scope, $element, $attrs, $compile, $animate, $mdUtil
   function isDisabled() {
     return disabledParsed($scope.$parent);
   }
-  
+
   /**
    * Add the tab's content to the DOM container area in the tabs,
    * @param contentArea the contentArea to add the content of the tab to
@@ -10982,7 +10962,7 @@ function TabItemController($scope, $element, $attrs, $compile, $animate, $mdUtil
       }
     });
   }
- 
+
 
 }
 TabItemController.$inject = ["$scope", "$element", "$attrs", "$compile", "$animate", "$mdUtil", "$parse", "$timeout"];
@@ -10993,7 +10973,7 @@ TabItemController.$inject = ["$scope", "$element", "$attrs", "$compile", "$anima
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -11235,7 +11215,7 @@ MdTabDirective.$inject = ["$mdInkRipple", "$compile", "$mdUtil", "$mdConstant", 
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';
@@ -11381,7 +11361,7 @@ MdTabsController.$inject = ["$scope", "$element", "$mdUtil", "$timeout"];
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-fad7ec9
+ * v0.8.3
  */
 (function() {
 'use strict';

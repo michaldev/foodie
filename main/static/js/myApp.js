@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngAria', 'ngAnimate']);
+var myApp = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngAria', 'ngAnimate','lumx']);
 
 myApp.config(function($httpProvider){
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

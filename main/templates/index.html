@@ -29,23 +29,44 @@
 
 					<span flex-gt-sm="60" flex-gt-md="65" flex-sm="30"></span>
 
-					<div flex-gt-sm="10" flex-gt-md="5" flex-sm="10" class="my-dropdown-icon-holder">
-						<i class="mdi mdi-settings my-dropdown-icon"></i>
-						<md-select placeholder="" ng-model="someVal1" class="my-dropdown-select">
-							
-						    <md-option value="1">One</md-option>
-						    <md-option value="2">Two</md-option>
-						</md-select>
+					<div flex-gt-sm="10" flex-gt-md="5" flex-sm="10">
+						<lx-dropdown position="right">
+						    <button class="btn btn--m btn--black btn--flat" lx-ripple lx-dropdown-toggle>
+						        <i class="mdi mdi-settings my-button-icon"></i>
+						    </button>
+
+						    <lx-dropdown-menu>
+						        <ul>
+						            <li><a class="dropdown-link">Another action</a></li>
+						            <li><a class="dropdown-link">Another action</a></li>
+						            <li><a class="dropdown-link">Another action</a></li>
+						            <li class="dropdown-divider"></li>
+						            <li><span class="dropdown-link dropdown-link--is-header">Header</span></li>
+						            <li><a class="dropdown-link">Separated link</a></li>
+						        </ul>
+						    </lx-dropdown-menu>
+						</lx-dropdown>
 					</div>
 
-					<div flex-gt-sm="10" flex-gt-md="5" flex-sm="10" class="my-dropdown-icon-holder">
+					<div flex-gt-sm="10" flex-gt-md="5" flex-sm="10">
 
-						<i class="mdi mdi-account my-dropdown-icon"></i>
-						<md-select placeholder="" ng-model="someVal1" class="my-dropdown-select">
-							
-						    <md-option value="1">One</md-option>
-						    <md-option value="2">Two</md-option>
-						</md-select>
+						<lx-dropdown position="right">
+						    <button class="btn btn--m btn--black btn--flat" lx-ripple lx-dropdown-toggle>
+						        <i class="mdi mdi-account my-button-icon"></i>
+						    </button>
+
+						    <lx-dropdown-menu>
+						        <ul>
+						            <li><a class="dropdown-link">Another action</a></li>
+						            <li><a class="dropdown-link">Another action</a></li>
+						            <li><a class="dropdown-link">Another action</a></li>
+						            <li class="dropdown-divider"></li>
+						            <li><span class="dropdown-link dropdown-link--is-header">Header</span></li>
+						            <li><a class="dropdown-link">Separated link</a></li>
+						        </ul>
+						    </lx-dropdown-menu>
+						</lx-dropdown>
+						
 					</div>
 					<span flex-gt-sm="5" flex-gt-md="5" flex-sm="0"></span>
 					
@@ -86,51 +107,102 @@
 						 	</md-card-content>
 						</md-card>
 					</div>
-					<div flex="33" layout="column">
-						<div>
-							<h1>Wartości odżywcze</h1>
-							<p>Białka</p>
-							<md-progress-linear md-mode="determinate" value="12"></md-progress-linear>
-							<p>Cukry</p>
-							<md-progress-linear md-mode="determinate" value="36"></md-progress-linear>
-							<p>Tłuszcze</p>
-							<md-progress-linear md-mode="determinate" value="69"></md-progress-linear>
-						</div>
-						<div style="margin-top: 20px;">
-							<md-toolbar>Witaminy</md-toolbar>
-							<md-list>
-								<md-whiteframe class="md-whiteframe-z2" layout="column" layout-align="center">
-								  	<md-list-item class="md-2-line">
-								    	<div class="md-list-item-text">
-								      		<h3>C</h3>
-								    	</div>
-								  	</md-list-item>
-								  	<md-list-item class="md-2-line">
-								    	<div class="md-list-item-text">
-								      		<h3>B</h3>
-								    	</div>
-								  	</md-list-item>
-							  	</md-whiteframe>
-							</md-list>
-						</div>
+					<div flex="33" layout="column" style="padding: 8px;">
+						<md-whiteframe layout="column" style="padding: 12px;" class="md-whiteframe-z1">
+							
+								<md-whiteframe layout="column" style="padding: 12px;">
+									<h1>Wartości odżywcze</h1>
+									<p>Białka</p>
+									<md-progress-linear md-mode="determinate" value="12"></md-progress-linear>
+									<p>Cukry</p>
+									<md-progress-linear md-mode="determinate" value="36"></md-progress-linear>
+									<p>Tłuszcze</p>
+									<md-progress-linear md-mode="determinate" value="69"></md-progress-linear>
+								</md-whiteframe>
+							
+							<div style="margin-top: 20px;">
+								<md-toolbar>Witaminy</md-toolbar>
+								<md-list>
+									<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="center">
+									  	<md-list-item class="md-2-line">
+									    	<div class="md-list-item-text">
+									      		<h3>C</h3>
+									    	</div>
+									  	</md-list-item>
+									  	<md-list-item class="md-2-line">
+									    	<div class="md-list-item-text">
+									      		<h3>B</h3>
+									    	</div>
+									  	</md-list-item>
+								  	</md-whiteframe>
+								</md-list>
+							</div>
 
-						<div style="margin-top: 20px;">
-							<md-toolbar class="md-warn">Konserwanty</md-toolbar>
-							<md-list>
-								<md-whiteframe class="md-whiteframe-z2" layout="column" layout-align="center">
-								  	<md-list-item class="md-2-line">
-								    	<div class="md-list-item-text">
-								      		<h3>C</h3>
-								    	</div>
-								  	</md-list-item>
-								  	<md-list-item class="md-2-line">
-								    	<div class="md-list-item-text">
-								      		<h3>B</h3>
-								    	</div>
-								  	</md-list-item>
-							  	</md-whiteframe>
-							</md-list>
+							<div style="margin-top: 20px;">
+								<md-toolbar class="md-warn">Konserwanty</md-toolbar>
+								<md-list>
+									<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="center">
+									  	<md-list-item class="md-2-line">
+									    	<div class="md-list-item-text">
+									      		<h3>C</h3>
+									    	</div>
+									  	</md-list-item>
+									  	<md-list-item class="md-2-line">
+									    	<div class="md-list-item-text">
+									      		<h3>B</h3>
+									    	</div>
+									  	</md-list-item>
+								  	</md-whiteframe>
+								</md-list>
+							</div>
+						</md-whiteframe>
+					</div>
+					<div flex="33" style="padding: 8px;">
+					<md-whiteframe class="md-whiteframe-z1" layout="column">
+						<div class="data-table-container">
+						    <table class="data-table data-table--has-primary data-table--has-secondary" style="text-align:center">
+						        <thead>
+						            <tr>
+						                <th></th>
+						                <th>Składnik</th>
+						                <th>Ilość-1</th>
+						                <th>Ilośc-2</th>
+						                <th></th>
+						            </tr>
+						            <tr>
+						            	<td></td>
+						                <td colspan="3" class="divider divider--dark"></td>
+						            </tr>
+						        </thead>
+
+						        <tbody>
+						            <tr>
+						              <td></td>
+						              <td>Białko</td>
+						              <td>12</td>
+						              <td>15</td>
+						              <td></td>
+						            </tr>
+
+						            <tr>
+						              <td></td>
+						              <td>Cukry</td>
+						              <td>165</td>
+						              <td>125</td>
+						              <td></td>
+						            </tr>
+
+						            <tr>
+						              <td></td>
+						              <td>Tłuszcze</td>
+						              <td>123</td>
+						              <td>123</td>
+						              <td></td>
+						            </tr>
+						        </tbody>
+						    </table>
 						</div>
+						</md-whiteframe>
 					</div>
 				</div>
 			</md-content>

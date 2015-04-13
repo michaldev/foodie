@@ -5,6 +5,7 @@ myApp.config(function($httpProvider){
 	$httpProvider.defaults.headers.common['X-CSRFToken'] = '{% csrf_value %}';
 });
 
+
 myApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('green')

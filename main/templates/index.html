@@ -6,6 +6,8 @@
 		<link rel="stylesheet" href="/static/css/angular-material.css">
 		
 		<link rel="stylesheet" href="/static/css/MaterialDesign-Webfont-master/css/materialdesignicons.min.css"  media="all" />
+		<link rel="stylesheet" type="text/css" href="/static/frameworks/lumX/lumx.css">
+
 		<link rel="stylesheet" href="/static/css/style.css">
 		
 		<!--
@@ -74,14 +76,79 @@
 			</md-sidenav>
 
 			<md-content>
+				<div layout="row">
+					<div flex="33" layout="column">
+						<md-card>
+						 	<img src="card-image.png" class="md-card-image">
+						 	<md-card-content>
+						   		<h2>Jogobella</h2>
+						   		<p>Producent</p>
+						 	</md-card-content>
+						</md-card>
+					</div>
+					<div flex="33" layout="column">
+						<div>
+							<h1>Wartości odżywcze</h1>
+							<p>Białka</p>
+							<md-progress-linear md-mode="determinate" value="12"></md-progress-linear>
+							<p>Cukry</p>
+							<md-progress-linear md-mode="determinate" value="36"></md-progress-linear>
+							<p>Tłuszcze</p>
+							<md-progress-linear md-mode="determinate" value="69"></md-progress-linear>
+						</div>
+						<div style="margin-top: 20px;">
+							<md-toolbar>Witaminy</md-toolbar>
+							<md-list>
+								<md-whiteframe class="md-whiteframe-z2" layout="column" layout-align="center">
+								  	<md-list-item class="md-2-line">
+								    	<div class="md-list-item-text">
+								      		<h3>C</h3>
+								    	</div>
+								  	</md-list-item>
+								  	<md-list-item class="md-2-line">
+								    	<div class="md-list-item-text">
+								      		<h3>B</h3>
+								    	</div>
+								  	</md-list-item>
+							  	</md-whiteframe>
+							</md-list>
+						</div>
+
+						<div style="margin-top: 20px;">
+							<md-toolbar class="md-warn">Konserwanty</md-toolbar>
+							<md-list>
+								<md-whiteframe class="md-whiteframe-z2" layout="column" layout-align="center">
+								  	<md-list-item class="md-2-line">
+								    	<div class="md-list-item-text">
+								      		<h3>C</h3>
+								    	</div>
+								  	</md-list-item>
+								  	<md-list-item class="md-2-line">
+								    	<div class="md-list-item-text">
+								      		<h3>B</h3>
+								    	</div>
+								  	</md-list-item>
+							  	</md-whiteframe>
+							</md-list>
+						</div>
+					</div>
+				</div>
 			</md-content>
 		</div>
+
+		<script type="text/javascript" src="/static/frameworks/jquery.js"></script>
+		<script type="text/javascript" src="/static/frameworks/velocity.js"></script>
+		<script type="text/javascript" src="/static/frameworks/moment.js"></script>
+
 		<script type="text/javascript" src="/static/frameworks/angular.js"></script>
-		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
 	    <script type="text/javascript" src="/static/frameworks/angular-animate.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-aria.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-material.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-ui-route.js"></script>
+
+		<script type="text/javascript" src="/static/frameworks/lumX/lumx.js"></script>
+
 	    <script type="text/javascript" src="/static/js/myApp.js"></script>
 	</body>
 </html>

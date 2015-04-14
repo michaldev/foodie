@@ -5,7 +5,6 @@
 
 		<link rel="stylesheet" href="/static/css/angular-material.css">
 		
-		<link rel="stylesheet" href="/static/css/MaterialDesign-Webfont-master/css/materialdesignicons.min.css"  media="all" />
 		<link rel="stylesheet" type="text/css" href="/static/frameworks/lumX/lumx.css">
 
 		<link rel="stylesheet" href="/static/css/style.css">
@@ -16,59 +15,57 @@
 		{% endverbatim %}
 		-->
 	</head>
-	<body ng-app="myApp" ng-controller="mainCtrl">
-		<div class="main-container">
-			<md-toolbar layout="column">
-				<div layout="row">
+	<body ng-app="myApp" ng-controller="mainCtrl" layout="row">
+		<div style="width: 100%" layout="column">
+			<md-toolbar layout="column" class="md-default-theme">
+				<div layout="row" class="md-toolbar-tools">
 
-					<span flex-gt-sm="10" flex-gt-md="10" flex-sm="20">
-							<i ng-click="openLeftMenu()" class="mdi mdi-menu my-icon-button"></i>
-					</span>
+					
+						<button class="btn btn--m btn--black btn--flat" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple lx-dropdown-toggle>
+					       <md-icon class="my-button" md-svg-icon="/static/icons/menu.svg"></md-icon>
+					    </button>
+						<h2>
+				          <span>Foodie</span>
+				        </h2>
+					
+					<span flex></span>
+					<lx-dropdown position="right">
+					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple lx-dropdown-toggle>
+					       <md-icon class="my-button" md-svg-icon="/static/icons/settings.svg"></md-icon>
+					    </button>
 
-					<h3 flex-gt-sm="5" flex-gt-md="10" flex-sm="20" class="md-title">Foodie</h3>
+					    <lx-dropdown-menu>
+					        <ul>
+					            <li><a class="dropdown-link">Another action</a></li>
+					            <li><a class="dropdown-link">Another action</a></li>
+					            <li><a class="dropdown-link">Another action</a></li>
+					            <li class="dropdown-divider"></li>
+					            <li><span class="dropdown-link dropdown-link--is-header">Header</span></li>
+					            <li><a class="dropdown-link">Separated link</a></li>
+					        </ul>
+					    </lx-dropdown-menu>
+					</lx-dropdown>
+					
 
-					<span flex-gt-sm="60" flex-gt-md="65" flex-sm="30"></span>
+					
 
-					<div flex-gt-sm="10" flex-gt-md="5" flex-sm="10">
-						<lx-dropdown position="right">
-						    <button class="btn btn--m btn--black btn--flat" lx-ripple lx-dropdown-toggle>
-						        <i class="mdi mdi-settings my-button-icon"></i>
-						    </button>
+					<lx-dropdown position="right">
+					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple lx-dropdown-toggle>
+					        <md-icon class="my-button" md-svg-icon="/static/icons/account.svg"></md-icon>
+					    </button>
 
-						    <lx-dropdown-menu>
-						        <ul>
-						            <li><a class="dropdown-link">Another action</a></li>
-						            <li><a class="dropdown-link">Another action</a></li>
-						            <li><a class="dropdown-link">Another action</a></li>
-						            <li class="dropdown-divider"></li>
-						            <li><span class="dropdown-link dropdown-link--is-header">Header</span></li>
-						            <li><a class="dropdown-link">Separated link</a></li>
-						        </ul>
-						    </lx-dropdown-menu>
-						</lx-dropdown>
-					</div>
-
-					<div flex-gt-sm="10" flex-gt-md="5" flex-sm="10">
-
-						<lx-dropdown position="right">
-						    <button class="btn btn--m btn--black btn--flat" lx-ripple lx-dropdown-toggle>
-						        <i class="mdi mdi-account my-button-icon"></i>
-						    </button>
-
-						    <lx-dropdown-menu>
-						        <ul>
-						            <li><a class="dropdown-link">Another action</a></li>
-						            <li><a class="dropdown-link">Another action</a></li>
-						            <li><a class="dropdown-link">Another action</a></li>
-						            <li class="dropdown-divider"></li>
-						            <li><span class="dropdown-link dropdown-link--is-header">Header</span></li>
-						            <li><a class="dropdown-link">Separated link</a></li>
-						        </ul>
-						    </lx-dropdown-menu>
-						</lx-dropdown>
-						
-					</div>
-					<span flex-gt-sm="5" flex-gt-md="5" flex-sm="0"></span>
+					    <lx-dropdown-menu>
+					        <ul>
+					            <li><a class="dropdown-link">Another action</a></li>
+					            <li><a class="dropdown-link">Another action</a></li>
+					            <li><a class="dropdown-link">Another action</a></li>
+					            <li class="dropdown-divider"></li>
+					            <li><span class="dropdown-link dropdown-link--is-header">Header</span></li>
+					            <li><a class="dropdown-link">Separated link</a></li>
+					        </ul>
+					    </lx-dropdown-menu>
+					</lx-dropdown>
+					
 					
 				</div>
 				<md-tabs class="my-tabs" md-selected="data.selectedIndex">
@@ -76,27 +73,16 @@
 			        <md-tab-label>Asystent Żywienia</md-tab-label>
 
 			      </md-tab>
-			      <md-tab class="my-tab">
-			        <md-tab-label>
-
-						<md-select placeholder="Baza Produktów" ng-model="someVal" class="my-tab-select">
-						    <md-option value="1">Test</md-option>
-						    <md-option value="2">Test2</md-option>
-						</md-select>
-			        </md-tab-label>
-			      </md-tab>
 				</md-tabs>
 			</md-toolbar>
 
 			<md-sidenav md-component-id="left" class="md-sidenav-left my-sidenav">
 				<md-toolbar class="md-accent">
-					<md-button ng-click="openLeftMenu()" class="md-fab" aria-label="FAB">
-  						<md-icon class="md-accent" md-svg-src="/static/css/icons/menu.svg"></md-icon>
-					</md-button>
 				</md-toolbar>
 			</md-sidenav>
 
-			<md-content>
+			<md-content flex>
+				
 				<div layout="row">
 					<div flex="33" layout="column">
 						<md-card>
@@ -108,7 +94,7 @@
 						</md-card>
 					</div>
 					<div flex="33" layout="column" style="padding: 8px;">
-						<md-whiteframe layout="column" style="padding: 12px;" class="md-whiteframe-z1">
+						
 							
 								<md-whiteframe class="md-whiteframe-z1" layout="column" style="padding: 12px;">
 									<h1>Wartości odżywcze</h1>
@@ -120,10 +106,10 @@
 									<md-progress-linear md-mode="determinate" value="69"></md-progress-linear>
 								</md-whiteframe>
 							
-							<div style="margin-top: 20px;">
-								<md-toolbar>Witaminy</md-toolbar>
+							<div style="margin-top: 12px;">
+								<md-toolbar class="md-toolbar-tools">Witaminy</md-toolbar>
 								<md-list>
-									<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="center">
+									<md-whiteframe style="padding: 24px;" class="md-whiteframe-z1" layout="column" layout-align="center">
 									  	<md-list-item class="md-2-line">
 									    	<div class="md-list-item-text">
 									      		<h3>C</h3>
@@ -138,10 +124,10 @@
 								</md-list>
 							</div>
 
-							<div style="margin-top: 20px;">
-								<md-toolbar class="md-warn">Konserwanty</md-toolbar>
+							<div style="margin-top: 12px;">
+								<md-toolbar class="md-warn md-toolbar-tools">Konserwanty</md-toolbar>
 								<md-list>
-									<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="center">
+									<md-whiteframe style="padding: 24px;" class="md-whiteframe-z1" layout="column" layout-align="center">
 									  	<md-list-item class="md-2-line">
 									    	<div class="md-list-item-text">
 									      		<h3>C</h3>
@@ -155,59 +141,49 @@
 								  	</md-whiteframe>
 								</md-list>
 							</div>
-						</md-whiteframe>
+						
 					</div>
 					<div flex="33" style="padding: 8px;">
 					<md-whiteframe class="md-whiteframe-z1" layout="column">
 						<div class="data-table-container">
-						    <table class="data-table data-table--has-primary data-table--has-secondary" style="text-align:center">
+						    <table class="data-table">
 						        <thead>
 						            <tr>
-						                <th></th>
 						                <th>Składnik</th>
-						                <th>Ilość-1</th>
+						                <th >Ilość-1</th>
 						                <th>Ilośc-2</th>
-						                <th></th>
 						            </tr>
 						            <tr>
-						            	<td></td>
 						                <td colspan="3" class="divider divider--dark"></td>
 						            </tr>
 						        </thead>
 
-						        <tbody>
 						            <tr>
-						              <td></td>
 						              <td>Białko</td>
 						              <td>12</td>
 						              <td>15</td>
-						              <td></td>
 						            </tr>
 
 						            <tr>
-						              <td></td>
 						              <td>Cukry</td>
 						              <td>165</td>
 						              <td>125</td>
-						              <td></td>
 						            </tr>
 
 						            <tr>
-						              <td></td>
 						              <td>Tłuszcze</td>
 						              <td>123</td>
 						              <td>123</td>
-						              <td></td>
 						            </tr>
-						        </tbody>
 						    </table>
 						</div>
 						</md-whiteframe>
 					</div>
 				</div>
+				<md-toolbar class="md-tall">
+				</md-toolbar>	
 			</md-content>
 		</div>
-
 		<script type="text/javascript" src="/static/frameworks/jquery.js"></script>
 		<script type="text/javascript" src="/static/frameworks/velocity.js"></script>
 		<script type="text/javascript" src="/static/frameworks/moment.js"></script>

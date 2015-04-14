@@ -1,33 +1,18 @@
 .my-tab[aria-selected="true"] md-tab-label{
 	color: white;
 }
-i.mdi-menu{
-	font-size: 36px;
-	position: relative;
-  	top: 50%;
-  	display: inline-block;
-  	transform:translateY(-50%);
-  	-webkit-transform:translateY(50%);
-  	left: 25%;
-}
 
-.my-button-icon{
-	color: white;
-	font-size: 24px;
-}
 
 .md-paginator{
 	margin: 0 !important;
 }
 
-
+.my-button{
+	color: white;
+}
 
 @media (max-width: 600px) {
-	.my-sidenav, .my-sidenav.md-locked-open-add-active, .my-sidenav.md-locked-open {
-		width: 100% !important;
-		min-width: 254px !important;
-		max-width: 100% !important;
-	}
+	
 }
 
 /* Small devices (tablets, 768px and up) */

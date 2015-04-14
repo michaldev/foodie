@@ -2,6 +2,10 @@
 	color: white;
 }
 
+.my-font{
+	font-weight: 500;
+}
+
 
 .md-paginator{
 	margin: 0 !important;

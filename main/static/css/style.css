@@ -11,6 +11,10 @@
 	color: white;
 }
 
+.my-progressbars{
+	margin-top: 24px;
+}
+
 @media (max-width: 600px) {
 	
 }
@@ -29,3 +33,4 @@
 @media (min-width: 1200px) {
 
 }
+

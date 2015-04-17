@@ -5,7 +5,14 @@
 .my-font{
 	font-weight: 500;
 }
+.my-subfont{
+	font-weight: 500;
+	color: #8A8A8A;
+}
 
+.my-cardlike-margins{
+	margin: 8px;
+}
 
 .md-paginator{
 	margin: 0 !important;

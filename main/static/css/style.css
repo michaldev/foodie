@@ -12,7 +12,10 @@
 	-webkit-margin-before:0em;
 	-webkit-margin-after:0em;
 }
-
+.my-font-white{
+	color: #fff;
+	font-weight: 500;
+}
 
 .my-cardlike-margins{
 	margin: 8px;

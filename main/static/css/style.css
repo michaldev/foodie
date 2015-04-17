@@ -3,12 +3,16 @@
 }
 
 .my-font{
+	color: #000;
 	font-weight: 500;
 }
 .my-subfont{
 	font-weight: 500;
 	color: #8A8A8A;
+	-webkit-margin-before:0em;
+	-webkit-margin-after:0em;
 }
+
 
 .my-cardlike-margins{
 	margin: 8px;

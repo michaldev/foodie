@@ -9,7 +9,7 @@ myApp.config(function($httpProvider){
 myApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('green')
-    .accentPalette('orange');
+    .accentPalette('deep-orange');
 });
 
 myApp.controller('mainCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){

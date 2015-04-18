@@ -20,4 +20,50 @@ myApp.controller('mainCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidena
   	};
 }]);
 
+myApp.directive('myTooltip',['$compile', function($compile){
+	// Runs during compile
+	return {
+		// name: '',
+		// priority: 1,
+		// terminal: true,
+		// scope: {}, // {} = isolate, true = child, false/undefined = no change
+		// controller: function($scope, $element, $attrs, $transclude) {},
+		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+		// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+		// template: '',
+		// templateUrl: '',
+		// replace: true,
+		// transclude: true,
+		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+		link: function($scope, iElm, iAttrs, controller) {
 
+			var scope = angular.element('md-content').scope();
+
+			//var top = $("#Konserwanty").position().top;
+			var top = $("md-content").scrollTop() + $("#Konserwanty").position().top;
+			var left = $("#Konserwanty").offset().left + $("#Konserwanty").width() + 46;
+
+			iElm.bind('click', function(){
+
+				
+
+				
+				jQuery(('md-content')).append(
+				    $compile(  
+				        '<div class="my-tooltip md-whiteframe-z2" style="top:'+Math.round(top)+'px; left:'+Math.round(left)+'px;">asdadasd</div>'
+				    )(scope)
+				);
+				$(".my-tooltip").animate({
+				    width: "300px",
+				    height: "300px",
+				    opacity: "1"
+				  }, 500, 'easeOutQuad', function() {
+
+				  });
+				console.log($("md-content").scrollTop());
+			});  
+				
+		
+		}
+	};
+}]);

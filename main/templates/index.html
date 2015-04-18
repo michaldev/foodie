@@ -21,7 +21,7 @@
 				<div layout="row" class="md-toolbar-tools">
 
 					
-						<button class="btn btn--m btn--black btn--flat" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple lx-dropdown-toggle>
+						<button class="btn btn--m btn--black btn--flat" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple>
 					       <md-icon class="my-button" md-svg-icon="/static/icons/menu.svg"></md-icon>
 					    </button>
 						<h3 class="my-font-white">
@@ -29,17 +29,17 @@
 				        </h3>
 					
 					<span flex></span>
-					<lx-dropdown position="right">
-					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple lx-dropdown-toggle>
+					
+					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple>
 					       <md-icon class="my-button" md-svg-icon="/static/icons/plus.svg"></md-icon>
 					    </button>
-					</lx-dropdown>
+					
 				
-					<lx-dropdown position="right">
-					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple lx-dropdown-toggle>
+					
+					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple>
 					       <md-icon class="my-button" md-svg-icon="/static/icons/information-outline.svg"></md-icon>
 					    </button>
-					</lx-dropdown>
+					
 
 					<lx-dropdown position="right">
 					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple lx-dropdown-toggle>
@@ -81,7 +81,7 @@
 				</md-toolbar>
 			</md-sidenav>
 
-			<md-content flex>
+			<md-content style="position:relative" flex>
 				
 				<div layout="row">
 					<div flex="33" layout="column">
@@ -140,7 +140,7 @@
 						
 							
 								<md-whiteframe class="md-whiteframe-z1" layout="column" >
-									<h2 class="my-font" style="padding: 40px 0 0 16px;">Wartości odżywcze</h2>
+									<h2 class="my-font" style="padding: 16px 0 0 16px;">Wartości odżywcze</h2>
 										<div style="padding: 0 40px 40px 40px;">
 											<div class="my-progressbars">
 												<p class="md-subhead">Białka</p>
@@ -167,25 +167,25 @@
 							</div>
 
 							<div style="margin-top: 12px;">
-								<md-toolbar class="md-warn md-toolbar-tools">Konserwanty</md-toolbar>
+								<md-toolbar class="md-warn md-toolbar-tools" id="Konserwanty">Konserwanty</md-toolbar>
 								<md-list>
 									<md-whiteframe style="padding: 24px;" class="md-whiteframe-z1" layout="column" layout-align="center">
 									  	<div class="data-table-container">
 										    <table class="data-table data-table--has-secondary">
 										        <tr>
-										            <td>E200</td>
+										            <td my-tooltip >E200</td>
 										            <td>
 										            	<md-icon style="color: red;" class="my-button" md-svg-icon="/static/icons/emoticon-sad.svg"></md-icon>
 										            </td>
 										        </tr>
 										        <tr>
-										            <td>E212</td>
+										            <td my-tooltip>E212</td>
 										            <td>
 										            	<md-icon style="color: #DBAB25;" class="my-button" md-svg-icon="/static/icons/emoticon-sad.svg"></md-icon>
 										            </td>
 										        </tr> 
 										        <tr>
-										            <td>E264</td>
+										            <td my-tooltip>E264</td>
 										            <td>
 										            	<md-icon style="color: green;" class="my-button" md-svg-icon="/static/icons/emoticon-sad.svg"></md-icon>
 										            </td>
@@ -247,7 +247,7 @@
 						</div>
 						</md-whiteframe>
 
-						<md-whiteframe class="md-whiteframe-z1" layout="column" style="margin-top: 24px">
+						<md-whiteframe class="md-whiteframe-z1" layout="column" style="margin-top: 12px">
 						<div class="data-table-container">
 						    <table class="data-table">
 						        <thead>
@@ -278,6 +278,7 @@
 		<script type="text/javascript" src="/static/frameworks/jquery.js"></script>
 		<script type="text/javascript" src="/static/frameworks/velocity.js"></script>
 		<script type="text/javascript" src="/static/frameworks/moment.js"></script>
+		<script type="text/javascript" src="/static/frameworks/easing-plugin.js"></script>
 
 		<script type="text/javascript" src="/static/frameworks/angular.js"></script>
 

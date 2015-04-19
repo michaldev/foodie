@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('body').append( $('<div id="my-greeting-screen" style="position: absolute;top:0;left:0; width:100%; height:100%; background-color: #4CAF50; z-index:1001;"></div>') );
-    $("#my-greeting-screen").animate({
+    $("#my-greeting-screen").delay(600).animate({
 				    height: "0px",
 				  }, 1000, 'easeOutCubic', function() {
 

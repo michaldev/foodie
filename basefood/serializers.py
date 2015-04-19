@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, CategoryMain, Product, Vitamin, Mineral
+from .models import Category, CategoryMain, Product, Vitamin, Mineral, Preservative, Shop
 
 class CategoryMainSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,10 +23,22 @@ class MineralSerializer(serializers.ModelSerializer):
         model = Mineral
         fields = ('id', 'name', 'slug', 'description')
 
+class PreservativeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Preservative
+        fields = ('id', 'name', 'slug', 'description', 'level')
+
+class ShopSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Shop
+        fields = ('id', 'name', 'slug', 'image')
+
 class ProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer(many=True, read_only=True)
     vitamins = VitaminSerializer(many=True, read_only=True)
     minerals = MineralSerializer(many=True, read_only=True)
+    preservatives = PreservativeSerializer(many=True, read_only=True)
+    shops = ShopSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product

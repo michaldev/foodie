@@ -75,6 +75,7 @@ class Preservative(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
     description = models.CharField(max_length=255)
+    level = models.CharField(max_length=3, default='')
 
     class Meta:
         verbose_name = "Konserwant"

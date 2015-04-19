@@ -24,8 +24,9 @@ class Category(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    categorymain = models.ManyToManyField('CategoryMain', verbose_name='Główna kategoria')
-    parent = models.ForeignKey('Category', blank=True, null=True)
+    categorymain = models.ManyToManyField('CategoryMain', 
+        verbose_name='Główna kategoria')
+    #parent = models.ForeignKey('Category', blank=True, null=True)
 
     class Meta:
         verbose_name = "Kategoria"

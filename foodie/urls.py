@@ -15,6 +15,7 @@ urlpatterns = patterns('',
 	    regex = r'^$', 
 	    view = Homepage.as_view(),
 	    name = 'home'),
+    url(r'^basefood', include('basefood.urls')),
 )
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

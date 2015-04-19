@@ -1,0 +1,8 @@
+#Todo
+
+Panel Admina:
+127.0.0.1:8000/admin
+
+Dane json:
+127.0.0.1:8000/basefood/category
+127.0.0.1:8000/basefood/catmain

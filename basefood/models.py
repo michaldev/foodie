@@ -41,6 +41,7 @@ class Vitamin(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
+    description = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "Witamina"
@@ -56,6 +57,7 @@ class Mineral(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
+    description = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "Konserwant"
@@ -71,6 +73,7 @@ class Preservative(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
+    description = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "Konserwant"
@@ -101,6 +104,7 @@ class Product(models.Model):
     Product model
     """
     name = models.CharField(verbose_name='Nazwa', max_length=255)
+    producer = models.CharField(verbose_name='Producent', max_length=255)
     slug = models.SlugField(verbose_name='Adres', unique=True)
     image = models.ImageField(verbose_name='Zdjęcie produktu')
     image2 = models.ImageField(verbose_name='Zdjęcie etykiety')

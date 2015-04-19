@@ -3,5 +3,11 @@
 Panel Admina:
 127.0.0.1:8000/admin
 
-Dane json:
+### Dane json:
+
+## Kategorie
 127.0.0.1:8000/basefood/category
+
+## Produkt
+127.0.0.1:8000/basefood/1
+1 - id produktu

@@ -41,22 +41,3 @@
 	opacity: 0;
 }
 
-@media (max-width: 600px) {
-	
-}
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 600px) {
-
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 960px) {
-
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-
-}
-

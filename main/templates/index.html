@@ -8,17 +8,31 @@
 		<link rel="stylesheet" type="text/css" href="/static/frameworks/lumX/lumx.css">
 
 		<link rel="stylesheet" href="/static/css/style.css">
-		
+		<meta name="viewport" content="width=device-width">
 		<!--
 		{% verbatim %}
 			{{test}}
 		{% endverbatim %}
 		-->
 	</head>
-	<body ng-app="myApp" ng-controller="mainCtrl" layout="row">
-		<div style="width: 100%" layout="column">
-			<md-toolbar layout="column" class="md-default-theme">
-				<div layout="row" class="md-toolbar-tools">
+	<body ng-app="myApp" ng-controller="mainCtrl" layout="row" layout-sm="row">
+		<div style="width: 100%" layout="column" layout-sm="column">
+		
+			<md-sidenav md-component-id="left" class="md-sidenav-left my-sidenav">
+				<md-toolbar class="md-accent">
+					<div class="md-toolbar-tools my-font-white">
+						Kategorie
+					</div>
+					
+				</md-toolbar>
+				<div ng-controller="sidenavCtrl">
+					<md-button style="width: 100%">Nabiał</md-button>
+				</div>
+
+			</md-sidenav>
+
+			<md-toolbar layout="column" layout-sm="column" class="md-default-theme">
+				<div layout="row" layout-sm="row" class="md-toolbar-tools">
 
 					
 						<button class="btn btn--m btn--black btn--flat" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple>
@@ -76,23 +90,12 @@
 				</md-tabs>
 			</md-toolbar>
 
-			<md-sidenav md-component-id="left" class="md-sidenav-left my-sidenav">
-				<md-toolbar class="md-accent">
-					<div class="md-toolbar-tools my-font-white">
-						Kategorie
-					</div>
-					
-				</md-toolbar>
-				<div ng-controller="sidenavCtrl">
-					<md-button style="width: 100%">Nabiał</md-button>
-				</div>
-
-			</md-sidenav>
+			
 
 			<md-content style="position:relative" flex>
 				
-				<div layout="row" layout-wrap>
-					<div flex="33" flex-sm="100" flex-md="100" layout="column">
+				<div layout="row" layout-sm="row" layout-wrap>
+					<div flex="33" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
 						<md-card>
 						 	<img ng-src="/static/images/jogobella-mango.jpg" class="md-card-image">
 						 	<md-card-content>
@@ -144,10 +147,10 @@
 							</div>
 						</md-whiteframe>
 					</div>
-					<div flex="33" flex-sm="100" flex-md="100" layout="column" style="padding: 8px;">
+					<div flex="33" flex-sm="100" flex-md="100" layout="column" layout-sm="column" style="padding: 8px;">
 						
 							
-								<md-whiteframe class="md-whiteframe-z1" layout="column" >
+								<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column">
 									<h2 class="my-font" style="padding: 16px 0 0 16px;">Wartości odżywcze</h2>
 										<div style="padding: 0 40px 40px 40px;">
 											<div class="my-progressbars">
@@ -177,7 +180,7 @@
 							<div style="margin-top: 12px;">
 								<md-toolbar class="md-warn md-toolbar-tools" id="Konserwanty">Konserwanty</md-toolbar>
 								<md-list>
-									<md-whiteframe style="padding: 24px;" class="md-whiteframe-z1" layout="column" layout-align="center">
+									<md-whiteframe style="padding: 24px;" class="md-whiteframe-z1" layout="column" layout-sm="column" layout-align="center">
 									  	<div class="data-table-container">
 										    <table class="data-table data-table--has-secondary">
 										        <tr>
@@ -206,7 +209,7 @@
 						
 					</div>
 					<div flex="33" flex-sm="100" flex-md="100" style="padding: 8px;">
-					<md-whiteframe class="md-whiteframe-z1" layout="column">
+					<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column">
 						<div class="data-table-container">
 						    <table class="data-table">
 						        <thead>
@@ -255,7 +258,7 @@
 						</div>
 						</md-whiteframe>
 
-						<md-whiteframe class="md-whiteframe-z1" layout="column" style="margin-top: 12px">
+						<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column" style="margin-top: 12px">
 						<div class="data-table-container">
 						    <table class="data-table">
 						        <thead>
@@ -294,6 +297,7 @@
 	    <script type="text/javascript" src="/static/frameworks/angular-aria.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-material.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-ui-route.js"></script>
+	    <script type="text/javascript" src="/static/frameworks/angular-touch.js"></script>
 
 		<script type="text/javascript" src="/static/frameworks/lumX/lumx.js"></script>
 

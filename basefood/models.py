@@ -61,8 +61,8 @@ class Mineral(models.Model):
     description = models.CharField(max_length=255)
 
     class Meta:
-        verbose_name = "Konserwant"
-        verbose_name_plural = "Produkty"
+        verbose_name = "Minerał"
+        verbose_name_plural = "Minerały"
 
     def __unicode__(self):
         return "%s" % self.name

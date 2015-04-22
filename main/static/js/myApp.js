@@ -30,12 +30,23 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         // HOME STATES AND NESTED VIEWS ========================================
         .state('productDetail', {
 	        url: '/product/:productID',
-	        templateUrl: '/productView',
+	        templateUrl: 'productview',
 	        //template: 'test',
-	        controller: function($scope, $stateParams) {
+	        controller: function($scope, $stateParams, $http) {
 	            $scope.id = $stateParams.productID;
 	            console.log($scope.id);
-	        }
+
+	            $http.get("/basefood/" + $scope.id).success(function(data, status, headers, config) {
+		    		console.log('successCat');
+
+		    		$scope.product = data;
+
+		    		console.log(data);
+
+				}).error(function(data, status, headers, config) {
+			    	console.log('errorCatB');
+				});
+			}
     	});
         
         
@@ -63,16 +74,7 @@ myApp.controller('sidenavCtrl', ['$scope','$http', function($scope, $http){
 	    	console.log('errorCatA');
 		});
 
-		$http.get("/basefood/1").success(function(data, status, headers, config) {
-    	console.log('successCat');
-
-
-
-    	console.log(data);
-
-		}).error(function(data, status, headers, config) {
-	    	console.log('errorCatB');
-		});
+		
 	
 
 }]);

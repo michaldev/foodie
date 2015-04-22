@@ -11,3 +11,9 @@ Panel Admina:
 ## Produkt
 127.0.0.1:8000/basefood/1
 1 - id produktu
+
+# Lista Konserwantów
+/preservatives
+
+# Lista Witamin
+/vitamins

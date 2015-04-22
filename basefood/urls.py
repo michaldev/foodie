@@ -11,7 +11,7 @@ urlpatterns = patterns('basefood.views',
     url(
         regex = r'^/(?P<pk>[0-9]+)/$', 
         view = Product.as_view(),
-        name = 'basefood-product'),                   
+        name = 'basefood-product'),            
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)

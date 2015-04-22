@@ -1,7 +1,7 @@
 <div layout="row" layout-sm="row" layout-wrap>
 					<div flex="33" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
 						<md-card>
-						 	<img ng-src="product.image" class="md-card-image">
+						 	<img ng-src="{% verbatim %}{{product.image}}{% endverbatim %}" class="md-card-image">
 						 	<md-card-content>
 						 		<div>
 							   		<h2 style="display: inline-block" class="my-font">{% verbatim %}{{product.name}}{% endverbatim %}</h2>
@@ -26,7 +26,7 @@
 							            <tr ng-repeat="shop in product.shops">
 							              <td>{% verbatim %}{{shop.name}}{% endverbatim %}</td>
 							              <td>
-							              	<img src="shop.image">
+							              	<img src="{% verbatim %}{{shop.image}}{% endverbatim %}">
 							              </td>
 							            </tr>
 							    </table>

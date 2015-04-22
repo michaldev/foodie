@@ -1,4 +1,4 @@
-/*$(document).ready(function() {
+$(document).ready(function() {
     $('body').append( $('<div id="my-greeting-screen" style="position: absolute;top:0;left:0; width:100%; height:100%; background-color: #4CAF50; z-index:1001;"></div>') );
     $("#my-greeting-screen").delay(600).animate({
 				    height: "0px",
@@ -6,7 +6,7 @@
 
 				  });
     console.log("test");
-});*/
+});
 
 
 var myApp = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngAria', 'ngAnimate','ngTouch', 'lumx']);
@@ -21,6 +21,26 @@ myApp.config(function($mdThemingProvider) {
     .accentPalette('deep-orange');
 });
 
+myApp.config(function($stateProvider, $urlRouterProvider) {
+    
+    //$urlRouterProvider.otherwise('/home');
+    
+    $stateProvider
+        
+        // HOME STATES AND NESTED VIEWS ========================================
+        .state('productDetail', {
+	        url: '/product/:productID',
+	        templateUrl: '/productView',
+	        //template: 'test',
+	        controller: function($scope, $stateParams) {
+	            $scope.id = $stateParams.productID;
+	            console.log($scope.id);
+	        }
+    	});
+        
+        
+});
+
 myApp.controller('mainCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
 	$scope.openLeftMenu = function() {
     	$mdSidenav('left').toggle();
@@ -29,19 +49,31 @@ myApp.controller('mainCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidena
 
 myApp.controller('sidenavCtrl', ['$scope','$http', function($scope, $http){
 	
+	//http://127.0.0.1:8000/basefood/category
+	//http://127.0.0.1:8000/basefood/catmain
 
-	$http.get(" ").success(function(data, status, headers, config) {
-    console.log('successCat');
+	$http.get("/basefood/category").success(function(data, status, headers, config) {
+    	console.log('successCat');
 
-    $scope.authors = data.authors;
+    	$scope.categories = data;
 
 
-    console.log(arguments);
 
-	}).error(function(data, status, headers, config) {
-	    console.log('errorCat');
-	});
+		}).error(function(data, status, headers, config) {
+	    	console.log('errorCatA');
+		});
 
+		$http.get("/basefood/1").success(function(data, status, headers, config) {
+    	console.log('successCat');
+
+
+
+    	console.log(data);
+
+		}).error(function(data, status, headers, config) {
+	    	console.log('errorCatB');
+		});
+	
 
 }]);
 

@@ -26,7 +26,7 @@
 					
 				</md-toolbar>
 				<div ng-controller="sidenavCtrl">
-					<md-button style="width: 100%">Nabiał</md-button>
+					<md-button style="width: 100%" ng-repeat="category in categories">{% verbatim %}{{category.name}}{% endverbatim %}</md-button>
 				</div>
 
 			</md-sidenav>
@@ -44,7 +44,7 @@
 					
 					<span flex></span>
 					
-					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple>
+					    <button ui-sref="productDetail({productID: 1})" class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple>
 					       <md-icon class="my-button" md-svg-icon="/static/icons/plus.svg"></md-icon>
 					    </button>
 					
@@ -94,194 +94,8 @@
 
 			<md-content style="position:relative" flex>
 				
-				<div layout="row" layout-sm="row" layout-wrap>
-					<div flex="33" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
-						<md-card>
-						 	<img ng-src="/static/images/jogobella-mango.jpg" class="md-card-image">
-						 	<md-card-content>
-						 		<div>
-							   		<h2 style="display: inline-block" class="my-font">Jogobella</h2>
-							   		<h4 style="display: inline-block" class="my-subfont">Zott</h4>
-							   	</div>
-								<h3 class="my-subfont">Jogurty</h3>
-						 	</md-card-content>
-						</md-card>
-						<md-whiteframe class="md-whiteframe-z1 my-cardlike-margins">
-							<div class="data-table-container">
-							    <table class="data-table">
-							        <thead>
-							            <tr>
-							                <th>Dostępność</th>
-							                <th></th>
-							            </tr>
-							            <tr>
-							                <td colspan="2" class="divider divider--dark"></td>
-							            </tr>
-							        </thead>
-
-							            <tr>
-							              <td>Biedronka</td>
-							              <td>
-							              	<img src="/static/icons/sklepy/biedronka.jpg">
-							              </td>
-							            </tr>
-							            <tr>
-							              <td>Tesco</td>
-							              <td>
-							              	<img src="/static/icons/sklepy/tesco.png">
-							              </td>
-							            </tr>
-										<tr>
-							              <td>Carrefour</td>
-							              <td>
-							              	<img src="/static/icons/sklepy/carrefour.jpg">
-							              </td>
-							            </tr>
-							            <tr>
-							              <td>Cena</td>
-							              <td>
-							              	4zł - 5,50zł
-							              </td>
-							            </tr>
-							    </table>
-							</div>
-						</md-whiteframe>
-					</div>
-					<div flex="33" flex-sm="100" flex-md="100" layout="column" layout-sm="column" style="padding: 8px;">
-						
-							
-								<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column">
-									<h2 class="my-font" style="padding: 16px 0 0 16px;">Wartości odżywcze</h2>
-										<div style="padding: 0 40px 40px 40px;">
-											<div class="my-progressbars">
-												<p class="md-subhead">Białka</p>
-												<md-progress-linear md-mode="determinate" value="12"></md-progress-linear>
-											</div>
-											<div class="my-progressbars">
-												<p >Cukry</p>
-												<md-progress-linear md-mode="determinate" value="36"></md-progress-linear>
-											</div>
-											<div class="my-progressbars">
-												<p>Tłuszcze</p>
-												<md-progress-linear md-mode="determinate" value="69"></md-progress-linear>
-											</div>
-										</div>
-								</md-whiteframe>
-							
-							<div style="margin-top: 12px;">
-								<md-toolbar class="md-toolbar-tools">Witaminy i minerały</md-toolbar>
-								<md-list>
-									<md-whiteframe style="padding: 40px;" class="md-whiteframe-z1" layout="column">
-										A, B, C ,D 
-								  	</md-whiteframe>
-								</md-list>
-							</div>
-
-							<div style="margin-top: 12px;">
-								<md-toolbar class="md-warn md-toolbar-tools" id="Konserwanty">Konserwanty</md-toolbar>
-								<md-list>
-									<md-whiteframe style="padding: 24px;" class="md-whiteframe-z1" layout="column" layout-sm="column" layout-align="center">
-									  	<div class="data-table-container">
-										    <table class="data-table data-table--has-secondary">
-										        <tr>
-										            <td>E200</td>
-										            <td>
-										            	<md-icon style="color: red;" class="my-button" md-svg-icon="/static/icons/emoticon-sad.svg"></md-icon>
-										            </td>
-										        </tr>
-										        <tr>
-										            <td>E212</td>
-										            <td>
-										            	<md-icon style="color: #DBAB25;" class="my-button" md-svg-icon="/static/icons/emoticon-sad.svg"></md-icon>
-										            </td>
-										        </tr> 
-										        <tr>
-										            <td>E264</td>
-										            <td>
-										            	<md-icon style="color: green;" class="my-button" md-svg-icon="/static/icons/emoticon-sad.svg"></md-icon>
-										            </td>
-										        </tr>
-										    </table>
-										</div>
-								  	</md-whiteframe>
-								</md-list>
-							</div>
-						
-					</div>
-					<div flex="33" flex-sm="100" flex-md="100" style="padding: 8px;">
-					<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column">
-						<div class="data-table-container">
-						    <table class="data-table">
-						        <thead>
-						            <tr>
-						                <th><h3 class="my-font">Składniki</h3></th>
-						                <th>na 100g</th>
-						                <th>na produkt</th>
-						            </tr>
-						            <tr>
-						                <td colspan="3" class="divider divider--dark"></td>
-						            </tr>
-						        </thead>
-						        <tbody class="my-subfont">
-									<tr class="my-font">
-						              <td>Wartość energetyczna</td>
-						              <td>414kJ 98kcal</td>
-						              <td>1214kJ 338kcal</td>
-						            </tr>
-						            <tr class="my-font">
-						              <td>Białko</td>
-						              <td>3,5g</td>
-						              <td>9,5g</td>
-						            </tr>
-						            <tr class="my-font">
-						              <td>Węglowodany</td>
-						              <td>15,3g</td> 
-						              <td>49,9g</td>
-						            </tr>
-						            <tr>
-						            	<td>W tym cukry</td>
-						            	<td>2,3g</td>
-						            	<td>6,9g</td>
-						            </tr>
-						            <tr class="my-font">
-						              <td>Tłuszcze</td>
-						              <td>2,5g</td>
-						              <td>7,5g</td>
-						            </tr>
-						            <tr>
-						              <td>W tym kw. tłuszczowe nasycone</td>
-						              <td>2,5g</td>
-						              <td>7,5g</td>
-						            </tr>
-						        </tbody>
-						    </table>
-						</div>
-						</md-whiteframe>
-
-						<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column" style="margin-top: 12px">
-						<div class="data-table-container">
-						    <table class="data-table">
-						        <thead>
-						            <tr>
-						                <th>Waga/objętość</th>
-						                <th>300g</th>
-						            </tr>
-						            <tr>
-						                <td colspan="2" class="divider divider--dark"></td>
-						            </tr>
-						        </thead>
-								<tbody>
-						            <tr>
-						              <td>Sugerowana dzienna porcja</td>
-						              <td>300g</td>
-						            </tr>
-						        </tbody>
-						    </table>
-						</div>
-						</md-whiteframe>
-
-					</div>
-				</div>
+				<div ui-view></div>
+				
 				<md-toolbar class="md-tall">
 				</md-toolbar>	
 			</md-content>

@@ -12,8 +12,17 @@ Panel Admina:
 127.0.0.1:8000/basefood/1
 1 - id produktu
 
+Size - Waga/Objętość
+Sugar - Cukier
+Protein - Białko
+Carbohydrates - Węglowodany
+Fats - Tłuscze
+Fats Saturated - Kw. Tł. Nasycone
+Energy Value - Wartość energetyczna
+
 # Lista Konserwantów
 /preservatives
 
 # Lista Witamin
 /vitamins
+

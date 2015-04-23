@@ -90,7 +90,7 @@
 						        <thead>
 						            <tr>
 						                <th><h3 class="my-font">Składniki</h3></th>
-						                <th>na 100g</th>
+						                <th>na 100g/ml</th>
 						                <th>na produkt</th>
 						            </tr>
 						            <tr>
@@ -101,32 +101,32 @@
 									<tr class="my-font">
 						              <td>Wartość energetyczna</td>
 						              <td>{% verbatim %}{{product.energyValue}}{% endverbatim %}</td>
-						              <td>----</td>
+						              <td>{% verbatim %}{{product.energyValue*product.size/100}}{% endverbatim %}</td>
 						            </tr>
 						            <tr class="my-font">
 						              <td>Białko</td>
 						              <td>{% verbatim %}{{product.protein}}{% endverbatim %}</td>
-						              <td>----</td>
+						              <td>{% verbatim %}{{product.protein*product.size/100}}{% endverbatim %}</td>
 						            </tr>
 						            <tr class="my-font">
 						              <td>Węglowodany</td>
 						              <td>{% verbatim %}{{product.carbohydrates}}{% endverbatim %}</td> 
-						              <td>----</td>
+						              <td>{% verbatim %}{{product.carbohydrates*product.size/100}}{% endverbatim %}</td>
 						            </tr>
 						            <tr>
 						            	<td>W tym cukry</td>
 						            	<td>{% verbatim %}{{product.sugar}}{% endverbatim %}</td>
-						            	<td>----</td>
+						            	<td>{% verbatim %}{{product.sugar*product.size/100}}{% endverbatim %}</td>
 						            </tr>
 						            <tr class="my-font">
 						              <td>Tłuszcze</td>
 						              <td>{% verbatim %}{{product.fats}}{% endverbatim %}</td>
-						              <td>----</td>
+						              <td>{% verbatim %}{{product.fats*product.size/100}}{% endverbatim %}</td>
 						            </tr>
 						            <tr>
 						              <td>W tym kw. tłuszczowe nasycone</td>
 						              <td>{% verbatim %}{{product.fatsSaturated}}{% endverbatim %}</td>
-						              <td>----</td>
+						              <td>{% verbatim %}{{product.fatsSaturated*product.size/100}}{% endverbatim %}</td>
 						            </tr>
 						        </tbody>
 						    </table>
@@ -139,7 +139,7 @@
 						        <thead>
 						            <tr>
 						                <th>Waga/objętość</th>
-						                <th>{% verbatim %}{{product.size}}{% endverbatim %}</th>
+						                <th>{% verbatim %}{{product.size}}{% endverbatim %} g/ml</th>
 						            </tr>
 						            <tr>
 						                <td colspan="2" class="divider divider--dark"></td>
@@ -148,7 +148,7 @@
 								<tbody>
 						            <tr>
 						              <td>Sugerowana dzienna porcja</td>
-						              <td>----</td>
+						              <td>{% verbatim %}{{product.portion}}{% endverbatim %} g/ml</td>
 						            </tr>
 						        </tbody>
 						    </table>

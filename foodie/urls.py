@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 
-from main.views import Homepage, ProductView
+from main.views import Homepage, ProductView, VitaminView, PreservativeView
 
 
 
@@ -20,7 +20,13 @@ urlpatterns = patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^productview', 
         view = ProductView.as_view()
-        )       
+        ),
+    url(r'^vitaminview', 
+        view = VitaminView.as_view()
+        ),
+    url(r'^preservativeview', 
+        view = PreservativeView.as_view()
+        ), 
 )
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

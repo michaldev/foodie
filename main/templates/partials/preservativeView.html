@@ -1,0 +1,51 @@
+<div layout="row">
+    <div flex="33" style="padding:8px">
+        <md-whiteframe class="md-whiteframe-z1" layout="column">
+            <div class="data-table-container">
+                <table class="data-table data-table--has-primary data-table--has-secondary my-white-font">
+                    <thead>
+                        <tr>
+                            <th>Nazwa</th>
+                            <th>Opis</th>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="divider divider--dark"></td>
+                        </tr>
+                    </thead>
+
+                    <tbody class="my-table-body">
+                        <tr class="my-tr" ng-repeat="item in preservatives" ng-click="functions.preservativeChange($index)">
+                            <td>
+                                {% verbatim %}
+                                    {{item.name}}
+                                {% endverbatim %}
+                            </td>
+                            <td>
+                                {% verbatim %}
+                                    {{item.description}}
+                                {% endverbatim %}
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        <md-whiteframe class="md-whiteframe-z1" layout="column">
+    </div>
+    <div flex="66" style="padding:8px">
+        <md-whiteframe class="md-whiteframe-z1" layout="column">
+            <md-subheader>
+                {% verbatim %}
+                    {{preservatives[preservativeID].name}}
+                {% endverbatim %}
+            </md-subheader>
+            <p style="padding:16px;">
+                {% verbatim %}
+                    {{preservatives[preservativeID].description}}
+                {% endverbatim %}
+            </p>
+        <md-whiteframe class="md-whiteframe-z1" layout="column">
+    </div>
+</div>

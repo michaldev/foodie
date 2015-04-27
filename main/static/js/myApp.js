@@ -47,6 +47,65 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 			    	console.log('errorCatB');
 				});
 			}
+    	})
+    	.state('vitamins', {
+	        url: '/vitamins/:vitaminID',
+	        templateUrl: 'vitaminview',
+	        //template: 'test',
+	        controller: function($scope, $stateParams, $http) {
+	            $scope.vitaminID = $stateParams.vitaminID;
+
+	            $scope.functions = [];
+
+	            $scope.functions.vitamineChange = function(id){
+	            	$scope.vitaminID = id;
+	            	console.log($scope.vitaminID);
+	            }
+
+
+	            $http.get("/basefood/vitamins").success(function(data, status, headers, config) {
+		    		console.log('successCatA');
+
+		    		$scope.vitamins = data;
+
+		    		console.log(data);
+
+				}).error(function(data, status, headers, config) {
+			    	console.log('errorCatC');
+				});
+
+
+
+
+			}
+    	})
+    	.state('preservatives', {
+	        url: '/preservatives/:preservativeID',
+	        templateUrl: 'preservativeview',
+	        //template: 'test',
+	        controller: function($scope, $stateParams, $http) {
+	            $scope.preservativeID = $stateParams.preservativeID;
+
+	            $scope.functions = [];
+
+
+	            $scope.functions.preservativeChange = function(id){
+	            	$scope.preservativeID = id;
+	            	console.log($scope.preservativeID);
+	            }
+
+
+	            $http.get("/basefood/preservatives").success(function(data, status, headers, config) {
+		    		console.log('successCatC');
+
+		    		$scope.preservatives = data;
+
+		    		console.log(data);
+
+				}).error(function(data, status, headers, config) {
+			    	console.log('errorCatC');
+				});
+			}
     	});
         
         

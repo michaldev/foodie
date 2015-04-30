@@ -26,3 +26,6 @@ Energy Value - Wartość energetyczna
 # Lista Witamin
 /basefood/vitamins
 
+#Lista wszystkich produktów
+/basefood/products
+

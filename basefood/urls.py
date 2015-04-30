@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from .views import CategoryList, Product, VitaminList, PreservativeList
+from .views import CategoryList, Product, VitaminList, PreservativeList, ProductList
 
 urlpatterns = patterns('basefood.views',
     url(
@@ -12,6 +12,10 @@ urlpatterns = patterns('basefood.views',
         regex = r'^/vitamins', 
         view = VitaminList.as_view(),
         name = 'basefood-vitamin-list'),
+    url(
+        regex = r'^/products', 
+        view = ProductList.as_view(),
+        name = 'basefood-product-list'),
     url(
         regex = r'^/preservatives', 
         view = PreservativeList.as_view(),

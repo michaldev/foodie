@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 
-from main.views import Homepage, ProductView, VitaminView, PreservativeView
+from main.views import Homepage, ProductView, VitaminView, PreservativeView, HomeView
 
 
 
@@ -23,6 +23,9 @@ urlpatterns = patterns('',
         ),
     url(r'^vitaminview', 
         view = VitaminView.as_view()
+        ),
+    url(r'^homeview', 
+        view = HomeView.as_view()
         ),
     url(r'^preservativeview', 
         view = PreservativeView.as_view()

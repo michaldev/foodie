@@ -35,28 +35,28 @@
 				<div layout="row" layout-sm="row" class="md-toolbar-tools">
 
 					
-						<button class="btn btn--m btn--black btn--flat" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple>
+						<button class="btn btn--m btn--black btn--flat my-to-animate" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple>
 					       <md-icon class="my-button" md-svg-icon="/static/icons/menu.svg"></md-icon>
 					    </button>
-						<h3 class="my-font-white">
+						<h3 class="my-font-white my-to-animate my-pointer" ui-sref="home">
 				          Foodie
 				        </h3>
 					
 					<span flex></span>
 					
-					    <button ui-sref="productDetail({productID: 1})" class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple>
+					    <button ui-sref="productDetail({productID: 1})" class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple>
 					       <md-icon class="my-button" md-svg-icon="/static/icons/plus.svg"></md-icon>
 					    </button>
 					
 				
 					
-					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple>
+					    <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button my-to-animate" lx-ripple>
 					       <md-icon class="my-button" md-svg-icon="/static/icons/information-outline.svg"></md-icon>
 					    </button>
 					
 
 					<lx-dropdown position="right">
-					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple lx-dropdown-toggle>
+					    <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple lx-dropdown-toggle>
 					        <md-icon class="my-button" md-svg-icon="/static/icons/account.svg"></md-icon>
 					    </button>
 
@@ -76,16 +76,16 @@
 				</div>
 				<md-tabs class="my-tabs" md-selected="data.selectedIndex">
 			      <md-tab class="my-tab">
-			        <md-tab-label>Baza żywności</md-tab-label>
+			        <md-tab-label class="my-to-animate">Baza żywności</md-tab-label>
 			      </md-tab>
 			      <md-tab class="my-tab" ui-sref="vitamins">
-			        <md-tab-label >Witaminy</md-tab-label>
+			        <md-tab-label class="my-to-animate">Witaminy</md-tab-label>
 			      </md-tab>
 			      <md-tab class="my-tab" ui-sref="preservatives">
-			        <md-tab-label >Konserwanty</md-tab-label>
+			        <md-tab-label class="my-to-animate">Konserwanty</md-tab-label>
 			      </md-tab>
 			      <md-tab class="my-tab">
-			        <md-tab-label>Asystent żywności</md-tab-label>
+			        <md-tab-label class="my-to-animate">Asystent żywności</md-tab-label>
 			      </md-tab>
 				</md-tabs>
 			</md-toolbar>

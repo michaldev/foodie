@@ -2,10 +2,24 @@ $(document).ready(function() {
     $('body').append( $('<div id="my-greeting-screen" style="position: absolute;top:0;left:0; width:100%; height:100%; background-color: #4CAF50; z-index:1001;"></div>') );
     $("#my-greeting-screen").delay(600).animate({
 				    height: "0px",
-				  }, 1000, 'easeOutCubic', function() {
+				  	}, 1000, 'easeOutCubic', function() {
 
-				  });
-    console.log("test");
+
+				  		$.each($('.my-to-animate'), function(i, el){
+
+						    $(el).css({'opacity':0});
+
+						    setTimeout(function(){
+						       $(el).animate({
+						        'opacity':1.0
+						       }, 400, 'easeOutCubic');
+						    },100 + ( i * 300 ));
+
+						});
+				  		
+
+				  	});
+    //console.log("test");
 });
 
 
@@ -33,6 +47,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	        templateUrl: 'homeview',
 	        //template: 'test',
 	        controller: function($scope, $stateParams, $http) {
+
 	           
 			}
     	})
@@ -72,14 +87,14 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 
 
 	            $http.get("/basefood/vitamins").success(function(data, status, headers, config) {
-		    		console.log('successCatA');
+		    		//console.log('successCatA');
 
 		    		$scope.vitamins = data;
 
 		    		console.log(data);
 
 				}).error(function(data, status, headers, config) {
-			    	console.log('errorCatC');
+			    	//console.log('errorCatC');
 				});
 
 

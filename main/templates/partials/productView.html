@@ -73,7 +73,7 @@
 										        <tr ng-repeat="preservative in product.preservatives" ui-sref="preservatives({preservativeID: $index})">
 										            <td>{% verbatim %}{{preservative.name}}{% endverbatim %}</td>
 										            <td>
-										            	<md-icon style="color: red;" class="my-button" md-svg-icon="/static/icons/emoticon-sad.svg"></md-icon>
+										            	<md-icon class="my-button my-preseicon-{% verbatim %}{{preservative.level}}{% endverbatim %}" md-svg-icon="/static/icons/emoticon-{% verbatim %}{{preservative.level}}{% endverbatim %}.svg"></md-icon>
 										            </td>
 										        </tr>
 										        </tr>

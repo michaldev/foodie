@@ -18,6 +18,10 @@
 	font-weight: 500;
 }
 
+.my-content{
+	min-height: 100%;
+}
+
 .my-cardlike-margins{
 	margin: 8px;
 }
@@ -41,3 +45,12 @@
 	opacity: 0;
 }
 
+.my-preseicon-0{
+	color: red;
+}
+.my-preseicon-1{
+	color: yellow;
+}
+.my-preseicon-2{
+	color: green;
+}

@@ -23,12 +23,20 @@ myApp.config(function($mdThemingProvider) {
 
 myApp.config(function($stateProvider, $urlRouterProvider) {
     
-    //$urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/home');
     
     $stateProvider
         
         // HOME STATES AND NESTED VIEWS ========================================
-        .state('productDetail', {
+        .state('home', {
+	        url: '/home',
+	        templateUrl: 'homeview',
+	        //template: 'test',
+	        controller: function($scope, $stateParams, $http) {
+	           
+			}
+    	})
+    	.state('productDetail', {
 	        url: '/product/:productID',
 	        templateUrl: 'productview',
 	        //template: 'test',
@@ -59,7 +67,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 
 	            $scope.functions.vitamineChange = function(id){
 	            	$scope.vitaminID = id;
-	            	console.log($scope.vitaminID);
+	            	//console.log($scope.vitaminID);
 	            }
 
 
@@ -91,7 +99,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 
 	            $scope.functions.preservativeChange = function(id){
 	            	$scope.preservativeID = id;
-	            	console.log($scope.preservativeID);
+	            	//console.log($scope.preservativeID);
 	            }
 
 

@@ -1,28 +1,3 @@
-$(document).ready(function() {
-    $('body').append( $('<div id="my-greeting-screen" style="position: absolute;top:0;left:0; width:100%; height:100%; background-color: #4CAF50; z-index:1001;"></div>') );
-    $("#my-greeting-screen").delay(600).animate({
-				    height: "0px",
-				  	}, 1000, 'easeOutCubic', function() {
-
-
-				  		$.each($('.my-to-animate'), function(i, el){
-
-						    $(el).css({'opacity':0});
-
-						    setTimeout(function(){
-						       $(el).animate({
-						        'opacity':1.0
-						       }, 400, 'easeOutCubic');
-						    },100 + ( i * 300 ));
-
-						});
-				  		
-
-				  	});
-    //console.log("test");
-});
-
-
 var myApp = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngAria', 'ngAnimate','ngTouch', 'lumx']);
 
 myApp.config(function($httpProvider){
@@ -134,10 +109,119 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         
 });
 
-myApp.controller('mainCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+myApp.factory('animationFactory', function(){
+	var animationFactory = [];
+
+	animationFactory.firstAnim = true;
+
+	animationFactory.setFirstAnim = function(){
+		animationFactory.firstAnim = false;
+	}
+
+	animationFactory.getFirstAnim = function(){
+		return animationFactory.firstAnim;
+	}
+
+	return animationFactory;
+});
+
+
+
+myApp.controller('mainCtrl', ['$scope', '$mdSidenav', 'animationFactory', function($scope, $mdSidenav, animationFactory){
 	$scope.openLeftMenu = function() {
     	$mdSidenav('left').toggle();
   	};
+
+
+  	$(document).ready(function() {
+
+    $('body').append( $('<div id="my-greeting-screen" style="position: absolute;top:0;left:0; width:100%; height:100%; background-color: #4CAF50; z-index:1001;"></div>') );
+	    $("#my-greeting-screen").delay(600).animate({
+					    height: "0px",
+					  	}, 1000, 'easeOutCubic', function() {
+
+
+					  		$.each($('.my-to-animate'), function(i, el){
+
+							    $(el).css({'opacity':0});
+
+							    setTimeout(function(){
+							       $(el).animate({
+							        'opacity':1.0
+							       }, 400, 'easeOutCubic');
+							    },100 + ( i * 200 ));
+
+
+							    animationFactory.setFirstAnim();
+							});
+					  		
+					  		$("#my-greeting-screen").remove()
+					  	});
+
+
+	});
+
+
+
+
+
+
+}]);
+
+myApp.controller('viewCtrl', ['$scope','animationFactory', function($scope, animationFactory){
+		
+
+		$scope.$on('$stateChangeSuccess', function (event, toState) {
+
+			var viewHeight = $("#my-main-container").height();
+			var windowHeight = $("body").height();
+			var diffHeight = windowHeight - viewHeight;
+			console.log("h: " + viewHeight);
+			console.log("h: " + windowHeight);
+			console.log("h: " + diffHeight);
+
+			$scope.isRunFirstAnim = animationFactory.getFirstAnim();
+			console.log("Anim: " + $scope.isRunFirstAnim);
+
+			if($scope.isRunFirstAnim == false){
+				$('body').append( $('<div id="my-viewchange-screen" style="position: absolute;top:' + diffHeight + 'px; left:0px; right:100%; height:' + viewHeight + 'px; background-color: #4CAF50; z-index:1001;"></div>') );
+			    
+
+
+			    
+
+
+				   $( "#my-main-container" ).css({
+					    opacity: "0"
+					});
+
+
+
+				    $("#my-viewchange-screen").delay(0).animate({
+						right: '0'
+						}, 200, 'easeOutCubic', function() {
+
+
+							
+							$("#my-main-container").delay(200).animate({
+								opacity: '1'
+								}, 500, 'easeOutCubic', function() {
+								console.log("anim2");
+							});
+
+
+							$("#my-viewchange-screen").delay(200).animate({
+								right: '100%'
+								}, 500, 'easeOutCubic', function() {
+								$("#my-viewchange-screen").remove();
+							});
+				    		
+					});
+				
+			}
+	        console.log("tseeses");
+	    });
+	
 }]);
 
 myApp.controller('sidenavCtrl', ['$scope','$http', function($scope, $http){

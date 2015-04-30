@@ -92,9 +92,11 @@
 
 			
 
-			<md-content style="position:relative" flex>
+			<md-content id="my-main-container"  style="position:relative" flex>
 				
-				<div class="my-content" ui-view></div>
+				<div class="my-content" ng-controller="viewCtrl" ui-view>
+					
+				</div>
 				
 				<md-toolbar class="md-tall">
 				</md-toolbar>	

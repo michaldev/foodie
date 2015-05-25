@@ -1,4 +1,3 @@
-
 .my-tab[aria-selected="true"] md-tab-label{
 	color: white;
 }
@@ -19,7 +18,8 @@
 }
 
 .my-content{
-	min-height: 100%;
+	
+	min-height:100vh !important;
 }
 
 .my-cardlike-margins{

@@ -24,9 +24,7 @@
                                 {% endverbatim %}
                             </td>
                             <td>
-                                {% verbatim %}
-                                    {{item.description}}
-                                {% endverbatim %}
+                                <md-icon class="my-button my-preseicon-{% verbatim %}{{item.level}}{% endverbatim %}" md-svg-icon="/static/icons/emoticon-{% verbatim %}{{item.level}}{% endverbatim %}.svg"></md-icon>
                             </td>
 
                         </tr>
@@ -34,7 +32,46 @@
                     </tbody>
                 </table>
             </div>
-        <md-whiteframe class="md-whiteframe-z1" layout="column">
+        </md-whiteframe>
+        <md-whiteframe class="md-whiteframe-z1" style="margin-top: 12px;" layout="column">
+            <div class="data-table-container">
+                    <table class="data-table data-table--has-primary data-table--has-secondary my-white-font">
+                        <thead>
+                            <tr>
+                                <th colspan="2" style="text-align:center;">Legenda</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="my-table-body">
+                            <tr class="my-tr">
+                                <td>
+                                    Szkodliwe
+                                </td>
+                                <td>
+                                    <md-icon class="my-preseicon-0" md-svg-icon="/static/icons/emoticon-0.svg"></md-icon>
+                                </td>
+                            </tr>
+                            <tr class="my-tr">
+                                <td>
+                                    Neutralne
+                                </td>
+                                <td>
+                                    <md-icon class="my-preseicon-1" md-svg-icon="/static/icons/emoticon-1.svg"></md-icon>
+                                </td>
+                            </tr>
+                            <tr class="my-tr">
+                                <td>
+                                    Nieszkodliwe
+                                </td>
+                                <td>
+                                    <md-icon class="my-preseicon-2" md-svg-icon="/static/icons/emoticon-2.svg"></md-icon>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+        </md-whiteframe>
     </div>
     <div flex="66" style="padding:8px">
         <md-whiteframe class="md-whiteframe-z1" layout="column">

@@ -16,7 +16,7 @@
 		-->
 	</head>
 	<body ng-app="myApp" ng-controller="mainCtrl" layout="row" layout-sm="row">
-		<div style="width: 100%" layout="column" layout-sm="column">
+		<div style="width: 100%; min-height:100%" layout="column" layout-sm="column">
 		
 			<md-sidenav md-component-id="left" class="md-sidenav-left my-sidenav">
 				<md-toolbar class="md-accent">
@@ -98,9 +98,10 @@
 					
 				</div>
 				
-				<md-toolbar class="md-tall">
-				</md-toolbar>	
+					
 			</md-content>
+			<md-toolbar class="md-tall">
+				</md-toolbar>
 		</div>
 		<script type="text/javascript" src="/static/frameworks/jquery.js"></script>
 		<script type="text/javascript" src="/static/frameworks/velocity.js"></script>

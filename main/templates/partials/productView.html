@@ -1,7 +1,7 @@
 <div layout="row" layout-sm="row" layout-wrap>
 					<div flex="33" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
 						<md-card>
-						 	<img ng-src="{% verbatim %}{{product.image}}{% endverbatim %}" class="md-card-image">
+						 	<!--<img ng-src="{% verbatim %}{{product.image}}{% endverbatim %}" class="md-card-image">-->
 						 	<md-card-content>
 						 		<div>
 							   		<h2 style="display: inline-block" class="my-font">{% verbatim %}{{product.name}}{% endverbatim %}</h2>
@@ -55,17 +55,17 @@
 								</md-whiteframe>
 							
 							<div style="margin-top: 12px;">
-								<md-toolbar class="md-toolbar-tools">Witaminy i minerały</md-toolbar>
-								<md-list>
+								<!--<md-toolbar class="md-toolbar-tools">Witaminy i minerały</md-toolbar>
+								
 									<md-whiteframe style="padding: 40px;" class="md-whiteframe-z1" layout="column">
 										<span class="my-pointer" ng-repeat="vitamine in product.vitamins" ui-sref="vitamins({vitaminID: $index})">{% verbatim %}{{vitamine.name}}{% endverbatim %}</span>
 										<span ng-repeat="mineral in product.minerals">{% verbatim %}{{mineral.name}}{% endverbatim %}</span>
-								  	</md-whiteframe>
-								</md-list>
+								  	</md-whiteframe>-->
+								
 							</div>
 
 							<div style="margin-top: 12px;">
-								<md-toolbar class="md-warn md-toolbar-tools" id="Konserwanty">Konserwanty</md-toolbar>
+								<!--<md-toolbar class="md-warn md-toolbar-tools" id="Konserwanty">Konserwanty</md-toolbar>-->
 								<md-list>
 									<md-whiteframe style="padding: 24px;" class="md-whiteframe-z1" layout="column" layout-sm="column" layout-align="center">
 									  	<div class="data-table-container">
@@ -88,7 +88,7 @@
 					<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column">
 						<div class="data-table-container">
 						    <table class="data-table">
-						        <thead>
+						        <!--<thead>
 						            <tr>
 						                <th><h3 class="my-font">Składniki</h3></th>
 						                <th>na 100g/ml</th>
@@ -97,7 +97,7 @@
 						            <tr>
 						                <td colspan="3" class="divider divider--dark"></td>
 						            </tr>
-						        </thead>
+						        </thead>-->
 						        <tbody class="my-subfont">
 									<tr class="my-font">
 						              <td>Wartość energetyczna</td>
@@ -136,7 +136,7 @@
 
 						<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column" style="margin-top: 12px">
 						<div class="data-table-container">
-						    <table class="data-table">
+						    <!--<table class="data-table">
 						        <thead>
 						            <tr>
 						                <th>Waga/objętość</th>
@@ -153,8 +153,8 @@
 						            </tr>
 						        </tbody>
 						    </table>
-						</div>
+						</div>-->
 						</md-whiteframe>
 
 					</div>
-				</div>
+</div>

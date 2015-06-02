@@ -25,5 +25,6 @@ class ProductList(generics.ListCreateAPIView):
 
 
 class Product(generics.RetrieveUpdateDestroyAPIView):
+    lookup_field = 'slug'
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

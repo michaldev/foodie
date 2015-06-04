@@ -15,8 +15,8 @@ Panel Admina:
 127.0.0.1:8000/basefood/category
 
 ## Produkt
-127.0.0.1:8000/basefood/1
-1 - id produktu
+127.0.0.1:8000/basefood/slug
+slug - unikalne pole ;d (przyklad; jogobella)
 
 Size - Waga/Objętość
 Sugar - Cukier
@@ -34,4 +34,9 @@ Energy Value - Wartość energetyczna
 
 #Lista wszystkich produktów
 /basefood/products
+
+#filtrowanie
+/basefood/products?sugar=100
+*zmiene:
+sugar, category, id, slug
 

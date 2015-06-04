@@ -8,7 +8,7 @@ from rest_framework import filters
 class ProductFilter(filters.FilterSet):
     class Meta:
         model = Product
-        fields = ['id', 'category', 'sugar']
+        fields = ['id', 'slug', 'category', 'sugar']
 
 class CategoryList(generics.ListCreateAPIView):
     queryset = Category.objects.all()

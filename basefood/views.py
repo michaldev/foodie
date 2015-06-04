@@ -2,7 +2,13 @@ from rest_framework import generics
 from .models import Category, Product, Vitamin, Preservative
 from .serializers import CategorySerializer, ProductSerializer, VitaminSerializer, PreservativeSerializer
 from django.views.generic import TemplateView
+from rest_framework import filters
 
+
+class ProductFilter(filters.FilterSet):
+    class Meta:
+        model = Product
+        fields = ['id', 'category', 'sugar']
 
 class CategoryList(generics.ListCreateAPIView):
     queryset = Category.objects.all()
@@ -22,6 +28,7 @@ class PreservativeList(generics.ListCreateAPIView):
 class ProductList(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    filter_class = ProductFilter
 
 
 class Product(generics.RetrieveUpdateDestroyAPIView):

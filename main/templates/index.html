@@ -40,7 +40,7 @@
 				          Foodie
 				        </h3>
 				        <span flex></span>
-				        <button ui-sref="productDetail({productID: jogobella})" class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple>
+				        <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple>
 					       <md-icon class="my-button" md-svg-icon="/static/icons/plus.svg"></md-icon>
 					    </button>
 					
@@ -70,16 +70,16 @@
 			        </div>
 			        <span flex></span>
 			        <md-tabs md-selected="currentTab" md-stretch-tabs="always" class="md-primary">
-			            <md-tab class="my-tab">
+			            <md-tab class="my-tab my-to-animate">
 					        <md-tab-label class="my-to-animate">Baza żywności</md-tab-label>
 					      </md-tab>
-					      <md-tab class="my-tab" ui-sref="vitamins">
+					      <md-tab class="my-tab my-to-animate" ui-sref="vitamins">
 					        <md-tab-label class="my-to-animate">Witaminy</md-tab-label>
 					      </md-tab>
-					      <md-tab class="my-tab" ui-sref="preservatives">
+					      <md-tab class="my-tab my-to-animate" ui-sref="preservatives">
 					        <md-tab-label class="my-to-animate">Konserwanty</md-tab-label>
 					      </md-tab>
-					      <md-tab class="my-tab">
+					      <md-tab class="my-tab my-to-animate">
 					        <md-tab-label class="my-to-animate">Asystent żywności</md-tab-label>
 					      </md-tab>
 			        </md-tabs>
@@ -163,6 +163,7 @@
 
 		<script type="text/javascript" src="/static/frameworks/angular.js"></script>
 
+	    <script type="text/javascript" src="/static/frameworks/angular-cookies.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-animate.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-aria.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-material.js"></script>

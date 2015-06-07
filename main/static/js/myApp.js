@@ -1,13 +1,20 @@
-var myApp = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngAria', 'ngAnimate', 'lumx']);
+var myApp = angular.module('myApp', ['ngCookies', 'ui.router', 'ngMaterial', 'ngAria', 'ngAnimate', 'lumx']);
+
+
+
 
 myApp.config(function($httpProvider){
-	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-	$httpProvider.defaults.headers.common['X-CSRFToken'] = '{% csrf_value %}';
+	$httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 });
 myApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('green')
     .accentPalette('deep-orange');
+});
+
+myApp.run(function($http, $cookies) {
+    $http.defaults.headers.put['X-CSRFToken'] = $cookies['csrftoken'];
 });
 
 myApp.config(function($stateProvider, $urlRouterProvider) {
@@ -21,20 +28,37 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	        url: '/home',
 	        templateUrl: 'homeview',
 	        //template: 'test',
-	        controller: function($scope, $stateParams, $http) {
+	        controller: function($scope, $stateParams, $http, $cookies) {
+	        	$scope.searchCtrl = [];
 
+	        	$scope.searchCtrl.searchItem = function(item){
+	        		console.log($scope.searchCtrl.searchText);
+	        		$scope.searchCtrl.isClicked = true;
+
+		        		$http.get("/basefood/products?search=" + $scope.searchCtrl.searchText).success(function(data, status, headers, config) {
+			    		console.log('successCat');
+
+			    		$scope.searchCtrl.itemsToShow = data;
+
+			    		console.log("After search: " + data);
+
+					}).error(function(data, status, headers, config) {
+				    	console.log('errorCatB');
+					});
+	        	}
+	        	
 	           
 			}
     	})
     	.state('productDetail', {
-	        url: '/product/:productID',
+	        url: '/product/:productSlug',
 	        templateUrl: 'productview',
 	        //template: 'test',
 	        controller: function($scope, $stateParams, $http) {
-	            $scope.id = $stateParams.productID;
-	            console.log($scope.id);
+	            $scope.slug = $stateParams.productSlug;
+	            console.log($scope.slug);
 
-	            $http.get("/basefood/" + $scope.id).success(function(data, status, headers, config) {
+	            $http.get("/basefood/" + $scope.slug).success(function(data, status, headers, config) {
 		    		console.log('successCat');
 
 		    		$scope.product = data;
@@ -238,6 +262,22 @@ myApp.controller('sidenavCtrl', ['$scope','$http', function($scope, $http){
 	
 
 }]);
+
+myApp.directive('ngEnter', function() {
+        return function(scope, element, attrs) {
+            element.bind("keydown keypress", function(event) {
+                if(event.which === 13) {
+                        scope.$apply(function(){
+                                scope.$eval(attrs.ngEnter);
+                        });
+                        
+                        event.preventDefault();
+                }
+            });
+        };
+});
+
+
 
 myApp.directive('myTooltip',['$compile', function($compile){
 	// Runs during compile

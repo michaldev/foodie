@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngAria', 'ngAnimate','ngTouch', 'lumx']);
+var myApp = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngAria', 'ngAnimate', 'lumx']);
 
 myApp.config(function($httpProvider){
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -79,6 +79,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
     	})
     	.state('preservatives', {
 	        url: '/preservatives/:preservativeID',
+	        onEnter: function() { console.log("enter tab2"); },
 	        templateUrl: 'preservativeview',
 	        //template: 'test',
 	        controller: function($scope, $stateParams, $http) {
@@ -158,7 +159,6 @@ myApp.controller('mainCtrl', ['$scope', '$mdSidenav', 'animationFactory', functi
 					  		$("#my-greeting-screen").remove()
 					  	});
 
-
 	});
 
 
@@ -185,16 +185,10 @@ myApp.controller('viewCtrl', ['$scope','animationFactory', function($scope, anim
 
 			if($scope.isRunFirstAnim == false){
 				$('body').append( $('<div id="my-viewchange-screen" style="position: absolute;top:' + diffHeight + 'px; left:0px; right:100%; height:' + viewHeight + 'px; background-color: #4CAF50; z-index:1001;"></div>') );
-			    
-
-
-			    
-
-
+			   
 				   $( "#my-main-container" ).css({
 					    opacity: "0"
 					});
-
 
 
 				    $("#my-viewchange-screen").delay(0).animate({

@@ -16,7 +16,7 @@
 		-->
 	</head>
 	<body ng-app="myApp" ng-controller="mainCtrl" layout="row" layout-sm="row">
-		<div style="width: 100%; min-height:100%" layout="column" layout-sm="column">
+		<div style="width: 100%;" layout="column" layout-sm="column">
 		
 			<md-sidenav md-component-id="left" class="md-sidenav-left my-sidenav">
 				<md-toolbar class="md-accent">
@@ -30,10 +30,65 @@
 				</div>
 
 			</md-sidenav>
+ 			<md-toolbar layout="row" class="md-tall">
+			    <div layout="column" flex="100">
+			        <div class="md-toolbar-tools" layout="row" layout-sm="row">
+			        	<button class="btn btn--m btn--black btn--flat my-to-animate" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple>
+					       <md-icon class="my-button" md-svg-icon="/static/icons/menu.svg"></md-icon>
+					    </button>
+						<h3 class="my-font-white my-to-animate my-pointer" ui-sref="home">
+				          Foodie
+				        </h3>
+				        <span flex></span>
+				        <button ui-sref="productDetail({productID: jogobella})" class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple>
+					       <md-icon class="my-button" md-svg-icon="/static/icons/plus.svg"></md-icon>
+					    </button>
+					
+				
+					
+					    <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button my-to-animate" lx-ripple>
+					       <md-icon class="my-button" md-svg-icon="/static/icons/information-outline.svg"></md-icon>
+					    </button>
+					
 
-			<md-toolbar layout="column" layout-sm="column" class="md-default-theme">
+					<lx-dropdown position="right">
+					    <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple lx-dropdown-toggle>
+					        <md-icon class="my-button" md-svg-icon="/static/icons/account.svg"></md-icon>
+					    </button>
+
+					    <lx-dropdown-menu>
+					        <ul>
+					            <li><a class="dropdown-link">Another action</a></li>
+					            <li><a class="dropdown-link">Another action</a></li>
+					            <li><a class="dropdown-link">Another action</a></li>
+					            <li class="dropdown-divider"></li>
+					            <li><span class="dropdown-link dropdown-link--is-header">Header</span></li>
+					            <li><a class="dropdown-link">Separated link</a></li>
+					        </ul>
+					    </lx-dropdown-menu>
+					</lx-dropdown>
+			        </div>
+			        <span flex></span>
+			        <md-tabs md-selected="currentTab" md-stretch-tabs="always" class="md-primary">
+			            <md-tab class="my-tab">
+					        <md-tab-label class="my-to-animate">Baza żywności</md-tab-label>
+					      </md-tab>
+					      <md-tab class="my-tab" ui-sref="vitamins">
+					        <md-tab-label class="my-to-animate">Witaminy</md-tab-label>
+					      </md-tab>
+					      <md-tab class="my-tab" ui-sref="preservatives">
+					        <md-tab-label class="my-to-animate">Konserwanty</md-tab-label>
+					      </md-tab>
+					      <md-tab class="my-tab">
+					        <md-tab-label class="my-to-animate">Asystent żywności</md-tab-label>
+					      </md-tab>
+			        </md-tabs>
+			    </div>
+			</md-toolbar>
+
+
+			<!--<md-toolbar layout="column" layout-sm="column" class="md-default-theme md-tall">
 				<div layout="row" layout-sm="row" class="md-toolbar-tools">
-
 					
 						<button class="btn btn--m btn--black btn--flat my-to-animate" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple>
 					       <md-icon class="my-button" md-svg-icon="/static/icons/menu.svg"></md-icon>
@@ -72,7 +127,6 @@
 					    </lx-dropdown-menu>
 					</lx-dropdown>
 					
-
 				</div>
 				<md-tabs class="my-tabs" md-selected="data.selectedIndex">
 			      <md-tab class="my-tab">
@@ -88,9 +142,7 @@
 			        <md-tab-label class="my-to-animate">Asystent żywności</md-tab-label>
 			      </md-tab>
 				</md-tabs>
-			</md-toolbar>
-
-			
+			</md-toolbar>-->
 
 			<md-content id="my-main-container" style="position:relative" flex>
 				
@@ -101,6 +153,7 @@
 			<md-toolbar class="md-tall my-footer">
 			</md-toolbar>	
 			</md-content>
+			
 			
 		</div>
 		<script type="text/javascript" src="/static/frameworks/jquery.js"></script>
@@ -114,7 +167,7 @@
 	    <script type="text/javascript" src="/static/frameworks/angular-aria.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-material.js"></script>
 	    <script type="text/javascript" src="/static/frameworks/angular-ui-route.js"></script>
-	    <script type="text/javascript" src="/static/frameworks/angular-touch.js"></script>
+	    <!--<script type="text/javascript" src="/static/frameworks/angular-touch.js"></script>-->
 
 		<script type="text/javascript" src="/static/frameworks/lumX/lumx.js"></script>
 

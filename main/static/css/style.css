@@ -17,12 +17,8 @@
 	font-weight: 500;
 }
 
-.my-content{
-	
-}
-
-.my-cardlike-margins{
-	margin: 8px;
+.my-toolbar{
+	height:112px !important;
 }
 
 .md-paginator{
@@ -60,4 +56,9 @@
 
 .my-pointer{
 	cursor:pointer;
+}
+
+
+.my-content{
+	min-height: 100vh;
 }

@@ -1,3 +1,12 @@
+#pre-alfa{
+	position: fixed;
+	bottom: 12px;
+	right: 36px;
+	z-index: 1000;
+}
+
+
+
 .my-tab[aria-selected="true"] md-tab-label{
 	color: white;
 }

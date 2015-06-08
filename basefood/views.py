@@ -13,6 +13,9 @@ class ProductFilter(filters.FilterSet):
 class CategoryList(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    filter_class = ProductFilter
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('slug', 'name')
 
 
 class VitaminList(generics.ListCreateAPIView):

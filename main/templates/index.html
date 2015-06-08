@@ -71,20 +71,17 @@
 			        </div>
 			        <span flex></span>
 			        <md-tabs class="md-primary" md-selected="currentTab">
-				      <md-tab id="tab1">
+				      <md-tab id="tab1" ui-sref="home">
+				        <md-tab-label>Wyszukiwarka</md-tab-label>
+				      </md-tab>
+				      <md-tab id="tab2">
 				        <md-tab-label>Baza żywności</md-tab-label>
 				      </md-tab>
-				      <md-tab id="tab2" ui-sref="vitamins({vitaminID: 0})">
+				      <md-tab id="tab3" ui-sref="vitamins({vitaminID: 0})">
 				        <md-tab-label>Witaminy</md-tab-label>
 				      </md-tab>
-				      <md-tab id="tab3" ui-sref="preservatives({preservativeID: 0})">
+				      <md-tab id="tab4" ui-sref="preservatives({preservativeID: 0})">
 				        <md-tab-label>Konserwanty</md-tab-label>
-				      </md-tab>
-				      <md-tab id="tab4">
-				        <md-tab-label>Asystent żywności</md-tab-label>
-				      </md-tab>
-				      <md-tab id="tab5" ui-sref="home">
-				        <md-tab-label>Wyszukiwarka</md-tab-label>
 				      </md-tab>
 				    </md-tabs>
 

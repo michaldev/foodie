@@ -1,5 +1,7 @@
 * {
     outline: none;
+    font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+    font-weight: 400 !important;
 }
 
 
@@ -9,9 +11,6 @@
 	right: 36px;
 	z-index: 1000;
 }
-
-
-
 
 .my-tab[aria-selected="true"] md-tab-label{
 	color: white;

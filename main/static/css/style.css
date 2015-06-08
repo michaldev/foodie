@@ -18,8 +18,7 @@
 }
 
 .my-font{
-	color: #000;
-	font-weight: 500;
+	color: white !important;
 }
 .my-subfont{
 	font-weight: 500;
@@ -81,6 +80,3 @@
 	-moz-border-radius: 150px;
 }
 
-.my-selected-if{
-	color: red;
-}

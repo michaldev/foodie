@@ -18,7 +18,7 @@
 }
 
 .my-font{
-	color: white !important;
+	color: #000 !important;
 }
 .my-subfont{
 	font-weight: 500;
@@ -27,8 +27,7 @@
 	-webkit-margin-after:0em;
 }
 .my-font-white{
-	color: #fff;
-	font-weight: 500;
+	color: #fff !important;
 }
 
 

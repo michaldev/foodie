@@ -21,7 +21,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class VitaminSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vitamin
-        fields = ('id', 'name', 'slug', 'description')
+        fields = ('id', 'name', 'othername', 'slug', 'description')
 
 
 class MineralSerializer(serializers.ModelSerializer):
@@ -33,7 +33,7 @@ class MineralSerializer(serializers.ModelSerializer):
 class PreservativeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Preservative
-        fields = ('id', 'name', 'slug', 'description', 'level')
+        fields = ('id', 'name', 'othername', 'slug', 'description', 'level')
 
 
 class ShopSerializer(serializers.ModelSerializer):

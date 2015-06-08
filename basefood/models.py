@@ -41,6 +41,7 @@ class Vitamin(models.Model):
     Vitamin model
     """
     name = models.CharField(max_length=255)
+    othername = models.CharField(max_length=255, default="")
     slug = models.SlugField(unique=True)
     description = models.CharField(max_length=255)
 
@@ -73,6 +74,7 @@ class Preservative(models.Model):
     Preservative model
     """
     name = models.CharField(max_length=255)
+    othername = models.CharField(max_length=255, default="")
     slug = models.SlugField(unique=True)
     description = models.CharField(max_length=255)
     level = models.IntegerField(default=0)

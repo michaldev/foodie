@@ -69,7 +69,23 @@
 					</lx-dropdown>
 			        </div>
 			        <span flex></span>
-			        <md-tabs md-selected="currentTab" md-stretch-tabs="always" class="md-primary">
+			        <md-tabs class="md-primary" md-selected="currentTab">
+				      <md-tab id="tab1">
+				        <md-tab-label>Baza żywności</md-tab-label>
+				      </md-tab>
+				      <md-tab id="tab2" ui-sref="vitamins">
+				        <md-tab-label>Witaminy</md-tab-label>
+				      </md-tab>
+				      <md-tab id="tab3" ui-sref="preservatives">
+				        <md-tab-label>Konserwanty</md-tab-label>
+				      </md-tab>
+				      <md-tab id="tab4">
+				        <md-tab-label>Asystent żywności</md-tab-label>
+				      </md-tab>
+				    </md-tabs>
+
+
+			        <!--<md-tabs md-selected="currentTab" md-stretch-tabs="always" class="md-primary">
 			            <md-tab class="my-tab my-to-animate">
 					        <md-tab-label class="my-to-animate">Baza żywności</md-tab-label>
 					      </md-tab>
@@ -82,7 +98,7 @@
 					      <md-tab class="my-tab my-to-animate">
 					        <md-tab-label class="my-to-animate">Asystent żywności</md-tab-label>
 					      </md-tab>
-			        </md-tabs>
+			        </md-tabs>-->
 			    </div>
 			</md-toolbar>
 

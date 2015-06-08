@@ -75,13 +75,27 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	        templateUrl: 'vitaminview',
 	        //template: 'test',
 	        controller: function($scope, $stateParams, $http) {
+	            
 	            $scope.vitaminID = $stateParams.vitaminID;
+
+
+	            
+	           
 
 	            $scope.functions = [];
 
+				
+
+
 	            $scope.functions.vitamineChange = function(id){
+
+	            	console.log("VitaminID: " + $scope.vitaminID);
+
+	            	//$("#vitamine-" + $scope.vitaminID).css( "background-color", "red" );
 	            	$scope.vitaminID = id;
+	            	//$("#vitamine-" + $scope.vitaminID).css( "background-color", "red" );
 	            	//console.log($scope.vitaminID);
+
 	            }
 
 

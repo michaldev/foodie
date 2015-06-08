@@ -17,10 +17,11 @@
                     </thead>
 
                     <tbody class="my-table-body">
-                        <tr class="my-tr my-pointer" ng-repeat="item in preservatives" ng-click="functions.preservativeChange($index)">
+                        <tr class="my-tr my-pointer data-table__clickable-row" ng-repeat="item in preservatives" ng-click="functions.preservativeChange($index)">
                             <td>
                                 {% verbatim %}
-                                    {{item.name}}
+                                    <p>{{item.name}}</p>
+                                    <p style="font-size:12px; color:grey">Alternatywna nazwa</p>
                                 {% endverbatim %}
                             </td>
                             <td>

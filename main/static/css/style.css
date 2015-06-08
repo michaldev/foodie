@@ -68,3 +68,13 @@
 .my-content{
 	min-height: 100vh;
 }
+
+.my-circular {
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+}
+
+.my-selected-if{
+	color: red;
+}

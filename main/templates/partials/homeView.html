@@ -9,37 +9,43 @@
 						<md-tabs md-dynamic-height md-selected="searchFor">
 							<md-tab label="Wyszukaj produkt">
 						        <md-content class="md-padding">
-								  	<h2>Wyszukaj rodzaj produktu</h2>
-								  	<md-whiteframe class="md-whiteframe-z1">
+								  	
+								  	<div class="md-whiteframe-z1" layout-margin layout-padding>
+								  		<h2>Wyszukaj rodzaj produktu</h2>
 								          <md-input-container flex >
 									          <label>Co chcesz zjeść?</label>
 									          <input ng-model="searchCtrl.searchText" ng-enter="searchCtrl.searchItem(searchCtrl.searchText)">
 									      </md-input-container>
-								    </md-whiteframe>
-										<md-button class="md-primary md-raised" ng-click="searchCtrl.searchItem(searchCtrl.searchText)">
-											Wyszukaj
-										</md-button>
-									<md-whiteframe class="md-whiteframe-z1">
+									      <md-button class="md-primary md-raised" ng-click="searchCtrl.searchItem(searchCtrl.searchText)">
+												Wyszukaj
+											</md-button>
+								    </div>
+										
+									<div class="md-whiteframe-z1" layout-margin>
 										<div ng-show="searchCtrl.isClicked" class="data-table-container" >
-										    <table class="data-table">
+										    <table class="data-table data-table--has-primary">
 										        <thead>
 										            <tr>
+										                <th></th>
 										                <th>Nazwa</th>
 										                <th>Producent</th>
 										            </tr>
 										            <tr>
-										                <td colspan="2" class="divider divider--dark"></td>
+										                <td colspan="3" class="divider divider--dark"></td>
 										            </tr>
 										        </thead>
 										        <tbody class="my-subfont">
 													<tr class="my-font data-table__clickable-row" ng-repeat="itemToShow in searchCtrl.itemsToShow" ui-sref="productDetail({productSlug: itemToShow.slug})">
+										              <td>{% verbatim %}
+										              	<img ng-src="{{itemToShow.image}}" style="width: 64px; height:auto" class="my-circular md-whiteframe-z1"/>{% endverbatim %}
+										              	</td>
 										              <td>{% verbatim %}{{itemToShow.name}}{% endverbatim %}</td>
 										              <td>{% verbatim %}{{itemToShow.producer}}{% endverbatim %}</td>
 										            </tr>
 										        </tbody>
 										    </table>
 										</div>
-									</md-whiteframe>
+									</div>
 						        </md-content>
 						      </md-tab>
 						      <md-tab label="Wyszukaj kategorie">

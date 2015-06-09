@@ -120,7 +120,7 @@
         <md-whiteframe class="md-whiteframe-z1" style="min-height:60vh" layout="column">
             <md-subheader>
                 {% verbatim %}
-                    {{preservatives[preservativeID].name}}
+                    <span>{{preservatives[preservativeID].name}}<span> <span style="font-size:11px; color:#A6A6A6">{{preservatives[preservativeID].othername}}</span>
                 {% endverbatim %}
             </md-subheader>
             <p style="padding:16px;">

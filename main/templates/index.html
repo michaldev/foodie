@@ -19,7 +19,7 @@
 		<p id="pre-alfa">Pre-alfa 0.0.1a</p>
 		<div style="width: 100%;" layout="column" layout-sm="column">
 		
-			<md-sidenav md-component-id="left" class="md-sidenav-left my-sidenav">
+			<md-sidenav md-component-id="left" class="md-sidenav-left">
 				<md-toolbar class="md-accent">
 					<div class="md-toolbar-tools my-font-white">
 						Kategorie
@@ -35,26 +35,26 @@
 			    <div layout="column" flex="100">
 			        <div class="md-toolbar-tools" layout="row" layout-sm="row">
 			        	<button class="btn btn--m btn--black btn--flat my-to-animate" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple>
-					       <md-icon class="my-button my-font-white" md-svg-icon="/static/icons/menu.svg"></md-icon>
+					       <md-icon class="my-font-white" md-svg-icon="/static/icons/menu.svg"></md-icon>
 					    </button>
 						<h3 class="my-font-white my-to-animate my-pointer" ui-sref="home">
 				          Foodie
 				        </h3>
 				        <span flex></span>
 				        <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple>
-					       <md-icon class="my-button my-font-white" md-svg-icon="/static/icons/plus.svg"></md-icon>
+					       <md-icon class="my-font-white" md-svg-icon="/static/icons/plus.svg"></md-icon>
 					    </button>
 					
 				
 					
 					    <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button my-to-animate" lx-ripple>
-					       <md-icon class="my-button my-font-white" md-svg-icon="/static/icons/information-outline.svg"></md-icon>
+					       <md-icon class="my-font-white" md-svg-icon="/static/icons/information-outline.svg"></md-icon>
 					    </button>
 					
 
 					<lx-dropdown position="right">
 					    <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple lx-dropdown-toggle>
-					        <md-icon class="my-button my-font-white" md-svg-icon="/static/icons/account.svg"></md-icon>
+					        <md-icon class="my-font-white" md-svg-icon="/static/icons/account.svg"></md-icon>
 					    </button>
 
 					    <lx-dropdown-menu>
@@ -108,7 +108,7 @@
 				<div layout="row" layout-sm="row" class="md-toolbar-tools">
 					
 						<button class="btn btn--m btn--black btn--flat my-to-animate" ng-click="openLeftMenu()" class="md-icon-button" lx-ripple>
-					       <md-icon class="my-button" md-svg-icon="/static/icons/menu.svg"></md-icon>
+					       <md-icon class=" md-svg-icon="/static/icons/menu.svg"></md-icon>
 					    </button>
 						<h3 class="my-font-white my-to-animate my-pointer" ui-sref="home">
 				          Foodie
@@ -117,19 +117,19 @@
 					<span flex></span>
 					
 					    <button ui-sref="productDetail({productID: 1})" class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple>
-					       <md-icon class="my-button" md-svg-icon="/static/icons/plus.svg"></md-icon>
+					       <md-icon class=" md-svg-icon="/static/icons/plus.svg"></md-icon>
 					    </button>
 					
 				
 					
 					    <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button my-to-animate" lx-ripple>
-					       <md-icon class="my-button" md-svg-icon="/static/icons/information-outline.svg"></md-icon>
+					       <md-icon class=" md-svg-icon="/static/icons/information-outline.svg"></md-icon>
 					    </button>
 					
 
 					<lx-dropdown position="right">
 					    <button class="btn btn--m btn--black btn--flat my-to-animate" class="md-icon-button" lx-ripple lx-dropdown-toggle>
-					        <md-icon class="my-button" md-svg-icon="/static/icons/account.svg"></md-icon>
+					        <md-icon class=" md-svg-icon="/static/icons/account.svg"></md-icon>
 					    </button>
 
 					    <lx-dropdown-menu>
@@ -161,7 +161,7 @@
 				</md-tabs>
 			</md-toolbar>-->
 
-			<md-content id="my-main-container" style="position:relative" flex>
+			<md-content style="position:relative" flex>
 				
 				<div class="my-content" ng-controller="viewCtrl" ui-view>
 					

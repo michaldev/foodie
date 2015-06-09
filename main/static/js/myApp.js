@@ -113,12 +113,13 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 			}
     	})
     	.state('vitamins', {
-	        url: '/vitamins/:vitaminSlug',
+	        url: '/vitamins/:vitaminSlug-:vitaminID',
 	        templateUrl: 'vitaminview',
 	        //template: 'test',
-	        controller: function($scope, $stateParams, $http) {
+	        controller: function($scope, $stateParams, $http, $state) {
 	            
 	            $scope.vitaminSlug = $stateParams.vitaminSlug;
+	            $scope.vitaminID = $stateParams.vitaminID;
 
 
 	            
@@ -129,12 +130,13 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 				
 
 
-	            $scope.functions.vitamineChange = function(vitaminSlug){
+	            $scope.functions.vitamineChange = function(vitaminSlug, vitaminID){
 
 	            	console.log("vitaminSlug: " + $scope.vitaminSlug);
 
 	            	//$("#vitamine-" + $scope.vitaminID).css( "background-color", "red" );
 	            	$scope.vitaminSlug = vitaminSlug;
+	            	$scope.vitaminID = vitaminID;
 	            	//$("#vitamine-" + $scope.vitaminID).css( "background-color", "red" );
 	            	//console.log($scope.vitaminID);
 
@@ -158,18 +160,20 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 			}
     	})
     	.state('preservatives', {
-	        url: '/preservatives/:preservativeID',
+	        url: '/preservatives/:preservativeSlug-:preservativeID',
 	        onEnter: function() { console.log("enter tab2"); },
 	        templateUrl: 'preservativeview',
 	        //template: 'test',
 	        controller: function($scope, $stateParams, $http) {
 	            $scope.preservativeID = $stateParams.preservativeID;
+	            $scope.preservativeSlug = $stateParams.preservativeSlug;
 
 	            $scope.functions = [];
 
 
-	            $scope.functions.preservativeChange = function(id){
+	            $scope.functions.preservativeChange = function(preservativeSlug, id){
 	            	$scope.preservativeID = id;
+	            	$scope.preservativeSlug = preservativeSlug;
 	            	//console.log($scope.preservativeID);
 	            }
 

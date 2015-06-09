@@ -17,7 +17,7 @@
                     </thead>
 
                     <tbody class="my-table-body">
-                        <tr class="my-tr my-pointer data-table__clickable-row" ng-repeat="item in preservatives" ng-click="functions.preservativeChange($index)">
+                        <tr class="my-tr my-pointer data-table__clickable-row" ng-repeat="item in preservatives" ng-click="functions.preservativeChange(item.slug, $index)" ui-sref="preservatives({preservativeSlug: item.slug, preservativeID: $index})">
                             <td>
                                 {% verbatim %}
                                     <p>{{item.name}}</p>

@@ -17,7 +17,7 @@
                     </thead>
 
                     <tbody class="my-table-body">
-                        {% verbatim %}<tr class="my-tr my-pointer data-table__clickable-row" ng-repeat="item in vitamins" id="vitamine-{{$index}}" ng-click="functions.vitamineChange($index)">{% endverbatim %}
+                        {% verbatim %}<tr class="my-tr my-pointer data-table__clickable-row" ng-repeat="item in vitamins" ng-click="functions.vitamineChange($index)">{% endverbatim %}
                             <td>
                                 {% verbatim %}
                                     <p>{{item.name}}</p>

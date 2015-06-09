@@ -113,12 +113,12 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 			}
     	})
     	.state('vitamins', {
-	        url: '/vitamins/:vitaminID',
+	        url: '/vitamins/:vitaminSlug',
 	        templateUrl: 'vitaminview',
 	        //template: 'test',
 	        controller: function($scope, $stateParams, $http) {
 	            
-	            $scope.vitaminID = $stateParams.vitaminID;
+	            $scope.vitaminSlug = $stateParams.vitaminSlug;
 
 
 	            
@@ -129,12 +129,12 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 				
 
 
-	            $scope.functions.vitamineChange = function(id){
+	            $scope.functions.vitamineChange = function(vitaminSlug){
 
-	            	console.log("VitaminID: " + $scope.vitaminID);
+	            	console.log("vitaminSlug: " + $scope.vitaminSlug);
 
 	            	//$("#vitamine-" + $scope.vitaminID).css( "background-color", "red" );
-	            	$scope.vitaminID = id;
+	            	$scope.vitaminSlug = vitaminSlug;
 	            	//$("#vitamine-" + $scope.vitaminID).css( "background-color", "red" );
 	            	//console.log($scope.vitaminID);
 

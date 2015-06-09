@@ -10,10 +10,10 @@ class ProductFilter(filters.FilterSet):
         model = Product
         fields = ['id', 'slug', 'category', 'sugar']
 
+
 class CategoryList(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    filter_class = ProductFilter
     filter_backends = (filters.SearchFilter,)
     search_fields = ('slug', 'name')
 
@@ -28,12 +28,17 @@ class PreservativeList(generics.ListCreateAPIView):
     serializer_class = PreservativeSerializer
 
 
+class ProductSearch(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('slug', 'producer')
+
+
 class ProductList(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_class = ProductFilter
-    filter_backends = (filters.SearchFilter,)
-    search_fields = ('slug', 'producer', 'name')
 
 
 class Product(generics.RetrieveUpdateDestroyAPIView):

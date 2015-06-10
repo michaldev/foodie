@@ -100,7 +100,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	            $scope.slug = $stateParams.productSlug;
 	            console.log($scope.slug);
 
-	            $http.get("/basefood/" + $scope.slug).success(function(data, status, headers, config) {
+	            $http.get("/basefood/products?slug=" + $scope.slug).success(function(data, status, headers, config) {
 		    		console.log('successCat');
 
 		    		$scope.product = data;

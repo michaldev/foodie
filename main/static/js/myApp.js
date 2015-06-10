@@ -101,11 +101,12 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	            console.log($scope.slug);
 
 	            $http.get("/basefood/products?slug=" + $scope.slug).success(function(data, status, headers, config) {
-		    		console.log('successCat');
+		    		console.log('successCatProduct');
 
-		    		$scope.product = data;
+		    		$scope.product = data[0];
 
-		    		console.log(data);
+		    		console.log("Product: ");
+		    		console.log(data[0]);
 
 				}).error(function(data, status, headers, config) {
 			    	console.log('errorCatB');

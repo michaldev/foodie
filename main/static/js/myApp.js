@@ -77,7 +77,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	        		console.log($scope.searchCtrl.searchText);
 	        		$scope.searchCtrl.isClicked = true;
 
-		        		$http.get("/basefood/products?search=" + $scope.searchCtrl.searchText).success(function(data, status, headers, config) {
+		        		$http.get("/basefood/productsearch?search=" + $scope.searchCtrl.searchText).success(function(data, status, headers, config) {
 			    		console.log('successCat');
 
 			    		$scope.searchCtrl.itemsToShow = data;

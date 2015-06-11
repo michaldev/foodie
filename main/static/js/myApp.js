@@ -72,7 +72,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	        //template: 'test',
 	        controller: function($scope, $stateParams, $http, $cookies) {
 	        	$scope.searchCtrl = [];
-
+	        	
 	        	$scope.searchCtrl.searchItem = function(item){
 	        		console.log($scope.searchCtrl.searchText);
 	        		$scope.searchCtrl.isClicked = true;
@@ -83,6 +83,8 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 			    		$scope.searchCtrl.itemsToShow = data;
 
 			    		console.log("After search: " + data);
+			    		
+
 
 					}).error(function(data, status, headers, config) {
 				    	console.log('errorCatB');
@@ -219,7 +221,112 @@ myApp.controller('mainCtrl', ['$scope', '$mdSidenav', 'animationFactory', functi
   	};
 
 
-  	$(document).ready(function() {
+
+  	$(window).load(function() {
+		//$(".loader").delay(5000).append('<div class="star-anim-circle">OK</div>').fadeOut("slow");
+
+		    
+		
+
+			
+		
+		setTimeout(function() {		 
+			$('#loadingItem').transition({ scale: 0 });
+				
+				setTimeout(function() {		
+					$(".loader").append('<div class="star-anim-circle"></div>');
+						setTimeout(function() {		
+							$(".star-anim-circle").transition({ scale: 100 });
+								setTimeout(function() {		
+									$(".star-anim-circle").transition({ scale: 200 });
+										setTimeout(function() {		
+											$(".star-anim-circle").transition({ scale: $( window ).width()*1.2 });
+											$(".loader").fadeOut("slow");
+
+
+										}, 500);
+
+
+								}, 500);
+
+
+						}, 500);
+				}, 500);
+
+
+
+
+
+
+		  	/*$( "#loadingItem" ).animate({ 
+		  		//transform: 'scale(0,0)',
+		  	}, 300, 'easeOutCubic', function () {
+
+		  		$(".loader").append('<div class="star-anim-circle"></div>');
+
+
+			  		$(".star-anim-circle").animate({
+			  			width: "1px",
+			  			height: "1px",
+			  			//transform: 'scale(150,150)'
+			  		}, 400, 'easeOutQuad', function(){
+			  			setTimeout(function() {
+				  			$(".star-anim-circle").animate({
+					  			//transform: 'scale(350,350)'
+					  		}, 600, 'easeOutQuad', function(){
+
+					  			
+					  			setTimeout(function() {
+						  			$(".star-anim-circle").animate({
+							  			//transform: 'scale('+$( window ).width()*1.2+','+$( window ).height()*2+')'
+							  		}, 500, 'easeOutQuad', function(){
+
+							  			$(".loader").fadeOut("slow");
+							  			setTimeout(function() {	
+							  				
+						  				}, 3000);
+							  		
+						  			});
+						  		}, 100)
+					  	}, 200)
+
+					  			setTimeout(function() {	
+					  				$(".loader").fadeOut("slow");
+				  				}, 3000);
+					  		
+				  			
+
+				  			
+
+
+
+				  			setTimeout(function() {	
+				  				$(".loader").fadeOut("slow");
+			  				}, 3000);
+				  		
+			  			});
+			  			setTimeout(function() {	
+			  				$(".loader").fadeOut("slow");
+		  				}, 3000);
+			  		
+		  			});
+
+
+		  			
+		  	});*/
+
+
+		}, 3000);
+			//setTimeout(function() {
+		    	//$(".loader").delay(2000).append('<div class="star-anim-circle">OK</div>');
+		    //}, 3000);
+			//$(".loader").delay(2000).append('<div class="star-anim-circle">OK</div>');
+	});/*
+
+
+
+
+  	/*$(document).ready(function() {
 
     $('body').append( $('<div id="my-greeting-screen" style="position: absolute;top:0;left:0; width:100%; height:100%; background-color: #4CAF50; z-index:1001;"></div>') );
 	    $("#my-greeting-screen").delay(600).animate({
@@ -244,11 +351,7 @@ myApp.controller('mainCtrl', ['$scope', '$mdSidenav', 'animationFactory', functi
 					  		$("#my-greeting-screen").remove()
 					  	});
 
-	});
-
-
-
-
+	});*/
 
 
 }]);

@@ -94,6 +94,14 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	           
 			}
     	})
+        .state('about', {
+	        url: '/about',
+	        templateUrl: 'aboutview',
+	        //template: 'test',
+	        controller: function($scope, $stateParams, $http, $cookies) {
+	           
+			}
+    	})
     	.state('productDetail', {
 	        url: '/product/:productSlug',
 	        templateUrl: 'productview',

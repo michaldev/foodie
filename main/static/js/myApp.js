@@ -225,12 +225,15 @@ myApp.controller('mainCtrl', ['$scope', '$mdSidenav', 'animationFactory', functi
   	$(window).load(function() {
 		//$(".loader").delay(5000).append('<div class="star-anim-circle">OK</div>').fadeOut("slow");
 
-		    
-		
 
-			
-		
-		setTimeout(function() {		 
+
+	});
+
+
+
+
+  	$(document).ready(function() {
+  		setTimeout(function() {		 
 			$('#loadingItem').transition({ scale: 0 });
 				
 				setTimeout(function() {		
@@ -247,111 +250,22 @@ myApp.controller('mainCtrl', ['$scope', '$mdSidenav', 'animationFactory', functi
 										}, 500);
 
 
-								}, 500);
+								}, 600);
 
 
-						}, 500);
-				}, 500);
-
-
-
+						}, 400);
+				},400);
 
 
 
-		  	/*$( "#loadingItem" ).animate({ 
-		  		//transform: 'scale(0,0)',
-		  	}, 300, 'easeOutCubic', function () {
-
-		  		$(".loader").append('<div class="star-anim-circle"></div>');
-
-
-			  		$(".star-anim-circle").animate({
-			  			width: "1px",
-			  			height: "1px",
-			  			//transform: 'scale(150,150)'
-			  		}, 400, 'easeOutQuad', function(){
-			  			setTimeout(function() {
-				  			$(".star-anim-circle").animate({
-					  			//transform: 'scale(350,350)'
-					  		}, 600, 'easeOutQuad', function(){
-
-					  			
-					  			setTimeout(function() {
-						  			$(".star-anim-circle").animate({
-							  			//transform: 'scale('+$( window ).width()*1.2+','+$( window ).height()*2+')'
-							  		}, 500, 'easeOutQuad', function(){
-
-							  			$(".loader").fadeOut("slow");
-							  			setTimeout(function() {	
-							  				
-						  				}, 3000);
-							  		
-						  			});
-						  		}, 100)
-					  	}, 200)
-
-					  			setTimeout(function() {	
-					  				$(".loader").fadeOut("slow");
-				  				}, 3000);
-					  		
-				  			
-
-				  			
 
 
 
-				  			setTimeout(function() {	
-				  				$(".loader").fadeOut("slow");
-			  				}, 3000);
-				  		
-			  			});
-			  			setTimeout(function() {	
-			  				$(".loader").fadeOut("slow");
-		  				}, 3000);
-			  		
-		  			});
-
-
-		  			
-		  	});*/
+		  	
 
 
 		}, 3000);
-			//setTimeout(function() {
-		    	//$(".loader").delay(2000).append('<div class="star-anim-circle">OK</div>');
-		    //}, 3000);
-			//$(".loader").delay(2000).append('<div class="star-anim-circle">OK</div>');
-	});/*
-
-
-
-
-  	/*$(document).ready(function() {
-
-    $('body').append( $('<div id="my-greeting-screen" style="position: absolute;top:0;left:0; width:100%; height:100%; background-color: #4CAF50; z-index:1001;"></div>') );
-	    $("#my-greeting-screen").delay(600).animate({
-					    height: "0px",
-					  	}, 1000, 'easeOutCubic', function() {
-
-
-					  		$.each($('.my-to-animate'), function(i, el){
-
-							    $(el).css({'opacity':0});
-
-							    setTimeout(function(){
-							       $(el).animate({
-							        'opacity':1.0
-							       }, 400, 'easeOutCubic');
-							    },100 + ( i * 200 ));
-
-
-							    animationFactory.setFirstAnim();
-							});
-					  		
-					  		$("#my-greeting-screen").remove()
-					  	});
-
-	});*/
+	});
 
 
 }]);

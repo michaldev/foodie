@@ -61,5 +61,5 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = ('id', 'name', 'producer', 'slug', 'image', 'image2', 'category', 'sugar', 'size',
             'protein', 'vitamins', 'minerals', 'carbohydrates', 'fats', 'fatsSaturated', 'energyValue', 
-            'portion', 'preservatives', 'shops', 'prices', 'pricemin', 'pricemax')
+            'portion', 'preservatives', 'shops', 'prices')
 

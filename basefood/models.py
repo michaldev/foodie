@@ -105,9 +105,9 @@ class Shop(models.Model):
 
 class Price(models.Model):
     price = models.FloatField(verbose_name="Cena", default=0)
-    product = models.ForeignKey("Product")
-    shop = models.ForeignKey("Shop")
-    date_change = models.DateField()
+    product = models.ForeignKey("Product", verbose_name="Produkt")
+    shop = models.ForeignKey("Shop", verbose_name="Sklep")
+    date_change = models.DateField(verbose_name="Data modyfikacji")
 
     class Meta:
         verbose_name = "Cena"

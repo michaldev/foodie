@@ -4,6 +4,7 @@ from django.conf import settings
 
 from main.views import Homepage, ProductView, VitaminView, PreservativeView, HomeView, AboutView
 
+admin.site.site_header = 'Foodie - Panel Admina'
 
 
 urlpatterns = patterns('',

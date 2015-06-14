@@ -116,6 +116,7 @@ class Price(models.Model):
     def __unicode__(self):
         return "%s" % self.product
 
+
 class Product(models.Model):
     """
     Product model
@@ -138,8 +139,6 @@ class Product(models.Model):
     portion = models.FloatField(verbose_name='Porcja')
     preservatives = models.ManyToManyField('Preservative', verbose_name='Konserwanty')
     shops = models.ManyToManyField('Shop', verbose_name='Sklepy', through="Price")
-    pricemin = models.FloatField(verbose_name='Cena min')
-    pricemax = models.FloatField(verbose_name='Cena max')
 
     class Meta:
         verbose_name = "Produkt"

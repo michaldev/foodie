@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from rest_framework import serializers
-from .models import Category, CategoryMain, Product, Vitamin, Mineral, Preservative, Shop
+from .models import Category, CategoryMain, Product, Vitamin, Mineral, Preservative, Shop, Price
 
 
 class CategoryMainSerializer(serializers.ModelSerializer):
@@ -42,6 +42,12 @@ class ShopSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'slug', 'image')
 
 
+class PriceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Price
+        fields = ('id', 'price', 'product', 'shop', 'date_change')
+
+
 class ProductSerializer(serializers.ModelSerializer):
     """Główna serializacja produktu"""
     category = CategorySerializer(many=True, read_only=True)
@@ -49,10 +55,11 @@ class ProductSerializer(serializers.ModelSerializer):
     minerals = MineralSerializer(many=True, read_only=True)
     preservatives = PreservativeSerializer(many=True, read_only=True)
     shops = ShopSerializer(many=True, read_only=True)
+    prices = PriceSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product
         fields = ('id', 'name', 'producer', 'slug', 'image', 'image2', 'category', 'sugar', 'size',
             'protein', 'vitamins', 'minerals', 'carbohydrates', 'fats', 'fatsSaturated', 'energyValue', 
-            'portion', 'preservatives', 'shops', 'pricemin', 'pricemax')
+            'portion', 'preservatives', 'shops', 'prices', 'pricemin', 'pricemax')
 

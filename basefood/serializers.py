@@ -43,6 +43,9 @@ class ShopSerializer(serializers.ModelSerializer):
 
 
 class PriceSerializer(serializers.ModelSerializer):
+    product = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    shop = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
     class Meta:
         model = Price
         fields = ('id', 'price', 'product', 'shop', 'date_change')

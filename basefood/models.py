@@ -104,6 +104,7 @@ class Shop(models.Model):
 
 
 class Price(models.Model):
+    price = models.FloatField(verbose_name="Cena", default=0)
     product = models.ForeignKey("Product")
     shop = models.ForeignKey("Shop")
     date_change = models.DateField()
@@ -113,7 +114,7 @@ class Price(models.Model):
         verbose_name_plural = "Ceny"
 
     def __unicode__(self):
-        return "%s" % self.name
+        return "%s" % self.product
 
 class Product(models.Model):
     """

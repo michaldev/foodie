@@ -45,8 +45,8 @@ class Migration(migrations.Migration):
                 ('description', models.CharField(max_length=255)),
             ],
             options={
-                'verbose_name': 'Konserwant',
-                'verbose_name_plural': 'Produkty',
+                'verbose_name': 'Minera\u0142',
+                'verbose_name_plural': 'Minera\u0142y',
             },
             bases=(models.Model,),
         ),
@@ -55,12 +55,26 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=255)),
+                ('othername', models.CharField(default=b'', max_length=255)),
                 ('slug', models.SlugField(unique=True)),
                 ('description', models.CharField(max_length=255)),
+                ('level', models.IntegerField(default=0)),
             ],
             options={
                 'verbose_name': 'Konserwant',
                 'verbose_name_plural': 'Konserwanty',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Price',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('date_change', models.DateField()),
+            ],
+            options={
+                'verbose_name': 'Cena',
+                'verbose_name_plural': 'Ceny',
             },
             bases=(models.Model,),
         ),
@@ -112,6 +126,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=255)),
+                ('othername', models.CharField(default=b'', max_length=255)),
                 ('slug', models.SlugField(unique=True)),
                 ('description', models.CharField(max_length=255)),
             ],
@@ -124,13 +139,25 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='shops',
-            field=models.ManyToManyField(to='basefood.Shop', verbose_name=b'Sklepy'),
+            field=models.ManyToManyField(to='basefood.Shop', verbose_name=b'Sklepy', through='basefood.Price'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='product',
             name='vitamins',
             field=models.ManyToManyField(to='basefood.Vitamin', verbose_name=b'Witaminy'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='price',
+            name='product',
+            field=models.ForeignKey(to='basefood.Product'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='price',
+            name='shop',
+            field=models.ForeignKey(to='basefood.Shop'),
             preserve_default=True,
         ),
         migrations.AddField(

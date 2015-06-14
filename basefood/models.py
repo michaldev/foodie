@@ -103,6 +103,18 @@ class Shop(models.Model):
         return "%s" % self.name
 
 
+class Price(models.Model):
+    product = models.ForeignKey("Product")
+    shop = models.ForeignKey("Shop")
+    date_change = models.DateField()
+
+    class Meta:
+        verbose_name = "Cena"
+        verbose_name_plural = "Ceny"
+
+    def __unicode__(self):
+        return "%s" % self.name
+
 class Product(models.Model):
     """
     Product model
@@ -124,7 +136,7 @@ class Product(models.Model):
     energyValue = models.FloatField(verbose_name='Wartość energetyczna')
     portion = models.FloatField(verbose_name='Porcja')
     preservatives = models.ManyToManyField('Preservative', verbose_name='Konserwanty')
-    shops = models.ManyToManyField('Shop', verbose_name='Sklepy')
+    shops = models.ManyToManyField('Shop', verbose_name='Sklepy', through="Price")
     pricemin = models.FloatField(verbose_name='Cena min')
     pricemax = models.FloatField(verbose_name='Cena max')
 

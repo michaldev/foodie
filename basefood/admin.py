@@ -1,5 +1,5 @@
 from django.contrib import admin
-from basefood.models import Category, CategoryMain, Product, Vitamin, Preservative, Shop, Mineral
+from basefood.models import Category, CategoryMain, Product, Vitamin, Preservative, Shop, Mineral, Price
 
 class Every(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
@@ -12,3 +12,4 @@ admin.site.register(Vitamin, Every)
 admin.site.register(Preservative, Every)
 admin.site.register(Mineral, Every)
 admin.site.register(Shop, Every)
+admin.site.register(Price)

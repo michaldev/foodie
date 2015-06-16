@@ -17,7 +17,7 @@ else
 
 
 
-var myApp = angular.module('myApp', ['ngCookies', 'ui.router', 'ngMaterial', 'ngAria', 'ngAnimate', 'lumx']);
+var myApp = angular.module('myApp', ['ngCookies', 'ui.router', 'ngMaterial', 'ngAria', 'ngAnimate']);
 
 
 

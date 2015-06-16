@@ -37,7 +37,7 @@
 					
 				</md-toolbar>
 				<div ng-controller="sidenavCtrl">
-					<md-button style="width: 100%" ng-repeat="category in categories">{% verbatim %}{{category.name}}{% endverbatim %}</md-button>
+					<md-button style="width: 100%; margin: 0 !important" ng-repeat="category in categories">{% verbatim %}{{category.name}}{% endverbatim %}</md-button>
 				</div>
 
 			</md-sidenav>
@@ -62,22 +62,7 @@
 					    </button>
 					
 
-					<lx-dropdown position="right">
-					    <button class="btn btn--m btn--black btn--flat" class="md-icon-button" lx-ripple lx-dropdown-toggle>
-					        <md-icon class="my-font-white" md-svg-icon="/static/icons/account.svg"></md-icon>
-					    </button>
-
-					    <lx-dropdown-menu>
-					        <ul>
-					            <li><a class="dropdown-link">Another action</a></li>
-					            <li><a class="dropdown-link">Another action</a></li>
-					            <li><a class="dropdown-link">Another action</a></li>
-					            <li class="dropdown-divider"></li>
-					            <li><span class="dropdown-link dropdown-link--is-header">Header</span></li>
-					            <li><a class="dropdown-link">Separated link</a></li>
-					        </ul>
-					    </lx-dropdown-menu>
-					</lx-dropdown>
+					
 			        </div>
 			        <span flex></span>
 			        <md-tabs class="md-primary" md-selected="currentTab">
@@ -199,8 +184,7 @@
 	    <script type="text/javascript" src="/static/frameworks/angular-ui-route.js"></script>
 	    <!--<script type="text/javascript" src="/static/frameworks/angular-touch.js"></script>-->
 
-		<script type="text/javascript" src="/static/frameworks/lumX/lumx.js"></script>
-
+		
 	    <script type="text/javascript" src="/static/js/myApp.js"></script>
 	</body>
 </html>

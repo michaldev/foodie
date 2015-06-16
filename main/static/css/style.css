@@ -52,10 +52,12 @@
 	color: #000 !important;
 }
 .my-subfont{
+	display: block;
+	font-size: 14px;
 	font-weight: 500;
-	color: #8A8A8A;
-	-webkit-margin-before:0em;
-	-webkit-margin-after:0em;
+	line-height: 1em;
+	color: #808080;
+	margin: 16px 16px 16px 16px;
 }
 .my-font-white{
 	color: #fff !important;

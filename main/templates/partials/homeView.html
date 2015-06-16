@@ -31,7 +31,7 @@
 										                <td colspan="3" class="divider divider--dark"></td>
 										            </tr>
 										        </thead>
-										        <tbody class="my-subfont">
+										        <tbody>
 													<tr class="my-font data-table__clickable-row" ng-repeat="itemToShow in searchCtrl.itemsToShow" ui-sref="productDetail({productSlug: itemToShow.slug})">
 										              <td>{% verbatim %}
 										              	<img ng-src="{{itemToShow.image}}" style="width: 64px; height:auto" class="my-circular md-whiteframe-z1"/>{% endverbatim %}

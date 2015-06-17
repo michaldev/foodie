@@ -4,12 +4,25 @@
 import json, urllib2
 import gtk
 
-class Product():
-    def __init__(self):
-        data = urllib2.urlopen("http://melonlab.pl/basefood/products?slug=jogobella")
-        json_data = json.loads(data.read())
-    def get_info(json_data):
-        print json_data
+class ProductInfo:
+    slug = "jogobella"
+    data = urllib2.urlopen("http://melonlab.pl/basefood/products?slug="+slug)
+    json_data = json.loads(data.read())
+    json_data = json_data[0]
+    def show_data(self):
+        return self.json_data
+    def show_name(self):
+        return self.json_data["name"]
+    def show_producer(self):
+        return self.json_data["producer"]
+        
+class SearchProduct:
+    key = "jogo"
+    data = urllib2.urlopen("http://melonlab.pl/basefood/productsearch?search="+key)
+    json_data = json.loads(data.read())
+    def show_data(self):
+        return self.json_data
+    
 
 class MainWindow():
     def destroy(self, widget):
@@ -32,7 +45,7 @@ class MainWindow():
 
 
 if __name__=="__main__":
-    produkt = Product()
-    print produkt.get_info()
+    produkt = ProductInfo()
+    print produkt.show_name()
     MainWindow()
     gtk.main()

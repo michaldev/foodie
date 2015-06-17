@@ -32,7 +32,7 @@ class ProductInfo:
         return self.json_data["protein"]
         
     def get_fat(self):
-		return self.json_data["fats"]
+        return self.json_data["fats"]
             
             
             
@@ -63,6 +63,7 @@ class MainWindow:
         self.progressbarSugar.set_fraction(0.2)
         self.protein = gtk.Label()
         self.fat = gtk.Label()
+        self.valuesincategory = gtk.Label()
         self.progressbarProtein = gtk.ProgressBar(adjustment=None)
         self.progressbarProtein.set_fraction(0.3)
         self.progressbarFat = gtk.ProgressBar(adjustment=None)
@@ -76,13 +77,15 @@ class MainWindow:
         self.fat.set_markup("<b>Tłuszcz:</b> "+str(self.product.get_fat()))
         self.name.set_markup("<span size='x-large'>"+self.product.get_name()+" - "+self.product.get_producer()+"</span>")
         self.category.set_markup("<b>Kategoria:</b> "+str(self.product.get_category()))
+        self.valuesincategory.set_markup("<span size='x-small'>Wartości w skali kategorii</span> <span size='small'><b>"+str(self.product.get_category())+"</b></span>")
         self.fixed.put(self.image,1 ,1)
-        self.fixed.put(self.sugar, 250, 20)
-        self.fixed.put(self.progressbarSugar, 225, 40)
-        self.fixed.put(self.protein, 250, 70)
-        self.fixed.put(self.progressbarProtein, 225, 90)
-        self.fixed.put(self.fat, 250, 120)
-        self.fixed.put(self.progressbarFat, 225, 140)
+        self.fixed.put(self.sugar, 250, 50)
+        self.fixed.put(self.progressbarSugar, 225, 70)
+        self.fixed.put(self.protein, 250, 100)
+        self.fixed.put(self.progressbarProtein, 225, 130)
+        self.fixed.put(self.fat, 250, 160)
+        self.fixed.put(self.progressbarFat, 225, 190)
+        self.fixed.put(self.valuesincategory, 220, 20)
         self.fixed.put(self.name, 10, 220)
         self.fixed.put(self.category, 10, 250)
         self.window.add(self.fixed)

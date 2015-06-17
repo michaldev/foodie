@@ -15,6 +15,12 @@ class ProductInfo:
         return self.json_data["name"]
     def show_producer(self):
         return self.json_data["producer"]
+    def show_image(self):
+        return self.json_data["image"]
+    def show_sugar(self):
+        return self.json_data["sugar"]
+    def show_category(self):
+		return self.json_data["category"][0]["name"]
         
 class SearchProduct:
     key = "jogo"
@@ -24,28 +30,33 @@ class SearchProduct:
         return self.json_data
     
 
-class MainWindow():
+class MainWindow:
+    product = ProductInfo()
     def destroy(self, widget):
         gtk.main_quit()
         
     def __init__(self):
         self.window = gtk.Window()
-        self.window.set_title("Foodie - Logowanie")
+        self.window.set_title("Foodie - "+self.product.show_name()+" "+self.product.show_producer())
         self.window.set_size_request(400, 500)
         self.window.connect("destroy", self.destroy)
         self.fixed = gtk.Fixed()
         self.image = gtk.Image()
-        #loader = gtk.gdk.PixbufLoader()
-        #loader.write(urllib2.urlopen().read())
-        #loader.close()
-        #self.image.set_from_pixbuf(loader.get_pixbuf())
+        self.sugar = gtk.Label()
+        self.category = gtk.Label()
+        loader = gtk.gdk.PixbufLoader()
+        loader.write(urllib2.urlopen(self.product.show_image()).read())
+        loader.close()
+        self.image.set_from_pixbuf(loader.get_pixbuf().scale_simple(200,200,gtk.gdk.INTERP_BILINEAR))
+        self.sugar.set_markup("<b>Sugar:</b> "+str(self.product.show_sugar()))
+        self.category.set_markup("<b>Kategoria:</b> "+str(self.product.show_category()))
         self.fixed.put(self.image,1 ,1)
+        self.fixed.put(self.sugar, 220, 20)
+        self.fixed.put(self.category, 10, 220)
         self.window.add(self.fixed)
         self.window.show_all()
 
 
 if __name__=="__main__":
-    produkt = ProductInfo()
-    print produkt.show_name()
     MainWindow()
     gtk.main()

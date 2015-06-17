@@ -125,7 +125,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	        url: '/product/:productSlug',
 	        templateUrl: 'productview',
 	        //template: 'test',
-	        controller: function($scope, $stateParams, $http) {
+	        controller: function($scope, $stateParams, $http, changeStateFactory) {
 
 	            $scope.slug = $stateParams.productSlug;
 	            console.log($scope.slug);
@@ -141,6 +141,14 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 				}).error(function(data, status, headers, config) {
 			    	console.log('errorCatB');
 				});
+			},
+			onEnter: function(changeStateFactory){
+				changeStateFactory.setFab(true);
+				console.log("inProduct");
+			},
+			onExit: function(changeStateFactory){
+			    changeStateFactory.setFab(false);
+			    console.log("outProduct");
 			}
     	})
     	.state('vitamins', {
@@ -219,25 +227,25 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         
 });
 
-myApp.factory('animationFactory', function(){
-	var animationFactory = [];
 
-	animationFactory.firstAnim = true;
+myApp.factory('changeStateFactory', function(){
+	var changeStateFactory = [];
+	
 
-	animationFactory.setFirstAnim = function(){
-		animationFactory.firstAnim = false;
+
+	changeStateFactory.setFab = function(value){
+		changeStateFactory.isProduct=value;
+		console.log("SetProduct: "+changeStateFactory.isProduct);
 	}
-
-	animationFactory.getFirstAnim = function(){
-		return animationFactory.firstAnim;
+	changeStateFactory.getFab = function(){
+		return isProduct;
 	}
-
-	return animationFactory;
+	return changeStateFactory;
 });
 
 
 
-myApp.controller('mainCtrl', ['$scope', '$mdSidenav', 'animationFactory', function($scope, $mdSidenav, animationFactory){
+myApp.controller('mainCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
 	$scope.openLeftMenu = function() {
     	$mdSidenav('left').toggle();
   	};
@@ -245,7 +253,7 @@ myApp.controller('mainCtrl', ['$scope', '$mdSidenav', 'animationFactory', functi
 
 }]);
 
-myApp.controller('viewCtrl', ['$scope','animationFactory', function($scope, animationFactory){
+myApp.controller('viewCtrl', ['$scope', function($scope){
 		
 
 	
@@ -271,6 +279,26 @@ myApp.controller('sidenavCtrl', ['$scope','$http', function($scope, $http){
 		
 	
 
+}]);
+
+myApp.controller('myNavbar', ['$scope','$state','changeStateFactory', function($scope, $state, changeStateFactory){
+	console.log('Current state: ');
+
+	$scope.isFab = false;
+
+
+
+
+	$scope.$watch(function() {	//Obserwowanie zmiennej factory changeStateFactory z inputu
+        return changeStateFactory.isProduct;
+    }, function(newValue) {
+        $scope.isFab = newValue;	//Wynik przypisywany dla obiektu uzytego w filtrze
+        console.log("myNavbar");
+		console.log($scope.isFab);
+    });
+
+
+	
 }]);
 
 myApp.directive('ngEnter', function() {

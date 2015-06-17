@@ -15,6 +15,71 @@ else
    
 }
 
+$(window).load(function() {
+		//$(".loader").delay(5000).append('<div class="star-anim-circle">OK</div>').fadeOut("slow");
+
+
+
+	});
+
+
+
+
+  	$(document).ready(function() {
+  		setTimeout(function() {		 
+			//$('#loader').transition({ scale: 0 });
+			//$('#loader').css( "opacity", "0" );
+
+
+
+				  $( "#loader" ).animate({
+				    width: '0px',
+				    height: '0px',
+				    opacity: '0'
+				  }, 300, 'easeInQuint', function() {
+				    
+				  
+
+
+
+
+				setTimeout(function() {		
+					$(".loader").append('<div class="star-anim-circle"></div>');
+						setTimeout(function() {		
+							$(".star-anim-circle").transition({ scale: 100 });
+								setTimeout(function() {		
+									$(".star-anim-circle").transition({ scale: 200 });
+										setTimeout(function() {		
+											$(".star-anim-circle").transition({ scale: $( window ).width()*1.2 });
+											$(".loader").fadeOut("slow");
+
+
+										}, 500);
+
+
+								}, 600);
+
+
+						}, 400);
+				},400);
+
+
+				});
+
+
+
+		  	
+
+
+		}, 3000);
+	});
+
+
+
+
+
+
+
 
 
 var myApp = angular.module('myApp', ['ngCookies', 'ui.router', 'ngMaterial', 'ngAria', 'ngAnimate']);
@@ -230,50 +295,7 @@ myApp.controller('mainCtrl', ['$scope', '$mdSidenav', 'animationFactory', functi
 
 
 
-  	$(window).load(function() {
-		//$(".loader").delay(5000).append('<div class="star-anim-circle">OK</div>').fadeOut("slow");
-
-
-
-	});
-
-
-
-
-  	$(document).ready(function() {
-  		setTimeout(function() {		 
-			$('#loadingItem').transition({ scale: 0 });
-				
-				setTimeout(function() {		
-					$(".loader").append('<div class="star-anim-circle"></div>');
-						setTimeout(function() {		
-							$(".star-anim-circle").transition({ scale: 100 });
-								setTimeout(function() {		
-									$(".star-anim-circle").transition({ scale: 200 });
-										setTimeout(function() {		
-											$(".star-anim-circle").transition({ scale: $( window ).width()*1.2 });
-											$(".loader").fadeOut("slow");
-
-
-										}, 500);
-
-
-								}, 600);
-
-
-						}, 400);
-				},400);
-
-
-
-
-
-
-		  	
-
-
-		}, 3000);
-	});
+  	
 
 
 }]);

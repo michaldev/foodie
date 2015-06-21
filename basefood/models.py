@@ -8,7 +8,6 @@ class CategoryMain(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    #parent = models.ForeignKey('CategoryMain', blank=True, null=True)
 
     class Meta:
         verbose_name = "Główna Kategoria"
@@ -24,9 +23,8 @@ class Category(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    categorymain = models.ManyToManyField('CategoryMain', 
-        verbose_name='Główna kategoria')
-    #parent = models.ForeignKey('Category', blank=True, null=True)
+    categorymain = models.ManyToManyField(
+        'CategoryMain', verbose_name='Główna kategoria')
 
     class Meta:
         verbose_name = "Kategoria"
@@ -137,8 +135,10 @@ class Product(models.Model):
     fatsSaturated = models.FloatField(verbose_name='Tłuszcze nasycone')
     energyValue = models.FloatField(verbose_name='Wartość energetyczna')
     portion = models.FloatField(verbose_name='Porcja')
-    preservatives = models.ManyToManyField('Preservative', verbose_name='Konserwanty')
-    shops = models.ManyToManyField('Shop', verbose_name='Sklepy', through="Price")
+    preservatives = models.ManyToManyField(
+        'Preservative', verbose_name='Konserwanty')
+    shops = models.ManyToManyField(
+        'Shop', verbose_name='Sklepy', through="Price")
 
     class Meta:
         verbose_name = "Produkt"

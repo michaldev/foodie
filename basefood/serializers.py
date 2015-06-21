@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from rest_framework import serializers
-from .models import Category, CategoryMain, Product, Vitamin, Mineral, Preservative, Shop, Price
+from basefood.models import Category, CategoryMain, Product, Vitamin, Mineral, Preservative, Shop, Price
 
 
 class CategoryMainSerializer(serializers.ModelSerializer):
@@ -37,9 +37,14 @@ class PreservativeSerializer(serializers.ModelSerializer):
 
 
 class ShopSerializer(serializers.ModelSerializer):
+    price = serializers.SerializerMethodField()
+
+    def get_price(self, obj):
+        a = Price.objects.get(product=1, shop=1).price
+        return a
     class Meta:
         model = Shop
-        fields = ('id', 'name', 'slug', 'image')
+        fields = ('id', 'name', 'slug', 'image', 'price')
 
 
 class ProductSerializer(serializers.ModelSerializer):

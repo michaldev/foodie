@@ -40,7 +40,7 @@ class ShopSerializer(serializers.ModelSerializer):
     price = serializers.SerializerMethodField()
 
     def get_price(self, obj):
-        a = Price.objects.get(product=1, shop=1).price
+        a = Price.objects.get(product=1, shop=obj.id).price
         return a
     class Meta:
         model = Shop

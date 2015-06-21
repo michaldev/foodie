@@ -130,13 +130,13 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	            $scope.slug = $stateParams.productSlug;
 	            console.log($scope.slug);
 
-	            $http.get("/basefood/products?slug=" + $scope.slug).success(function(data, status, headers, config) {
+	            $http.get("/basefood/product/" + $scope.slug).success(function(data, status, headers, config) {
 		    		console.log('successCatProduct');
 
-		    		$scope.product = data[0];
+		    		$scope.product = data;
 
 		    		console.log("Product: ");
-		    		console.log(data[0]);
+		    		console.log(data);
 
 				}).error(function(data, status, headers, config) {
 			    	console.log('errorCatB');

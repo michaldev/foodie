@@ -56,6 +56,13 @@ class ShopSerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     """Główna serializacja produktu"""
+    class Meta:
+        model = Product
+        fields = ('id', 'name', 'producer', 'slug', 'image')
+
+
+class ProductFullSerializer(serializers.ModelSerializer):
+    """Główna serializacja produktu"""
     category = CategorySerializer(many=True, read_only=True)
     vitamins = VitaminSerializer(many=True, read_only=True)
     minerals = MineralSerializer(many=True, read_only=True)

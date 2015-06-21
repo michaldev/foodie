@@ -1,6 +1,6 @@
 from rest_framework import generics
 from .models import Category, Product, Vitamin, Preservative
-from .serializers import CategorySerializer, ProductSerializer, VitaminSerializer, PreservativeSerializer
+from .serializers import CategorySerializer, ProductFullSerializer, ProductSerializer, VitaminSerializer, PreservativeSerializer
 from django.views.generic import TemplateView
 from rest_framework import filters
 
@@ -44,4 +44,4 @@ class ProductList(generics.ListCreateAPIView):
 class Product(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'slug'
     queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    serializer_class = ProductFullSerializer

@@ -10,8 +10,11 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import appenlight_client.client as e_client
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+APPENLIGHT = e_client.get_config({'appenlight.api_key': '7cb298cc386c49f8a5534e177284d30e'})
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -57,6 +60,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE_CLASSES = (
+    'appenlight_client.django_middleware.AppenlightMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

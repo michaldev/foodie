@@ -76,7 +76,7 @@ class Preservative(models.Model):
     slug = models.SlugField(unique=True)
     description = models.CharField(max_length=255)
     level = models.IntegerField(default=0)
-    dmax = models.FloatField(default=0) # dopuszczalna dzienna dawka
+    dmax = models.FloatField(default=0)  # dopuszczalna dzienna dawka
 
     class Meta:
         verbose_name = "Konserwant"
@@ -84,6 +84,25 @@ class Preservative(models.Model):
 
     def __unicode__(self):
         return "%s" % self.name
+
+
+class ShopLocal(models.Model):
+    """
+    Shoplocal model
+    """
+    address = models.CharField(max_length=100, verbose_name="Adres")
+    city = models.CharField(max_length=50, verbose_name="Miasto")
+    slug = models.SlugField(unique=True)
+    image = models.ImageField()
+    latitude = models.FloatField(default=0.0)
+    longitude = models.FloatField(default=0.0)
+
+    class Meta:
+        verbose_name = "Lokalizacja sklepu"
+        verbose_name_plural = "Lokalizacja sklepów"
+
+    def __unicode__(self):
+        return "%s" % self.slug
 
 
 class Shop(models.Model):

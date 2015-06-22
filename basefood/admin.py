@@ -1,8 +1,15 @@
 from django.contrib import admin
-from basefood.models import Category, CategoryMain, Product, Vitamin, Preservative, Shop, Mineral, Price
+from basefood.models import \
+    Category, CategoryMain, Product, Vitamin, \
+    Preservative, Shop, Mineral, Price, ShopLocal
+
 
 class Every(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+
+
+class ShopLocalAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('address', 'city',)}
 
 
 class PriceInline(admin.TabularInline):
@@ -22,3 +29,4 @@ admin.site.register(Preservative, Every)
 admin.site.register(Mineral, Every)
 admin.site.register(Shop, Every)
 admin.site.register(Price)
+admin.site.register(ShopLocal, ShopLocalAdmin)

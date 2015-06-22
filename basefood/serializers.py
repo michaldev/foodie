@@ -35,7 +35,7 @@ class MineralSerializer(serializers.ModelSerializer):
 class PreservativeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Preservative
-        fields = ('id', 'name', 'othername', 'slug', 'description', 'level')
+        fields = ('id', 'name', 'othername', 'slug', 'description', 'level', 'dmax')
 
 
 class ShopSerializer(serializers.ModelSerializer):

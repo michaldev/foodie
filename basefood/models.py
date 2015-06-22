@@ -76,7 +76,7 @@ class Preservative(models.Model):
     slug = models.SlugField(unique=True)
     description = models.CharField(max_length=255)
     level = models.IntegerField(default=0)
-    dmax = models.FloatField(default=0)
+    dmax = models.FloatField(default=0) # dopuszczalna dzienna dawka
 
     class Meta:
         verbose_name = "Konserwant"

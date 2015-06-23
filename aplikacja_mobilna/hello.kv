@@ -72,23 +72,25 @@ GlownyElement:
         text: "Wyniki:"
         font_name: "fonts/Roboto-Medium.ttf"
         color: C("#993366")
-    BoxLayout:
-        id: wynik
-        height: 80
-        orientation: 'horizontal'
-        padding: 20
-        spacing: 20
-        size_hint: (1, None)
-        Label:
-            text: "[b]Nazwa[/b]"
-            color: C("#993366")
-            markup: True
-        Label:
-            text: "Producent"
-            color: C("#993366")
-        Button:
-            text: "Przejdź"
-            font_name: "fonts/Roboto-Medium.ttf"
+    Wynik:
+
+
+<Wynik>:
+    height: 80
+    orientation: 'horizontal'
+    padding: 20
+    spacing: 20
+    size_hint: (1, None)
+    Label:
+        text: "[b]Nazwa[/b]"
+        color: C("#993366")
+        markup: True
+    Label:
+        text: "Producent"
+        color: C("#993366")
+    Button:
+        text: "Przejdź"
+        font_name: "fonts/Roboto-Medium.ttf"
 
 <Widok2>:
     orientation: "vertical"

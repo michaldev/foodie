@@ -23,6 +23,10 @@ class Widok(BoxLayout):
     pass
 
 
+class Wynik(BoxLayout):
+    pass
+
+
 class Widok2(BoxLayout):
     pass
 

@@ -49,16 +49,28 @@ GlownyElement:
 <Widok>:
     orientation: "vertical"
     spacing: "5dp"
-    padding: "5dp"
+    padding: "50dp"
     canvas:
         Color:
             rgba: C('#efefef')
         Rectangle:
             size: self.size
             pos: self.pos
+    BoxLayout:
+        height: 90
+        orientation: 'horizontal'
+        padding: 20
+        spacing: 20
+        size_hint: (1, None)
+        TextInput:
+            text: "Wpisz nazwę produktu"
+            multiline: False
+        Button:
+            text: "Wyszukaj"
     Label:
-        text: "Wyszukiwarka"
+        text: "Wyniki"
         color: C("#993366")
+
 
 <Widok2>:
     orientation: "vertical"

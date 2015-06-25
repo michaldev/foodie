@@ -151,6 +151,27 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 			    console.log("outProduct");
 			}
     	})
+    	.state('productsList', {
+	        url: '/category/:categorySlug',
+	        templateUrl: 'categoryView',
+	        //template: 'test',
+	        controller: function($scope, $stateParams, $http, changeStateFactory) {
+
+	            $scope.slug = $stateParams.categorySlug;
+	            console.log($scope.slug);
+
+	            $http.get("/products?category=" + $scope.slug).success(function(data, status, headers, config) {
+
+		    		$scope.category = data;
+
+		    		console.log("Category: ");
+		    		console.log(data);
+
+				}).error(function(data, status, headers, config) {
+			    	console.log('errorCatB');
+				});
+			},
+    	})
     	.state('vitamins', {
 	        url: '/vitamins/:vitaminSlug-:vitaminID',
 	        templateUrl: 'vitaminview',

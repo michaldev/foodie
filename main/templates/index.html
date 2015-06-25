@@ -39,7 +39,7 @@
 					
 				</md-toolbar>
 				<div ng-controller="sidenavCtrl">
-					<md-button style="width: 100%; margin: 0 !important" ui-sref="productsList({categorySlug: 'category.slug'})" ng-repeat="category in categories">{% verbatim %}{{category.name}}{% endverbatim %}</md-button>
+					<md-button style="width: 100%; margin: 0 !important" ui-sref="productsList({categoryID: category.id})" ng-repeat="category in categories">{% verbatim %}{{category.name}}{% endverbatim %}</md-button>
 				</div>
 
 			</md-sidenav>

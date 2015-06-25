@@ -152,15 +152,15 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 			}
     	})
     	.state('productsList', {
-	        url: '/category/:categorySlug',
-	        templateUrl: 'categoryView',
+	        url: '/category/:categoryID',
+	        templateUrl: 'categoryview',
 	        //template: 'test',
 	        controller: function($scope, $stateParams, $http, changeStateFactory) {
 
-	            $scope.slug = $stateParams.categorySlug;
-	            console.log($scope.slug);
+	            $scope.id = $stateParams.categoryID;
+	            console.log($scope.id);
 
-	            $http.get("/products?category=" + $scope.slug).success(function(data, status, headers, config) {
+	            $http.get("/basefood/products?category=" + $scope.id).success(function(data, status, headers, config) {
 
 		    		$scope.category = data;
 
@@ -168,7 +168,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 		    		console.log(data);
 
 				}).error(function(data, status, headers, config) {
-			    	console.log('errorCatB');
+			    	console.log('errorKategoria');
 				});
 			},
     	})

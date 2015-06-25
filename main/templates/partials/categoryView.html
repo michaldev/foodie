@@ -1,11 +1,17 @@
+<div layout-padding>
 <md-grid-list
-        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="8"
         md-row-height-gt-md="1:1" md-row-height="2:2"
         md-gutter="12px" md-gutter-gt-sm="8px" >
-    <md-grid-tile class="gray"
-        md-rowspan="2" md-colspan="2" md-colspan-sm="1">
-      <md-grid-tile-footer>
-        <h3>#1: (3r x 2c)</h3>
-      </md-grid-tile-footer>
+    <md-grid-tile ng-repeat="item in category"
+        md-rowspan="2" md-colspan="1" md-colspan-sm="1">
+        <md-card class="my-pointer" ui-sref="productDetail({productSlug: item.slug})">
+          <img ng-src="{% verbatim %}{{item.image}}{% endverbatim %}" style="height:100%;" alt="Washed Out">
+          <md-card-content>
+            <h2 class="md-title">{% verbatim %}{{item.name}}{% endverbatim %}</h2>
+            <h3 style="color: #808080; font-size:14px;">{% verbatim %}{{item.producer}}{% endverbatim %}</h3>
+          </md-card-content>
+        </md-card>
     </md-grid-tile>
 </md-grid-list>
+</div>

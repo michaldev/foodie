@@ -1,6 +1,9 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.tabbedpanel import TabbedPanel
+from kivy.event import EventDispatcher
+
+from kivy.properties import StringProperty
 
 
 class HelloApp(App):
@@ -20,11 +23,16 @@ class Stopka(BoxLayout):
 
 
 class Widok(BoxLayout):
-    pass
+    def __init__(self, **kwargs):
+        super(Widok, self).__init__(**kwargs)
+        for i in range(10):
+            w = Wynik(name='aaa', producer='s')
+            self.add_widget(w)
 
 
 class Wynik(BoxLayout):
-    pass
+    name = StringProperty('')
+    producer = StringProperty('')
 
 
 class Widok2(BoxLayout):

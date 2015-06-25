@@ -2,7 +2,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 
-from main.views import Homepage, ProductView, VitaminView, PreservativeView, HomeView, AboutView
+from main.views import \
+    Homepage, ProductView, VitaminView, PreservativeView, HomeView, AboutView, CategoryView
 
 admin.site.site_header = 'Foodie - Panel Admina'
 
@@ -34,6 +35,9 @@ urlpatterns = patterns('',
 
     url(r'^preservativeview', 
         view = PreservativeView.as_view()
+        ), 
+    url(r'^categoryview', 
+        view = CategoryView.as_view()
         ), 
 )
 

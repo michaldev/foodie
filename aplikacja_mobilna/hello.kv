@@ -72,7 +72,6 @@ GlownyElement:
         text: "Wyniki:"
         font_name: "fonts/Roboto-Medium.ttf"
         color: C("#993366")
-    Wynik:
 
 
 <Wynik>:
@@ -82,11 +81,11 @@ GlownyElement:
     spacing: 20
     size_hint: (1, None)
     Label:
-        text: "[b]Nazwa[/b]"
+        text: root.name
         color: C("#993366")
         markup: True
     Label:
-        text: "Producent"
+        text: root.producer
         color: C("#993366")
     Button:
         text: "Przejdź"

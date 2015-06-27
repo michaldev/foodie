@@ -152,12 +152,13 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 			}
     	})
     	.state('productsList', {
-	        url: '/category/:categoryID',
+	        url: '/category/:categoryID-:categoryName',
 	        templateUrl: 'categoryview',
 	        //template: 'test',
 	        controller: function($scope, $stateParams, $http, changeStateFactory) {
 
 	            $scope.id = $stateParams.categoryID;
+	            $scope.categoryName = $stateParams.categoryName;
 	            console.log($scope.id);
 
 	            $http.get("/basefood/products?category=" + $scope.id).success(function(data, status, headers, config) {
@@ -281,7 +282,7 @@ myApp.controller('viewCtrl', ['$scope', function($scope){
 	
 }]);
 
-myApp.controller('sidenavCtrl', ['$scope','$http', function($scope, $http){
+myApp.controller('sidenavCtrl', ['$scope','$http', '$mdSidenav', function($scope, $http, $mdSidenav){
 	
 	//http://127.0.0.1:8000/basefood/category
 	//http://127.0.0.1:8000/basefood/catmain
@@ -291,7 +292,9 @@ myApp.controller('sidenavCtrl', ['$scope','$http', function($scope, $http){
 
     	$scope.categories = data;
 
-
+    	$scope.closeSideNav = function () {
+	    	$mdSidenav('left').close();
+	    };
 
 		}).error(function(data, status, headers, config) {
 	    	console.log('errorCatA');

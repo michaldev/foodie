@@ -25,7 +25,7 @@ urlpatterns = patterns('basefood.views',
         view = PreservativeList.as_view(),
         name = 'basefood-preservative-list'),
     url(
-        regex = r'^/product/(?P<slug>\w+)/$',
+        regex = r'^/product/(?P<slug>[\w-]+)',
         view = Product.as_view(),
         name = 'basefood-product'),
 )

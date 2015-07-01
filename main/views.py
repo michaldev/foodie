@@ -27,3 +27,7 @@ class CategoryView(TemplateView):
 
 class PreservativeView(TemplateView):
     template_name = "partials/preservativeView.html"
+
+
+class BugdialogView(TemplateView):
+    template_name = "partials/bugDialog.html"

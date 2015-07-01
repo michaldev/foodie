@@ -305,7 +305,7 @@ myApp.controller('sidenavCtrl', ['$scope','$http', '$mdSidenav', function($scope
 
 }]);
 
-myApp.controller('myNavbar', ['$scope','$state','changeStateFactory', function($scope, $state, changeStateFactory){
+myApp.controller('myNavbar', ['$scope','$state','changeStateFactory', '$mdDialog', function($scope, $state, changeStateFactory, $mdDialog){
 	console.log('Current state: ');
 
 	$scope.isFab = false;
@@ -321,9 +321,20 @@ myApp.controller('myNavbar', ['$scope','$state','changeStateFactory', function($
 		console.log($scope.isFab);
     });
 
-
+	$scope.showAdvanced = function(ev) {
+    $mdDialog.show({
+      controller: dialogCtrl,
+      templateUrl: 'partials/bugDialogCtrl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+    })
 	
 }]);
+
+
+myApp.controller('dialogCtrl', ['$scope', function($scope){
+	
+}])
 
 myApp.directive('ngEnter', function() {
         return function(scope, element, attrs) {
@@ -388,3 +399,5 @@ myApp.directive('myTooltip',['$compile', function($compile){
 		}
 	};
 }]);
+
+

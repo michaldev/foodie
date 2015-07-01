@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from basefood.models import \
     Category, CategoryMain, Product, Vitamin, \
-    Mineral, Preservative, Shop, Price
+    Mineral, Preservative, Shop, Price, Ingredient
 
 
 class CategoryMainSerializer(serializers.ModelSerializer):
@@ -35,7 +35,8 @@ class MineralSerializer(serializers.ModelSerializer):
 class PreservativeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Preservative
-        fields = ('id', 'name', 'othername', 'slug', 'description', 'level', 'dmax')
+        fields = (
+            'id', 'name', 'othername', 'slug', 'description', 'level', 'dmax')
 
 
 class ShopSerializer(serializers.ModelSerializer):
@@ -54,6 +55,12 @@ class ShopSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'slug', 'image', 'price')
 
 
+class IngredientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ingredient
+        fields = ('id', 'name', 'slug', 'allergen', 'gluten')
+
+
 class ProductSerializer(serializers.ModelSerializer):
     """Główna serializacja produktu"""
     class Meta:
@@ -62,16 +69,17 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class ProductFullSerializer(serializers.ModelSerializer):
-    """Główna serializacja produktu"""
+    """Główna serializacja pełnego produktu"""
     category = CategorySerializer(many=True, read_only=True)
     vitamins = VitaminSerializer(many=True, read_only=True)
     minerals = MineralSerializer(many=True, read_only=True)
     preservatives = PreservativeSerializer(many=True, read_only=True)
     shops = ShopSerializer(many=True, read_only=True)
+    ingredients = IngredientSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product
         fields = ('id', 'name', 'producer', 'slug', 'image', 'image2', 'category', 'sugar', 'size',
             'protein', 'vitamins', 'minerals', 'carbohydrates', 'fats', 'fatsSaturated', 'energyValue', 
-            'portion', 'preservatives', 'shops')
+            'portion', 'preservatives', 'shops', 'ingredients')
 

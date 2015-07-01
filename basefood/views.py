@@ -1,7 +1,8 @@
 from rest_framework import generics
 from .models import Category, Product, Vitamin, Preservative
-from .serializers import CategorySerializer, ProductFullSerializer, ProductSerializer, VitaminSerializer, PreservativeSerializer
-from django.views.generic import TemplateView
+from .serializers import \
+    CategorySerializer, ProductFullSerializer, \
+    ProductSerializer, VitaminSerializer, PreservativeSerializer
 from rest_framework import filters
 
 

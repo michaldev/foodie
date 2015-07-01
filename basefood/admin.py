@@ -1,7 +1,7 @@
 from django.contrib import admin
 from basefood.models import \
     Category, CategoryMain, Product, Vitamin, \
-    Preservative, Shop, Mineral, Price, ShopLocal
+    Preservative, Shop, Mineral, Price, ShopLocal, Ingredient
 
 
 class Every(admin.ModelAdmin):
@@ -30,3 +30,4 @@ admin.site.register(Mineral, Every)
 admin.site.register(Shop, Every)
 admin.site.register(Price)
 admin.site.register(ShopLocal, ShopLocalAdmin)
+admin.site.register(Ingredient, Every)

@@ -135,6 +135,24 @@ class Price(models.Model):
         return "%s" % self.product
 
 
+class Ingredient(models.Model):
+    """
+    ingredient model
+    """
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True)
+    #image = models.ImageField()
+    allergen = models.BooleanField()
+    gluten = models.BooleanField()
+
+    class Meta:
+        verbose_name = "Składnik"
+        verbose_name_plural = "Składniki"
+
+    def __unicode__(self):
+        return "%s" % self.name
+
+
 class Product(models.Model):
     """
     Product model
@@ -150,6 +168,7 @@ class Product(models.Model):
     protein = models.FloatField(verbose_name='Białko na 100g/ml')
     vitamins = models.ManyToManyField('Vitamin', verbose_name='Witaminy')
     minerals = models.ManyToManyField('Mineral', verbose_name='Minerały')
+    ingredients = models.ManyToManyField('Ingredient', verbose_name='Składniki')
     carbohydrates = models.FloatField(verbose_name='Węglowodany')
     fats = models.FloatField(verbose_name='Tłuszcze')
     fatsSaturated = models.FloatField(verbose_name='Tłuszcze nasycone')

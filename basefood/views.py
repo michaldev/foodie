@@ -33,7 +33,7 @@ class ProductSearch(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('slug', 'producer')
+    search_fields = ('slug', 'name')
 
 
 class ProductList(generics.ListCreateAPIView):

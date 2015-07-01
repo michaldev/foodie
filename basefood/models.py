@@ -121,6 +121,23 @@ class Shop(models.Model):
         return "%s" % self.name
 
 
+class Producer(models.Model):
+    """
+    Producer model
+    """
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True)
+    #image = models.ImageField()
+    poland_producer = models.BooleanField(default=None)
+
+    class Meta:
+        verbose_name = "Producent"
+        verbose_name_plural = "Producenci"
+
+    def __unicode__(self):
+        return "%s" % self.name
+
+
 class Price(models.Model):
     price = models.FloatField(verbose_name="Cena", default=0)
     product = models.ForeignKey("Product", verbose_name="Produkt")
@@ -142,8 +159,8 @@ class Ingredient(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
     #image = models.ImageField()
-    allergen = models.BooleanField()
-    gluten = models.BooleanField()
+    allergen = models.BooleanField(default=None)
+    gluten = models.BooleanField(default=None)
 
     class Meta:
         verbose_name = "Składnik"
@@ -158,7 +175,7 @@ class Product(models.Model):
     Product model
     """
     name = models.CharField(verbose_name='Nazwa', max_length=255)
-    producer = models.CharField(verbose_name='Producent', max_length=255)
+    producer = models.OneToOneField('Producer', verbose_name="Producenci")
     slug = models.SlugField(verbose_name='Adres', unique=True)
     image = models.ImageField(verbose_name='Zdjęcie produktu')
     image2 = models.ImageField(verbose_name='Zdjęcie etykiety')
@@ -168,7 +185,8 @@ class Product(models.Model):
     protein = models.FloatField(verbose_name='Białko na 100g/ml')
     vitamins = models.ManyToManyField('Vitamin', verbose_name='Witaminy')
     minerals = models.ManyToManyField('Mineral', verbose_name='Minerały')
-    ingredients = models.ManyToManyField('Ingredient', verbose_name='Składniki')
+    ingredients = models.ManyToManyField(
+        'Ingredient', verbose_name='Składniki')
     carbohydrates = models.FloatField(verbose_name='Węglowodany')
     fats = models.FloatField(verbose_name='Tłuszcze')
     fatsSaturated = models.FloatField(verbose_name='Tłuszcze nasycone')

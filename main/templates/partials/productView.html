@@ -5,7 +5,7 @@
 						 	<md-card-content>
 						 		<div>
 							   		<h2 style="display: inline-block" class="my-font">{% verbatim %}{{product.name}}{% endverbatim %}</h2>
-							   		<h4 style="display: inline-block; margin-left:0px; font-size:14px" class="my-subfont">{% verbatim %}{{product.producer}}{% endverbatim %}</h4>
+							   		<h4 style="display: inline-block; margin-left:0px; font-size:14px" class="my-subfont">{% verbatim %}{{product.producer.name}}{% endverbatim %}</h4>
 							   	</div>
 								<h3 ui-sref="productsList({categoryID: product.category[0].id, categoryName: product.category[0].name})" class="my-subfont" style="cursor:pointer; margin-top:0px; margin-left:0px; font-size:16px">{% verbatim %}{{product.category[0].name}}{% endverbatim %}</h3>
 						 	</md-card-content>

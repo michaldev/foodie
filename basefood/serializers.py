@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from basefood.models import \
     Category, CategoryMain, Product, Vitamin, \
-    Mineral, Preservative, Shop, Price, Ingredient
+    Mineral, Preservative, Shop, Price, Ingredient, Producer
 
 
 class CategoryMainSerializer(serializers.ModelSerializer):
@@ -61,8 +61,17 @@ class IngredientSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'slug', 'allergen', 'gluten')
 
 
+class ProducerSerializer(serializers.ModelSerializer):
+    """Główna serializacja producenta"""
+    class Meta:
+        model = Producer
+        fields = ('id', 'name', 'slug', 'poland_producer')
+
+
 class ProductSerializer(serializers.ModelSerializer):
     """Główna serializacja produktu"""
+    producer = ProducerSerializer()
+
     class Meta:
         model = Product
         fields = ('id', 'name', 'producer', 'slug', 'image')
@@ -76,6 +85,7 @@ class ProductFullSerializer(serializers.ModelSerializer):
     preservatives = PreservativeSerializer(many=True, read_only=True)
     shops = ShopSerializer(many=True, read_only=True)
     ingredients = IngredientSerializer(many=True, read_only=True)
+    producer = ProducerSerializer()
 
     class Meta:
         model = Product

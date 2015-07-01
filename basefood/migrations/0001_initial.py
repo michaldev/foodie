@@ -37,6 +37,21 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
+            name='Ingredient',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=255)),
+                ('slug', models.SlugField(unique=True)),
+                ('allergen', models.BooleanField(default=None)),
+                ('gluten', models.BooleanField(default=None)),
+            ],
+            options={
+                'verbose_name': 'Sk\u0142adnik',
+                'verbose_name_plural': 'Sk\u0142adniki',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='Mineral',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -59,6 +74,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(unique=True)),
                 ('description', models.CharField(max_length=255)),
                 ('level', models.IntegerField(default=0)),
+                ('dmax', models.FloatField(default=0)),
             ],
             options={
                 'verbose_name': 'Konserwant',
@@ -70,7 +86,8 @@ class Migration(migrations.Migration):
             name='Price',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('date_change', models.DateField()),
+                ('price', models.FloatField(default=0, verbose_name=b'Cena')),
+                ('date_change', models.DateField(verbose_name=b'Data modyfikacji')),
             ],
             options={
                 'verbose_name': 'Cena',
@@ -79,11 +96,24 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
+            name='Producer',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=255)),
+                ('slug', models.SlugField(unique=True)),
+                ('poland_producer', models.BooleanField(default=None)),
+            ],
+            options={
+                'verbose_name': 'Producent',
+                'verbose_name_plural': 'Producenci',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='Product',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=255, verbose_name=b'Nazwa')),
-                ('producer', models.CharField(max_length=255, verbose_name=b'Producent')),
                 ('slug', models.SlugField(unique=True, verbose_name=b'Adres')),
                 ('image', models.ImageField(upload_to=b'', verbose_name=b'Zdj\xc4\x99cie produktu')),
                 ('image2', models.ImageField(upload_to=b'', verbose_name=b'Zdj\xc4\x99cie etykiety')),
@@ -95,11 +125,11 @@ class Migration(migrations.Migration):
                 ('fatsSaturated', models.FloatField(verbose_name=b'T\xc5\x82uszcze nasycone')),
                 ('energyValue', models.FloatField(verbose_name=b'Warto\xc5\x9b\xc4\x87 energetyczna')),
                 ('portion', models.FloatField(verbose_name=b'Porcja')),
-                ('pricemin', models.FloatField(verbose_name=b'Cena min')),
-                ('pricemax', models.FloatField(verbose_name=b'Cena max')),
                 ('category', models.ManyToManyField(to='basefood.Category', verbose_name=b'Kategoria')),
+                ('ingredients', models.ManyToManyField(to='basefood.Ingredient', verbose_name=b'Sk\xc5\x82adniki')),
                 ('minerals', models.ManyToManyField(to='basefood.Mineral', verbose_name=b'Minera\xc5\x82y')),
                 ('preservatives', models.ManyToManyField(to='basefood.Preservative', verbose_name=b'Konserwanty')),
+                ('producer', models.OneToOneField(verbose_name=b'Producenci', to='basefood.Producer')),
             ],
             options={
                 'verbose_name': 'Produkt',
@@ -118,6 +148,23 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name': 'Sklep',
                 'verbose_name_plural': 'Sklepy',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='ShopLocal',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('address', models.CharField(max_length=100, verbose_name=b'Adres')),
+                ('city', models.CharField(max_length=50, verbose_name=b'Miasto')),
+                ('slug', models.SlugField(unique=True)),
+                ('image', models.ImageField(upload_to=b'')),
+                ('latitude', models.FloatField(default=0.0)),
+                ('longitude', models.FloatField(default=0.0)),
+            ],
+            options={
+                'verbose_name': 'Lokalizacja sklepu',
+                'verbose_name_plural': 'Lokalizacja sklep\xf3w',
             },
             bases=(models.Model,),
         ),
@@ -151,13 +198,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='price',
             name='product',
-            field=models.ForeignKey(to='basefood.Product'),
+            field=models.ForeignKey(verbose_name=b'Produkt', to='basefood.Product'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='price',
             name='shop',
-            field=models.ForeignKey(to='basefood.Shop'),
+            field=models.ForeignKey(verbose_name=b'Sklep', to='basefood.Shop'),
             preserve_default=True,
         ),
         migrations.AddField(

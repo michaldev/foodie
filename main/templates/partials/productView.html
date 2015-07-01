@@ -162,6 +162,29 @@
 						    </table>
 						</div>
 						</md-whiteframe>
+						<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column" style="margin-top: 12px">
+						<div class="data-table-container">
+						    <table class="data-table">
+						        <thead>
+						            <tr>
+						                <th>Składnik</th>
+						                <th>Gluten</th>
+						                <th>Alergen</th>
+						            </tr>
+						            <tr>
+						                <td colspan="3" class="divider divider--dark"></td>
+						            </tr>
+						        </thead>
+								<tbody>
+						            <tr ng-repeat="item in product.ingredients">
+						              <td>{% verbatim %}{{item.name}}{% endverbatim %}</td>
+						              <td><span ng-show="item.gluten">Tak</span><span ng-hide="item.gluten">Nie</span></td>
+						              <td><span ng-show="item.allergen">Tak</span><span ng-hide="item.allergen">Nie</span></td>
+						            </tr>
+						        </tbody>
+						    </table>
+						</div>
+						</md-whiteframe>
 
 					</div>
 </div>

@@ -321,20 +321,25 @@ myApp.controller('myNavbar', ['$scope','$state','changeStateFactory', '$mdDialog
 		console.log($scope.isFab);
     });
 
-	$scope.showAdvanced = function(ev) {
-    $mdDialog.show({
-      controller: dialogCtrl,
-      templateUrl: 'partials/bugDialogCtrl.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-    })
+	$scope.showBugDialog = function(ev) {
+		console.log('bugdialog');
+	    $mdDialog.show({
+	      controller: 'dialogCtrl',
+	      templateUrl: 'bugdialogview',
+	      parent: angular.element(document.body),
+	      targetEvent: ev
+	    });
+
+	}
 	
 }]);
 
 
-myApp.controller('dialogCtrl', ['$scope', function($scope){
-	
-}])
+myApp.controller('dialogCtrl', ['$scope', '$mdDialog', function($scope, $mdDialog){
+	$scope.cancel = function() {
+	    $mdDialog.cancel();
+	  };
+}]);
 
 myApp.directive('ngEnter', function() {
         return function(scope, element, attrs) {

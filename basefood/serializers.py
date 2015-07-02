@@ -88,6 +88,7 @@ class ProductFullSerializer(serializers.ModelSerializer):
     ingredients = IngredientSerializer(many=True, read_only=True)
     producer = ProducerSerializer()
     values_category = serializers.SerializerMethodField()
+    values_calculated = serializers.SerializerMethodField()
 
     def get_values_category(self, obj):
         return Product.objects.filter(
@@ -100,6 +101,20 @@ class ProductFullSerializer(serializers.ModelSerializer):
             Max('protein'),
             )
 
+    def get_values_calculated(self, obj):
+        protein_min = self.get_values_category(obj)['protein__min']
+        protein_max = self.get_values_category(obj)['protein__max']
+        fats_min = self.get_values_category(obj)['fats__min']
+        fats_max = self.get_values_category(obj)['fats__max']
+        sugar_min = self.get_values_category(obj)['sugar__min']
+        sugar_max = self.get_values_category(obj)['sugar__max']
+        data = {
+            'protein': protein_min*100/protein_max,
+            'sugar': sugar_min*100/sugar_max,
+            'fats': fats_min*100/fats_max
+        }
+        return data
+
     class Meta:
         model = Product
         fields = (
@@ -108,5 +123,5 @@ class ProductFullSerializer(serializers.ModelSerializer):
             'size', 'protein', 'vitamins', 'minerals',
             'carbohydrates', 'fats', 'fatsSaturated', 'energyValue',
             'portion', 'preservatives', 'shops', 'ingredients',
-            'values_category')
+            'values_category', 'values_calculated')
 

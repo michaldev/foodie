@@ -102,16 +102,13 @@ class ProductFullSerializer(serializers.ModelSerializer):
             )
 
     def get_values_calculated(self, obj):
-        protein_min = self.get_values_category(obj)['protein__min']
         protein_max = self.get_values_category(obj)['protein__max']
-        fats_min = self.get_values_category(obj)['fats__min']
         fats_max = self.get_values_category(obj)['fats__max']
-        sugar_min = self.get_values_category(obj)['sugar__min']
         sugar_max = self.get_values_category(obj)['sugar__max']
         data = {
-            'protein': protein_min*100/protein_max,
-            'sugar': sugar_min*100/sugar_max,
-            'fats': fats_min*100/fats_max
+            'protein': obj.protein*100/protein_max,
+            'sugar': obj.sugar*100/sugar_max,
+            'fats': obj.fats*100/fats_max
         }
         return data
 

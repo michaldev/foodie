@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from rest_framework import serializers
+from django.db.models import Max, Min
 from basefood.models import \
     Category, CategoryMain, Product, Vitamin, \
     Mineral, Preservative, Shop, Price, Ingredient, Producer
@@ -65,7 +66,7 @@ class ProducerSerializer(serializers.ModelSerializer):
     """Główna serializacja producenta"""
     class Meta:
         model = Producer
-        fields = ('id', 'name', 'slug', 'poland_producer')
+        fields = ('id', 'name', 'slug', 'local_producer')
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -86,10 +87,26 @@ class ProductFullSerializer(serializers.ModelSerializer):
     shops = ShopSerializer(many=True, read_only=True)
     ingredients = IngredientSerializer(many=True, read_only=True)
     producer = ProducerSerializer()
+    values_category = serializers.SerializerMethodField()
+
+    def get_values_category(self, obj):
+        return Product.objects.filter(
+            category=obj.category.all()).aggregate(
+            Min('fats'),
+            Max('fats'),
+            Min('sugar'),
+            Max('sugar'),
+            Min('protein'),
+            Max('protein'),
+            )
 
     class Meta:
         model = Product
-        fields = ('id', 'name', 'producer', 'slug', 'image', 'image2', 'category', 'sugar', 'size',
-            'protein', 'vitamins', 'minerals', 'carbohydrates', 'fats', 'fatsSaturated', 'energyValue', 
-            'portion', 'preservatives', 'shops', 'ingredients')
+        fields = (
+            'id', 'name', 'producer', 'slug',
+            'image', 'image2', 'category', 'sugar',
+            'size', 'protein', 'vitamins', 'minerals',
+            'carbohydrates', 'fats', 'fatsSaturated', 'energyValue',
+            'portion', 'preservatives', 'shops', 'ingredients',
+            'values_category')
 

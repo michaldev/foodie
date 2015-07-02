@@ -128,7 +128,7 @@ class Producer(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
     #image = models.ImageField()
-    poland_producer = models.BooleanField(default=None)
+    local_producer = models.BooleanField(default=None)
 
     class Meta:
         verbose_name = "Producent"

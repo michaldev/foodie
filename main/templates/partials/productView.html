@@ -48,15 +48,27 @@
 										<div style="padding: 0 40px 40px 40px;">
 											<div class="my-progressbars">
 												<p class="md-subhead">Białka</p>
-												<md-progress-linear md-mode="determinate" ng-value="product.protein"></md-progress-linear>
+												<div layout="row">
+													<p class="my-subfont" style="margin: 0; padding: 0" flex="5">{% verbatim %} {{product.values_category.protein__min}} {% endverbatim %}</p>
+													<md-progress-linear flex="80" md-mode="determinate" ng-value="product.protein"></md-progress-linear><p class="my-subfont" style="margin: 0 0 0 6px; padding: 0" flex="5">{% verbatim %} {{product.values_category.protein__max}} {% endverbatim %}</p>
+												</div>
+												
 											</div>
 											<div class="my-progressbars">
 												<p >Cukry</p>
-												<md-progress-linear md-mode="determinate" ng-value="product.sugar"></md-progress-linear>
+												<div layout="row">
+													<p class="my-subfont" style="margin: 0; padding: 0" flex="5">{% verbatim %} {{product.values_category.sugar__min}} {% endverbatim %}</p>
+													<md-progress-linear flex="80" md-mode="determinate" ng-value="product.sugar"></md-progress-linear><p class="my-subfont" style="margin: 0 0 0 6px; padding: 0" flex="5">{% verbatim %} {{product.values_category.sugar__max}} {% endverbatim %}</p>
+												</div>
+												
 											</div>
 											<div class="my-progressbars">
 												<p>Tłuszcze</p>
-												<md-progress-linear md-mode="determinate" ng-value="product.fats"></md-progress-linear>
+												<div layout="row">
+													<p class="my-subfont" style="margin: 0; padding: 0" flex="5">{% verbatim %} {{product.values_category.fats__min}} {% endverbatim %}</p>
+													<md-progress-linear flex="80" md-mode="determinate" ng-value="product.fats"></md-progress-linear><p class="my-subfont" style="margin: 0 0 0 6px; padding: 0" flex="5">{% verbatim %} {{product.values_category.fats__max}} {% endverbatim %}</p>
+												</div>
+												
 											</div>
 										</div>
 								</md-whiteframe>

@@ -106,9 +106,9 @@ class ProductFullSerializer(serializers.ModelSerializer):
         fats_max = self.get_values_category(obj)['fats__max']
         sugar_max = self.get_values_category(obj)['sugar__max']
         data = {
-            'protein': obj.protein*100/protein_max,
-            'sugar': obj.sugar*100/sugar_max,
-            'fats': obj.fats*100/fats_max
+            'protein': '%.2f' % (obj.protein*100/protein_max),
+            'sugar': '%.2f' % (obj.sugar*100/sugar_max),
+            'fats': '%.2f' % (obj.fats*100/fats_max)
         }
         return data
 

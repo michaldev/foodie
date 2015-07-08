@@ -71,7 +71,7 @@ class ProducerSerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     """Główna serializacja produktu"""
-    producer = ProducerSerializer()
+    producer = ProducerSerializer(many=True)
 
     class Meta:
         model = Product
@@ -86,7 +86,7 @@ class ProductFullSerializer(serializers.ModelSerializer):
     preservatives = PreservativeSerializer(many=True, read_only=True)
     shops = ShopSerializer(many=True, read_only=True)
     ingredients = IngredientSerializer(many=True, read_only=True)
-    producer = ProducerSerializer()
+    producer = ProducerSerializer(many=True, read_only=True)
     values_category = serializers.SerializerMethodField()
     values_calculated = serializers.SerializerMethodField()
 

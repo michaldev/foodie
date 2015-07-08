@@ -101,7 +101,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=255)),
                 ('slug', models.SlugField(unique=True)),
-                ('poland_producer', models.BooleanField(default=None)),
+                ('local_producer', models.BooleanField(default=None)),
             ],
             options={
                 'verbose_name': 'Producent',
@@ -129,7 +129,7 @@ class Migration(migrations.Migration):
                 ('ingredients', models.ManyToManyField(to='basefood.Ingredient', verbose_name=b'Sk\xc5\x82adniki')),
                 ('minerals', models.ManyToManyField(to='basefood.Mineral', verbose_name=b'Minera\xc5\x82y')),
                 ('preservatives', models.ManyToManyField(to='basefood.Preservative', verbose_name=b'Konserwanty')),
-                ('producer', models.OneToOneField(verbose_name=b'Producenci', to='basefood.Producer')),
+                ('producer', models.ManyToManyField(to='basefood.Producer', verbose_name=b'Producenci')),
             ],
             options={
                 'verbose_name': 'Produkt',

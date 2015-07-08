@@ -10,7 +10,7 @@
           <img ng-src="{% verbatim %}{{item.image}}{% endverbatim %}" style="height:100%;" alt="Washed Out">
           <md-card-content>
             <h2 class="md-title">{% verbatim %}{{item.name}}{% endverbatim %}</h2>
-            <h3 style="color: #808080; font-size:14px;">{% verbatim %}{{item.producer.name}}{% endverbatim %}</h3>
+            <h3 style="color: #808080; font-size:14px;">{% verbatim %}{{item.producer[0].name}}{% endverbatim %}</h3>
           </md-card-content>
         </md-card>
     </md-grid-tile>

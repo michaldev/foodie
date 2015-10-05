@@ -3,3 +3,4 @@ appenlight-client==0.6.8
 djangorestframework
 markdown
 django-filter
+gunicorn

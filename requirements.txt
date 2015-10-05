@@ -1,2 +1,5 @@
 django==1.8.5
 appenlight-client==0.6.8
+djangorestframework
+markdown
+django-filter

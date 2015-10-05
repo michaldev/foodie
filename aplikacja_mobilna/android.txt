@@ -1,3 +1,0 @@
-title=newapp
-author=Michal
-orientation=portrait

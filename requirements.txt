@@ -4,3 +4,5 @@ djangorestframework
 markdown
 django-filter
 gunicorn
+django-cors-headers
+pillow

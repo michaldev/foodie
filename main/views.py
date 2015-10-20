@@ -6,7 +6,7 @@ class Homepage(TemplateView):
 
 
 class HomeView(TemplateView):
-    template_name = "partials/homeView.html"
+    template_name = "views/home.html"
 
 
 class AboutView(TemplateView):

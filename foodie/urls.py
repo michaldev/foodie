@@ -29,7 +29,7 @@ urlpatterns = patterns('',
         view = VitaminView.as_view()
         ),
     url(
-        r'^homeview',
+        r'^views/home',
         view = HomeView.as_view()
         ),
     url(

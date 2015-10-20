@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/static/bower_components/angular-material/angular-material.css" />
+        <link rel="stylesheet" href="/static/style.css" />
+    </head>
+    <body ng-app="YourApp">
+        <div ng-controller="YourController">
+            <md-sidenav md-component-id="left" class="md-sidenav-left">
+                <md-toolbar class="md-accent">
+                    <div class="md-toolbar-tools font_white">
+                        Kategorie
+                    </div>
+                </md-toolbar>
+            </md-sidenav>
+            <md-toolbar layout="row" class="md-tall md-hue-1">
+                <div layout="column" flex="100">
+                    <div class="md-toolbar-tools" layout="row" layout-sm="row">
+                        <md-button ng-click="openLeftMenu()" class="md-icon-button">
+                            <md-icon class="font_white" md-svg-icon="/static/icons/menu.svg"></md-icon>
+                        </md-button>
+                        <h3 class="font_white" ui-sref="home">
+                            Foodie
+                        </h3>
+                        <span flex></span>
+                        <md-button class="md-icon-button">
+                            <md-icon class="font_white"  md-svg-icon="/static/icons/alert.svg"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button">
+                            <md-icon class="font_white" md-svg-icon="/static/icons/plus.svg"></md-icon>
+                        </md-button>
+                        <md-button ui-sref="about" class="md-icon-button">
+                            <md-icon class="font_white" md-svg-icon="/static/icons/information-outline.svg"></md-icon>
+                        </md-button>
+                    </div>
+                    <span flex></span>
+                    <md-tabs class="md-primary" md-selected="currentTab">
+                        <md-tab>
+                            <md-tab-label>Wyszukiwarka</md-tab-label>
+                        </md-tab>
+                        <md-tab>
+                            <md-tab-label>Witaminy</md-tab-label>
+                        </md-tab>
+                        <md-tab>
+                            <md-tab-label>Konserwanty</md-tab-label>
+                        </md-tab>
+                    </md-tabs>
+                </div>
+            </md-toolbar>
+        </div>
+        <div ng-view></div>
+        <script src="/static/bower_components/angular/angular.js"></script>
+        <script src="/static/bower_components/angular-aria/angular-aria.js"></script>
+        <script src="/static/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="/static/bower_components/angular-material/angular-material.js"></script>
+        <script src="/static/bower_components/angular-route/angular-route.js"></script>
+        <script src="/static/app.js"></script>
+        <script src="/static/controllers/HomeController.js"></script>
+    </body>
+</html>

@@ -4,9 +4,10 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="/static/bower_components/angular-material/angular-material.css" />
         <link rel="stylesheet" href="/static/style.css" />
+        <title>Foodie - Asystent żywności</title>
     </head>
     <body ng-app="YourApp">
-        <div ng-controller="YourController">
+        <div>
             <md-sidenav md-component-id="left" class="md-sidenav-left">
                 <md-toolbar class="md-accent">
                     <div class="md-toolbar-tools font_white">
@@ -36,10 +37,10 @@
                     </div>
                     <span flex></span>
                     <md-tabs class="md-primary" md-selected="currentTab">
-                        <md-tab>
+                        <md-tab href="/">
                             <md-tab-label>Wyszukiwarka</md-tab-label>
                         </md-tab>
-                        <md-tab>
+                        <md-tab href="/other">
                             <md-tab-label>Witaminy</md-tab-label>
                         </md-tab>
                         <md-tab>

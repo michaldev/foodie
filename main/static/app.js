@@ -40,7 +40,7 @@ app.config(function ($routeProvider) {
     .when('/', {
       controller: 'HomeController',
       templateUrl: 'views/home'
-    });
+    })
     .otherwise({
       redirectTo: '/'
     });

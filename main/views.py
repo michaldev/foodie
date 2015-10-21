@@ -17,8 +17,8 @@ class ProductView(TemplateView):
     template_name = "partials/productView.html"
 
 
-class VitaminView(TemplateView):
-    template_name = "partials/vitaminView.html"
+class VitaminsView(TemplateView):
+    template_name = "views/vitamins.html"
 
 
 class CategoryView(TemplateView):

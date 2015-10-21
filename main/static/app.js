@@ -1,4 +1,4 @@
-var app = angular.module('YourApp', ['ngMaterial', 'ngAria', 'ngAnimate', 'ngRoute']);
+var app = angular.module('YourApp', ['ngMaterial', 'ngAria', 'ngAnimate', 'ui.router']);
 
 app.controller('YourController', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
 	$scope.openLeftMenu = function() {
@@ -35,13 +35,19 @@ app.config(function($mdThemingProvider) {
     	.accentPalette('deep-orange');
 });
 
-app.config(function ($routeProvider) {
-  $routeProvider
-    .when('/', {
-      controller: 'HomeController',
-      templateUrl: 'views/home'
+app.config(function($stateProvider, $urlRouterProvider) {
+  //
+  // For any unmatched url, redirect to /state1
+  $urlRouterProvider.otherwise("/home");
+  //
+  // Now set up the states
+  $stateProvider
+    .state('home', {
+      url: "/home",
+      templateUrl: "/views/home"
     })
-    .otherwise({
-      redirectTo: '/'
+    .state('vitamins', {
+      url: "/vitamins",
+      templateUrl: "/views/vitamins",
     });
 });

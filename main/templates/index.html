@@ -37,10 +37,10 @@
                     </div>
                     <span flex></span>
                     <md-tabs class="md-primary" md-selected="currentTab">
-                        <md-tab href="/">
+                        <md-tab ui-sref="home">
                             <md-tab-label>Wyszukiwarka</md-tab-label>
                         </md-tab>
-                        <md-tab href="/other">
+                        <md-tab ui-sref="vitamins">
                             <md-tab-label>Witaminy</md-tab-label>
                         </md-tab>
                         <md-tab>
@@ -50,12 +50,12 @@
                 </div>
             </md-toolbar>
         </div>
-        <div ng-view></div>
+        <div ui-view></div>
         <script src="/static/bower_components/angular/angular.js"></script>
+        <script src="/static/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="/static/bower_components/angular-aria/angular-aria.js"></script>
         <script src="/static/bower_components/angular-animate/angular-animate.js"></script>
         <script src="/static/bower_components/angular-material/angular-material.js"></script>
-        <script src="/static/bower_components/angular-route/angular-route.js"></script>
         <script src="/static/app.js"></script>
         <script src="/static/controllers/HomeController.js"></script>
     </body>

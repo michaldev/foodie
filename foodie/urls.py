@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 
 from main.views import \
-    Homepage, ProductView, VitaminView, \
+    Homepage, ProductView, VitaminsView, \
     PreservativeView, HomeView, AboutView, CategoryView, BugdialogView
 
 admin.site.site_header = 'Foodie - Panel Admina'
@@ -25,8 +25,8 @@ urlpatterns = patterns('',
         view = ProductView.as_view()
         ),
     url(
-        r'^vitaminview', 
-        view = VitaminView.as_view()
+        r'^views/vitamins',
+        view = VitaminsView.as_view()
         ),
     url(
         r'^views/home',

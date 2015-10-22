@@ -24,6 +24,7 @@ urlpatterns = patterns('',
         r'^productview', 
         view = ProductView.as_view()
         ),
+    url(r'^rest-auth/', include('rest_auth.urls')),
     url(
         r'^views/vitamins',
         view = VitaminsView.as_view()

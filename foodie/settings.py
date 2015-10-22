@@ -44,6 +44,8 @@ INSTALLED_APPS = (
     'basefood',
     'rest_framework',
     'corsheaders',
+    'rest_framework.authtoken',
+    'rest_auth',
 )
 
 REST_FRAMEWORK = {

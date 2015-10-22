@@ -6,8 +6,8 @@
         <link rel="stylesheet" href="/static/style.css" />
         <title>Foodie - Asystent żywności</title>
     </head>
-    <body ng-app="YourApp">
-        <div>
+    <body ng-controller="MainController" ng-app="MainApp">
+        <div ng-if="logged==true">
             <md-sidenav md-component-id="left" class="md-sidenav-left">
                 <md-toolbar class="md-accent">
                     <div class="md-toolbar-tools font_white">
@@ -15,7 +15,7 @@
                     </div>
                 </md-toolbar>
             </md-sidenav>
-            <md-toolbar layout="row" class="md-tall md-hue-1">
+            <md-toolbar ng-controller="ToolbarController" layout="row" class="md-tall md-hue-1">
                 <div layout="column" flex="100">
                     <div class="md-toolbar-tools" layout="row" layout-sm="row">
                         <md-button ng-click="openLeftMenu()" class="md-icon-button">
@@ -49,8 +49,94 @@
                     </md-tabs>
                 </div>
             </md-toolbar>
-        </div>
-        <div ui-view></div>
+			<div ui-view></div>
+		</div>
+		<div ng-if="logged==false">
+			<div layout="column">
+				<div layout="row">
+					<div flex="20"></div>
+					<div flex="60">
+						<div class="md-whiteframe-z1">
+							<div ng-cloak>
+							  <md-content>
+								<md-tabs class="md-primary"  md-dynamic-height md-border-bottom>
+								  <md-tab label="Informacje">
+									<md-content class="md-padding">
+									  <h1 class="md-display-2">Informacje</h1>
+
+									</md-content>
+								  </md-tab>
+								  <md-tab label="Logowanie">
+									<md-content class="md-padding">
+									  <h1 class="md-display-2">Logowanie</h1>
+										  <md-content layout-padding>
+											<form name="userForm">
+											  <div layout layout-sm="column">
+												<md-input-container style="width:40%">
+												  <label>E-mail</label>
+												  <input ng-model="user.company">
+												</md-input-container>
+											  </div>
+											  <div layout layout-sm="column">
+												  <md-input-container style="width:40%">
+													<label>Hasło</label>
+													<input ng-model="user.address">
+												  </md-input-container>
+											  </div>
+											  <md-button class="md-raised md-primary" ng-click="login()">Zaloguj</md-button>
+											</form>
+										  </md-content>
+									</md-content>
+								  </md-tab>
+								  <md-tab label="Rejestracja">
+									<md-content class="md-padding">
+									  <h1 class="md-display-2">Rejestracja</h1>
+										  <md-content layout-padding>
+											<form name="userForm">
+											  <div layout layout-sm="column">
+												<md-input-container style="width:70%">
+												  <label>Imię</label>
+												  <input ng-model="user.company">
+												</md-input-container>
+												<md-input-container>
+												  <label>Data urodzenia</label>
+												  <input ng-model="user.company">
+												</md-input-container>
+											  </div>
+											  <div layout layout-sm="column">
+												  <md-input-container flex>
+													<label>Email</label>
+													<input ng-model="user.address">
+												  </md-input-container>
+												  <md-input-container flex>
+													<label>Powtórz email</label>
+													<input ng-model="user.address">
+												  </md-input-container>
+											  </div>
+											  <div layout layout-sm="column">
+												  <md-input-container flex>
+													<label>Hasło</label>
+													<input ng-model="user.address">
+												  </md-input-container>
+												  <md-input-container flex>
+													<label>Powtórz hasło</label>
+													<input ng-model="user.address">
+												  </md-input-container>
+											  </div>
+											  <md-button class="md-raised md-primary">Zarejestruj</md-button>
+											</form>
+										  </md-content>
+									</md-content>
+								  </md-tab>
+								</md-tabs>
+							  </md-content>
+							</div>
+						</div>
+					</div>
+					<div flex="20"></div>
+				</div>
+			</div>
+		</div>
         <script src="/static/bower_components/angular/angular.js"></script>
         <script src="/static/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="/static/bower_components/angular-aria/angular-aria.js"></script>

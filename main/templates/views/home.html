@@ -1,1 +1,49 @@
-HELLO
+<div layout="column" layout-padding>
+   <div layout="row">
+      <div flex="25" flex-sm="5"></div>
+      <div flex="50" flex-sm="90">
+         <div class="md-whiteframe-z1">
+            <div layout-margin layout-padding>
+               <h1>Wyszukaj produkt</h1>
+               <form>
+				   <md-input-container flex >
+					  <label>Co chcesz zjeść?</label>
+					  <input ng-model="search.searchText">
+				   </md-input-container>
+				   <md-button class="md-primary md-raised" ng-click="search.searchItem(search.searchText)">
+					  Wyszukaj
+				   </md-button>
+               </form>
+            </div>
+         </div>
+      </div>
+      <div flex="25" flex-sm="5"></div>
+   </div>
+   <div ng-if="search.items" layout="row">
+		<div flex="25" flex-sm="5"></div>
+		<div flex="50" flex-sm="90">
+			<div class="md-whiteframe-z1">
+				<div ng-if="search.blank===false" layout-margin layout-padding>
+					<h2>Wyniki wyszukiwania</h2>
+					  <md-content>
+						<md-list>
+						  <md-subheader class="md-no-sticky">Produkty</md-subheader>
+						  <md-list-item class="md-3-line" ng-repeat="item in search.items">
+							<img ng-src="{% verbatim %}{{ item.image }}{% endverbatim %}" class="md-avatar" alt="" />
+							<div class="md-list-item-text" layout="column">
+							  <h3>{% verbatim %}{{ item.name }}{% endverbatim %}</h3>
+							  <h4>{% verbatim %}{{item.producer[0].name }}{% endverbatim %}</h4>
+							</div>
+						  </md-list-item>
+						</md-list>
+					</md-content>
+				</div>
+				<div ng-if="search.blank===true" layout-margin layout-padding>
+					<h2>Wyniki wyszukiwania</h2>
+					<p>Brak wyników</p>
+				</div>
+			</div>
+		</div>
+		<div flex="25" flex-sm="5"></div>
+   </div>
+</div>

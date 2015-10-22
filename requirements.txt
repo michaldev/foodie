@@ -6,3 +6,4 @@ django-filter
 gunicorn
 django-cors-headers
 pillow
+django-rest-auth

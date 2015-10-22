@@ -1,9 +1,28 @@
-var app = angular.module('YourApp', ['ngMaterial', 'ngAria', 'ngAnimate', 'ui.router']);
+var app = angular.module('MainApp', ['ngMaterial', 'ngAria', 'ngAnimate', 'ui.router']);
 
-app.controller('YourController', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+app.controller('ToolbarController', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
 	$scope.openLeftMenu = function() {
     	$mdSidenav('left').toggle();
   	};
+
+}]);
+
+app.controller('MainController', ['$scope', '$http', function($scope, $http){
+	  $scope.login = function() {
+		$http({
+			method: 'POST',
+			url: '/rest-auth/login/',
+			data: { username: 'root', password: 'toor' },
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).then(function successCallback(response) {
+			console.log("sukces");
+			console.log(response);
+			  }, function errorCallback(response) {
+				  console.log("niepowodzenie");
+				console.log(response);
+			  });
+	  }
+	$scope.logged = false;
 
 }]);
 
@@ -44,10 +63,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: "/home",
-      templateUrl: "/views/home"
+      templateUrl: "/views/home",
+      controller: 'HomeController'
     })
     .state('vitamins', {
       url: "/vitamins",
       templateUrl: "/views/vitamins",
     });
+});
+
+app.config(function($httpProvider) {
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 });

@@ -4,6 +4,8 @@ from .serializers import \
     CategorySerializer, ProductFullSerializer, \
     ProductSerializer, VitaminSerializer, PreservativeSerializer
 from rest_framework import filters
+from rest_framework import permissions
+from rest_framework.permissions import IsAuthenticated
 
 
 class ProductFilter(filters.FilterSet):
@@ -34,6 +36,7 @@ class ProductSearch(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
     filter_backends = (filters.SearchFilter,)
     search_fields = ('slug', 'name')
+    permission_classes = (IsAuthenticated,)
 
 
 class ProductList(generics.ListCreateAPIView):

@@ -8,21 +8,21 @@ app.controller('ToolbarController', ['$scope', '$mdSidenav', function($scope, $m
 }]);
 
 app.controller('MainController', ['$scope', '$http', function($scope, $http){
+	  $scope.password = "";
+	  $scope.email = "";
 	  $scope.login = function() {
 		$http({
 			method: 'POST',
 			url: '/rest-auth/login/',
-			data: { username: 'root', password: 'toor' },
+			data: "username=root&password=toor",
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
-			console.log("sukces");
-			console.log(response);
+			$scope.logged = true;
 			  }, function errorCallback(response) {
 				  console.log("niepowodzenie");
-				console.log(response);
+				  console.log(response);
 			  });
 	  }
-	$scope.logged = false;
 
 }]);
 
@@ -55,11 +55,8 @@ app.config(function($mdThemingProvider) {
 });
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  //
-  // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise("/home");
-  //
-  // Now set up the states
+
   $stateProvider
     .state('home', {
       url: "/home",

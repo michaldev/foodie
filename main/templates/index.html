@@ -51,7 +51,7 @@
             </md-toolbar>
 			<div ui-view></div>
 		</div>
-		<div ng-if="logged==false">
+		<div ng-if="logged!=true">
 			<div layout="column">
 				<div layout="row">
 					<div flex="20"></div>
@@ -74,13 +74,13 @@
 											  <div layout layout-sm="column">
 												<md-input-container style="width:40%">
 												  <label>E-mail</label>
-												  <input ng-model="user.company">
+												  <input ng-model="email">
 												</md-input-container>
 											  </div>
 											  <div layout layout-sm="column">
 												  <md-input-container style="width:40%">
 													<label>Hasło</label>
-													<input ng-model="user.address">
+													<input ng-model="password">
 												  </md-input-container>
 											  </div>
 											  <md-button class="md-raised md-primary" ng-click="login()">Zaloguj</md-button>

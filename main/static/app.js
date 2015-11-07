@@ -63,10 +63,43 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "/views/home",
       controller: 'HomeController'
     })
-    .state('vitamins', {
-      url: "/vitamins",
-      templateUrl: "/views/vitamins",
-    });
+        	.state('vitamins', {
+	        url: '/vitamins/:vitaminSlug-:vitaminID',
+	        templateUrl: '/views/vitamins',
+	        //template: 'test',
+	        controller: function($scope, $stateParams, $http, $state) {
+
+	            $scope.vitaminSlug = $stateParams.vitaminSlug;
+	            $scope.vitaminID = $stateParams.vitaminID;
+
+	            $scope.functions = [];
+
+
+	            $scope.functions.vitamineChange = function(vitaminSlug, vitaminID){
+
+	            	console.log("vitaminSlug: " + $scope.vitaminSlug);
+
+	            	//$("#vitamine-" + $scope.vitaminID).css( "background-color", "red" );
+	            	$scope.vitaminSlug = vitaminSlug;
+	            	$scope.vitaminID = vitaminID;
+	            	//$("#vitamine-" + $scope.vitaminID).css( "background-color", "red" );
+	            	//console.log($scope.vitaminID);
+
+	            }
+
+
+	            $http.get("/basefood/vitamins").success(function(data, status, headers, config) {
+		    		//console.log('successCatA');
+
+		    		$scope.vitamins = data;
+
+		    		console.log(data);
+
+				}).error(function(data, status, headers, config) {
+			    	//console.log('errorCatC');
+				});
+			}
+    	})
 });
 
 app.config(function($httpProvider) {

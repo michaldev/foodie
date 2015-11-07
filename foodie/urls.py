@@ -34,7 +34,7 @@ urlpatterns = patterns('',
         view = HomeView.as_view()
         ),
     url(
-        r'^aboutview',
+        r'^views/about',
         view = AboutView.as_view()
         ),
     url(

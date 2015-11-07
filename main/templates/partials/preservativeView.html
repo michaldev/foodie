@@ -1,0 +1,139 @@
+<h1 style="text-align: center; margin-top: 24px;"> Konserwanty </h1>
+
+<div layout="row" layout-sm="column">
+    <div flex="33" flex-sm="100" style="padding:8px">
+        <md-whiteframe class="md-whiteframe-z1" layout="column">
+            <div class="data-table-container">
+                <table class="data-table data-table--has-primary data-table--has-secondary my-white-font">
+                    <thead>
+                        <tr>
+                            <th>Nazwa</th>
+                            <th>Opis</th>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="divider divider--dark"></td>
+                        </tr>
+                    </thead>
+
+                    <tbody class="my-table-body">
+                        <tr class="my-tr my-pointer data-table__clickable-row" ng-repeat="item in preservatives" ng-click="functions.preservativeChange(item.slug, $index)" ui-sref="preservatives({preservativeSlug: item.slug, preservativeID: $index})">
+                            <td>
+                                {% verbatim %}
+                                    <p>{{item.name}}</p>
+                                    <p style="font-size:12px; color:grey">{{item.othername}}</p>
+                                {% endverbatim %}
+                            </td>
+                            <td>
+                                <md-icon class="my-button my-preseicon-{% verbatim %}{{item.level}}{% endverbatim %}" md-svg-icon="/static/icons/emoticon-{% verbatim %}{{item.level}}{% endverbatim %}.svg"></md-icon>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </md-whiteframe>
+        <md-whiteframe class="md-whiteframe-z1" style="margin-top: 12px;" layout="column">
+            
+            <div class="data-table-container">
+                <table class="data-table data-table--has-primary data-table--has-secondary my-white-font">
+                    <thead>
+                        <tr>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="divider divider--dark"></td>
+                        </tr>
+                    </thead>
+
+                    <tbody class="my-table-body">
+                        <tr class="my-tr">
+                                <td style="max-width:116px !important;">
+                                    Szkodliwe
+                                </td>
+                                <td>
+                                    <md-icon class="my-preseicon-0" md-svg-icon="/static/icons/emoticon-0.svg"></md-icon>
+                                </td>
+                            </tr>
+                            <tr class="my-tr">
+                                <td style="max-width:116px !important;">
+                                    Neutralne
+                                </td>
+                                <td>
+                                    <md-icon class="my-preseicon-1" md-svg-icon="/static/icons/emoticon-1.svg"></md-icon>
+                                </td>
+                            </tr>
+                            <tr class="my-tr">
+                                <td style="max-width:116px !important;">
+                                    Nieszkodliwe
+                                </td>
+                                <td>
+                                    <md-icon class="my-preseicon-2" md-svg-icon="/static/icons/emoticon-2.svg"></md-icon>
+                                </td>
+                         </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <!--<div class="data-table-container">
+                    <table class="data-table data-table--has-primary data-table--has-secondary my-white-font">
+                        <thead>
+                            
+                        </thead>
+
+                        <tbody class="my-table-body">
+                            <tr class="my-tr">
+                                <td>
+                                    Szkodliwe
+                                </td>
+                                <td>
+                                    <md-icon class="my-preseicon-0" md-svg-icon="/static/icons/emoticon-0.svg"></md-icon>
+                                </td>
+                            </tr>
+                            <tr class="my-tr">
+                                <td>
+                                    Neutralne
+                                </td>
+                                <td>
+                                    <md-icon class="my-preseicon-1" md-svg-icon="/static/icons/emoticon-1.svg"></md-icon>
+                                </td>
+                            </tr>
+                            <tr class="my-tr">
+                                <td>
+                                    Nieszkodliwe
+                                </td>
+                                <td>
+                                    <md-icon class="my-preseicon-2" md-svg-icon="/static/icons/emoticon-2.svg"></md-icon>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>-->
+        </md-whiteframe>
+    </div>
+    <div flex="66" flex-sm="100" style="padding:8px">
+        <md-whiteframe class="md-whiteframe-z1" style="min-height:60vh" layout="row" layout-padding>
+            <div flex="66">
+                <h5 class="my-subfont">
+                {% verbatim %}
+                    <span>{{preservatives[preservativeID].name}}</span> <span style="font-size:11px; color:#A6A6A6">{{preservatives[preservativeID].othername}}</span>
+                {% endverbatim %}
+                </h5>
+                <p style="padding:16px;">
+                    {% verbatim %}
+                        {{preservatives[preservativeID].description}}
+                    {% endverbatim %}
+                </p>
+            </div>
+            <md-whiteframe flex="33" style="height:50%" class="md-whiteframe-z1" layout-padding layout-margin>
+                Dopuszczalna dzienna dawka: {% verbatim %}{{preservatives[preservativeID].dmax}}{% endverbatim %}<br>
+                Dawka śmiertelna (LD50): -
+            </md-whiteframe>
+        </md-whiteframe>
+    </div>
+</div>

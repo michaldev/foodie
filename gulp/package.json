@@ -1,0 +1,33 @@
+{
+    "name"    : "Foodie",
+    "version" : "0.0.1",
+    "private" : true,
+
+    "devDependencies" : {
+        "del"               : "latest",
+        "require-dir"       : "latest",
+        "browser-sync"      : "latest",
+
+        "gulp"              : "latest",
+        "gulp-util"         : "latest",
+        "gulp-rename"       : "latest",
+        "gulp-concat"       : "latest",
+        "gulp-changed"      : "latest",
+        "gulp-browserify"   : "latest",
+        "gulp-autoprefixer" : "latest",
+
+        "gulp-sass"         : "latest",
+        "gulp-uglify"       : "latest",
+        "gulp-imagemin"     : "latest",
+        "gulp-minify-css"   : "latest",
+        "gulp-minify-html"  : "latest",
+
+        "coffeeify"         : "latest",
+        "run-sequence"      : "latest",
+        "gulp-ng-classify"  : "latest"
+    },
+
+    "scripts" : {
+        "preinstall" : "npm install -g gulp; npm install -g browserify"
+    }
+}

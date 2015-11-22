@@ -1,0 +1,70 @@
+* {
+    outline: none;
+    font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+    font-weight: 400 !important;
+}
+
+#pre-alfa{
+	position: fixed;
+	bottom: 12px;
+	right: 36px;
+	z-index: 1000;
+}
+.my-tab[aria-selected="true"] md-tab-label{
+	color: white;
+}
+
+.my-font{
+	color: #000 !important;
+}
+.my-subfont{
+	display: block;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1em;
+	color: #808080;
+	margin: 16px 16px 16px 16px;
+	-webkit-margin: 16px 16px 16px 16px;
+}
+.my-font-white{
+	color: #fff !important;
+}
+
+
+.md-paginator{
+	margin: 0 !important;
+}
+
+.my-button{
+	color: white;
+}
+
+.my-progressbars{
+	margin-top: 24px;
+}
+
+.my-tooltip{
+	position: absolute;
+	z-index: 1000;
+	background-color: #fff;
+	opacity: 0;
+}
+
+.my-preseicon-0{
+	color: #BF2908 !important;
+}
+.my-preseicon-1{
+	color: #E3AE32 !important;
+}
+.my-preseicon-2{
+	color: #2F9E24 !important;
+}
+
+.my-pointer{
+	cursor:pointer;
+}
+
+
+.my-content{
+	min-height: 100vh;
+}

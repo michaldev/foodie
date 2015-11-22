@@ -1,0 +1,65 @@
+<div layout="column" layout-padding>
+	<div layout="row">
+		<div flex="25" flex-sm="5"></div>
+		<div flex="50" flex-sm="90">
+            <div class="md-whiteframe-z1">
+                <md-tabs md-dynamic-height md-selected="searchFor">
+                    <md-tab label="Wyszukaj produkt">
+                        <md-content layout-padding>
+
+                            <div class="" layout-margin layout-padding>
+                                <h2>Wyszukaj rodzaj produktu</h2>
+                                <md-input-container flex >
+                                    <label>Co chcesz zjeść?</label>
+                                    <input ng-model="searchController.searchText" ng-enter="searchController.searchItem(searchController.searchText)">
+                                </md-input-container>
+
+                                <md-button class="md-primary md-raised" ng-click="searchController.searchItem(searchController.searchText)">
+                                    Wyszukaj
+                                </md-button>
+                            </div>
+
+                            <div class="" layout-margin>
+                                <div ng-show="searchController.isClicked" class="data-table-container" >
+                                    <table class="data-table data-table--has-primary">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Nazwa</th>
+                                                <th>Producent</th>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="3" class="divider divider--dark"></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="my-font data-table__clickable-row" ng-repeat="itemToShow in searchController.itemsToShow" ui-sref="product({productSlug: itemToShow.slug})">
+                                                <td><img ng-src="{{itemToShow.image}}" style="width: 64px; height:auto" class="my-circular md-whiteframe-z1"/></td>
+                                                <td>{{itemToShow.name}}</td>
+                                                <td>{{itemToShow.producer[0].name}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+
+                    <md-tab label="Wyszukaj kategorie">
+                        <md-content layout-padding layout-margin>
+                            <h2>Wyszukaj rodzaj kategorii</h2>
+                            <md-input-container flex >
+                                <label>Co chcesz zjeść?</label>
+                                <input ng-model="searchController.searchText">
+                            </md-input-container>
+                            <md-button class="md-primary md-raised">Wyszukaj</md-button>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </div>
+        </div>
+
+		<div flex="25" flex-sm="5"></div>
+	</div>
+</div>

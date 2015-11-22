@@ -1,0 +1,28 @@
+<div layout-padding>
+    <h1 style="text-align: center"> Kategoria {{categoryName}}</h1>
+
+    <md-grid-list
+        md-cols-sm="1"
+        md-cols-md="2"
+        md-cols-gt-md="8"
+        md-row-height-gt-md="1:1"
+        md-row-height="2:2"
+        md-gutter="12px"
+        md-gutter-gt-sm="8px"
+    >
+        <md-grid-tile
+            ng-repeat="item in category"
+            md-rowspan="2"
+            md-colspan="1"
+            md-colspan-sm="1"
+        >
+            <md-card class="my-pointer" ui-sref="product({productSlug: item.slug})">
+                <img ng-src="{{item.image}}" style="height:100%;" alt="Washed Out">
+                <md-card-content>
+                    <h2 class="md-title">{{item.name}}</h2>
+                    <h3 style="color: #808080; font-size:14px;">{{item.producer[0].name}}</h3>
+                </md-card-content>
+            </md-card>
+        </md-grid-tile>
+    </md-grid-list>
+</div>

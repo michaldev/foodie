@@ -11,16 +11,16 @@
 								<h2>Wyszukaj rodzaj produktu</h2>
 								<md-input-container flex >
 									<label>Co chcesz zjeść?</label>
-									<input ng-model="searchController.searchText" ng-enter="searchController.searchItem(searchController.searchText)">
+									<input ng-model="search.searchText" ng-enter="search.searchItem(search.searchText)">
 								</md-input-container>
 
-								<md-button class="md-primary md-raised" ng-click="searchController.searchItem(searchController.searchText)">
+								<md-button class="md-primary md-raised" ng-click="search.searchItem(search.searchText)">
 									Wyszukaj
 								</md-button>
 							</div>
 
 							<div class="" layout-margin>
-								<div ng-show="searchController.isClicked" class="data-table-container" >
+								<div ng-show="search.isClicked" class="data-table-container" >
 									<table class="data-table data-table--has-primary">
 										<thead>
 											<tr>
@@ -34,7 +34,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr class="my-font data-table__clickable-row" ng-repeat="itemToShow in searchController.itemsToShow" ui-sref="product({productSlug: itemToShow.slug})">
+											<tr class="my-font data-table__clickable-row" ng-repeat="itemToShow in search.itemsToShow" ui-sref="product({productSlug: itemToShow.slug})">
 												<td><img ng-src="{{itemToShow.image}}" style="width: 64px; height:auto" class="my-circular md-whiteframe-z1"/></td>
 												<td>{{itemToShow.name}}</td>
 												<td>{{itemToShow.producer[0].name}}</td>
@@ -51,7 +51,7 @@
 							<h2>Wyszukaj rodzaj kategorii</h2>
 							<md-input-container flex >
 								<label>Co chcesz zjeść?</label>
-								<input ng-model="searchController.searchText">
+								<input ng-model="search.searchText">
 							</md-input-container>
 							<md-button class="md-primary md-raised">Wyszukaj</md-button>
 						</md-content>

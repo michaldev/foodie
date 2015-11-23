@@ -36,7 +36,7 @@ In order to use one of those commands, you must be in the `gulp` folder in your 
 
     gulp <command>
 
-First build may take some time to execute because it will copy all of the large dependencies like `Angular`, `jQuery`, `[...]` to the `dest` file.
+First build may take some time to execute because it will copy all of the large dependencies like `Angular`, `jQuery`, `[...]` to the `dest` file. On first build, your should run `gulp build` command and then `gulp watch`, otherwise it will return `Could not GET /` error.
 
 ## Server
 

@@ -6,57 +6,57 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-		<link rel="stylesheet" href="/styles/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+        <link rel="stylesheet" href="/styles/style.css">
     </head>
 
     <body ng-app="app" ng-controller="mainController" layout="row" layout-sm="row">
         <div class="loader">
-			<div id="loader">
-  				<div id="top"></div>
-  				<div id="bottom"></div>
- 			 	<div id="line"></div>
-			</div>
-		</div>
+            <div id="loader">
+                <div id="top"></div>
+                <div id="bottom"></div>
+                <div id="line"></div>
+            </div>
+        </div>
 
         <div style="width: 100%;" layout="column" layout-sm="column">
-			<md-sidenav md-component-id="left" class="md-sidenav-left">
-				<md-toolbar class="md-accent">
-					<div class="md-toolbar-tools my-font-white">Kategorie</div>
-				</md-toolbar>
+            <md-sidenav md-component-id="left" class="md-sidenav-left">
+                <md-toolbar class="md-accent">
+                    <div class="md-toolbar-tools my-font-white">Kategorie</div>
+                </md-toolbar>
 
-				<div ng-controller="sidenavController">
-					<md-button ng-click="closeSideNav()" style="width: 100%; margin: 0 !important" ui-sref="category({categoryID: category.id, categoryName: category.name})" ng-repeat="category in categories">{{category.name}}</md-button>
-				</div>
-			</md-sidenav>
+                <div ng-controller="sidenavController">
+                    <md-button ng-click="closeSideNav()" style="width: 100%; margin: 0 !important" ui-sref="category({categoryID: category.id, categoryName: category.name})" ng-repeat="category in categories">{{category.name}}</md-button>
+                </div>
+            </md-sidenav>
 
- 			<md-toolbar id="main-toolbar" ng-controller="navbarController" layout="row" class="md-tall md-hue-1">
-			    <div layout="column" flex="100">
-			        <div class="md-toolbar-tools" layout="row" layout-sm="row">
-			        	<md-button ng-click="openLeftMenu()" class="md-icon-button">
+            <md-toolbar id="main-toolbar" ng-controller="navbarController" layout="row" class="md-tall md-hue-1">
+                <div layout="column" flex="100">
+                    <div class="md-toolbar-tools" layout="row" layout-sm="row">
+                        <md-button ng-click="openLeftMenu()" class="md-icon-button">
                             <md-icon class="my-font-white" md-svg-icon="/images/icons/menu.svg"></md-icon>
-					    </md-button>
+                        </md-button>
 
-						<h3 class="my-font-white my-pointer" ui-sref="home">Foodie</h3>
+                        <h3 class="my-font-white my-pointer" ui-sref="home">Foodie</h3>
 
-				        <span flex></span>
+                        <span flex></span>
 
-				        <md-button class="md-icon-button" ng-click="showBugDialog($event)">
+                        <md-button class="md-icon-button" ng-click="showBugDialog($event)">
                             <md-icon class="my-font-white"  md-svg-icon="/images/icons/alert.svg"></md-icon>
-					    </md-button>
+                        </md-button>
 
-					    <md-button class="md-icon-button">
+                        <md-button class="md-icon-button">
                             <md-icon class="my-font-white" md-svg-icon="/images/icons/plus.svg"></md-icon>
-					    </md-button>
+                        </md-button>
 
-					    <md-button ui-sref="about" class="md-icon-button">
+                        <md-button ui-sref="about" class="md-icon-button">
                             <md-icon class="my-font-white" md-svg-icon="/images/icons/information-outline.svg"></md-icon>
-					    </md-button>
-			        </div>
+                        </md-button>
+                    </div>
 
-			        <span flex></span>
+                    <span flex></span>
 
-			        <md-tabs class="md-primary" md-selected="currentTab">
+                    <md-tabs class="md-primary" md-selected="currentTab">
                         <md-tab id="tab1" ui-sref="home">
                             <md-tab-label>Wyszukiwarka</md-tab-label>
                         </md-tab>
@@ -72,7 +72,7 @@
                 </div>
             </md-toolbar>
 
-			<md-content style="position:relative" flex>
+            <md-content style="position:relative" flex>
                 <div class="my-content" ng-controller="viewController" ui-view></div>
 
                 <md-toolbar class="md-tall my-footer">

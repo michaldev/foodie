@@ -36,7 +36,7 @@ class ProductSearch(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
     filter_backends = (filters.SearchFilter,)
     search_fields = ('slug', 'name')
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
 
 class ProductList(generics.ListCreateAPIView):

@@ -1,5 +1,5 @@
 class Navbar extends Controller
-    constructor: ( $scope, $state, changeStateFactory, $mdDialog ) ->
+    constructor : ( $scope, $state, changeStateFactory, $mdDialog ) ->
         $scope.showBugDialog = ( event ) ->
             $mdDialog.show
                 controller  : "dialogController"

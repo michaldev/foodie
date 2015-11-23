@@ -6,10 +6,9 @@
 				<md-tabs md-dynamic-height md-selected="searchFor">
 					<md-tab label="Wyszukaj produkt">
 						<md-content layout-padding>
-
-							<div class="" layout-margin layout-padding>
+							<div layout-margin layout-padding>
 								<h2>Wyszukaj rodzaj produktu</h2>
-								<md-input-container flex >
+								<md-input-container flex>
 									<label>Co chcesz zjeść?</label>
 									<input ng-model="search.searchText" ng-enter="search.searchItem(search.searchText)">
 								</md-input-container>
@@ -19,8 +18,8 @@
 								</md-button>
 							</div>
 
-							<div class="" layout-margin>
-								<div ng-show="search.isClicked" class="data-table-container" >
+							<div layout-margin>
+								<div ng-show="search.isClicked" class="data-table-container">
 									<table class="data-table data-table--has-primary">
 										<thead>
 											<tr>
@@ -33,6 +32,7 @@
 												<td colspan="3" class="divider divider--dark"></td>
 											</tr>
 										</thead>
+
 										<tbody>
 											<tr class="my-font data-table__clickable-row" ng-repeat="itemToShow in search.itemsToShow" ui-sref="product({productSlug: itemToShow.slug})">
 												<td><img ng-src="{{itemToShow.image}}" style="width: 64px; height:auto" class="my-circular md-whiteframe-z1"/></td>

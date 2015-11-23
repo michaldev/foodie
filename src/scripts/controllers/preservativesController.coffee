@@ -1,5 +1,5 @@
 class Preservatives extends Controller
-    constructor: ( $scope, $stateParams, $http ) ->
+    constructor : ( $scope, $stateParams, $http ) ->
         $scope.preservativeID   = $stateParams.preservativeID
         $scope.preservativeSlug = $stateParams.preservativeSlug
         $scope.functions        = []

@@ -1,3 +1,3 @@
 class View extends Controller
-    constructor: ( $scope ) ->
+    constructor : ( $scope ) ->
         # ...

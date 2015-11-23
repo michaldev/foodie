@@ -1,5 +1,5 @@
 class Product extends Controller
-    constructor: ( $scope, $stateParams, $http ) ->
+    constructor : ( $scope, $stateParams, $http ) ->
         $scope.slug = $stateParams.productSlug
 
         $http.get "http://127.0.0.1:8000/basefood/product/#{$scope.slug}"

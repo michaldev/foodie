@@ -1,5 +1,5 @@
 class Category extends Controller
-    constructor: ( $scope, $stateParams, $http ) ->
+    constructor : ( $scope, $stateParams, $http ) ->
         $scope.id           = $stateParams.categoryID
         $scope.categoryName = $stateParams.categoryName
 

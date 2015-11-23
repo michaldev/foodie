@@ -1,5 +1,5 @@
 class Main extends Controller
-    constructor: ( $scope, $mdSidenav ) ->
+    constructor : ( $scope, $mdSidenav ) ->
         $scope.openLeftMenu = ->
             $mdSidenav( "left" ).toggle()
 

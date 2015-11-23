@@ -1,5 +1,5 @@
 class Vitamins extends Controller
-    constructor: ( $scope, $stateParams, $http, $state ) ->
+    constructor : ( $scope, $stateParams, $http, $state ) ->
         $scope.vitaminSlug  = $stateParams.vitaminSlug
         $scope.vitaminID    = $stateParams.vitaminID
         $scope.functions    = []

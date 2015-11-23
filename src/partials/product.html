@@ -45,7 +45,7 @@
 
 			<div style="padding: 0 40px 40px 40px;">
 				<div class="my-progressbars">
-					<p class="md-subhead">Białka ({{product.values_calculated.protein}}%)</p>
+					<p class="md-subhead">Białka <span class="percentage">{{product.values_calculated.protein}}%</span></p>
 					<div layout="row">
 						<p class="my-subfont" style="margin: 0; padding: 0" flex="5">{{product.values_category.protein__min}}</p>
 						<md-progress-linear flex="80" md-mode="determinate" ng-value="{{product.values_calculated.protein}}"></md-progress-linear><p class="my-subfont" style="margin: 0 0 0 6px; padding: 0" flex="5">{{product.values_category.protein__max}}</p>
@@ -53,7 +53,7 @@
 				</div>
 
 				<div class="my-progressbars">
-					<p>Cukry ({{product.values_calculated.sugar}}%)</p>
+					<p>Cukry <span class="percentage">{{product.values_calculated.sugar}}%</span></p>
 					<div layout="row">
 						<p class="my-subfont" style="margin: 0; padding: 0" flex="5">{{product.values_category.sugar__min}}</p>
 						<md-progress-linear flex="80" md-mode="determinate" ng-value="{{product.values_calculated.sugar}}"></md-progress-linear><p class="my-subfont" style="margin: 0 0 0 6px; padding: 0" flex="5">{{product.values_category.sugar__max}}</p>
@@ -61,7 +61,7 @@
 				</div>
 
 				<div class="my-progressbars">
-					<p>Tłuszcze ({{product.values_calculated.fats}}%)</p>
+					<p>Tłuszcze <span class="percentage">{{product.values_calculated.fats}}%</span></p>
 					<div layout="row">
 						<p class="my-subfont" style="margin: 0; padding: 0" flex="5">{{product.values_category.fats__min}}</p>
 						<md-progress-linear flex="80" md-mode="determinate" ng-value="{{product.values_calculated.fats}}"></md-progress-linear><p class="my-subfont" style="margin: 0 0 0 6px; padding: 0" flex="5">{{product.values_category.fats__max}}</p>

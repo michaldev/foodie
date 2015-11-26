@@ -12,3 +12,7 @@ class Home extends Controller
                     console.log "Search data #{data}"
                 .error ( data, status, headers, config ) ->
                     console.log "Could not search"
+
+        $scope.search.listenForEnter = ( event ) ->
+            if event.keyCode == 13 and $scope.search.searchText?
+                $scope.search.searchItem $scope.search.searchText

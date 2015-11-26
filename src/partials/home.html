@@ -10,7 +10,7 @@
 								<h2>Wyszukaj rodzaj produktu</h2>
 								<md-input-container flex>
 									<label>Co chcesz zjeść?</label>
-									<input ng-model="search.searchText" ng-enter="search.searchItem(search.searchText)">
+									<input ng-model="search.searchText" ng-enter="search.searchItem(search.searchText)" ng-keydown="search.listenForEnter($event)">
 								</md-input-container>
 
 								<md-button class="md-primary md-raised" ng-click="search.searchItem(search.searchText)">

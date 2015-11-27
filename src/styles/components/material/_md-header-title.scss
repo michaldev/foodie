@@ -1,0 +1,26 @@
+.md-header-title {
+    padding: 0 20px;
+    margin: 0;
+
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #ddd;
+
+    height: 56px;
+    line-height: 56px;
+
+    .md-header-subtitle {
+
+    }
+
+    .md-header-info {
+        margin-left: 15px;
+
+        font-size: 80%;
+        color: gray;
+    }
+
+    p {
+        margin: 0;
+    }
+}

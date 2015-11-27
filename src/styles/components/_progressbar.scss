@@ -1,0 +1,26 @@
+.progressbar {
+    padding: 0 20px 16px;
+    margin: 0;
+
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #ddd;
+
+    .progressbar-percentage {
+        font-size: 12px;
+        font-weight: 500;
+        color: grey;
+    }
+
+    .progressbar-value {
+        margin: 0;
+
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .progressbar-bar {
+        margin: 5px 0;
+    }
+}

@@ -1,58 +1,30 @@
-<h1 style="text-align: center; margin-top: 24px;">Konserwanty</h1>
+<md-subheader class="md-primary">Konserwanty</md-subheader>
 
 <div layout="row" layout-sm="column">
-    <div flex="33" flex-sm="100" style="padding:8px">
-        <md-whiteframe class="md-whiteframe-z1" layout="column">
-            <div class="data-table-container">
-                <table class="data-table data-table--has-primary data-table--has-secondary my-white-font">
+    <div flex="33" flex-sm="100" layout-padding>
+        <md-whiteframe class="md-whiteframe-1dp" layout="column">
+            <div class="card md-table">
+                <table>
                     <thead>
                         <tr>
                             <th>Nazwa</th>
                             <th>Opis</th>
                         </tr>
-
-                        <tr>
-                            <td colspan="2" class="divider divider--dark"></td>
-                        </tr>
                     </thead>
 
-                    <tbody class="my-table-body">
-                        <tr class="my-tr my-pointer data-table__clickable-row" ng-repeat="item in preservatives" ng-click="functions.preservativeChange(item.slug, $index)" ui-sref="preservatives({preservativeSlug: item.slug, preservativeID: $index})">
+                    <tbody>
+                        <tr class="pointer" ng-repeat="item in preservatives" ng-click="functions.preservativeChange(item.slug, $index)" ui-sref="preservatives({preservativeSlug: item.slug, preservativeID: $index})">
                             <td>
-                                <p>{{item.name}}</p>
-                                <p style="font-size:12px; color:grey">{{item.othername}}</p>
+                                <p class="md-table-title">{{item.name}}</p>
+                                <p class="md-table-subtitle">{{item.othername}}</p>
                             </td>
 
                             <td>
-                                <md-icon class="my-button my-preseicon-{{item.level}}" md-svg-icon="/images/icons/emoticon-{{item.level}}.svg"></md-icon>
+                                <md-icon class="emoticon emoticon-{{item.level}}" md-svg-icon="/images/icons/emoticon-{{item.level}}.svg"></md-icon>
+                                <span class="emoticon-title" ng-if="item.level == 0">Szkodliwe</span>
+                                <span class="emoticon-title" ng-if="item.level == 1">Neutralne</span>
+                                <span class="emoticon-title" ng-if="item.level == 2">Nieszkodliwe</span>
                             </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </md-whiteframe>
-
-        <md-whiteframe class="md-whiteframe-z1" style="margin-top: 12px;" layout="column">
-            <div class="data-table-container">
-                <table class="data-table data-table--has-primary data-table--has-secondary my-white-font">
-                    <tbody class="my-table-body">
-                        <tr class="my-tr">
-                            <td colspan="2" style="max-width:116px !important; text-align: center">Legenda</td>
-                        </tr>
-
-                        <tr class="my-tr">
-                            <td style="max-width:116px !important;">Szkodliwe</td>
-                            <td><md-icon class="my-preseicon-0" md-svg-icon="/images/icons/emoticon-0.svg"></md-icon></td>
-                        </tr>
-
-                        <tr class="my-tr">
-                            <td style="max-width:116px !important;">Neutralne</td>
-                            <td><md-icon class="my-preseicon-1" md-svg-icon="/images/icons/emoticon-1.svg"></md-icon></td>
-                        </tr>
-
-                        <tr class="my-tr">
-                            <td style="max-width:116px !important;">Nieszkodliwe</td>
-                            <td><md-icon class="my-preseicon-2" md-svg-icon="/images/icons/emoticon-2.svg"></md-icon></td>
                         </tr>
                     </tbody>
                 </table>
@@ -60,23 +32,20 @@
         </md-whiteframe>
     </div>
 
-    <div flex="66" flex-sm="100" style="padding:8px">
-        <md-whiteframe class="md-whiteframe-z1" style="min-height:60vh" layout="row" layout-padding>
-            <div flex="66">
-                <h5 class="my-subfont" style="margin: 0">
-                    <span>{{preservatives[preservativeID].name}}</span>
-                    <span style="font-size:11px; color:#A6A6A6">{{preservatives[preservativeID].othername}}</span>
-                </h5>
+    <div flex="66" flex-sm="100" layout-padding>
+        <md-whiteframe class="md-whiteframe-1dp" style="min-height: 75vh" layout="column">
+            <h5 class="md-header-title">
+                <span class="md-header-subtitle">{{preservatives[preservativeID].name}}</span>
+                <span class="md-header-info">{{preservatives[preservativeID].othername}}</span>
+            </h5>
 
-                <p style="padding:32px 0;">
-                    {{preservatives[preservativeID].description}}
-                </p>
+            <div class="md-header-title">
+                <p class="md-header-subtitle">Dopuszczalna dzienna dawka: {{preservatives[preservativeID].dmax}}</p>
             </div>
 
-            <md-whiteframe flex="33" style="height:50%" class="md-whiteframe-z1" layout-padding layout-margin>
-                Dopuszczalna dzienna dawka: {{preservatives[preservativeID].dmax}}<br>
-                Dawka śmiertelna (LD50): -
-            </md-whiteframe>
+            <p class="content">
+                {{preservatives[preservativeID].description}}
+            </p>
         </md-whiteframe>
     </div>
 </div>

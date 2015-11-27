@@ -1,7 +1,14 @@
 .product-name {
-    max-width: 105px;
+    display: inline-block;
+}
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.product-producer {
+    display: inline-block;
+
+    margin-left: 10px;
+    padding: 0;
+
+    font-size: 14px;
+    font-weight: 500;
+    color: grey;
 }

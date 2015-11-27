@@ -19,64 +19,65 @@
             </div>
         </div>
 
-        <div style="width: 100%;" layout="column" layout-sm="column">
-            <md-sidenav md-component-id="left" class="md-sidenav-left">
+        <div layout="column" layout-fill="layout-fill">
+            <md-sidenav class="md-sidenav-left" md-component-id="left">
                 <md-toolbar class="md-accent">
-                    <div class="md-toolbar-tools my-font-white">Kategorie</div>
+                    <div class="md-toolbar-tools">Kategorie</div>
                 </md-toolbar>
 
-                <div ng-controller="sidenavController">
-                    <md-button ng-click="closeSideNav()" style="width: 100%; margin: 0 !important" ui-sref="category({categoryID: category.id, categoryName: category.name})" ng-repeat="category in categories">{{category.name}}</md-button>
-                </div>
+                <md-menu-content ng-controller="sidenavController">
+                    <md-menu-item>
+                        <md-button ng-click="closeSideNav()" ui-sref="category({categoryID: category.id, categoryName: category.name})" ng-repeat="category in categories">
+                            {{category.name}}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
             </md-sidenav>
 
-            <md-toolbar id="main-toolbar" ng-controller="navbarController" layout="row" class="md-tall md-hue-1">
-                <div layout="column" flex="100">
-                    <div class="md-toolbar-tools" layout="row" layout-sm="row">
-                        <md-button ng-click="openLeftMenu()" class="md-icon-button">
-                            <md-icon class="my-font-white" md-svg-icon="/images/icons/menu.svg"></md-icon>
-                        </md-button>
+            <md-toolbar class="md-hue-1 md-whiteframe-1dp" ng-controller="navbarController">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" ng-click="openLeftMenu()">
+                        <md-icon md-svg-icon="images/icons/menu.svg"></md-icon>
+                    </md-button>
 
-                        <h3 class="my-font-white my-pointer" ui-sref="home">Foodie</h3>
-
-                        <span flex></span>
-
-                        <md-button class="md-icon-button" ng-click="showBugDialog($event)">
-                            <md-icon class="my-font-white"  md-svg-icon="/images/icons/alert.svg"></md-icon>
-                        </md-button>
-
-                        <md-button class="md-icon-button">
-                            <md-icon class="my-font-white" md-svg-icon="/images/icons/plus.svg"></md-icon>
-                        </md-button>
-
-                        <md-button ui-sref="about" class="md-icon-button">
-                            <md-icon class="my-font-white" md-svg-icon="/images/icons/information-outline.svg"></md-icon>
-                        </md-button>
-                    </div>
+                    <h2>
+                        <span>Foodie</span>
+                    </h2>
 
                     <span flex></span>
 
-                    <md-tabs class="md-primary" md-selected="currentTab">
-                        <md-tab id="tab1" ui-sref="home">
-                            <md-tab-label>Wyszukiwarka</md-tab-label>
-                        </md-tab>
+                    <md-button class="md-icon-button" ng-click="showBugDialog($event)">
+                        <md-icon md-svg-icon="/images/icons/alert.svg"></md-icon>
+                    </md-button>
 
-                        <md-tab id="tab2" ui-sref="vitamins({vitaminSlug: 'witamina-b', vitaminID: 0})">
-                            <md-tab-label>Witaminy</md-tab-label>
-                        </md-tab>
+                    <md-button class="md-icon-button">
+                        <md-icon md-svg-icon="/images/icons/plus.svg"></md-icon>
+                    </md-button>
 
-                        <md-tab id="tab3" ui-sref="preservatives({preservativeSlug: 'e700', preservativeID: 0})">
-                            <md-tab-label>Konserwanty</md-tab-label>
-                        </md-tab>
-                    </md-tabs>
+                    <md-button ui-sref="about" class="md-icon-button">
+                        <md-icon md-svg-icon="/images/icons/information-outline.svg"></md-icon>
+                    </md-button>
                 </div>
+
+                <span flex></span>
+
+                <md-tabs class="md-primary" md-selected="currentTab">
+                    <md-tab ui-sref="home">
+                        <md-tab-label>Wyszukiwarka</md-tab-label>
+                    </md-tab>
+
+                    <md-tab ui-sref="vitamins({vitaminSlug: 'witamina-b', vitaminID: 0})">
+                        <md-tab-label>Witaminy</md-tab-label>
+                    </md-tab>
+
+                    <md-tab ui-sref="preservatives({preservativeSlug: 'e700', preservativeID: 0})">
+                        <md-tab-label>Konserwanty</md-tab-label>
+                    </md-tab>
+                </md-tabs>
             </md-toolbar>
 
-            <md-content style="position:relative" flex>
-                <div class="my-content" ng-controller="viewController" ui-view></div>
-
-                <md-toolbar class="md-tall my-footer">
-                </md-toolbar>
+            <md-content>
+                <div ng-controller="viewController" ui-view></div>
             </md-content>
         </div>
 
@@ -91,7 +92,6 @@
         <script src="scripts/vendor/angular/angular-cookies.min.js"></script>
         <script src="scripts/vendor/angular/angular-material.min.js"></script>
         <script src="scripts/vendor/angular/angular-ui-router.min.js"></script>
-        <script src="scripts/vendor/lumx/lumx.min.js"></script>
         <script src="scripts/app.js"></script>
     </body>
 </html>

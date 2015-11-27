@@ -1,0 +1,14 @@
+.md-card-title {
+    max-width: 105px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.md-card-subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    color: #808080;
+}

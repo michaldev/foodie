@@ -12,7 +12,7 @@ angular.module( "app", [
 
 .config ( $mdThemingProvider ) ->
     $mdThemingProvider
-        .definePalette "customGreen",
+        .definePalette "custom-green",
     	    "50"   : "#edf7ee"
     	    "100"  : "#c9e7ca"
     	    "200"  : "#a6d7a8"
@@ -28,11 +28,9 @@ angular.module( "app", [
     	    "A400" : "#6abc6d"
     	    "A700" : "#39833c"
     	    "contrastDefaultColor" : "light"
-    	    "contrastDarkColors"   : [ "50", "100", "200", "300", "400", "A100" ],
-    	    "contrastLightColors"  : undefined
         .theme "default"
     	.accentPalette "deep-orange"
-    	.primaryPalette "customGreen"
+    	.primaryPalette "custom-green"
 
 .config ( $stateProvider, $urlRouterProvider ) ->
     $urlRouterProvider.otherwise "/home"

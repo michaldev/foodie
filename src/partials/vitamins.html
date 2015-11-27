@@ -1,31 +1,24 @@
-<h1 style="text-align: center; margin-top: 24px;">Witaminy</h1>
+<md-subheader class="md-primary">Witaminy</md-subheader>
 
 <div layout="row" layout-sm="column">
-    <div flex="33" flex-sm="100" style="padding:8px">
-        <md-whiteframe  class="md-whiteframe-z1" layout="column">
-            <div class="data-table-container">
-                <table class="data-table data-table--has-primary data-table--has-secondary my-white-font">
+    <div flex="33" flex-sm="100" layout-padding>
+        <md-whiteframe class="md-whiteframe-1dp" layout="column">
+            <div class="card md-table">
+                <table>
                     <thead>
                         <tr>
                             <th>Nazwa</th>
                             <th>Opis</th>
                         </tr>
-
-                        <tr>
-                            <td colspan="2" class="divider divider--dark"></td>
-                        </tr>
                     </thead>
 
-                    <tbody class="my-table-body">
-                        <tr class="my-tr my-pointer data-table__clickable-row" ng-repeat="item in vitamins" ng-click="functions.vitamineChange(item.slug, $index)" ui-sref="vitamins({vitaminSlug: item.slug, vitaminID: $index})">
+                    <tbody>
+                        <tr class="pointer" ng-repeat="item in vitamins" ng-click="functions.vitamineChange(item.slug, $index)" ui-sref="vitamins({vitaminSlug: item.slug, vitaminID: $index})">
                             <td>
-                                <p>{{item.name}}</p>
-                                <p style="font-size:12px; color:grey">{{item.othername}}</p>
+                                <p class="md-table-title">{{item.name}}</p>
+                                <p class="md-table-subtitle">{{item.othername}}</p>
                             </td>
-
-                            <td>
-                                {{item.description}}
-                            </td>
+                            <td>{{item.description}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -33,13 +26,14 @@
         </md-whiteframe>
     </div>
 
-    <div flex="66" flex-sm="100" style="padding:8px">
-        <md-whiteframe class="md-whiteframe-z1" style="min-height:60vh" layout="column">
-            <h5 class="my-subfont">
-                <span>{{vitamins[vitaminID].name}}</span> <span style="font-size:11px; color:#A6A6A6">{{vitamins[vitaminID].othername}}</span>
+    <div flex="66" flex-sm="100" layout-padding>
+        <md-whiteframe class="md-whiteframe-1dp" style="min-height: 75vh" layout="column">
+            <h5 class="md-header-title">
+                <span class="md-header-subtitle">{{vitamins[vitaminID].name}}</span>
+                <span class="md-header-info">{{vitamins[vitaminID].othername}}</span>
             </h5>
 
-            <p style="padding:16px;">
+            <p class="content">
                 {{vitamins[vitaminID].description}}
             </p>
         </md-whiteframe>

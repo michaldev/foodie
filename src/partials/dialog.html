@@ -1,21 +1,22 @@
-<md-dialog aria-label="Zgłoś błąd">
+<md-dialog aria-label="Kontakt" ng-cloak>
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Zgłoś błąd</h2>
+                <h2>Kontakt</h2>
+
                 <span flex></span>
-                <md-button class="md-icon-button" ng-click="cancel()">Wyjdź</md-button>
+
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="images/icons/close.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
             </div>
         </md-toolbar>
 
         <md-dialog-content>
-            <div>Bład <md-switch /> Propozycja</div>
-            <div>Kategoria</div>
+            <md-radio-group ng-model="data.group1">
+                <md-radio-button value="bug" class="md-primary">Błąd</md-radio-button>
+                <md-radio-button value="feayure" class="md-primary">Propozycja</md-radio-button>
+            </md-radio-group>
         </md-dialog-content>
-
-        <div class="md-actions" layout="row">
-            <span flex></span>
-            <md-button class="md-primary">Not Useful</md-button>
-        </div>
     </form>
 </md-dialog>

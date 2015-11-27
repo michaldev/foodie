@@ -1,7 +1,18 @@
-@import "vendor/lumx/lumx.min.css";
 @import "vendor/angular/angular-material.min.css";
 
-@import "components/percentages";
-@import "components/dopoprawy";
+@import "components/resets/normalize";
+@import "components/resets/global";
+
+@import "components/material/md-header-title";
+@import "components/material/md-sidenav";
+@import "components/material/md-toolbar";
+@import "components/material/md-table";
+@import "components/material/md-card";
+@import "components/material/md-tab";
+
+@import "components/helpers";
+@import "components/progressbar";
+@import "components/emoticon";
+@import "components/content";
 @import "components/product";
 @import "components/loader";

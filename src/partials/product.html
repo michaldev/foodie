@@ -1,205 +1,232 @@
+<md-subheader class="md-primary">
+	<span>Kategorie</span>
+	<md-icon md-svg-src="images/icons/chevron.svg" aria-label="Close dialog"></md-icon>
+	<span class="pointer" ui-sref="category({categoryID: product.category[0].id, categoryName: product.category[0].name})">{{product.category[0].name}}</span>
+	<md-icon md-svg-src="images/icons/chevron.svg" aria-label="Close dialog"></md-icon>
+	<span>{{product.name}}</span>
+</md-subheader>
+
 <div layout="row" layout-sm="row" layout-wrap>
-	<div flex="33" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
+	<div flex="30" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
 		<md-card>
 			<img ng-src="{{product.image}}" class="md-card-image">
+
 			<md-card-content>
 				<div>
-					<h2 style="display: inline-block" class="my-font">{{product.name}}</h2>
-					<h4 style="display: inline-block; margin-left:0px; font-size:14px" class="my-subfont">{{product.producer[0].name}}</h4>
+					<h2 class="product-name">{{product.name}}</h2>
+					<h4 class="product-producer">{{product.producer[0].name}}</h4>
 				</div>
-				<h3 ui-sref="category({categoryID: product.category[0].id, categoryName: product.category[0].name})" class="my-subfont" style="cursor:pointer; margin-top:0px; margin-left:0px; font-size:16px">{{product.category[0].name}}</h3>
 			</md-card-content>
 		</md-card>
 
-		<md-whiteframe class="md-whiteframe-z1 my-cardlike-margins">
-			<div class="data-table-container">
-				<table class="data-table">
-					<thead>
-						<tr>
-							<th>Dostępność</th>
-							<th></th>
-							<th>Cena</th>
-						</tr>
-
-						<tr>
-							<td colspan="3" class="divider divider--dark"></td>
-						</tr>
-					</thead>
-
-					<tr ng-repeat="shop in product.shops">
-						<td>{{shop.name}}</td>
-						<td><img src="{{shop.image}}"></td>
-						<td>{{shop.price}} zł</td>
-					</tr>
-				</table>
-			</div>
-		</md-whiteframe>
-	</div>
-
-	<div flex="33" flex-sm="100" flex-md="100" layout="column" layout-sm="column" style="padding: 8px;">
-		<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column">
-			<h2 class="my-font" style="padding: 16px 0 0 16px;">Wartości odżywcze</h2>
-			<h5 class="my-subfont" margin-top:>
-				Uwzględniające kategorie <span style="cursor:pointer;" ui-sref="category({categoryID: product.category[0].id, categoryName: product.category[0].name})">{{product.category[0].name}}</span>
-			</h5>
-
-			<div style="padding: 0 40px 40px 40px;">
-				<div class="my-progressbars">
-					<p class="md-subhead">Białka <span class="percentage">{{product.values_calculated.protein}}%</span></p>
-					<div layout="row">
-						<p class="my-subfont" style="margin: 0; padding: 0" flex="5">{{product.values_category.protein__min}}</p>
-						<md-progress-linear flex="80" md-mode="determinate" ng-value="{{product.values_calculated.protein}}"></md-progress-linear><p class="my-subfont" style="margin: 0 0 0 6px; padding: 0" flex="5">{{product.values_category.protein__max}}</p>
-					</div>
-				</div>
-
-				<div class="my-progressbars">
-					<p>Cukry <span class="percentage">{{product.values_calculated.sugar}}%</span></p>
-					<div layout="row">
-						<p class="my-subfont" style="margin: 0; padding: 0" flex="5">{{product.values_category.sugar__min}}</p>
-						<md-progress-linear flex="80" md-mode="determinate" ng-value="{{product.values_calculated.sugar}}"></md-progress-linear><p class="my-subfont" style="margin: 0 0 0 6px; padding: 0" flex="5">{{product.values_category.sugar__max}}</p>
-					</div>
-				</div>
-
-				<div class="my-progressbars">
-					<p>Tłuszcze <span class="percentage">{{product.values_calculated.fats}}%</span></p>
-					<div layout="row">
-						<p class="my-subfont" style="margin: 0; padding: 0" flex="5">{{product.values_category.fats__min}}</p>
-						<md-progress-linear flex="80" md-mode="determinate" ng-value="{{product.values_calculated.fats}}"></md-progress-linear><p class="my-subfont" style="margin: 0 0 0 6px; padding: 0" flex="5">{{product.values_category.fats__max}}</p>
-					</div>
-				</div>
-			</div>
-		</md-whiteframe>
-
-		<div style="margin-top: 12px;">
-			<md-toolbar class="md-toolbar-tools">Witaminy i składniki mineralne</md-toolbar>
-
-			<md-whiteframe style="padding: 40px;" class="md-whiteframe-z1" layout="column">
-				<span class="my-pointer" ng-repeat="vitamine in product.vitamins" ui-sref="vitamins({vitaminSlug: vitamine.slug,vitaminID: $index})">{{vitamine.name}}</span>
-				<span ng-repeat="mineral in product.minerals">{{mineral.name}}</span>
-			</md-whiteframe>
-		</div>
-
-		<div style="margin-top: 12px;">
-			<md-toolbar class="md-warn md-toolbar-tools" id="Konserwanty">Konserwanty</md-toolbar>
-			<md-list>
-				<md-whiteframe style="padding: 24px;" class="md-whiteframe-z1" layout="column" layout-sm="column" layout-align="center">
-					<div class="data-table-container">
-						<table class="data-table data-table--has-secondary">
-							<tr class="my-pointer" ng-repeat="preservative in product.preservatives" ui-sref="preservatives({preservativeSlug: preservative.slug,preservativeID: $index})">
-								<td>{{preservative.name}}</td>
-								<td><md-icon class="my-button my-preseicon-{{preservative.level}}" md-svg-icon="/images/icons/emoticon-{{preservative.level}}.svg"></md-icon></td>
+		<md-whiteframe class="md-whiteframe-1dp" layout-margin>
+			<div layout="row">
+				<div class="card md-table">
+					<table>
+						<thead>
+							<tr>
+								<th>Dostępność</th>
+								<th></th>
+								<th>Cena</th>
 							</tr>
-						</table>
-					</div>
-				</md-whiteframe>
-			</md-list>
-		</div>
+						</thead>
+
+						<tbody>
+							<tr ng-repeat="shop in product.shops">
+								<td>{{shop.name}}</td>
+								<td><img src="{{shop.image}}"></td>
+								<td>{{shop.price}} zł</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</md-whiteframe>
 	</div>
 
-	<div flex="33" flex-sm="100" flex-md="100" style="padding: 8px;">
-		<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column">
-			<div class="data-table-container">
-				<table class="data-table">
-					<thead>
-						<tr>
-							<th><h3 class="my-font">Składniki</h3></th>
-							<th>na 100g/ml</th>
-							<th>na produkt</th>
-						</tr>
+	<div flex="35" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+			<h5 class="md-header-title">
+                <span class="md-header-subtitle">Wartości odżywcze</span>
+                <span class="md-header-info">Uwzględniające kategorie <span class="pointer" ui-sref="category({categoryID: product.category[0].id, categoryName: product.category[0].name})">{{product.category[0].name}}</span></span>
+            </h5>
 
-						<tr>
-							<td colspan="3" class="divider divider--dark"></td>
-						</tr>
-					</thead>
+			<div class="progressbar">
+				<p>Białka <span class="progressbar-percentage">{{product.values_calculated.protein}}%</span></p>
 
-					<tbody style="color: #808080">
-						<tr class="my-font">
-							<td>Wartość energetyczna</td>
-							<td>{{product.energyValue}}</td>
-							<td>{{product.energyValue*product.size/100}}</td>
-						</tr>
+				<div layout="row">
+					<p class="progressbar-value" flex="10">{{product.values_category.protein__min}}</p>
+					<md-progress-linear class="progressbar-bar" flex="80" md-mode="determinate" value="{{product.values_calculated.protein}}"></md-progress-linear>
+					<p class="progressbar-value" flex="10">{{product.values_category.protein__max}}</p>
+				</div>
+			</div>
 
-						<tr class="my-font">
-							<td>Białko</td>
-							<td>{{product.protein}}</td>
-							<td>{{product.protein*product.size/100}}</td>
-						</tr>
+			<div class="progressbar">
+				<p>Cukry <span class="progressbar-percentage">{{product.values_calculated.sugar}}%</span></p>
 
-						<tr class="my-font">
-							<td>Węglowodany</td>
-							<td>{{product.carbohydrates}}</td>
-							<td>{{product.carbohydrates*product.size/100}}</td>
-						</tr>
+				<div layout="row">
+					<p class="progressbar-value" flex="10">{{product.values_category.sugar__min}}</p>
+					<md-progress-linear class="progressbar-bar" flex="80" md-mode="determinate" value="{{product.values_calculated.sugar}}"></md-progress-linear>
+					<p class="progressbar-value" flex="10">{{product.values_category.sugar__max}}</p>
+				</div>
+			</div>
 
-						<tr>
-							<td>W tym cukry</td>
-							<td>{{product.sugar}}</td>
-							<td>{{product.sugar*product.size/100}}</td>
-						</tr>
+			<div class="progressbar">
+				<p>Cukry <span class="progressbar-percentage">{{product.values_calculated.fats}}%</span></p>
 
-						<tr class="my-font">
-							<td>Tłuszcze</td>
-							<td>{{product.fats}}</td>
-							<td>{{product.fats*product.size/100}}</td>
-						</tr>
-
-						<tr>
-							<td>W tym kw. tłuszczowe nasycone</td>
-							<td>{{product.fatsSaturated}}</td>
-							<td>{{product.fatsSaturated*product.size/100}}</td>
-						</tr>
-					</tbody>
-				</table>
+				<div layout="row">
+					<p class="progressbar-value" flex="10">{{product.values_category.fats__min}}</p>
+					<md-progress-linear class="progressbar-bar" flex="80" md-mode="determinate" value="{{product.values_calculated.fats}}"></md-progress-linear>
+					<p class="progressbar-value" flex="10">{{product.values_category.fats__max}}</p>
+				</div>
 			</div>
 		</md-whiteframe>
 
-		<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column" style="margin-top: 12px">
-			<div class="data-table-container">
-				<table class="data-table">
-					<thead>
-						<tr>
-							<th>Waga/objętość</th>
-							<th>{{product.size}} g/ml</th>
-						</tr>
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+			<div layout="row">
+				<div class="card md-table md-table-no-hover">
+					<table>
+						<thead>
+							<tr>
+								<th>Składniki</th>
+								<th>...na 100g/ml</th>
+								<th>...na cały produkt</th>
+							</tr>
+						</thead>
 
-						<tr>
-							<td colspan="2" class="divider divider--dark"></td>
-						</tr>
-					</thead>
+						<tbody>
+							<tr>
+								<td>Wartość energetyczna</td>
+								<td>{{product.energyValue}}</td>
+								<td>{{product.energyValue*product.size/100}}</td>
+							</tr>
 
-					<tbody>
-						<tr>
-							<td>Sugerowana dzienna porcja</td>
-							<td>{{product.portion}} g/ml</td>
-						</tr>
-					</tbody>
-				</table>
+							<tr>
+								<td>Białko</td>
+								<td>{{product.protein}}</td>
+								<td>{{product.protein*product.size/100}}</td>
+							</tr>
+
+							<tr>
+								<td>Węglowodany</td>
+								<td>{{product.carbohydrates}}</td>
+								<td>{{product.carbohydrates*product.size/100}}</td>
+							</tr>
+
+							<tr class="disabled">
+								<td>W tym cukry</td>
+								<td>{{product.sugar}}</td>
+								<td>{{product.sugar*product.size/100}}</td>
+							</tr>
+
+							<tr>
+								<td>Tłuszcze</td>
+								<td>{{product.fats}}</td>
+								<td>{{product.fats*product.size/100}}</td>
+							</tr>
+
+							<tr class="disabled">
+								<td>W tym kw. tłuszczowe nasycone</td>
+								<td>{{product.fatsSaturated}}</td>
+								<td>{{product.fatsSaturated*product.size/100}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</md-whiteframe>
+	</div>
+
+	<div flex="35" flex-sm="100" flex-md="100">
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+			<h5 class="md-header-title">
+                <span class="md-header-subtitle">Witaminy i składniki mineralne</span>
+            </h5>
+
+			<div layout="row">
+				<div class="card md-table">
+					<table>
+						<tbody>
+							<tr ng-repeat="vitamine in product.vitamins" ui-sref="vitamins({vitaminSlug: vitamine.slug,vitaminID: $index})">
+								<td class="pointer">{{vitamine.name}}</td>
+							</tr>
+
+							<tr ng-repeat="mineral in product.minerals">
+								<td>{{mineral.name}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</md-whiteframe>
 
-		<md-whiteframe class="md-whiteframe-z1" layout="column" layout-sm="column" style="margin-top: 12px">
-			<div class="data-table-container">
-				<table class="data-table">
-					<thead>
-						<tr>
-							<th>Składnik</th>
-							<th>Gluten</th>
-							<th>Alergen</th>
-						</tr>
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+			<h5 class="md-header-title">
+                <span class="md-header-subtitle">Konserwanty</span>
+            </h5>
 
-						<tr>
-							<td colspan="3" class="divider divider--dark"></td>
-						</tr>
-					</thead>
+			<div layout="row">
+				<div class="card md-table">
+					<table>
+						<tbody>
+							<tr class="pointer" ng-repeat="preservative in product.preservatives" ui-sref="preservatives({preservativeSlug: preservative.slug,preservativeID: $index})">
+								<td>{{preservative.name}}</td>
+								<td>
+									<md-icon class="emoticon emoticon-{{preservative.level}}" md-svg-icon="/images/icons/emoticon-{{preservative.level}}.svg"></md-icon>
+									<span class="emoticon-title" ng-if="preservative.level == 0">Szkodliwe</span>
+	                                <span class="emoticon-title" ng-if="preservative.level == 1">Neutralne</span>
+	                                <span class="emoticon-title" ng-if="preservative.level == 2">Nieszkodliwe</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</md-whiteframe>
 
-					<tbody>
-						<tr ng-repeat="item in product.ingredients">
-							<td>{{item.name}}</td>
-							<td><span ng-show="item.gluten">Tak</span><span ng-hide="item.gluten">Nie</span></td>
-							<td><span ng-show="item.allergen">Tak</span><span ng-hide="item.allergen">Nie</span></td>
-						</tr>
-					</tbody>
-				</table>
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+			<div layout="row">
+				<div class="card md-table md-table-no-hover">
+					<table>
+						<thead>
+							<tr>
+								<th>Waga/objętość</th>
+								<th>Sugerowana dzienna porcja</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>{{product.size}} g/ml</td>
+								<td>{{product.portion}} g/ml</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</md-whiteframe>
+
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+			<div layout="row">
+				<div class="card md-table md-table-no-hover">
+					<table>
+						<thead>
+							<tr>
+								<th>Składnik</th>
+								<th>Gluten</th>
+								<th>Alergen</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr ng-repeat="item in product.ingredients">
+								<td>{{item.name}}</td>
+								<td><span ng-show="item.gluten">Tak</span><span ng-hide="item.gluten">Nie</span></td>
+								<td><span ng-show="item.allergen">Tak</span><span ng-hide="item.allergen">Nie</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</md-whiteframe>
 	</div>

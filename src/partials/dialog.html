@@ -1,4 +1,4 @@
-<md-dialog aria-label="Kontakt" ng-cloak>
+<md-dialog aria-label="Kontakt" flex="30" ng-cloak>
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -13,10 +13,25 @@
         </md-toolbar>
 
         <md-dialog-content>
-            <md-radio-group ng-model="data.group1">
+            <md-radio-group ng-model="type">
                 <md-radio-button value="bug" class="md-primary">Błąd</md-radio-button>
-                <md-radio-button value="feayure" class="md-primary">Propozycja</md-radio-button>
+                <md-radio-button value="feature" class="md-primary">Propozycja</md-radio-button>
             </md-radio-group>
+
+            <md-input-container ng-show="type == 'bug'" class="md-block" layout-margin>
+                <label>Opisz problem</label>
+                <textarea ng-model="bugMessage" columns="1" rows="2"></textarea>
+            </md-input-container>
+
+            <md-input-container ng-show="type != 'bug'" class="md-block" layout-margin>
+                <label>Opisz propozycje</label>
+                <textarea ng-model="featureMessage" columns="1" rows="2"></textarea>
+            </md-input-container>
+
+            <div layout="row" layout-align="end">
+                <md-button layout-align="right" class="md-primary" ng-click="cancel()">Anuluj</md-button>
+                <md-button layout-align="right" class="md-primary" ng-click="send()">Wyślij</md-button>
+            </div>
         </md-dialog-content>
     </form>
 </md-dialog>

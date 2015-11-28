@@ -1,3 +1,15 @@
 md-tabs md-ink-bar {
     background-color: rgb(255, 110, 64) !important;
 }
+
+.md-tabs-white-background {
+    md-tabs {
+        md-tab-item.md-active {
+            color: rgb(76, 175, 80) !important;
+        }
+
+        md-tab-item {
+            color: grey !important;
+        }
+    }
+}

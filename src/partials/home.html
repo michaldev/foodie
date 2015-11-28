@@ -3,12 +3,14 @@
 		<div flex="25" flex-md="10" flex-sm="5"></div>
 
 		<div flex="50" flex-md="80" flex-sm="90">
-			<div class="md-whiteframe-1dp">
-				<md-tabs class="md-primary" md-dynamic-height md-selected="searchFor">
+			<div class="md-whiteframe-1dp md-tabs-white-background">
+				<md-tabs md-dynamic-height md-selected="searchFor">
 					<md-tab label="Wyszukaj produkt">
 						<md-content layout-padding>
+							<p class="md-headline" layout-padding>Wyszukaj rodzaj produktu:</p>
+
 							<md-input-container flex>
-								<label>Jaki produkt chcesz zjeść?</label>
+								<label>Co chcesz zjeść?</label>
 								<input ng-model="search.searchText" ng-enter="search.searchItem(search.searchText)" ng-keydown="search.listenForEnter($event)">
 							</md-input-container>
 
@@ -46,6 +48,8 @@
 
 					<md-tab label="Wyszukaj kategorie">
 						<md-content layout-padding>
+							<p class="md-headline" layout-padding>Wyszukaj rodzaj kategorii:</p>
+
 							<md-input-container flex>
 								<label>Co chcesz zjeść?</label>
 								<input ng-model="search.searchText" ng-enter="search.searchItem(search.searchText)" ng-keydown="search.listenForEnter($event)">

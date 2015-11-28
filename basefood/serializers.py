@@ -3,7 +3,7 @@ from rest_framework import serializers
 from django.db.models import Max, Min
 from basefood.models import \
     Category, CategoryMain, Product, Vitamin, \
-    Mineral, Preservative, Shop, Price, Ingredient, Producer
+    Mineral, Preservative, Shop, Ingredient, Producer
 
 
 class CategoryMainSerializer(serializers.ModelSerializer):
@@ -41,19 +41,9 @@ class PreservativeSerializer(serializers.ModelSerializer):
 
 
 class ShopSerializer(serializers.ModelSerializer):
-    price = serializers.SerializerMethodField()
-
-    def get_price(self, obj):
-        ctx = self.context
-        view = ctx['view']
-        pid = view.kwargs['slug']
-        idProduktu = Product.objects.get(slug=pid).id
-        cena = Price.objects.get(product=idProduktu, shop=obj.id).price
-        return cena
-
     class Meta:
         model = Shop
-        fields = ('id', 'name', 'slug', 'image', 'price')
+        fields = ('id', 'name', 'slug', 'image')
 
 
 class IngredientSerializer(serializers.ModelSerializer):

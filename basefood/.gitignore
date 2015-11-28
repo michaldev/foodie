@@ -56,3 +56,8 @@ ChangeLog
 #mac
 .idea 
 .DS-STORE
+
+.pyc
+
+media
+settings.py

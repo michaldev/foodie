@@ -4,8 +4,8 @@ from .serializers import \
     CategorySerializer, ProductFullSerializer, \
     ProductSerializer, VitaminSerializer, PreservativeSerializer
 from rest_framework import filters
-from rest_framework import permissions
-from rest_framework.permissions import IsAuthenticated
+#from rest_framework import permissions
+#from rest_framework.permissions import IsAuthenticated
 
 
 class ProductFilter(filters.FilterSet):

@@ -39,9 +39,9 @@ class Vitamin(models.Model):
     Vitamin model
     """
     name = models.CharField(max_length=255)
-    othername = models.CharField(max_length=255, default="")
+    othername = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True)
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, blank=True)
 
     class Meta:
         verbose_name = "Witamina"
@@ -57,7 +57,7 @@ class Mineral(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, blank=True)
 
     class Meta:
         verbose_name = "Minerał"
@@ -72,11 +72,11 @@ class Preservative(models.Model):
     Preservative model
     """
     name = models.CharField(max_length=255)
-    othername = models.CharField(max_length=255, default="")
+    othername = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True)
-    description = models.CharField(max_length=255)
-    level = models.IntegerField(default=0)
-    dmax = models.FloatField(default=0)  # dopuszczalna dzienna dawka
+    description = models.CharField(max_length=255, blank=True)
+    #level = models.IntegerField(default=0, blank=True)
+    dmax = models.FloatField(default=0, blank=True)  # dopuszczalna dzienna dawka
 
     class Meta:
         verbose_name = "Konserwant"
@@ -96,6 +96,7 @@ class ShopLocal(models.Model):
     image = models.ImageField()
     latitude = models.FloatField(default=0.0)
     longitude = models.FloatField(default=0.0)
+    shop = models.ManyToManyField(Shop)
 
     class Meta:
         verbose_name = "Lokalizacja sklepu"
@@ -111,7 +112,7 @@ class Shop(models.Model):
     """
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    image = models.ImageField()
+    image = models.ImageField(blank=True)
 
     class Meta:
         verbose_name = "Sklep"
@@ -138,20 +139,6 @@ class Producer(models.Model):
         return "%s" % self.name
 
 
-class Price(models.Model):
-    price = models.FloatField(verbose_name="Cena", default=0)
-    product = models.ForeignKey("Product", verbose_name="Produkt")
-    shop = models.ForeignKey("Shop", verbose_name="Sklep")
-    date_change = models.DateField(verbose_name="Data modyfikacji")
-
-    class Meta:
-        verbose_name = "Cena"
-        verbose_name_plural = "Ceny"
-
-    def __unicode__(self):
-        return "%s" % self.product
-
-
 class Ingredient(models.Model):
     """
     ingredient model
@@ -175,27 +162,28 @@ class Product(models.Model):
     Product model
     """
     name = models.CharField(verbose_name='Nazwa', max_length=255)
-    producer = models.ManyToManyField('Producer', verbose_name="Producenci")
-    slug = models.SlugField(verbose_name='Adres', unique=True)
-    image = models.ImageField(verbose_name='Zdjęcie produktu')
-    image2 = models.ImageField(verbose_name='Zdjęcie etykiety')
-    category = models.ManyToManyField('Category', verbose_name='Kategoria')
-    sugar = models.FloatField(verbose_name='Cukier na 100g/ml')
-    size = models.FloatField(verbose_name='Waga/Objętość')
-    protein = models.FloatField(verbose_name='Białko na 100g/ml')
-    vitamins = models.ManyToManyField('Vitamin', verbose_name='Witaminy')
-    minerals = models.ManyToManyField('Mineral', verbose_name='Minerały')
+    producer = models.ManyToManyField('Producer', verbose_name="Producenci", blank=True)
+    slug = models.SlugField(verbose_name='Adres', unique=True, blank=True)
+    image = models.ImageField(verbose_name='Zdjęcie produktu', blank=True)
+    image2 = models.ImageField(verbose_name='Zdjęcie etykiety', blank=True)
+    category = models.ManyToManyField('Category', verbose_name='Kategoria', blank=True)
+    sugar = models.FloatField(verbose_name='Cukier na 100g/ml', blank=True)
+    size = models.FloatField(verbose_name='Waga/Objętość', blank=True)
+    protein = models.FloatField(verbose_name='Białko na 100g/ml', blank=True)
+    vitamins = models.ManyToManyField('Vitamin', verbose_name='Witaminy', blank=True)
+    minerals = models.ManyToManyField('Mineral', verbose_name='Minerały', blank=True)
     ingredients = models.ManyToManyField(
-        'Ingredient', verbose_name='Składniki')
-    carbohydrates = models.FloatField(verbose_name='Węglowodany')
-    fats = models.FloatField(verbose_name='Tłuszcze')
-    fatsSaturated = models.FloatField(verbose_name='Tłuszcze nasycone')
-    energyValue = models.FloatField(verbose_name='Wartość energetyczna')
-    portion = models.FloatField(verbose_name='Porcja')
+        'Ingredient', verbose_name='Składniki', blank=True)
+    carbohydrates = models.FloatField(verbose_name='Węglowodany', blank=True)
+    fats = models.FloatField(verbose_name='Tłuszcze', blank=True)
+    fatsSaturated = models.FloatField(verbose_name='Tłuszcze nasycone', blank=True)
+    energyValue = models.FloatField(verbose_name='Wartość energetyczna', blank=True)
+    portion = models.FloatField(verbose_name='Porcja', blank=True)
     preservatives = models.ManyToManyField(
-        'Preservative', verbose_name='Konserwanty')
+        'Preservative', verbose_name='Konserwanty', blank=True)
     shops = models.ManyToManyField(
-        'Shop', verbose_name='Sklepy', through="Price")
+        'Shop', verbose_name='Sklepy', blank=True)
+    barcode = models.IntegerField(blank=True)
 
     class Meta:
         verbose_name = "Produkt"

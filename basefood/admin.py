@@ -1,7 +1,7 @@
 from django.contrib import admin
 from basefood.models import \
     Category, CategoryMain, Product, Vitamin, \
-    Preservative, Shop, Mineral, Price, ShopLocal, \
+    Preservative, Shop, Mineral, ShopLocal, \
     Ingredient, Producer
 
 
@@ -13,14 +13,9 @@ class ShopLocalAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('address', 'city',)}
 
 
-class PriceInline(admin.TabularInline):
-    model = Price
-    extra = 1
-
-
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
-    inlines = (PriceInline,)
+
 
 admin.site.register(Category, Every)
 admin.site.register(CategoryMain, Every)
@@ -29,7 +24,6 @@ admin.site.register(Vitamin, Every)
 admin.site.register(Preservative, Every)
 admin.site.register(Mineral, Every)
 admin.site.register(Shop, Every)
-admin.site.register(Price)
 admin.site.register(ShopLocal, ShopLocalAdmin)
 admin.site.register(Ingredient, Every)
 admin.site.register(Producer, Every)

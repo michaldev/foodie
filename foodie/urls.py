@@ -6,12 +6,13 @@ admin.site.site_header = 'Foodie - Panel Admina'
 
 
 urlpatterns = patterns('',
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^basefood', include('basefood.urls')),
     url(
-        r'^admin/', include(admin.site.urls)),
-    url(
-        r'^basefood', include('basefood.urls')),
-    url(
-        r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+        r'^media/(?P<path>.*)$',
+        'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT}
+    ),
     url(r'^rest-auth/', include('rest_auth.urls')),
 )
 

@@ -1,28 +1,31 @@
-<md-subheader class="md-primary">Kategoria <md-icon md-svg-src="images/icons/chevron.svg" aria-label="Close dialog"></md-icon> {{categoryName}}</md-subheader>
+<md-subheader class="md-primary">
+    <span>Kategoria</span>
+    <md-icon class="chevron" md-svg-src="images/icons/chevron.svg" aria-hidden="true"></md-icon>
+    <span>{{categoryName}}</span>
+</md-subheader>
 
-    <md-grid-list
-        md-cols-sm="1"
-        md-cols-md="2"
-        md-cols-gt-md="6"
-        md-row-height-gt-md="1:1"
-        md-row-height="2:2"
-        md-gutter="12px"
-        md-gutter-gt-sm="8px"
+<md-grid-list
+    md-cols-sm="1"
+    md-cols-md="2"
+    md-cols-gt-md="6"
+    md-row-height-gt-md="1:1"
+    md-row-height="2:2"
+    md-gutter="12px"
+    md-gutter-gt-sm="8px"
+>
+    <md-grid-tile
+        ng-repeat="item in category"
+        md-rowspan="2"
+        md-colspan="1"
+        md-colspan-sm="1"
     >
-        <md-grid-tile
-            ng-repeat="item in category"
-            md-rowspan="2"
-            md-colspan="1"
-            md-colspan-sm="1"
-        >
-            <md-card class="pointer" ui-sref="product({productSlug: item.slug})">
-                <img ng-src="{{item.image}}" style="height: 100%;">
+        <md-card class="pointer" ui-sref="product({productSlug: item.slug})">
+            <img ng-src="{{item.image}}" style="height: 100%;">
 
-                <md-card-content>
-                    <h2 class="md-title product-name">{{item.name}}</h2>
-                    <h3 style="color: #808080; font-size:14px;">{{item.producer[0].name}}</h3>
-                </md-card-content>
-            </md-card>
-        </md-grid-tile>
-    </md-grid-list>
-</div>
+            <md-card-content>
+                <h2 class="md-title product-name">{{item.name}}</h2>
+                <h3 class="md-subheader product-producer">{{item.producer[0].name}}</h3>
+            </md-card-content>
+        </md-card>
+    </md-grid-tile>
+</md-grid-list>

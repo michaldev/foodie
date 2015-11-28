@@ -28,6 +28,10 @@
         }
 
         thead {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #ddd;
+
             tr th {
                 font-size: 12px;
                 font-weight: 500;
@@ -48,13 +52,24 @@
             tr {
                 transition: all .5s ease;
 
-                border-top-width: 1px;
-                border-top-style: solid;
-                border-top-color: #ddd;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: #ddd;
+
+                &:last-of-type {
+                    border-bottom-width: 0;
+                }
+
+                &.compact {
+                    border-bottom-width: 0;
+
+                    td {
+                        padding-top: 6px;
+                        height: 35px;
+                    }
+                }
 
                 &.disabled {
-                    border-top-width: 0;
-
                     td {
                         font-size: 13px;
                         font-weight: 500;

@@ -6,6 +6,10 @@
     border-bottom-style: solid;
     border-bottom-color: #ddd;
 
+    &:last-of-type {
+        border-bottom-width: 0;
+    }
+
     .progressbar-percentage {
         font-size: 12px;
         font-weight: 500;

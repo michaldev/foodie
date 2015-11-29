@@ -3,25 +3,23 @@
     <md-icon class="chevron" md-svg-src="images/icons/chevron.svg" aria-hidden="true"></md-icon>
 	<span class="pointer" ui-sref="category({categoryID: product.category[0].id, categoryName: product.category[0].name})">{{product.category[0].name}}</span>
     <md-icon class="chevron" md-svg-src="images/icons/chevron.svg" aria-hidden="true"></md-icon>
-	<span>{{product.name}}</span>
+	<span>{{product.name}} ({{product.producer[0].name}})</span>
 </md-subheader>
 
 <div layout="row" layout-sm="row" layout-wrap>
 	<div flex="30" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
 		<md-card>
-			<img ng-src="{{product.image}}" class="md-card-image">
+			<h2 class="md-header-title">
+                <span class="md-header-subtitle">{{product.name}}</span>
+                <span class="md-header-info">{{product.producer[0].name}}</span>
+            </h2>
 
-			<md-card-content>
-				<div>
-					<h2 class="product-name">{{product.name}}</h2>
-					<h4 class="product-producer">{{product.producer[0].name}}</h4>
-				</div>
-			</md-card-content>
+			<img ng-src="{{product.image}}" class="md-card-image">
 		</md-card>
 
 		<md-whiteframe class="md-whiteframe-1dp" layout-margin>
 			<div layout="row">
-				<div class="card md-table">
+				<div class="card md-table md-table-no-hover">
 					<table>
 						<thead>
 							<tr>
@@ -48,7 +46,7 @@
 		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
 			<h5 class="md-header-title">
                 <span class="md-header-subtitle">Wartości odżywcze</span>
-                <span class="md-header-info">Uwzględniające kategorie <span class="pointer" ui-sref="category({categoryID: product.category[0].id, categoryName: product.category[0].name})">{{product.category[0].name}}</span></span>
+                <span class="md-header-info">Uwzględniające kategorie <span class="pointer link" ui-sref="category({categoryID: product.category[0].id, categoryName: product.category[0].name})">{{product.category[0].name}}</span></span>
             </h5>
 
 			<div class="progressbar">
@@ -82,62 +80,6 @@
 			</div>
 		</md-whiteframe>
 
-		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
-			<div layout="row">
-				<div class="card md-table md-table-no-hover">
-					<table>
-						<thead>
-							<tr>
-								<th>Składniki</th>
-								<th>...na 100g/ml</th>
-								<th>...na cały produkt</th>
-							</tr>
-						</thead>
-
-						<tbody>
-							<tr>
-								<td>Wartość energetyczna</td>
-								<td>{{product.energyValue}}</td>
-								<td>{{product.energyValue*product.size/100}}</td>
-							</tr>
-
-							<tr>
-								<td>Białko</td>
-								<td>{{product.protein}}</td>
-								<td>{{product.protein*product.size/100}}</td>
-							</tr>
-
-							<tr>
-								<td>Węglowodany</td>
-								<td>{{product.carbohydrates}}</td>
-								<td>{{product.carbohydrates*product.size/100}}</td>
-							</tr>
-
-							<tr class="disabled">
-								<td>W tym cukry</td>
-								<td>{{product.sugar}}</td>
-								<td>{{product.sugar*product.size/100}}</td>
-							</tr>
-
-							<tr>
-								<td>Tłuszcze</td>
-								<td>{{product.fats}}</td>
-								<td>{{product.fats*product.size/100}}</td>
-							</tr>
-
-							<tr class="disabled">
-								<td>W tym kw. tłuszczowe nasycone</td>
-								<td>{{product.fatsSaturated}}</td>
-								<td>{{product.fatsSaturated*product.size/100}}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</md-whiteframe>
-	</div>
-
-	<div flex="35" flex-sm="100" flex-md="100">
 		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
 			<h5 class="md-header-title">
                 <span class="md-header-subtitle">Witaminy i składniki mineralne</span>
@@ -177,6 +119,62 @@
 	                                <span class="emoticon-title" ng-if="preservative.level == 1">Neutralne</span>
 	                                <span class="emoticon-title" ng-if="preservative.level == 2">Nieszkodliwe</span>
 								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</md-whiteframe>
+	</div>
+
+	<div flex="35" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+			<div layout="row">
+				<div class="card md-table md-table-no-hover">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 55%">Wartość odżywcza produktu</th>
+								<th>w 100g</th>
+								<th>1 porcja</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>Wartość energetyczna</td>
+								<td>{{product.energyValue}}kJ <br> {{(product.energyValue / 4.184) | number : 0 }}kcal</td>
+								<td>{{product.energyValue * product.size / 100}}kJ <br> {{(product.energyValue * product.size / 100 / 4.184) | number : 0 }}kcal</td>
+							</tr>
+
+							<tr>
+								<td>Białko</td>
+								<td>{{product.protein}}g</td>
+								<td>{{product.protein * product.size / 100}}g</td>
+							</tr>
+
+							<tr class="compact">
+								<td>Węglowodany</td>
+								<td>{{product.carbohydrates}}g</td>
+								<td>{{product.carbohydrates * product.size / 100}}g</td>
+							</tr>
+
+							<tr class="disabled">
+								<td>W tym cukry</td>
+								<td>{{product.sugar}}g</td>
+								<td>{{product.sugar * product.size / 100}}g</td>
+							</tr>
+
+							<tr class="compact">
+								<td>Tłuszcze</td>
+								<td>{{product.fats}}g</td>
+								<td>{{product.fats * product.size / 100}}g</td>
+							</tr>
+
+							<tr class="disabled">
+								<td>W tym kw. tłuszczowe nasycone</td>
+								<td>{{product.fatsSaturated}}g</td>
+								<td>{{product.fatsSaturated * product.size / 100}}g</td>
 							</tr>
 						</tbody>
 					</table>

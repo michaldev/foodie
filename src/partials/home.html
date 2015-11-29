@@ -9,9 +9,13 @@
 						<md-content layout-padding>
 							<p class="md-headline my-headline" layout-padding>Wyszukaj rodzaj produktu:</p>
 
-							<md-input-container flex>
+							<md-input-container class="md-block" id="search-product">
 								<label>Co chcesz zjeść?</label>
-								<input ng-model="search.searchText" ng-enter="search.searchItem(search.searchText)" ng-keydown="search.listenForEnter($event)">
+								<input ng-model="search.searchText" ng-keydown="search.listenForEnter($event)">
+
+								<div ng-show="search.showTable && !search.foundData" role="alert" ng-messages>
+									<div ng-message>Nie możemy znaleść produktów o tej nazwie.</div>
+								</div>
 							</md-input-container>
 
 							<div layout="row" layout-align="end">
@@ -19,7 +23,7 @@
 							</div>
 						</md-content>
 
-						<md-content ng-show="search.isClicked">
+						<md-content ng-show="search.showTable && search.foundData">
 							<div layout="row">
 								<div class="card md-table separated">
 									<table>
@@ -50,9 +54,13 @@
 						<md-content layout-padding>
 							<p class="md-headline my-headline" layout-padding>Wyszukaj rodzaj kategorii:</p>
 
-							<md-input-container flex>
+							<md-input-container class="md-block">
 								<label>Co chcesz zjeść?</label>
-								<input ng-model="search.searchText" ng-enter="search.searchItem(search.searchText)" ng-keydown="search.listenForEnter($event)">
+								<input ng-model="search.searchText" ng-keydown="search.listenForEnter($event)">
+
+								<div ng-show="search.showTable && !search.foundData" role="alert" ng-messages>
+									<div ng-message>Nie możemy znaleść kategorii o tej nazwie.</div>
+								</div>
 							</md-input-container>
 
 							<div layout="row" layout-align="end">

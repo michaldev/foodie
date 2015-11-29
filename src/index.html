@@ -26,8 +26,12 @@
                 </md-toolbar>
 
                 <md-menu-content ng-controller="sidenavController">
+                    <md-input-container md-no-float class="md-menu-input">
+                        <input ng-model="filterText" type="text" placeholder="Filtruj kategorie">
+                    </md-input-container>
+
                     <md-menu-item>
-                        <md-button ng-click="closeSideNav()" ui-sref="category({categoryID: category.id, categoryName: category.name})" ng-repeat="category in categories">
+                        <md-button ng-click="closeSideNav()" ui-sref="category({categoryID: category.id, categoryName: category.name})" ng-repeat="category in categories | filter : filterText ">
                             {{category.name}}
                         </md-button>
                     </md-menu-item>

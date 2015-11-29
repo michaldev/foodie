@@ -1,0 +1,12 @@
+.md-menu-input {
+    padding: 0;
+
+    .md-input {
+        padding: 0 8px 8px !important;
+    }
+
+    &.md-input-focused .md-input {
+        border-bottom-width: 1px !important;
+        border-bottom-color: rgb(255, 110, 64) !important;
+    }
+}

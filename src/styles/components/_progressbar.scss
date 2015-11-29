@@ -10,6 +10,11 @@
         border-bottom-width: 0;
     }
 
+    p {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
     .progressbar-percentage {
         font-size: 12px;
         font-weight: 500;
@@ -20,11 +25,21 @@
         margin: 0;
 
         font-size: 12px;
-        font-weight: 700;
-        text-align: center;
+        font-weight: 500;
+        color: grey;
+
+        &.left {
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        &.right {
+            text-align: right;
+            padding-right: 10px;
+        }
     }
 
     .progressbar-bar {
-        margin: 5px 0;
+        margin: 4px 0;
     }
 }

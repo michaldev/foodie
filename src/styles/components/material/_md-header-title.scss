@@ -9,6 +9,18 @@
     height: 56px;
     line-height: 56px;
 
+    &.green {
+        background-color: rgb(76, 175, 80);
+        border-bottom-color: white;
+        color: rgba(white, .87);
+    }
+
+    &.red {
+        background-color: rgb(244, 67, 54);
+        border-bottom-color: white;
+        color: rgba(white, .87);
+    }
+
     .md-header-subtitle {
 
     }

@@ -23,7 +23,7 @@
         height: auto;
 
         tr, th, td {
-            font-size: 12px;
+            font-size: inherit;
             text-align: left;
         }
 
@@ -33,9 +33,9 @@
             border-bottom-color: #ddd;
 
             tr th {
-                font-size: 12px;
-                font-weight: 500;
-                color: #757575;
+                font-size: 80%;
+                font-weight: 400;
+                color: grey;
 
                 padding: 0 0 0 15px;
                 margin: 0;
@@ -64,8 +64,8 @@
                     border-bottom-width: 0;
 
                     td {
-                        padding-top: 6px;
-                        height: 35px;
+                        padding-top: 7px;
+                        height: 27px;
                     }
                 }
 
@@ -76,7 +76,7 @@
                         color: grey;
 
                         height: 14px;
-                        padding-bottom: 17px;
+                        padding-bottom: 15px;
                     }
                 }
 

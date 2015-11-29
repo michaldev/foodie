@@ -53,9 +53,9 @@
 				<p>Białka <span class="progressbar-percentage">{{product.values_calculated.protein}}%</span></p>
 
 				<div layout="row">
-					<p class="progressbar-value" flex="10">{{product.values_category.protein__min}}</p>
+					<p class="progressbar-value left" flex="10">{{product.values_category.protein__min}}</p>
 					<md-progress-linear class="progressbar-bar" flex="80" md-mode="determinate" value="{{product.values_calculated.protein}}"></md-progress-linear>
-					<p class="progressbar-value" flex="10">{{product.values_category.protein__max}}</p>
+					<p class="progressbar-value right" flex="10">{{product.values_category.protein__max}}</p>
 				</div>
 			</div>
 
@@ -63,25 +63,25 @@
 				<p>Cukry <span class="progressbar-percentage">{{product.values_calculated.sugar}}%</span></p>
 
 				<div layout="row">
-					<p class="progressbar-value" flex="10">{{product.values_category.sugar__min}}</p>
+					<p class="progressbar-value left" flex="10">{{product.values_category.sugar__min}}</p>
 					<md-progress-linear class="progressbar-bar" flex="80" md-mode="determinate" value="{{product.values_calculated.sugar}}"></md-progress-linear>
-					<p class="progressbar-value" flex="10">{{product.values_category.sugar__max}}</p>
+					<p class="progressbar-value right" flex="10">{{product.values_category.sugar__max}}</p>
 				</div>
 			</div>
 
 			<div class="progressbar">
-				<p>Cukry <span class="progressbar-percentage">{{product.values_calculated.fats}}%</span></p>
+				<p>Tłuszcze <span class="progressbar-percentage">{{product.values_calculated.fats}}%</span></p>
 
 				<div layout="row">
-					<p class="progressbar-value" flex="10">{{product.values_category.fats__min}}</p>
+					<p class="progressbar-value left" flex="10">{{product.values_category.fats__min}}</p>
 					<md-progress-linear class="progressbar-bar" flex="80" md-mode="determinate" value="{{product.values_calculated.fats}}"></md-progress-linear>
-					<p class="progressbar-value" flex="10">{{product.values_category.fats__max}}</p>
+					<p class="progressbar-value right" flex="10">{{product.values_category.fats__max}}</p>
 				</div>
 			</div>
 		</md-whiteframe>
 
 		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
-			<h5 class="md-header-title">
+			<h5 class="md-header-title green">
                 <span class="md-header-subtitle">Witaminy i składniki mineralne</span>
             </h5>
 
@@ -103,7 +103,7 @@
 		</md-whiteframe>
 
 		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
-			<h5 class="md-header-title">
+			<h5 class="md-header-title red">
                 <span class="md-header-subtitle">Konserwanty</span>
             </h5>
 

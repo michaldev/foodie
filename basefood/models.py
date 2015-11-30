@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
+from urllib2 import URLError
+
 from django.db import models
+from django.contrib.gis.db import models as gis_models
+from django.contrib.gis import geos
+from geopy.geocoders.google import Google
+from geopy.geocoders.google import GQueryError
 
 
 class CategoryMain(models.Model):
@@ -93,10 +99,12 @@ class ShopLocal(models.Model):
     address = models.CharField(max_length=100, verbose_name="Adres")
     city = models.CharField(max_length=50, verbose_name="Miasto")
     slug = models.SlugField(unique=True)
-    image = models.ImageField()
-    latitude = models.FloatField(default=0.0)
-    longitude = models.FloatField(default=0.0)
+    image = models.ImageField(blank=True)
     shop = models.ManyToManyField('Shop')
+    location = gis_models.PointField(u"longitude/latitude",
+                                     geography=True, blank=True, null=True)
+    gis = gis_models.GeoManager()
+    objects = models.Manager()
 
     class Meta:
         verbose_name = "Lokalizacja sklepu"
@@ -104,6 +112,20 @@ class ShopLocal(models.Model):
 
     def __unicode__(self):
         return "%s" % self.slug
+
+    def save(self, **kwargs):
+        if not self.location:
+            address = u'%s %s' % (self.city, self.address)
+            address = address.encode('utf-8')
+            geocoder = Google()
+            try:
+                _, latlon = geocoder.geocode(address)
+            except (URLError, GQueryError, ValueError):
+                pass
+            else:
+                point = "POINT(%s %s)" % (latlon[1], latlon[0])
+                self.location = geos.fromstr(point)
+        super(ShopLocal, self).save()
 
 
 class Shop(models.Model):

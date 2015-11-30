@@ -7,3 +7,4 @@ gunicorn
 django-cors-headers
 pillow
 django-rest-auth
+geopy

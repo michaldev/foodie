@@ -96,7 +96,7 @@ class ShopLocal(models.Model):
     image = models.ImageField()
     latitude = models.FloatField(default=0.0)
     longitude = models.FloatField(default=0.0)
-    shop = models.ManyToManyField(Shop)
+    shop = models.ManyToManyField('Shop')
 
     class Meta:
         verbose_name = "Lokalizacja sklepu"
@@ -191,3 +191,20 @@ class Product(models.Model):
 
     def __unicode__(self):
         return "%s" % self.name
+
+
+class Contact(models.Model):
+    """
+    contact model
+    """
+    type = models.IntegerField()
+    title = models.CharField(max_length=120)
+    description = models.CharField(max_length=1024)
+    mail = models.EmailField()
+
+    class Meta:
+        verbose_name = "Ticket"
+        verbose_name_plural = "Tickety"
+
+    def __unicode__(self):
+        return "%s" % self.title

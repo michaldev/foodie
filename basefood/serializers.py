@@ -3,7 +3,7 @@ from rest_framework import serializers
 from django.db.models import Max, Min
 from basefood.models import \
     Category, CategoryMain, Product, Vitamin, \
-    Mineral, Preservative, Shop, Ingredient, Producer
+    Mineral, Preservative, Shop, Ingredient, Producer, Contact
 
 
 class CategoryMainSerializer(serializers.ModelSerializer):
@@ -50,6 +50,12 @@ class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
         fields = ('id', 'name', 'slug', 'allergen', 'gluten')
+
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = ('id', 'title', 'type', 'description')
 
 
 class ProducerSerializer(serializers.ModelSerializer):

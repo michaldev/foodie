@@ -1,8 +1,8 @@
 from rest_framework import generics
-from .models import Category, Product, Vitamin, Preservative
+from .models import Category, Product, Vitamin, Preservative, Contact
 from .serializers import \
     CategorySerializer, ProductFullSerializer, \
-    ProductSerializer, VitaminSerializer, PreservativeSerializer
+    ProductSerializer, VitaminSerializer, PreservativeSerializer, ContactSerializer
 from rest_framework import filters
 #from rest_framework import permissions
 #from rest_framework.permissions import IsAuthenticated
@@ -49,3 +49,8 @@ class Product(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'slug'
     queryset = Product.objects.all()
     serializer_class = ProductFullSerializer
+
+
+class ContactView(generics.UpdateAPIView):
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer

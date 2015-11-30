@@ -2,7 +2,7 @@ class Dialog extends Controller
     constructor : ( $scope, $http, $mdDialog ) ->
         $scope.type         = 0
         $scope.title        = ""
-        $scope.mail        = ""
+        $scope.mail         = ""
         $scope.description  = ""
 
         $scope.cancel = ->

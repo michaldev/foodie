@@ -1,37 +1,51 @@
-<md-dialog aria-label="Kontakt" flex="30" ng-cloak>
-    <form>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2>Kontakt</h2>
+<md-dialog aria-label="Kontakt" flex="40" flex-md="75" flex-sm="95">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Kontakt</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon md-svg-src="images/icons/close.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
 
-                <span flex></span>
-
-                <md-button class="md-icon-button" ng-click="cancel()">
-                    <md-icon md-svg-src="images/icons/close.svg" aria-label="Close dialog"></md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
-
-        <md-dialog-content>
-            <md-radio-group ng-model="type">
-                <md-radio-button value="bug" class="md-primary">Błąd</md-radio-button>
-                <md-radio-button value="feature" class="md-primary">Propozycja</md-radio-button>
-            </md-radio-group>
-
-            <md-input-container ng-show="type == 'bug'" class="md-block" layout-margin>
-                <label>Opisz problem</label>
-                <textarea ng-model="bugMessage" columns="1" rows="2"></textarea>
+    <md-dialog-content>
+        <form name="contact">
+            <md-input-container class="md-block"  layout-margin>
+                <label>Typ</label>
+                <md-select ng-model="type">
+                    <md-option value="bug">Błąd</md-option>
+                    <md-option value="feature">Propozycja</md-option>
+                </md-select>
             </md-input-container>
 
-            <md-input-container ng-show="type != 'bug'" class="md-block" layout-margin>
-                <label>Opisz propozycje</label>
-                <textarea ng-model="featureMessage" columns="1" rows="2"></textarea>
+            <md-input-container class="md-block" layout-margin>
+                <label>Tytuł</label>
+                <input name="title" ng-model="title" columns="1" rows="1" required></textarea>
+
+                <div ng-messages="contact.title.$error" ng-show="contact.title.$touched || contact.$submitted" role="alert">
+                    <div ng-message="required">To pole jest wymagane.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" layout-margin>
+                <label>E-mail</label>
+                <input name="mail" ng-model="mail" columns="1" rows="1" ng-pattern="/^.+@.+\..+$/" required></textarea>
+
+                <div ng-messages="contact.mail.$error" ng-show="contact.mail.$touched || contact.$submitted" role="alert">
+                    <div ng-message-exp="['required', 'pattern']">To pole jest wymagane i musi być poprawnym adresem e-mail.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" layout-margin>
+                <label>Treść wiadomości</label>
+                <textarea ng-model="description" columns="1" rows="1" md-maxlength="1024"></textarea>
             </md-input-container>
 
             <div layout="row" layout-align="end">
                 <md-button layout-align="right" class="md-primary" ng-click="cancel()">Anuluj</md-button>
-                <md-button layout-align="right" class="md-primary" ng-click="send()">Wyślij</md-button>
+                <md-button layout-align="right" class="md-primary" ng-click="send()" type="submit">Wyślij</md-button>
             </div>
-        </md-dialog-content>
-    </form>
+        </form>
+    </md-dialog-content>
 </md-dialog>

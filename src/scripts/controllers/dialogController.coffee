@@ -1,15 +1,22 @@
 class Dialog extends Controller
-    constructor : ( $scope, $mdDialog ) ->
-        $scope.type           = "bug"
-        $scope.bugMessage     = ""
-        $scope.featureMessage = ""
+    constructor : ( $scope, $http, $mdDialog ) ->
+        $scope.type         = 0
+        $scope.title        = ""
+        $scope.mail        = ""
+        $scope.description  = ""
 
         $scope.cancel = ->
             $mdDialog.cancel()
 
         $scope.send = ->
-            $mdDialog.cancel()
+            request = $http
+                method : "PUT"
+                url    : "http://127.0.0.1:8000/basefood/contact"
+                data   :
+                    type        : $scope.type
+                    title       : $scope.title
+                    mail        : $scope.mail
+                    description : $scope.description
 
-            switch $scope.type
-                when "bug" then console.log "Wysyłanie błędu: #{$scope.bugMessage}"
-                when "feature" then console.log "Wysyłanie propozycji: #{$scope.featureMessage}"
+            request.then ( -> $mdDialog.cancel() ), # On success
+                         ( -> $mdDialog.cancel() )  # On error

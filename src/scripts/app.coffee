@@ -1,10 +1,11 @@
 angular.module( "app", [
-    'ngCookies',
-    'ui.router',
-    'ngMaterial',
-    'ngAria',
-    'ngAnimate'
-    ])
+    "ngAria",
+    "ngAnimate",
+    "ngCookies",
+    "ngMessages",
+    "ngMaterial",
+    "ui.router"
+    ] )
 
 .config ( $httpProvider ) ->
     $httpProvider.defaults.xsrfCookieName = "csrftoken"

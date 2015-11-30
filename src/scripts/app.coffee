@@ -4,6 +4,7 @@ angular.module( "app", [
     "ngCookies",
     "ngMessages",
     "ngMaterial",
+    "dcbImgFallback",
     "ui.router"
     ] )
 

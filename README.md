@@ -4,9 +4,7 @@
 
 In order to run the server you'll need `node.js`, `gulp` and `browserify` installed on your machine.
 
-In order to install `node.js`, go to the `node.js` website and download the binary file for your operating system:
-
-    https://nodejs.org/en/
+In order to install `node.js`, go to the [Node.js website](https://nodejs.org/en/) and download the binary file for your operating system.
 
 In order to install `gulp`, execute this command in your CLI:
 
@@ -16,7 +14,7 @@ In order to install `broswerify`, execute this command in your CLI:
 
     npm install -g browserify
 
-Once you have installed all the requirements, you can go to the `./gulp` folder and install `node.js` dependencies:
+Once you have installed all the requirements, you can go to the `./gulp` folder and install others `node.js` dependencies:
 
     npm install
 
@@ -40,4 +38,6 @@ First build may take some time to execute because it will copy all of the large 
 
 ## Server
 
-Actually, it will only work when it runs on a server (you can use the `gulp watch` command to create one). It will requests data from the `django` server from `http://127.0.0.1:8000/`.
+Actually, it will only work when it runs on a server (you can use the `gulp watch` command to create one). It will requests data from the `django` server. For more information about how to run the Foodie server, checkout the `master` of this project.
+
+Once you have a working Foodie server, you must configure the WebApp. You can find the configuration file in `./src/scripts/configuration.coffee` directory.

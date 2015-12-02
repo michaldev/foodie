@@ -1,5 +1,10 @@
+configuration   = require "./../configuration"
+generateApiHost = require "./../utils/generateApiHost"
+
 class Dialog extends Controller
     constructor : ( $scope, $http, $mdDialog ) ->
+        apiHost = generateApiHost configuration.api
+
         $scope.type         = 0
         $scope.title        = ""
         $scope.mail         = ""
@@ -11,7 +16,7 @@ class Dialog extends Controller
         $scope.send = ->
             request = $http
                 method : "PUT"
-                url    : "http://127.0.0.1:8000/basefood/contact"
+                url    : "#{apiHost}/contact"
                 data   :
                     type        : $scope.type
                     title       : $scope.title

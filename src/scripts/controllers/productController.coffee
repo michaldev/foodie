@@ -1,10 +1,17 @@
+configuration   = require "./../configuration"
+generateApiHost = require "./../utils/generateApiHost"
+debug           = require( "./../utils/debug" )( configuration.debug )
+
 class Product extends Controller
     constructor : ( $scope, $stateParams, $http ) ->
-        $scope.slug = $stateParams.productSlug
+        apiHost = generateApiHost configuration.api
 
-        $http.get "http://127.0.0.1:8000/basefood/product/#{$scope.slug}"
+        $scope.slug     = $stateParams.productSlug
+        $scope.product  = undefined
+
+        $http.get "#{apiHost}/product/#{$scope.slug}"
             .success ( data, status, headers, config ) ->
-                console.log "Product: #{data}, #{$scope.slug}"
                 $scope.product = data
+                debug "[PRODUCT] Product:", $scope.slug, data
             .error ( data, status, headers, config ) ->
-                console.log "Could not get product data for slug #{$scope.slug}"
+                debug "[PRODUCT] Product error"

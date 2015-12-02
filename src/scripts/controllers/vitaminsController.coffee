@@ -1,18 +1,25 @@
+configuration   = require "./../configuration"
+generateApiHost = require "./../utils/generateApiHost"
+debug           = require( "./../utils/debug" )( configuration.debug )
+
 class Vitamins extends Controller
     constructor : ( $scope, $stateParams, $http, $state ) ->
+        apiHost = generateApiHost configuration.api
+
         $scope.vitaminSlug  = $stateParams.vitaminSlug
         $scope.vitaminID    = $stateParams.vitaminID
+        $scope.vitamins     = null
         $scope.functions    = []
 
         $scope.functions.vitamineChange = ( vitaminSlug, vitaminID ) ->
-            console.log "Vitamin slug: #{$scope.vitaminSlug}"
+            debug "[VITAMINS] Vitamin:", $scope.vitaminSlug
 
             $scope.vitaminSlug  = vitaminSlug
             $scope.vitaminID    = vitaminID
 
-        $http.get "http://127.0.0.1:8000/basefood/vitamins"
+        $http.get "#{apiHost}/vitamins"
             .success ( data, status, headers, config ) ->
-                console.log "Vitamins: #{data}"
                 $scope.vitamins = data
+                debug "[VITAMINS] Vitamins:", data
             .error ( data, status, headers, config ) ->
-                console.log "Could not get vitamins"
+                debug "[VITAMINS] Vitamins error"

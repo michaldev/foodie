@@ -1,12 +1,13 @@
+configuration   = require "./../configuration"
+delay           = require "./../utils/delay"
+
 class Main extends Controller
     constructor : ( $scope, $mdSidenav ) ->
         $scope.openLeftMenu = ->
             $mdSidenav( "left" ).toggle()
 
         # Loading animation
-        (($) ->
-            delay = (ms, func) -> setTimeout func, ms
-
+        if configuration.load
             delay 1500, ->
                 $("#loader").animate {
                     width: 0
@@ -19,4 +20,5 @@ class Main extends Controller
                     delay 1900, ->
                         $(".loader").fadeOut "slow"
                         $(".star-anim-circle").transition { scale: $( window ).width() * 1.2 }
-        ) jQuery
+        else
+            $(".loader").css "display", "none"

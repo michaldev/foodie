@@ -1,14 +1,20 @@
+configuration   = require "./../configuration"
+generateApiHost = require "./../utils/generateApiHost"
+debug           = require( "./../utils/debug" )( configuration.debug )
+
 class Sidenav extends Controller
     constructor : ( $scope, $http, $mdSidenav ) ->
+        apiHost = generateApiHost configuration.api
+
         $scope.categories = []
         $scope.filterText = ""
 
         $scope.closeSideNav = ->
             $mdSidenav( "left" ).close()
 
-        $http.get "http://127.0.0.1:8000/basefood/category"
+        $http.get "#{apiHost}/category"
             .success ( data, status, headers, config ) ->
                 $scope.categories = data
-                console.log "Sidenav categories: ", data
+                debug "[SIDENAV] Sidenav:", data
             .error ( data, status, headers, config ) ->
-                console.log "Could not get categories for SideNav"
+                debug "[SIDENAV] Sidenav error"

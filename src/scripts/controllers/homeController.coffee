@@ -1,8 +1,15 @@
+configuration   = require "./../configuration"
+generateApiHost = require "./../utils/generateApiHost"
+debug           = require( "./../utils/debug" )( configuration.debug )
+
 class Home extends Controller
     constructor : ( $scope, $stateParams, $http, $cookies ) ->
+        apiHost = generateApiHost configuration.api
+
         $scope.search = []
-        $scope.search.itemsToShow = []
-        $scope.search.searchText  = ""
+        $scope.search.itemsToShow = undefined
+        $scope.search.searchText  = undefined
+        $scope.search.foundData   = undefined
         $scope.search.showTable   = false
 
         $scope.search.searchItem = ( item ) ->
@@ -12,16 +19,15 @@ class Home extends Controller
 
             $scope.search.showTable = true
 
-            console.log "Searching #{$scope.search.searchText}"
-            $http.get "http://127.0.0.1:8000/basefood/productsearch?search=#{$scope.search.searchText}"
+            $http.get "#{apiHost}/productsearch?search=#{$scope.search.searchText}"
                 .success ( data, status, headers, config ) ->
                     $scope.search.foundData   = true
                     $scope.search.itemsToShow = data
-                    console.log "Search data #{data}"
+                    debug "[HOME] Search:", data
                 .error ( data, status, headers, config ) ->
                     $( "#search-product" ).addClass( "md-input-invalid" )
                     $scope.search.foundData = false
-                    console.log "Could not search"
+                    debug "[HOME] Search Error"
 
         $scope.search.listenForEnter = ( event ) ->
             if event.keyCode == 13 and $scope.search.searchText?

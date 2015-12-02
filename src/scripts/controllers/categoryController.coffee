@@ -1,11 +1,18 @@
+configuration   = require "./../configuration"
+generateApiHost = require "./../utils/generateApiHost"
+debug           = require( "./../utils/debug" )( configuration.debug )
+
 class Category extends Controller
     constructor : ( $scope, $stateParams, $http ) ->
+        apiHost = generateApiHost configuration.api
+
         $scope.id           = $stateParams.categoryID
         $scope.categoryName = $stateParams.categoryName
+        $scope.category     = undefined
 
-        $http.get "http://127.0.0.1:8000/basefood/products?category=#{$scope.id}"
+        $http.get "#{apiHost}/products?category=#{$scope.id}"
             .success ( data, status, headers, config ) ->
-                console.log "Category: #{data}, #{$scope.id}"
+                debug "[CATEGORY] Categories:", data, $scope.id
                 $scope.category = data
             .error ( data, status, headers, config ) ->
-                console.log "Could not get category for slug #{$scope.id}"
+                debug "[CATEGORY] Category error"

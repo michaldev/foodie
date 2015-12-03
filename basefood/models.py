@@ -182,7 +182,7 @@ class Product(models.Model):
     Product model
     """
     name = models.CharField(verbose_name='Nazwa', max_length=255)
-    producer = models.ManyToManyField('Producer', verbose_name="Producenci", blank=True)
+    producer = models.ForeignKey('Producer', verbose_name="Producenci", blank=True)
     slug = models.SlugField(verbose_name='Adres', unique=True, blank=True)
     image = models.ImageField(verbose_name='Zdjęcie produktu', blank=True)
     image2 = models.ImageField(verbose_name='Zdjęcie etykiety', blank=True)
@@ -210,7 +210,7 @@ class Product(models.Model):
         verbose_name_plural = "Produkty"
 
     def __unicode__(self):
-        return "Produkt: %s | Producent: %s" % (self.name, self.producer)
+        return "Produkt: %s | Producent: %s" % (self.name, self.producer.name)
 
 
 class Contact(models.Model):

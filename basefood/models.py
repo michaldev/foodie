@@ -98,7 +98,7 @@ class ShopLocal(models.Model):
     city = models.CharField(max_length=50, verbose_name="Miasto")
     slug = models.SlugField(unique=True)
     image = models.ImageField(blank=True)
-    shop = models.ManyToManyField('Shop')
+    shop = models.ManyToManyField('Shop', blank=True)
     location = gis_models.PointField(u"longitude/latitude",
                                      geography=True, blank=True, null=True)
     gis = gis_models.GeoManager()
@@ -115,7 +115,7 @@ class ShopLocal(models.Model):
         if not self.location:
             address = u'%s %s' % (self.city, self.address)
             address = address.encode('utf-8')
-            geocoder = Google()
+            geocoder = GoogleV3()
             try:
                 _, latlon = geocoder.geocode(address)
             except (URLError, ValueError):

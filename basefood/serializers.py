@@ -37,7 +37,7 @@ class PreservativeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Preservative
         fields = (
-            'id', 'name', 'othername', 'slug', 'description', 'level', 'dmax')
+            'id', 'name', 'othername', 'slug', 'description', 'dmax')
 
 
 class ShopSerializer(serializers.ModelSerializer):

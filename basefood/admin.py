@@ -14,7 +14,7 @@ class ShopLocalAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {'slug': ('name', 'producer')}
 
 
 admin.site.register(Category, Every)

@@ -38,7 +38,8 @@
             </h5>
 
             <p class="content">
-                {{vitamins[vitaminID].description}}
+                <span ng-hide="vitamins[vitaminID].description">Brak opisu dla tej witaminy.</span>
+                <span>{{vitamins[vitaminID].description}}</span>
             </p>
         </md-whiteframe>
     </div>

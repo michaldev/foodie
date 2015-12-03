@@ -48,7 +48,8 @@
             </div>
 
             <p class="content">
-                {{preservatives[preservativeID].description}}
+                <span ng-hide="preservatives[preservativeID].description">Brak opisu dla tego konserwantu.</span>
+                <span>{{preservatives[preservativeID].description}}</span>
             </p>
         </md-whiteframe>
     </div>

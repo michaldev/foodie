@@ -17,7 +17,7 @@
 			<img fallback-src="images/template/default-product.jpg" ng-src="{{product.image}}" class="md-card-image">
 		</md-card>
 
-		<md-whiteframe class="md-whiteframe-1dp" flex="100" flex-md="70" layout-margin>
+		<md-whiteframe class="md-whiteframe-1dp" flex="100" flex-md="70" layout-margin ng-show="product.shops.length">
 			<div layout="row">
 				<div class="card md-table md-table-no-hover">
 					<table>

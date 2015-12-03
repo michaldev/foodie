@@ -210,7 +210,7 @@ class Product(models.Model):
         verbose_name_plural = "Produkty"
 
     def __unicode__(self):
-        return "%s" % self.name
+        return "Produkt: %s | Producent: %s" % self.name, self.producer.name
 
 
 class Contact(models.Model):

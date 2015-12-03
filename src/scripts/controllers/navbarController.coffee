@@ -13,12 +13,12 @@ class Navbar extends Controller
         $http.get "#{apiHost}/vitamins"
             .success ( data, status, headers, config ) ->
                 $scope.vitaminSlug = data[ 0 ].slug
-                $scope.vitaminID   = data[ 0 ].id
+                $scope.vitaminID   = 0
 
         $http.get "#{apiHost}/preservatives"
             .success ( data, status, headers, config ) ->
                 $scope.preservativeSlug = data[ 0 ].slug
-                $scope.preservativeID   = data[ 0 ].id
+                $scope.preservativeID   = 0
 
         $scope.showBugDialog = ( event ) ->
             $mdDialog.show

@@ -86,7 +86,11 @@
             </h5>
 
 			<div layout="row">
-				<div class="card md-table">
+				<div class="card" layout-padding ng-hide="product.vitamins.length">
+					Brak witamin lub składników mineralnych dla tego produktu.
+				</div>
+
+				<div class="card md-table" ng-show="product.vitamins.length">
 					<table>
 						<tbody>
 							<tr ng-repeat="vitamine in product.vitamins" ui-sref="vitamins({vitaminSlug: vitamine.slug,vitaminID: $index})">
@@ -108,7 +112,11 @@
             </h5>
 
 			<div layout="row">
-				<div class="card md-table">
+				<div class="card" layout-padding ng-hide="product.preservatives.length">
+					Brak konserwantów dla tego produktu.
+				</div>
+
+				<div class="card md-table" ng-show="product.preservatives.length">
 					<table>
 						<tbody>
 							<tr class="pointer" ng-repeat="preservative in product.preservatives" ui-sref="preservatives({preservativeSlug: preservative.slug,preservativeID: $index})">

@@ -4,9 +4,7 @@ from urllib2 import URLError
 from django.db import models
 from django.contrib.gis.db import models as gis_models
 from django.contrib.gis import geos
-from geopy.geocoders.google import Google
-from geopy.geocoders.google import GQueryError
-
+from geopy.geocoders.googlev3 import GoogleV3
 
 class CategoryMain(models.Model):
     """
@@ -120,7 +118,7 @@ class ShopLocal(models.Model):
             geocoder = Google()
             try:
                 _, latlon = geocoder.geocode(address)
-            except (URLError, GQueryError, ValueError):
+            except (URLError, ValueError):
                 pass
             else:
                 point = "POINT(%s %s)" % (latlon[1], latlon[0])

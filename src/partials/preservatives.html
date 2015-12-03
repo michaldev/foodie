@@ -1,7 +1,7 @@
 <md-subheader class="md-primary">
     <span>Konserwanty</span>
     <md-icon class="chevron" md-svg-src="images/icons/chevron.svg" aria-hidden="true"></md-icon>
-    <span>{{preservatives[preservativeID].name}} ({{preservatives[preservativeID].othername}})</span>
+    <span>{{preservatives[preservativeID].name}} <span ng-show="preservatives[preservativeID].othername">({{preservatives[preservativeID].othername}})</span></span>
 </md-subheader>
 
 <div layout="row" layout-sm="column">

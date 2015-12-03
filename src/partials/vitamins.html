@@ -1,7 +1,7 @@
 <md-subheader class="md-primary">
     <span>Witaminy</span>
     <md-icon class="chevron" md-svg-src="images/icons/chevron.svg" aria-hidden="true"></md-icon>
-    <span>{{vitamins[vitaminID].name}} ({{vitamins[vitaminID].othername}})</span>
+    <span>{{vitamins[vitaminID].name}} <span ng-show="vitamins[vitaminID].othername">({{vitamins[vitaminID].othername}})</span></span>
 </md-subheader>
 
 <div layout="row" layout-sm="column">

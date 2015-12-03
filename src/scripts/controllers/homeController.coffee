@@ -21,9 +21,13 @@ class Home extends Controller
 
             $http.get "#{apiHost}/productsearch?search=#{$scope.search.searchText}"
                 .success ( data, status, headers, config ) ->
-                    $scope.search.foundData   = true
-                    $scope.search.itemsToShow = data
-                    debug "[HOME] Search:", data
+                    if data
+                        $scope.search.foundData   = true
+                        $scope.search.itemsToShow = data
+                        debug "[HOME] Search:", data
+                    else
+                        $( "#search-product" ).addClass( "md-input-invalid" )
+                        $scope.search.foundData = false
                 .error ( data, status, headers, config ) ->
                     $( "#search-product" ).addClass( "md-input-invalid" )
                     $scope.search.foundData = false

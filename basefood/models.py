@@ -189,23 +189,23 @@ class Product(models.Model):
     image = models.ImageField(verbose_name='Zdjęcie produktu', blank=True)
     image2 = models.ImageField(verbose_name='Zdjęcie etykiety', blank=True)
     category = models.ManyToManyField('Category', verbose_name='Kategoria', blank=True)
-    sugar = models.FloatField(verbose_name='Cukier na 100g/ml', blank=True)
-    size = models.FloatField(verbose_name='Waga/Objętość', blank=True)
-    protein = models.FloatField(verbose_name='Białko na 100g/ml', blank=True)
+    sugar = models.FloatField(verbose_name='Cukier na 100g/ml', null=True)
+    size = models.FloatField(verbose_name='Waga/Objętość', null=True)
+    protein = models.FloatField(verbose_name='Białko na 100g/ml', null=True)
     vitamins = models.ManyToManyField('Vitamin', verbose_name='Witaminy', blank=True)
     minerals = models.ManyToManyField('Mineral', verbose_name='Minerały', blank=True)
     ingredients = models.ManyToManyField(
         'Ingredient', verbose_name='Składniki', blank=True)
-    carbohydrates = models.FloatField(verbose_name='Węglowodany', blank=True)
-    fats = models.FloatField(verbose_name='Tłuszcze', blank=True)
-    fatsSaturated = models.FloatField(verbose_name='Tłuszcze nasycone', blank=True)
-    energyValue = models.FloatField(verbose_name='Wartość energetyczna', blank=True)
-    portion = models.FloatField(verbose_name='Porcja', blank=True)
+    carbohydrates = models.FloatField(verbose_name='Węglowodany', null=True)
+    fats = models.FloatField(verbose_name='Tłuszcze', null=True)
+    fatsSaturated = models.FloatField(verbose_name='Tłuszcze nasycone', null=True)
+    energyValue = models.FloatField(verbose_name='Wartość energetyczna', null=True)
+    portion = models.FloatField(verbose_name='Porcja', null=True)
     preservatives = models.ManyToManyField(
         'Preservative', verbose_name='Konserwanty', blank=True)
     shops = models.ManyToManyField(
         'Shop', verbose_name='Sklepy', blank=True)
-    barcode = models.IntegerField(blank=True)
+    barcode = models.IntegerField(null=True)
 
     class Meta:
         verbose_name = "Produkt"

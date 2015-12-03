@@ -182,7 +182,7 @@ class Product(models.Model):
     Product model
     """
     name = models.CharField(verbose_name='Nazwa', max_length=255)
-    producer = models.ForeignKey('Producer', verbose_name="Producenci", blank=True)
+    producer = models.ForeignKey('Producer', verbose_name="Producenci")
     slug = models.SlugField(verbose_name='Adres', unique=True, blank=True)
     image = models.ImageField(verbose_name='Zdjęcie produktu', blank=True)
     image2 = models.ImageField(verbose_name='Zdjęcie etykiety', blank=True)

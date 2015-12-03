@@ -6,9 +6,9 @@
 	<span>{{product.name}} ({{product.producer[0].name}})</span>
 </md-subheader>
 
-<div layout="row" layout-sm="row" layout-wrap>
-	<div flex="30" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
-		<md-card>
+<div layout="row" layout-wrap>
+	<div flex="30" flex-sm="100" flex-md="100" layout="column" layout-md="row">
+		<md-card flex="100" flex-md="30">
 			<h2 class="md-header-title">
                 <span class="md-header-subtitle">{{product.name}}</span>
                 <span class="md-header-info">{{product.producer[0].name}}</span>
@@ -17,7 +17,7 @@
 			<img fallback-src="images/template/default-product.jpg" ng-src="{{product.image}}" class="md-card-image">
 		</md-card>
 
-		<md-whiteframe class="md-whiteframe-1dp" layout-margin>
+		<md-whiteframe class="md-whiteframe-1dp" flex="100" flex-md="70" layout-margin>
 			<div layout="row">
 				<div class="card md-table md-table-no-hover">
 					<table>
@@ -42,8 +42,8 @@
 		</md-whiteframe>
 	</div>
 
-	<div flex="35" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
-		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+	<div flex="35" flex-sm="100" flex-md="50" layout="column">
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-margin>
 			<h5 class="md-header-title">
                 <span class="md-header-subtitle">Wartości odżywcze</span>
                 <span class="md-header-info">Uwzględniające kategorie <span class="pointer link" ui-sref="category({categoryID: product.category[0].id, categoryName: product.category[0].name})">{{product.category[0].name}}</span></span>
@@ -80,7 +80,7 @@
 			</div>
 		</md-whiteframe>
 
-		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-margin>
 			<h5 class="md-header-title green">
                 <span class="md-header-subtitle">Witaminy i składniki mineralne</span>
             </h5>
@@ -106,7 +106,7 @@
 			</div>
 		</md-whiteframe>
 
-		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-margin>
 			<h5 class="md-header-title red">
                 <span class="md-header-subtitle">Konserwanty</span>
             </h5>
@@ -135,8 +135,8 @@
 		</md-whiteframe>
 	</div>
 
-	<div flex="35" flex-sm="100" flex-md="100" layout="column" layout-sm="column">
-		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+	<div flex="35" flex-sm="100" flex-md="50" layout="column">
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-margin>
 			<div layout="row">
 				<div class="card md-table md-table-no-hover">
 					<table>
@@ -190,7 +190,7 @@
 			</div>
 		</md-whiteframe>
 
-		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-margin>
 			<div layout="row">
 				<div class="card md-table md-table-no-hover">
 					<table>
@@ -212,7 +212,7 @@
 			</div>
 		</md-whiteframe>
 
-		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-sm="column" layout-margin>
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-margin>
 			<div layout="row">
 				<div class="card md-table md-table-no-hover">
 					<table>

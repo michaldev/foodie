@@ -21,7 +21,7 @@ class Home extends Controller
 
             $http.get "#{apiHost}/productsearch?search=#{$scope.search.searchText}"
                 .success ( data, status, headers, config ) ->
-                    if data
+                    if data.length
                         $scope.search.foundData   = true
                         $scope.search.itemsToShow = data
                         debug "[HOME] Search:", data

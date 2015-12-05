@@ -8,6 +8,6 @@ module.exports =
     # API section
     api :
         sll  : false
-        host : "127.0.0.1"
-        port : "8000"
+        host : "139.162.211.113"
+        port : ""
         path : "basefood"

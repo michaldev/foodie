@@ -12,7 +12,9 @@ class Category extends Controller
 
         $http.get "#{apiHost}/products?category=#{$scope.id}"
             .success ( data, status, headers, config ) ->
-                debug "[CATEGORY] Categories:", data, $scope.id
+                data[ key ].image ?= "images/template/default-product.jpg" for value, key in data
                 $scope.category = data
+
+                debug "[CATEGORY] Categories:", data, $scope.id
             .error ( data, status, headers, config ) ->
                 debug "[CATEGORY] Category error"

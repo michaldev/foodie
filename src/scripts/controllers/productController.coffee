@@ -11,7 +11,9 @@ class Product extends Controller
 
         $http.get "#{apiHost}/product/#{$scope.slug}"
             .success ( data, status, headers, config ) ->
-                $scope.product = data
+                $scope.product        = data
+                $scope.product.image ?= "images/template/default-product.jpg"
+
                 debug "[PRODUCT] Product:", $scope.slug, data
             .error ( data, status, headers, config ) ->
                 debug "[PRODUCT] Product error"

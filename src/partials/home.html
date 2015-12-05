@@ -37,7 +37,7 @@
 										</thead>
 
 										<tbody>
-											<tr ng-repeat="itemToShow in search.itemsToShow" ui-sref="product({productSlug: itemToShow.slug})">
+											<tr class="pointer" ng-repeat="itemToShow in search.itemsToShow" ui-sref="product({productSlug: itemToShow.slug})">
 												<td><img ng-src="{{itemToShow.image}}"></td>
 												<td>{{itemToShow.name}}</td>
 												<td>{{itemToShow.producer[0].name}}</td>

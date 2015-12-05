@@ -88,8 +88,12 @@
                 </md-tabs>
             </md-toolbar>
 
-            <md-content>
-                <div ng-controller="viewController" ui-view></div>
+            <md-content class="wrapper" ng-controller="viewController">
+                <div ui-view></div>
+
+                <div class="view-loader" id="view-loader">
+                    <md-progress-circular md-mode="indeterminate" md-diameter="100"></md-progress-circular>
+                </div>
             </md-content>
         </div>
 

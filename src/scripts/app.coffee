@@ -47,7 +47,7 @@ angular.module( "app", [
 
     $stateProvider.state "home",
         url         : "/home"
-        templateUrl : "/partials/home.html"
+        templateUrl : "partials/home.html"
         controller  : "homeController"
         onEnter     : showAnimation
         onExit      : hideAnimation
@@ -61,28 +61,28 @@ angular.module( "app", [
 
     $stateProvider.state "product",
         url         : "/product/:productSlug"
-        templateUrl : "/partials/product.html"
+        templateUrl : "partials/product.html"
         controller  : "productController"
         onEnter     : showAnimation
         onExit      : hideAnimation
 
     $stateProvider.state "category",
         url         : "/category/:categoryID-:categoryName"
-        templateUrl : "/partials/category.html"
+        templateUrl : "partials/category.html"
         controller  : "categoryController"
         onEnter     : showAnimation
         onExit      : hideAnimation
 
     $stateProvider.state "vitamins",
         url         : "/vitamins/:vitaminSlug-:vitaminID"
-        templateUrl : "/partials/vitamins.html"
+        templateUrl : "partials/vitamins.html"
         controller  : "vitaminsController"
         onEnter     : showAnimation
         onExit      : hideAnimation
 
     $stateProvider.state "preservatives",
         url         : "/preservatives/:preservativeSlug-:preservativeID"
-        templateUrl : "/partials/preservatives.html"
+        templateUrl : "partials/preservatives.html"
         controller  : "preservativesController"
         onEnter     : showAnimation
         onExit      : hideAnimation

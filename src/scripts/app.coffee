@@ -1,4 +1,6 @@
-delay = require "./utils/delay"
+delay           = require "./utils/delay"
+configuration   = require "./configuration"
+generateWebHost = require "./utils/generateWebHost"
 
 angular.module( "app", [
     "ngAria",
@@ -37,8 +39,19 @@ angular.module( "app", [
     	.primaryPalette "custom-green"
 
 .config ( $stateProvider, $urlRouterProvider ) ->
-    hideAnimation = -> delay 500, -> $("#view-loader").fadeOut( "slow" )
-    showAnimation = -> $("#view-loader").css "display", "block"
+    webHost = generateWebHost configuration.web.path
+
+    hideAnimation = ->
+        if not configuration.web.viewLoad
+            $("#view-loader").css "display", "none"
+        else
+            delay 500, -> $("#view-loader").fadeOut( "slow" )
+
+    showAnimation = ->
+        if not configuration.web.viewLoad
+            $("#view-loader").css "display", "none"
+        else
+            $("#view-loader").css "display", "block"
 
     # Hide animation by default on the first view
     hideAnimation()
@@ -47,42 +60,42 @@ angular.module( "app", [
 
     $stateProvider.state "home",
         url         : "/home"
-        templateUrl : "partials/home.html"
+        templateUrl : "#{webHost}/partials/home.html"
         controller  : "homeController"
         onEnter     : showAnimation
         onExit      : hideAnimation
 
     $stateProvider.state "about",
         url         : "/about"
-        templateUrl : "partials/about.html"
+        templateUrl : "#{webHost}/partials/about.html"
         controller  : "aboutController"
         onEnter     : showAnimation
         onExit      : hideAnimation
 
     $stateProvider.state "product",
         url         : "/product/:productSlug"
-        templateUrl : "partials/product.html"
+        templateUrl : "#{webHost}/partials/product.html"
         controller  : "productController"
         onEnter     : showAnimation
         onExit      : hideAnimation
 
     $stateProvider.state "category",
         url         : "/category/:categoryID-:categoryName"
-        templateUrl : "partials/category.html"
+        templateUrl : "#{webHost}/partials/category.html"
         controller  : "categoryController"
         onEnter     : showAnimation
         onExit      : hideAnimation
 
     $stateProvider.state "vitamins",
         url         : "/vitamins/:vitaminSlug-:vitaminID"
-        templateUrl : "partials/vitamins.html"
+        templateUrl : "#{webHost}/partials/vitamins.html"
         controller  : "vitaminsController"
         onEnter     : showAnimation
         onExit      : hideAnimation
 
     $stateProvider.state "preservatives",
         url         : "/preservatives/:preservativeSlug-:preservativeID"
-        templateUrl : "partials/preservatives.html"
+        templateUrl : "#{webHost}/partials/preservatives.html"
         controller  : "preservativesController"
         onEnter     : showAnimation
         onExit      : hideAnimation

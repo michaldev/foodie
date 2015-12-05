@@ -1,6 +1,6 @@
 configuration   = require "./../configuration"
 generateApiHost = require "./../utils/generateApiHost"
-debug           = require( "./../utils/debug" )( configuration.debug )
+debug           = require( "./../utils/debug" )( configuration.web.debug )
 
 class Vitamins extends Controller
     constructor : ( $scope, $stateParams, $http, $state ) ->

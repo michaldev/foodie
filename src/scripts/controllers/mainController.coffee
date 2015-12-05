@@ -7,7 +7,7 @@ class Main extends Controller
             $mdSidenav( "left" ).toggle()
 
         # Loading animation
-        if configuration.load
+        if configuration.web.mainLoad
             delay 1500, ->
                 $("#loader").animate {
                     width: 0

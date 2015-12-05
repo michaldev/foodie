@@ -4,44 +4,42 @@
 
 		<div flex="50" flex-md="80" flex-sm="90">
 			<div class="md-whiteframe-1dp md-tabs-white-background">
-				<md-tabs md-dynamic-height md-selected="searchFor">
+				<md-tabs md-dynamic-height>
 					<md-tab label="Wyszukaj produkt">
 						<md-content layout-padding>
 							<p class="md-headline my-headline" layout-padding>Wyszukaj rodzaj produktu:</p>
 
 							<md-input-container class="md-block" id="search-product">
 								<label>Co chcesz zjeść?</label>
-								<input ng-model="search.searchText" ng-keydown="search.listenForEnter($event)">
+								<input ng-model="slug" ng-keydown="listenForEnter($event)">
 
-								<div ng-show="search.showTable && !search.foundData" role="alert" ng-messages>
+								<div ng-show="showTable && !dataFound" role="alert" ng-messages>
 									<div>Nie możemy znaleść produktów o tej nazwie.</div>
 								</div>
 							</md-input-container>
 
 							<div layout="row" layout-align="end">
-								<md-button layout-align="right" class="md-primary md-raised" ng-click="search.searchItem(search.searchText)">Wyszukaj</md-button>
+								<md-button layout-align="right" class="md-primary md-raised" ng-click="search(slug)">Wyszukaj</md-button>
 							</div>
 						</md-content>
 
-						<md-content ng-show="search.showTable && search.foundData">
+						<md-content ng-show="showTable && dataFound">
 							<div layout="row">
 								<div class="card md-table separated">
 									<table>
 										<thead>
 											<tr>
-												<th></th>
+												<th style="width: 12%"></th>
 												<th>Nazwa</th>
 												<th>Producent</th>
-												<th>Kategoria</th>
 											</tr>
 										</thead>
 
-										<tbody>
-											<tr class="pointer" ng-repeat="itemToShow in search.itemsToShow" ui-sref="product({productSlug: itemToShow.slug})">
-												<td><img ng-src="{{itemToShow.image}}"></td>
-												<td>{{itemToShow.name}}</td>
-												<td>{{itemToShow.producer[0].name}}</td>
-												<td>?</td>
+										<tbody ng-repeat="result in results">
+											<tr class="pointer" ui-sref="product({productSlug: result.slug})">
+												<td><img ng-src="{{result.image}}"></td>
+												<td>{{result.name}}</td>
+												<td>{{result.producer.name}}</td>
 											</tr>
 										</tbody>
 									</table>

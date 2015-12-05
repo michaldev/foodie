@@ -3,40 +3,62 @@ generateApiHost = require "./../utils/generateApiHost"
 debug           = require( "./../utils/debug" )( configuration.web.debug )
 
 class Home extends Controller
-    constructor : ( $scope, $stateParams, $http, $cookies ) ->
+    constructor : ( $rootScope, $scope, $stateParams, $http, $cookies ) ->
         apiHost = generateApiHost configuration.api
 
-        $scope.search = []
-        $scope.search.itemsToShow = undefined
-        $scope.search.searchText  = undefined
-        $scope.search.foundData   = undefined
-        $scope.search.showTable   = false
+        $scope.results   = []
+        $scope.slug      = undefined
+        $scope.dataFound = false
+        $scope.showTable = false
 
-        $scope.search.searchItem = ( item ) ->
-            if not $scope.search.searchText
-                $scope.search.showTable = false
-                return
+        $scope.makeInputInvalid = ->
+            $( "#search-product" ).addClass( "md-input-invalid" )
 
-            $scope.search.showTable = true
+        $scope.makeInputValid = ->
+            $( "#search-product" ).removeClass( "md-input-invalid" )
 
-            $http.get "#{apiHost}/productsearch?search=#{$scope.search.searchText}"
+        # Hides errors, shows table
+        $scope.canShowResults = ( results ) ->
+            $scope.dataFound = true
+            $scope.showTable = true
+            $scope.results   = results
+
+        # Shows errors, hides table
+        $scope.cantShowResults = ->
+            $scope.dataFound = false
+            $scope.showTable = true
+            $scope.results   = []
+
+        # Hides errors, hides table
+        $scope.hideResults = ->
+            $scope.dataFound = false
+            $scope.showTable = false
+            $scope.results   = []
+
+        $scope.search = ( slug ) ->
+            # If user search for an empty slug
+            if not $scope.slug
+                $scope.makeInputInvalid()
+                $scope.cantShowResults()
+                return false
+
+            $http.get "#{apiHost}/productsearch?search=#{$scope.slug}"
                 .success ( data, status, headers, config ) ->
                     if data.length
-                        $scope.search.foundData   = true
-                        $scope.search.itemsToShow = data
+                        $scope.canShowResults( data )
                         debug "[HOME] Search:", data
                     else
-                        $( "#search-product" ).addClass( "md-input-invalid" )
-                        $scope.search.foundData = false
+                        $scope.makeInputInvalid()
+                        $scope.cantShowResults()
+                        debug "[HOME] No items has been found"
                 .error ( data, status, headers, config ) ->
-                    $( "#search-product" ).addClass( "md-input-invalid" )
-                    $scope.search.foundData = false
+                    $scope.makeInputInvalid()
+                    $scope.cantShowResults()
                     debug "[HOME] Search Error"
 
-        $scope.search.listenForEnter = ( event ) ->
-            if event.keyCode == 13 and $scope.search.searchText?
-                $scope.search.searchItem $scope.search.searchText
+        $scope.listenForEnter = ( event ) ->
+            if event.keyCode == 13 and $scope.slug?
+                $scope.search $scope.slug
             else
-                $( "#search-product" ).removeClass( "md-input-invalid" )
-                $scope.search.foundData = false
-                $scope.search.showTable = false
+                $scope.makeInputValid()
+                $scope.hideResults()

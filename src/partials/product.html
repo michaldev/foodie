@@ -122,7 +122,7 @@
 							<tr class="pointer" ng-repeat="preservative in product.preservatives" ui-sref="preservatives({preservativeSlug: preservative.slug,preservativeID: $index})">
 								<td>{{preservative.name}}</td>
 								<td>
-									<md-icon class="emoticon emoticon-{{preservative.level}}" md-svg-icon="/images/icons/emoticon-{{preservative.level}}.svg"></md-icon>
+									<md-icon class="emoticon emoticon-{{preservative.level}}" md-svg-icon="images/icons/emoticon-{{preservative.level}}.svg"></md-icon>
 									<span class="emoticon-title" ng-if="preservative.level == 0">Szkodliwe</span>
 	                                <span class="emoticon-title" ng-if="preservative.level == 1">Neutralne</span>
 	                                <span class="emoticon-title" ng-if="preservative.level == 2">Nieszkodliwe</span>

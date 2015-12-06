@@ -1,9 +1,11 @@
 configuration   = require "./../configuration"
 generateApiHost = require "./../utils/generateApiHost"
+generateWebHost = require "./../utils/generateWebHost"
 
 class Navbar extends Controller
     constructor : ( $scope, $http, $state, changeStateFactory, $mdDialog ) ->
         apiHost = generateApiHost configuration.api
+        webHost = generateWebHost configuration.web.path
 
         $scope.vitaminSlug      = undefined
         $scope.vitaminID        = undefined
@@ -23,6 +25,6 @@ class Navbar extends Controller
         $scope.showBugDialog = ( event ) ->
             $mdDialog.show
                 controller  : "dialogController"
-                templateUrl : "/partials/dialog.html"
+                templateUrl : "#{webHost}/partials/dialog.html"
                 parent      : angular.element document.body
                 targetEvent : event

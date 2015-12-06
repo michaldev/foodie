@@ -45,6 +45,7 @@ class Home extends Controller
             $http.get "#{apiHost}/productsearch?search=#{$scope.slug}"
                 .success ( data, status, headers, config ) ->
                     if data.length
+                        data[ key ].image ?= "images/template/default-product.jpg" for value, key in data
                         $scope.canShowResults( data )
                         debug "[HOME] Search:", data
                     else

@@ -1,56 +1,50 @@
-<div layout="column" layout-padding>
-	<div layout="row">
-		<div flex="25" flex-md="10" flex-sm="5"></div>
+<div layout="row" layout-align="center start" layout-margin>
+	<div flex="50" flex-md="80" flex-sm="90">
+		<div class="md-whiteframe-1dp md-tabs-white-background">
+			<md-tabs md-dynamic-height>
+				<md-tab label="Wyszukaj produkt">
+					<md-content layout-padding>
+						<p class="md-headline my-headline" layout-padding>Wyszukaj rodzaj produktu:</p>
 
-		<div flex="50" flex-md="80" flex-sm="90">
-			<div class="md-whiteframe-1dp md-tabs-white-background">
-				<md-tabs md-dynamic-height>
-					<md-tab label="Wyszukaj produkt">
-						<md-content layout-padding>
-							<p class="md-headline my-headline" layout-padding>Wyszukaj rodzaj produktu:</p>
+						<md-input-container class="md-block" id="search-product">
+							<label>Co chcesz zjeść?</label>
+							<input ng-model="slug" ng-keydown="listenForEnter($event)">
 
-							<md-input-container class="md-block" id="search-product">
-								<label>Co chcesz zjeść?</label>
-								<input ng-model="slug" ng-keydown="listenForEnter($event)">
-
-								<div ng-show="showTable && !dataFound" role="alert" ng-messages>
-									<div>Nie możemy znaleść produktów o tej nazwie.</div>
-								</div>
-							</md-input-container>
-
-							<div layout="row" layout-align="end">
-								<md-button layout-align="right" class="md-primary md-raised" ng-click="search(slug)">Wyszukaj</md-button>
+							<div ng-show="showTable && !dataFound" role="alert" ng-messages>
+								<div>Nie możemy znaleść produktów o tej nazwie.</div>
 							</div>
-						</md-content>
+						</md-input-container>
 
-						<md-content ng-show="showTable && dataFound">
-							<div layout="row">
-								<div class="card md-table separated">
-									<table>
-										<thead>
-											<tr>
-												<th style="width: 12%"></th>
-												<th>Nazwa</th>
-												<th>Producent</th>
-											</tr>
-										</thead>
+						<div layout="row" layout-align="end">
+							<md-button layout-align="right" class="md-primary md-raised" ng-click="search(slug)">Wyszukaj</md-button>
+						</div>
+					</md-content>
 
-										<tbody ng-repeat="result in results">
-											<tr class="pointer" ui-sref="product({productSlug: result.slug})">
-												<td><img ng-src="{{result.image}}"></td>
-												<td>{{result.name}}</td>
-												<td>{{result.producer.name}}</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+					<md-content ng-show="showTable && dataFound">
+						<div layout="row">
+							<div class="card md-table separated">
+								<table>
+									<thead>
+										<tr>
+											<th style="width: 12%"></th>
+											<th>Nazwa</th>
+											<th>Producent</th>
+										</tr>
+									</thead>
+
+									<tbody ng-repeat="result in results">
+										<tr class="pointer" ui-sref="product({productSlug: result.slug})">
+											<td><img ng-src="{{result.image}}"></td>
+											<td>{{result.name}}</td>
+											<td>{{result.producer.name}}</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-						</md-content>
-					</md-tab>
-				</md-tabs>
-			</div>
+						</div>
+					</md-content>
+				</md-tab>
+			</md-tabs>
 		</div>
-
-		<div flex="25" flex-md="10" flex-sm="5"></div>
 	</div>
 </div>

@@ -8,7 +8,7 @@
 
 <div layout="row" layout-wrap>
 	<div flex="30" flex-sm="100" flex-md="100" layout="column" layout-md="row">
-		<md-card flex="100" flex-md="30">
+		<md-card layout="column">
 			<h2 class="md-header-title">
                 <span class="md-header-subtitle">{{product.name}}</span>
                 <span class="md-header-info">{{product.producer.name}}</span>
@@ -17,7 +17,7 @@
 			<img fallback-src="images/template/default-product.jpg" ng-src="{{product.image}}" class="md-card-image">
 		</md-card>
 
-		<md-whiteframe class="md-whiteframe-1dp" flex="100" flex-md="70" layout-margin ng-show="product.shops.length">
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" ng-show="product.shops.length" layout-margin>
 			<div layout="row">
 				<div class="card md-table md-table-no-hover">
 					<table>

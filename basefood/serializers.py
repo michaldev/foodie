@@ -82,7 +82,7 @@ class ProductFullSerializer(serializers.ModelSerializer):
     preservatives = PreservativeSerializer(many=True, read_only=True)
     shops = ShopSerializer(many=True, read_only=True)
     ingredients = IngredientSerializer(many=True, read_only=True)
-    producer = ProducerSerializer(many=True, read_only=True)
+    producer = ProducerSerializer(many=False, read_only=True)
     values_category = serializers.SerializerMethodField()
     values_calculated = serializers.SerializerMethodField()
 

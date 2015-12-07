@@ -56,3 +56,4 @@ ChangeLog
 #mac
 .idea 
 .DS_Store
+.vagrant

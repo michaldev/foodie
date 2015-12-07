@@ -2,7 +2,7 @@ from django.contrib import admin
 from basefood.models import \
     Category, CategoryMain, Product, Vitamin, \
     Preservative, Shop, Mineral, ShopLocal, \
-    Ingredient, Producer
+    Ingredient, Producer, Contact
 
 
 class Every(admin.ModelAdmin):
@@ -27,3 +27,4 @@ admin.site.register(Shop, Every)
 admin.site.register(ShopLocal, ShopLocalAdmin)
 admin.site.register(Ingredient, Every)
 admin.site.register(Producer, Every)
+admin.site.register(Contact)

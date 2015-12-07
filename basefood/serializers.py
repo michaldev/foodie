@@ -55,7 +55,7 @@ class IngredientSerializer(serializers.ModelSerializer):
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = ('id', 'title', 'type', 'description')
+        fields = ('id', 'mail', 'title', 'type', 'description')
 
 
 class ProducerSerializer(serializers.ModelSerializer):

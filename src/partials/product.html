@@ -14,7 +14,11 @@
                 <span class="md-header-info">{{product.producer.name}}</span>
             </h2>
 
-			<img fallback-src="images/template/default-product.jpg" ng-src="{{product.image}}" class="md-card-image">
+			<img
+				fallback-src="images/template/default-product.jpg"
+				lazy-img="{{product.image}}"
+				class="md-card-image"
+			>
 		</md-card>
 
 		<md-whiteframe class="md-whiteframe-1dp" layout="column" ng-show="product.shops.length" layout-margin>

@@ -22,7 +22,11 @@
             ui-sref="product({productSlug: item.slug})"
             layout-margin
         >
-            <img fallback-src="images/template/default-product.jpg" ng-src="{{item.image}}" style="max-width: 80%; max-height: 80%;">
+            <img
+                lazy-img="{{item.image}}"
+                fallback-src="images/template/default-product.jpg"
+                class="md-image"
+                >
             <md-grid-tile-footer><h3>{{item.name}} - {{item.producer.name}}</h3></md-grid-tile-footer>
         </md-grid-tile>
     </md-grid-list>

@@ -8,6 +8,7 @@ angular.module( "app", [
     "ngCookies",
     "ngMessages",
     "ngMaterial",
+    "angularLazyImg",
     "dcbImgFallback",
     "ui.router"
     ] )
@@ -15,6 +16,13 @@ angular.module( "app", [
 .config ( $httpProvider ) ->
     $httpProvider.defaults.xsrfCookieName = "csrftoken"
     $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken"
+
+.config ( lazyImgConfigProvider ) ->
+    lazyImgConfigProvider.setOptions
+        onSuccess : ( image ) ->
+            $elem = $( image.$elem[ 0 ] )
+            $elem.addClass "md-image-loaded"
+            delay 300, -> $elem.addClass "md-image-fade-in"
 
 .config ( $mdThemingProvider ) ->
     $mdThemingProvider

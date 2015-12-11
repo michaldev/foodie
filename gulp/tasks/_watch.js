@@ -5,7 +5,8 @@ var config = require( "./../configfile" );
 gulp.task( "watch", [ "build", "sync" ], function () {
     gulp.watch( config.js.src + "/**/*.js", [ "build-js", sync.reload ] );
     gulp.watch( config.js.src + "/**/*.coffee", [ "build-cs", sync.reload ] );
-    gulp.watch( config.img.src + "/**/*.*", [ "build-img", sync.reload ] );
+    gulp.watch( config.img.src + "/**/*.{jpg,jpeg,svg,png}", [ "build-img", sync.reload ] );
+    gulp.watch( config.paths.src + "/**/*.{txt,md,gif}", [ "copy", sync.reload ] );
     gulp.watch( config.css.src + "/**/*.{css,scss,sass}", [ "build-css", sync.reload ] );
     gulp.watch( config.html.src + "/**/*.html", [ "build-html", sync.reload ] );
 } );

@@ -6,6 +6,7 @@ gulp.task( "build", function () {
         //"clean-out",
         "clean-tmp",
         [
+            "copy",
             "build-js",
             "build-css",
             "build-img",

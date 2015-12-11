@@ -5,10 +5,10 @@ module.exports =
         debug : true
 
         # Whether to play the load animation
-        mainLoad : true
+        mainLoad : false
 
         # Whether to play the transition between views
-        viewLoad : true
+        viewLoad : false
 
         # Path the the web folder
         path : "/"

@@ -20,7 +20,7 @@ Once you have installed all the requirements, you can go to the `./gulp` folder 
 
 Then you should be able to use all the gulp commands.
 
-At the end, you should create a configuration file (basically `src/scripts/configuration.example.coffee` to `src/scripts/configuration.coffee`). For more informations about configuring your project, checkout comments in the configuration file.
+At the end, you should create a configuration file (basically rename `src/scripts/configuration.example.coffee` to `src/scripts/configuration.coffee`). For more informations, checkout comments in the configuration file.
 
 ## Commands
 

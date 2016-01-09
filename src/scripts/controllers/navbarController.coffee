@@ -3,7 +3,7 @@ generateApiHost = require "./../utils/generateApiHost"
 generateWebHost = require "./../utils/generateWebHost"
 
 class Navbar extends Controller
-    constructor : ( $scope, $http, $state, changeStateFactory, $mdDialog ) ->
+    constructor : ( $scope, $http, $state, $mdDialog ) ->
         apiHost = generateApiHost configuration.api
         webHost = generateWebHost configuration.web.path
 

@@ -1,6 +1,3 @@
-# Loading all factories:
-require "./factories/changeStateFactory"
-
 # Loading all controllers:
 require "./controllers/aboutController"
 require "./controllers/categoryController"

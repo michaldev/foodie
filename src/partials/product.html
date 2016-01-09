@@ -10,7 +10,7 @@
 	<div flex="30" flex-sm="100" flex-md="100" layout="column" layout-md="row">
 		<md-card layout="column">
 			<h2 class="md-header-title">
-                <span class="md-header-subtitle">{{product.name}}</span>
+                <span class="md-header-subtitle"><span ng-show="product.producer.local_producer">🇵🇱</span> {{product.name}}</span>
                 <span class="md-header-info">{{product.producer.name}}</span>
             </h2>
 

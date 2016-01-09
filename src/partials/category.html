@@ -29,7 +29,7 @@
                 fallback-src="images/template/default-product.png"
                 class="md-image"
                 >
-            <md-grid-tile-footer><h3>{{item.name}} - {{item.producer.name}}</h3></md-grid-tile-footer>
+            <md-grid-tile-footer><h3><span ng-show="item.producer.local_producer">🇵🇱</span> {{item.name}} - {{item.producer.name}}</h3></md-grid-tile-footer>
         </md-grid-tile>
     </md-grid-list>
 </div>

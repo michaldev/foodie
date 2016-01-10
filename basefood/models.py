@@ -79,7 +79,7 @@ class Preservative(models.Model):
     othername = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True)
     description = models.CharField(max_length=255, blank=True)
-    #level = models.IntegerField(default=0, blank=True)
+    level = models.IntegerField(default=0, blank=True)
     dmax = models.FloatField(default=0, blank=True)  # dopuszczalna dzienna dawka
 
     class Meta:
@@ -198,12 +198,12 @@ class Product(models.Model):
     fats = models.FloatField(verbose_name='Tłuszcze', null=True)
     fatsSaturated = models.FloatField(verbose_name='Tłuszcze nasycone', null=True)
     energyValue = models.FloatField(verbose_name='Wartość energetyczna', null=True)
-    portion = models.FloatField(verbose_name='Porcja', null=True)
+    portion = models.FloatField(verbose_name='Porcja', null=True, blank=True)
     preservatives = models.ManyToManyField(
         'Preservative', verbose_name='Konserwanty', blank=True)
     shops = models.ManyToManyField(
         'Shop', verbose_name='Sklepy', blank=True)
-    barcode = models.IntegerField(null=True)
+    barcode = models.IntegerField(null=True, blank=True)
 
     class Meta:
         verbose_name = "Produkt"

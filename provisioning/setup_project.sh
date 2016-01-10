@@ -15,11 +15,11 @@ mkvirtualenv vagrant
 
 pip install -r /vagrant/requirements.txt
 
-cd /vagrant/foodie
+cd /vagrant
 chmod +x manage.py
 ./manage.py migrate --noinput
 
-cd /vagrant/foodie
+cd /vagrant
 bower install --config.interactive=false
 
 cp -p /vagrant/provisioning/templates/.bashrc /home/vagrant/.bashrc

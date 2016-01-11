@@ -50,8 +50,8 @@
                         <input ng-model="filterText" type="text" placeholder="Filtruj kategorie">
                     </md-input-container>
 
-                    <md-menu-item>
-                        <md-button ng-click="closeSideNav()" ui-sref="category({categoryID: category.id, categoryName: category.name})" ng-repeat="category in categories | filter : filterText ">
+                    <md-menu-item ng-repeat="category in categories | filter : filterText ">
+                        <md-button ng-click="closeSideNav()" ui-sref="category({categoryID: category.id, categoryName: category.name})">
                             {{category.name}}
                         </md-button>
                     </md-menu-item>

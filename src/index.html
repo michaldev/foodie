@@ -58,6 +58,16 @@
                 </md-menu-content>
             </md-sidenav>
 
+            <md-sidenav class="md-sidenav-right" md-component-id="right">
+                <md-toolbar class="md-accent">
+                    <div class="md-toolbar-tools">Lista zakupów</div>
+                </md-toolbar>
+
+                <md-menu-content ng-controller="shoppingListController">
+                    Test
+                </md-menu-content>
+            </md-sidenav>
+
             <div id="offline-message" class="md-error" ng-controller="offlineController">
                 <p class="md-error-message">Nie jesteś połączony z internetem.</p>
 
@@ -80,6 +90,10 @@
 
                     <md-button class="md-icon-button" ng-click="showBugDialog($event)">
                         <md-icon md-svg-icon="images/icons/alert.svg"></md-icon>
+                    </md-button>
+
+                    <md-button class="md-icon-button" ng-click="showShoppingList($event)">
+                        <md-icon md-svg-icon="images/icons/cart.svg"></md-icon>
                     </md-button>
                 </div>
 

@@ -6,6 +6,9 @@ class Main extends Controller
         $scope.openLeftMenu = ->
             $mdSidenav( "left" ).toggle()
 
+        $scope.showShoppingList = ->
+            $mdSidenav( "right" ).toggle()
+
         # Loading animation
         if configuration.web.mainLoad
             delay 1500, ->

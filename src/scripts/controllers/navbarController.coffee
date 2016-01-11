@@ -22,6 +22,10 @@ class Navbar extends Controller
                 $scope.preservativeSlug = data[ 0 ].slug
                 $scope.preservativeID   = 0
 
+        $scope.returnToHome = ->
+            $state.go "home"
+            $scope.currentTab = 0
+
         $scope.showBugDialog = ( event ) ->
             $mdDialog.show
                 controller  : "dialogController"

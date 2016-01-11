@@ -68,10 +68,11 @@ class ProducerSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     """Główna serializacja produktu"""
     producer = ProducerSerializer(many=False)
+    category = CategorySerializer(many=False)
 
     class Meta:
         model = Product
-        fields = ('id', 'name', 'producer', 'slug', 'image')
+        fields = ('id', 'name', 'producer', 'slug', 'image', 'category')
 
 
 class ProductFullSerializer(serializers.ModelSerializer):

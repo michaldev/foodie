@@ -35,7 +35,7 @@
 									<tbody ng-repeat="result in results">
 										<tr class="pointer" ui-sref="product({productSlug: result.slug})">
 											<td><img ng-src="{{result.image}}"></td>
-											<td>{{result.name}}</td>
+											<td>{{result.category[0].name}} - {{result.name}}</td>
 											<td>{{result.producer.name}}</td>
 										</tr>
 									</tbody>

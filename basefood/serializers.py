@@ -68,7 +68,7 @@ class ProducerSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     """Główna serializacja produktu"""
     producer = ProducerSerializer(many=False)
-    category = CategorySerializer(many=False)
+    category = CategorySerializer(many=True)
 
     class Meta:
         model = Product

@@ -1,3 +1,6 @@
+# Loading all factories:
+require "./factories/shoppingListFactory"
+
 # Loading all controllers:
 require "./controllers/aboutController"
 require "./controllers/categoryController"

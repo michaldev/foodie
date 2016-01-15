@@ -59,13 +59,43 @@
             </md-sidenav>
 
             <md-sidenav class="md-sidenav-right" md-component-id="right">
-                <md-toolbar class="md-accent">
-                    <div class="md-toolbar-tools">Lista zakupów</div>
-                </md-toolbar>
+                <div ng-controller="shoppingListController">
+                    <md-content ng-show="selected">
+                        <md-toolbar class="md-accent">
+                            <p class="md-toolbar-tools small">Dodaj produkt: {{selected.name}} {{selected.producer.name}}</p>
+                        </md-toolbar>
 
-                <md-menu-content ng-controller="shoppingListController">
-                    Test
-                </md-menu-content>
+                        <md-list-item class="md-2-line">
+                            <img src="images/template/default-product.jpg" class="md-avatar" alt="{{selected.name}} {{selected.producer.name}}">
+
+                            <div class="md-list-item-text" layout="column">
+                                <md-input-container style="height: 30px">
+                                    <label for="testInput">Ilość sztuk</label>
+                                    <input type="number" ng-model="amount" md-autofocus>
+                                </md-input-container>
+                            </div>
+                        </md-list-item>
+
+                        <div layout="row" layout-align="center center">
+                            <md-button class="md-raised md-accent" flex="40" ng-click="addProduct()">Dodaj</md-button>
+                            <md-button class="md-raised md-accent" flex="40" ng-click="unselectProduct()">Anuluj</md-button>
+                        </div>
+                    </md-content>
+
+                    <md-list>
+                        <md-subheader>Lista zakupów</md-subheader>
+                        <md-divider></md-divider>
+
+                        <md-list-item class="md-2-line" ng-repeat="item in list track by $index">
+                            <md-icon class="md-avatar-icon"></md-icon>
+
+                            <div class="md-list-item-text">
+                                <h3>{{ item.name }} {{ item.producer.name }}</h3>
+                                <p>Ilość: {{ item.amount }}</p>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>
             </md-sidenav>
 
             <div id="offline-message" class="md-error" ng-controller="offlineController">

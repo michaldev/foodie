@@ -40,6 +40,7 @@ class ShoppingList extends Controller
             $scope.amount   = 1
             $scope.selected = shoppingListFactory.selected
 
+            document.activeElement.blur() if document.activeElement != document.body
             $mdSidenav( "right" ).open() if $scope.selected
 
         # Unselects product and closes the right menu

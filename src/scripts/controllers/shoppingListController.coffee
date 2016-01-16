@@ -7,6 +7,11 @@ class ShoppingList extends Controller
         $scope.selected = null
 
         $scope.$watch(
+            ( => $scope.amount ),
+            ( => $scope.setMinimalAmount() )
+        )
+
+        $scope.$watch(
             ( => shoppingListFactory.selected ),
             ( => $scope.selectProduct() )
         )
@@ -22,7 +27,6 @@ class ShoppingList extends Controller
         )
 
         $scope.addProduct = =>
-            $scope.amount         ?= 1
             $scope.selected.amount = $scope.amount
 
             shoppingListFactory.addProduct $scope.selected
@@ -33,8 +37,9 @@ class ShoppingList extends Controller
 
         # Selects a product and open the right menu
         $scope.selectProduct = =>
-            $scope.amount   = 0
+            $scope.amount   = 1
             $scope.selected = shoppingListFactory.selected
+
             $mdSidenav( "right" ).open() if $scope.selected
 
         # Unselects product and closes the right menu
@@ -45,6 +50,10 @@ class ShoppingList extends Controller
         # Automatically unselect product when menu closes
         $scope.resetSelectedProduct = =>
             $scope.unselectProduct() unless $mdSidenav( "right" ).isOpen()
+
+        # Automatically unselect product when menu closes
+        $scope.setMinimalAmount = =>
+            $scope.amount = 1 if typeof $scope.amount is "undefined"
 
         $scope.refreshProductList = =>
             $scope.list = shoppingListFactory.products

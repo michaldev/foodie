@@ -66,12 +66,17 @@
                         </md-toolbar>
 
                         <md-list-item class="md-2-line">
-                            <img src="images/template/default-product.jpg" class="md-avatar" alt="{{selected.name}} {{selected.producer.name}}">
+                            <img
+                				fallback-src="images/template/default-product.jpg"
+                				lazy-img="{{selected.image}}"
+                				class="md-card-image md-avatar"
+                                alt="{{selected.name}} {{selected.producer.name}}"
+                			>
 
                             <div class="md-list-item-text" layout="column">
                                 <md-input-container style="height: 30px">
                                     <label for="testInput">Ilość sztuk</label>
-                                    <input type="number" ng-model="amount" md-autofocus>
+                                    <input type="number" ng-min="1" ng-model="amount" md-autofocus>
                                 </md-input-container>
                             </div>
                         </md-list-item>
@@ -87,7 +92,13 @@
                         <md-divider></md-divider>
 
                         <md-list-item class="md-2-line" ng-repeat="item in list track by $index">
-                            <md-icon class="md-avatar-icon"></md-icon>
+                            <img
+                				fallback-src="images/template/default-product.jpg"
+                				lazy-img="{{item.image}}"
+                				class="md-card-image md-avatar-icon"
+                                style="width: 30px; height: 30px;"
+                                alt="{{item.name}} {{item.producer.name}}"
+                			>
 
                             <div class="md-list-item-text">
                                 <h3>{{ item.name }} {{ item.producer.name }}</h3>

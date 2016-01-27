@@ -31,7 +31,8 @@
                 >
             <md-grid-tile-footer>
                 <h3 class="md-grid-footer">
-                    <span ng-show="item.producer.local_producer">🇵🇱</span> {{item.name}} - {{item.producer.name}}
+                    <img ng-show="item.producer.local_producer" class="flag" src="images/flags/pl.png">
+                    {{item.name}} - {{item.producer.name}}
                 </h3>
             </md-grid-tile-footer>
         </md-grid-tile>

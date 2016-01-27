@@ -92,13 +92,14 @@
                         <md-divider></md-divider>
 
                         <md-list-item class="md-2-line" ng-repeat="item in list track by $index">
-                            <img
-                				fallback-src="images/template/default-product.jpg"
-                				lazy-img="{{item.image}}"
-                				class="md-card-image md-avatar-icon"
-                                style="width: 30px; height: 30px;"
-                                alt="{{item.name}} {{item.producer.name}}"
-                			>
+                            <div class="md-avatar-icon" style="background-color: white">
+                                <img
+                    				fallback-src="images/template/default-product.jpg"
+                    				lazy-img="{{item.image}}"
+                                    style="max-width: 30px; max-height: 30px;"
+                                    alt="{{item.name}} {{item.producer.name}}"
+                                >
+                            </div>
 
                             <div class="md-list-item-text">
                                 <h3>{{ item.name }} {{ item.producer.name }}</h3>

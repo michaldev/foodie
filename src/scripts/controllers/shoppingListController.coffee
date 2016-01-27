@@ -3,6 +3,7 @@ configuration   = require "./../configuration"
 class ShoppingList extends Controller
     constructor : ( $scope, $mdSidenav, shoppingListFactory ) ->
         $scope.list     = null
+        $scope.shop     = null
         $scope.amount   = null
         $scope.selected = null
 
@@ -27,11 +28,13 @@ class ShoppingList extends Controller
         )
 
         $scope.addProduct = =>
+            $scope.selected.shop   = $scope.shop
             $scope.selected.amount = $scope.amount
 
             shoppingListFactory.addProduct $scope.selected
             shoppingListFactory.unselectProduct()
 
+            $scope.shop     = null
             $scope.amount   = null
             $scope.selected = null
 

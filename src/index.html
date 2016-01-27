@@ -75,8 +75,21 @@
 
                             <div class="md-list-item-text" layout="column">
                                 <md-input-container style="height: 30px">
-                                    <label for="testInput">Ilość sztuk</label>
+                                    <label>Ilość sztuk</label>
                                     <input type="number" ng-min="1" ng-model="amount" md-autofocus>
+                                </md-input-container>
+
+                                <md-input-container style="height: 30px" ng-show="selected.shops.length">
+                                    <label>Sklep</label>
+                                    <md-select ng-model="shop">
+                                        <md-option value="Obojętnie" selected>
+                                            Obojętnie
+                                        </md-option>
+
+                                        <md-option ng-repeat="shop in selected.shops" value="{{shop.name}}">
+                                            {{shop.name}}
+                                        </md-option>
+                                    </md-select>
                                 </md-input-container>
                             </div>
                         </md-list-item>
@@ -103,7 +116,7 @@
 
                             <div class="md-list-item-text">
                                 <h3>{{ item.name }} {{ item.producer.name }}</h3>
-                                <p>Ilość: {{ item.amount }}</p>
+                                <p>{{ item.amount }} sztuk <span ng-show="item.shop">w {{ item.shop }}</span></p>
                             </div>
                         </md-list-item>
                     </md-list>

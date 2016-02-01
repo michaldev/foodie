@@ -79,11 +79,11 @@
                                     <input type="number" ng-min="1" ng-model="amount" md-autofocus>
                                 </md-input-container>
 
-                                <md-input-container style="height: 30px" ng-show="selected.shops.length">
+                                <md-input-container style="height: 30px">
                                     <label>Sklep</label>
                                     <md-select ng-model="shop">
                                         <md-option value="Obojętnie" selected>
-                                            Obojętnie
+                                            Nieokreślono
                                         </md-option>
 
                                         <md-option ng-repeat="shop in selected.shops" value="{{shop.name}}">

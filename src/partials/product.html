@@ -42,7 +42,7 @@
 								<td><img src="{{shop.image}}"></td>
 							</tr>
 							<tr ng-hide="product.shops.length">
-								<td>Brak danych.</td>
+								<td>Brak danych</td>
 							</tr>
 						</tbody>
 					</table>
@@ -213,7 +213,8 @@
 						<tbody>
 							<tr>
 								<td>{{product.size}} g/ml</td>
-								<td>{{product.portion}} g/ml</td>
+								<td ng-show="product.portion > 1">{{product.portion}} g/ml</td>
+								<td ng-show="product.portion == 0">Nieokreślono</td>
 							</tr>
 						</tbody>
 					</table>
@@ -241,7 +242,7 @@
 							</tr>
 							<tr layout-padding ng-hide="product.ingredients.length">
 								<td>
-									Brak danych.
+									Brak danych
 								</td>
 							</tr>
 						</tbody>

@@ -13,8 +13,29 @@
     color: #808080;
 }
 
-.md-card-image {
-    padding: 5px 0;
+.md-card-product {
+    display: block;
+}
 
-    opacity: 0;
+.md-card-image-container {
+    position: relative;
+
+    height: 220px;
+    width: 100%;
+
+    margin: 0;
+    padding: 4px 0;
+
+    background-color: white;
+    z-index: 1;
+
+    .md-card-image {
+        margin: 0 auto;
+        padding: 0;
+
+        height: 100%;
+        width: auto;
+
+        opacity: 0;
+    }
 }

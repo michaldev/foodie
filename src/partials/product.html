@@ -12,17 +12,19 @@
 
 <div layout="row" layout-wrap>
 	<div flex="30" flex-sm="100" flex-md="100" layout="column" layout-md="row">
-		<md-card layout="column">
+		<md-card class="md-card-product" layout="column">
 			<h2 class="md-header-title">
                 <span class="md-header-subtitle"><img ng-show="product.producer.local_producer" class="flag" src="images/flags/pl.png"> {{product.name}}</span>
                 <span class="md-header-info">{{product.producer.name}}</span>
             </h2>
 
-			<img
-				fallback-src="images/template/default-product.png"
-				lazy-img="{{product.image}}"
-				class="md-card-image"
-			>
+			<div class="md-card-image-container">
+				<img
+					fallback-src="images/template/default-product.png"
+					lazy-img="{{product.image}}"
+					class="md-card-image"
+				>
+			</div>
 		</md-card>
 
 		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-margin>

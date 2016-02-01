@@ -7,7 +7,7 @@
 </md-subheader>
 
 <md-button class="md-fab md-fab-btn" aria-label="Add to cart" ng-click="addToShoppingList()">
-    <md-icon md-svg-src="images/icons/cart.svg"></md-icon>
+    <md-icon md-svg-src="images/icons/plus.svg"></md-icon>
 </md-button>
 
 <div layout="row" layout-wrap>
@@ -25,7 +25,7 @@
 			>
 		</md-card>
 
-		<md-whiteframe class="md-whiteframe-1dp" layout="column" ng-show="product.shops.length" layout-margin>
+		<md-whiteframe class="md-whiteframe-1dp" layout="column" layout-margin>
 			<div layout="row">
 				<div class="card md-table md-table-no-hover">
 					<table>
@@ -40,6 +40,9 @@
 							<tr ng-repeat="shop in product.shops">
 								<td>{{shop.name}}</td>
 								<td><img src="{{shop.image}}"></td>
+							</tr>
+							<tr ng-hide="product.shops.length">
+								<td>Brak danych.</td>
 							</tr>
 						</tbody>
 					</table>
@@ -235,6 +238,11 @@
 								<td>{{item.name}}</td>
 								<td><span ng-show="item.gluten">Tak</span><span ng-hide="item.gluten">Nie</span></td>
 								<td><span ng-show="item.allergen">Tak</span><span ng-hide="item.allergen">Nie</span></td>
+							</tr>
+							<tr layout-padding ng-hide="product.ingredients.length">
+								<td>
+									Brak danych.
+								</td>
 							</tr>
 						</tbody>
 					</table>

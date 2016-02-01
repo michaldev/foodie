@@ -2,3 +2,5 @@ node_modules
 dest
 temp
 configuration.coffee
+.DS_Store
+.npm-debug.log

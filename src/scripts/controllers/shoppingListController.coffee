@@ -34,7 +34,7 @@ class ShoppingList extends Controller
             shoppingListFactory.addProduct $scope.selected
             shoppingListFactory.unselectProduct()
 
-            $scope.shop     = null
+            $scope.shop     = "Nieokreślono"
             $scope.amount   = null
             $scope.selected = null
 

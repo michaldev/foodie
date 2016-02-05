@@ -11,6 +11,23 @@ class Home extends Controller
         $scope.dataFound = false
         $scope.showTable = false
 
+        # random products
+        $scope.randomIds = {}
+        $scope.random    = {}
+
+        # Generating a list of last 6 products of each category
+        $http.get "#{apiHost}/category"
+            .success ( data, status, headers, config ) ->
+                for id, item of data
+                    return unless id < 3 # How many categories should be shown
+                    $scope.randomIds[ item.name ] = item.id
+                    $scope.getLastProducts item.id, item.name
+
+        $scope.getLastProducts = ( id, category ) ->
+            $http.get "#{apiHost}/products?category=#{id}"
+                .success ( data, status, headers, config ) ->
+                    $scope.random[ category ] = data.slice -6
+
         $scope.makeInputInvalid = ->
             $( "#search-product" ).addClass( "md-input-invalid" )
 

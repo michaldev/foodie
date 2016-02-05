@@ -1,10 +1,10 @@
-<div layout="row" layout-align="center start" layout-margin>
+<div layout="row" layout-align="center start" layout-margin layout-padding>
 	<div flex="50" flex-md="80" flex-sm="90">
 		<div class="md-whiteframe-1dp md-tabs-white-background">
 			<md-tabs md-dynamic-height>
 				<md-tab label="Wyszukaj produkt">
 					<md-content layout-padding>
-						<p class="md-headline my-headline" layout-padding>Wyszukaj rodzaj produktu:</p>
+						<p class="md-headline" layout-padding>Wyszukaj rodzaj produktu:</p>
 
 						<md-input-container class="md-block" id="search-product">
 							<label>Co chcesz zjeść?</label>
@@ -49,4 +49,46 @@
 			</md-tabs>
 		</div>
 	</div>
+</div>
+
+<div flex ng-cloak ng-repeat="(name, products) in random">
+	<br>
+
+	<div layout="row" layout-align="space-between">
+		<md-button ui-sref="category({categoryID: randomIds[name], categoryName: name})" class="md-primary">Kategoria {{name}}</md-button>
+		<md-button ui-sref="category({categoryID: randomIds[name], categoryName: name})" class="md-primary md-raised">Zobacz więcej</md-button>
+	</div>
+
+    <md-grid-list
+        md-cols-sm="2"
+        md-cols-md="4"
+        md-cols-gt-md="6"
+
+        md-row-height-gt-md="1:1"
+        md-row-height="2:2"
+
+        md-gutter="15px"
+		layout-margin
+    >
+        <md-grid-tile
+            class="pointer md-whiteframe-1dp"
+            ng-repeat="item in products"
+            md-rowspan="1"
+            md-colspan="1"
+            md-colspan-sm="1"
+            ui-sref="product({productSlug: item.slug})"
+        >
+			<img
+				lazy-img="{{item.image}}"
+				fallback-src="images/template/default-product.png"
+				class="md-image"
+				>
+			<md-grid-tile-footer class="md-grid-tile-footer">
+				<h3 class="md-grid-footer">
+					<img ng-show="item.producer.local_producer" class="flag" src="images/flags/pl.png">
+					{{item.name}} - {{item.producer.name}}
+				</h3>
+			</md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
 </div>
